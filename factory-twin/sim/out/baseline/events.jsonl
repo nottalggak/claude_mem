@@ -43,8 +43,8 @@
 {"type": "state", "station": "EB1", "state": "down", "occ": 0, "cap": 1, "t": 5316.4}
 {"type": "breakdown", "station": "EB1", "duration": 45.1, "t": 5316.4}
 {"type": "state", "station": "EB1", "state": "idle", "occ": 0, "cap": 1, "t": 5361.46}
-{"type": "release", "batch": "B001", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 12540, "t": 6240.0}
-{"type": "release", "batch": "B009", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 12540, "t": 6240.0}
+{"type": "release", "batch": "B001", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 12540, "order_t": 480.68, "t": 6240.0}
+{"type": "release", "batch": "B009", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 12540, "order_t": 640.52, "t": 6240.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[10.5, 19], [10.5, 19]], "duration": 0.0, "loaded": false, "parts": 0, "t": 6240.0}
 {"type": "move", "vehicle": "F1", "batch": "B001", "path": [[10.5, 19], [13.5, 25.5]], "duration": 0.06, "loaded": true, "parts": 40, "t": 6241.5}
 {"type": "arrive", "batch": "B001", "station": "CUT1", "pos": [13.5, 25.5], "t": 6243.06}
@@ -178,9 +178,9 @@
 {"type": "queue", "station": "PACK2", "len": 0, "t": 6746.31}
 {"type": "state", "station": "PACK2", "state": "busy", "occ": 1, "cap": 1, "t": 6746.31}
 {"type": "proc_start", "station": "PACK2", "batch": "B009", "pos": [50, 5], "t": 6746.31}
-{"type": "release", "batch": "B011", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 13980, "t": 10560.0}
-{"type": "release", "batch": "B019", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 13980, "t": 10560.0}
-{"type": "release", "batch": "B029", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 13980, "t": 10560.0}
+{"type": "release", "batch": "B011", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 13980, "order_t": 713.78, "t": 10560.0}
+{"type": "release", "batch": "B019", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 13980, "order_t": 1998.65, "t": 10560.0}
+{"type": "release", "batch": "B029", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 13980, "order_t": 2147.79, "t": 10560.0}
 {"type": "move", "vehicle": "H1", "batch": null, "path": [[32.5, 13.8], [32.5, 14.5], [56.5, 17.5], [59, 19.5]], "duration": 0.39, "loaded": false, "parts": 0, "t": 10560.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[13.5, 25.5], [10.5, 19]], "duration": 0.06, "loaded": false, "parts": 0, "t": 10560.0}
 {"type": "move", "vehicle": "F1", "batch": "B011", "path": [[10.5, 19], [18.5, 20.5]], "duration": 0.07, "loaded": true, "parts": 72, "t": 10561.56}
@@ -437,14 +437,14 @@
 {"type": "state", "station": "CUT2", "state": "idle", "occ": 0, "cap": 1, "t": 11102.51}
 {"type": "proc_end", "station": "ASM6", "batch": "B029", "duration": 146.6, "t": 11114.43}
 {"type": "state", "station": "ASM6", "state": "idle", "occ": 1, "cap": 1, "t": 11114.43}
-{"type": "release", "batch": "B003", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 15420, "t": 12000.0}
-{"type": "release", "batch": "B004", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 15420, "t": 12000.0}
-{"type": "release", "batch": "B005", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 15420, "t": 12000.0}
-{"type": "release", "batch": "B007", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 15420, "t": 12000.0}
-{"type": "release", "batch": "B013", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 15420, "t": 12000.0}
-{"type": "release", "batch": "B015", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 15420, "t": 12000.0}
-{"type": "release", "batch": "B022", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 15420, "t": 12000.0}
-{"type": "release", "batch": "B040", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 15420, "t": 12000.0}
+{"type": "release", "batch": "B003", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 15420, "order_t": 510.41, "t": 12000.0}
+{"type": "release", "batch": "B004", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 15420, "order_t": 554.12, "t": 12000.0}
+{"type": "release", "batch": "B005", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 15420, "order_t": 562.64, "t": 12000.0}
+{"type": "release", "batch": "B007", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 15420, "order_t": 624.31, "t": 12000.0}
+{"type": "release", "batch": "B013", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 15420, "order_t": 727.46, "t": 12000.0}
+{"type": "release", "batch": "B015", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 15420, "order_t": 750.79, "t": 12000.0}
+{"type": "release", "batch": "B022", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 15420, "order_t": 2054.24, "t": 12000.0}
+{"type": "release", "batch": "B040", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 15420, "order_t": 3544.68, "t": 12000.0}
 {"type": "state", "station": "PACK1", "state": "busy", "occ": 1, "cap": 1, "t": 12000.0}
 {"type": "proc_start", "station": "PACK1", "batch": "B011", "pos": [50, 12], "t": 12000.0}
 {"type": "move", "vehicle": "H2", "batch": null, "path": [[38.5, 6.8], [38.5, 7.5], [41.5, 7.5], [43.5, 6.8]], "duration": 0.08, "loaded": false, "parts": 0, "t": 12000.0}
@@ -852,15 +852,15 @@
 {"type": "state", "station": "ASM5", "state": "idle", "occ": 1, "cap": 1, "t": 12556.59}
 {"type": "state", "station": "EB2", "state": "idle", "occ": 0, "cap": 1, "t": 12598.86}
 {"type": "state", "station": "CUT2", "state": "idle", "occ": 0, "cap": 1, "t": 12646.36}
-{"type": "release", "batch": "B002", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 16860, "t": 13440.0}
-{"type": "release", "batch": "B006", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 16860, "t": 13440.0}
-{"type": "release", "batch": "B008", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 16860, "t": 13440.0}
-{"type": "release", "batch": "B010", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 16860, "t": 13440.0}
-{"type": "release", "batch": "B016", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 16860, "t": 13440.0}
-{"type": "release", "batch": "B018", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 16860, "t": 13440.0}
-{"type": "release", "batch": "B025", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 16860, "t": 13440.0}
-{"type": "release", "batch": "B039", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 16860, "t": 13440.0}
-{"type": "release", "batch": "B047", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 16860, "t": 13440.0}
+{"type": "release", "batch": "B002", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 16860, "order_t": 489.18, "t": 13440.0}
+{"type": "release", "batch": "B006", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 16860, "order_t": 620.22, "t": 13440.0}
+{"type": "release", "batch": "B008", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 16860, "order_t": 625.64, "t": 13440.0}
+{"type": "release", "batch": "B010", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 16860, "order_t": 691.12, "t": 13440.0}
+{"type": "release", "batch": "B016", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 16860, "order_t": 786.27, "t": 13440.0}
+{"type": "release", "batch": "B018", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 16860, "order_t": 1976.05, "t": 13440.0}
+{"type": "release", "batch": "B025", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 16860, "order_t": 2097.81, "t": 13440.0}
+{"type": "release", "batch": "B039", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 16860, "order_t": 3534.47, "t": 13440.0}
+{"type": "release", "batch": "B047", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 16860, "order_t": 4888.42, "t": 13440.0}
 {"type": "move", "vehicle": "H2", "batch": null, "path": [[26.5, 13.8], [25.5, 11.5], [25.5, 9.5], [35.5, 7.5], [37.5, 6.8]], "duration": 0.23, "loaded": false, "parts": 0, "t": 13440.0}
 {"type": "move", "vehicle": "H1", "batch": null, "path": [[26.5, 6.8], [25.5, 6.5], [26.5, 7.5], [44.5, 9.5], [46.5, 14.5], [56.5, 17.5], [59, 19.5]], "duration": 0.55, "loaded": false, "parts": 0, "t": 13440.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 13440.0}
@@ -1445,19 +1445,19 @@
 {"type": "state", "station": "DRY1", "state": "busy", "occ": 2, "cap": 3, "t": 14012.38}
 {"type": "proc_end", "station": "DRY1", "batch": "B010", "duration": 70.0, "t": 14045.15}
 {"type": "state", "station": "DRY1", "state": "idle", "occ": 1, "cap": 3, "t": 14045.15}
-{"type": "release", "batch": "B014", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 21180, "t": 14880.0}
-{"type": "release", "batch": "B021", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 21180, "t": 14880.0}
-{"type": "release", "batch": "B024", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 21180, "t": 14880.0}
-{"type": "release", "batch": "B027", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 21180, "t": 14880.0}
-{"type": "release", "batch": "B028", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 21180, "t": 14880.0}
-{"type": "release", "batch": "B032", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 21180, "t": 14880.0}
-{"type": "release", "batch": "B034", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 21180, "t": 14880.0}
-{"type": "release", "batch": "B041", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 21180, "t": 14880.0}
-{"type": "release", "batch": "B044", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 21180, "t": 14880.0}
-{"type": "release", "batch": "B048", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 21180, "t": 14880.0}
-{"type": "release", "batch": "B049", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 21180, "t": 14880.0}
-{"type": "release", "batch": "B055", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 21180, "t": 14880.0}
-{"type": "release", "batch": "B056", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 21180, "t": 14880.0}
+{"type": "release", "batch": "B014", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 21180, "order_t": 735.55, "t": 14880.0}
+{"type": "release", "batch": "B021", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 21180, "order_t": 2041.4, "t": 14880.0}
+{"type": "release", "batch": "B024", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 21180, "order_t": 2083.71, "t": 14880.0}
+{"type": "release", "batch": "B027", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 21180, "order_t": 2110.84, "t": 14880.0}
+{"type": "release", "batch": "B028", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 21180, "order_t": 2138.53, "t": 14880.0}
+{"type": "release", "batch": "B032", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 21180, "order_t": 2205.92, "t": 14880.0}
+{"type": "release", "batch": "B034", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 21180, "order_t": 3424.75, "t": 14880.0}
+{"type": "release", "batch": "B041", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 21180, "order_t": 3562.01, "t": 14880.0}
+{"type": "release", "batch": "B044", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 21180, "order_t": 4822.52, "t": 14880.0}
+{"type": "release", "batch": "B048", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 21180, "order_t": 4904.33, "t": 14880.0}
+{"type": "release", "batch": "B049", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 21180, "order_t": 4911.59, "t": 14880.0}
+{"type": "release", "batch": "B055", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 21180, "order_t": 6336.75, "t": 14880.0}
+{"type": "release", "batch": "B056", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 21180, "order_t": 6339.27, "t": 14880.0}
 {"type": "move", "vehicle": "H1", "batch": null, "path": [[53, 19.5], [51.5, 18.5], [50.5, 26.5], [48, 28.5]], "duration": 0.18, "loaded": false, "parts": 0, "t": 14880.0}
 {"type": "move", "vehicle": "H2", "batch": null, "path": [[53, 19.5], [50.5, 16.5], [44.5, 12.5], [44.5, 9.5], [37.5, 7.5], [37.5, 6.8]], "duration": 0.31, "loaded": false, "parts": 0, "t": 14880.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 14880.0}
@@ -2093,18 +2093,18 @@
 {"type": "state", "station": "CUT1", "state": "idle", "occ": 0, "cap": 1, "t": 15412.05}
 {"type": "proc_end", "station": "ASM2", "batch": "B048", "duration": 152.2, "t": 15426.25}
 {"type": "state", "station": "ASM2", "state": "idle", "occ": 1, "cap": 1, "t": 15426.25}
-{"type": "release", "batch": "B012", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 22620, "t": 16320.0}
-{"type": "release", "batch": "B017", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 22620, "t": 16320.0}
-{"type": "release", "batch": "B020", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 22620, "t": 16320.0}
-{"type": "release", "batch": "B030", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 22620, "t": 16320.0}
-{"type": "release", "batch": "B031", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 22620, "t": 16320.0}
-{"type": "release", "batch": "B033", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 22620, "t": 16320.0}
-{"type": "release", "batch": "B035", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 22620, "t": 16320.0}
-{"type": "release", "batch": "B042", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 22620, "t": 16320.0}
-{"type": "release", "batch": "B043", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 22620, "t": 16320.0}
-{"type": "release", "batch": "B051", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 22620, "t": 16320.0}
-{"type": "release", "batch": "B053", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 22620, "t": 16320.0}
-{"type": "release", "batch": "B058", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 22620, "t": 16320.0}
+{"type": "release", "batch": "B012", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 22620, "order_t": 726.98, "t": 16320.0}
+{"type": "release", "batch": "B017", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 22620, "order_t": 1931.19, "t": 16320.0}
+{"type": "release", "batch": "B020", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 22620, "order_t": 2018.29, "t": 16320.0}
+{"type": "release", "batch": "B030", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 22620, "order_t": 2178.36, "t": 16320.0}
+{"type": "release", "batch": "B031", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 22620, "order_t": 2194.17, "t": 16320.0}
+{"type": "release", "batch": "B033", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 22620, "order_t": 3378.18, "t": 16320.0}
+{"type": "release", "batch": "B035", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 22620, "order_t": 3472.13, "t": 16320.0}
+{"type": "release", "batch": "B042", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 22620, "order_t": 3641.88, "t": 16320.0}
+{"type": "release", "batch": "B043", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 22620, "order_t": 4807.66, "t": 16320.0}
+{"type": "release", "batch": "B051", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 22620, "order_t": 4953.5, "t": 16320.0}
+{"type": "release", "batch": "B053", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 22620, "order_t": 5030.56, "t": 16320.0}
+{"type": "release", "batch": "B058", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 22620, "order_t": 6344.08, "t": 16320.0}
 {"type": "move", "vehicle": "H1", "batch": null, "path": [[45.5, 22.0], [40.5, 15.5], [37.5, 14.5], [37.5, 13.8]], "duration": 0.17, "loaded": false, "parts": 0, "t": 16320.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 16320.0}
 {"type": "move", "vehicle": "H1", "batch": "B048", "path": [[37.5, 13.8], [37.5, 14.5], [44.5, 14.5], [45.5, 13.5], [47.5, 13.8]], "duration": 0.15, "loaded": true, "parts": 80, "t": 16321.67}
@@ -2891,18 +2891,18 @@
 {"type": "state", "station": "DRY1", "state": "busy", "occ": 2, "cap": 3, "t": 16884.99}
 {"type": "proc_end", "station": "DRY1", "batch": "B033", "duration": 70.0, "t": 16925.88}
 {"type": "state", "station": "DRY1", "state": "idle", "occ": 1, "cap": 3, "t": 16925.88}
-{"type": "release", "batch": "B026", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 24060, "t": 20640.0}
-{"type": "release", "batch": "B036", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 24060, "t": 20640.0}
-{"type": "release", "batch": "B037", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 24060, "t": 20640.0}
-{"type": "release", "batch": "B038", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 24060, "t": 20640.0}
-{"type": "release", "batch": "B045", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 24060, "t": 20640.0}
-{"type": "release", "batch": "B046", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 24060, "t": 20640.0}
-{"type": "release", "batch": "B050", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 24060, "t": 20640.0}
-{"type": "release", "batch": "B054", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 24060, "t": 20640.0}
-{"type": "release", "batch": "B061", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 24060, "t": 20640.0}
-{"type": "release", "batch": "B063", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 24060, "t": 20640.0}
-{"type": "release", "batch": "B071", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 24060, "t": 20640.0}
-{"type": "release", "batch": "B085", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 24060, "t": 20640.0}
+{"type": "release", "batch": "B026", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 24060, "order_t": 2110.38, "t": 20640.0}
+{"type": "release", "batch": "B036", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 24060, "order_t": 3475.6, "t": 20640.0}
+{"type": "release", "batch": "B037", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 24060, "order_t": 3517.12, "t": 20640.0}
+{"type": "release", "batch": "B038", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 24060, "order_t": 3523.53, "t": 20640.0}
+{"type": "release", "batch": "B045", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 24060, "order_t": 4851.72, "t": 20640.0}
+{"type": "release", "batch": "B046", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 24060, "order_t": 4854.48, "t": 20640.0}
+{"type": "release", "batch": "B050", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 24060, "order_t": 4947.32, "t": 20640.0}
+{"type": "release", "batch": "B054", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 24060, "order_t": 6259.05, "t": 20640.0}
+{"type": "release", "batch": "B061", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 24060, "order_t": 6518.16, "t": 20640.0}
+{"type": "release", "batch": "B063", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 24060, "order_t": 6544.33, "t": 20640.0}
+{"type": "release", "batch": "B071", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 24060, "order_t": 10813.59, "t": 20640.0}
+{"type": "release", "batch": "B085", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 24060, "order_t": 12309.2, "t": 20640.0}
 {"type": "move", "vehicle": "H1", "batch": null, "path": [[53, 19.5], [52.5, 17.5], [56.5, 17.5], [59, 19.5]], "duration": 0.13, "loaded": false, "parts": 0, "t": 20640.0}
 {"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 29.0], [28.5, 28.5], [38.5, 25.5], [52.5, 17.5], [56.5, 17.5], [59, 19.5]], "duration": 0.48, "loaded": false, "parts": 0, "t": 20640.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 20640.0}
@@ -3509,18 +3509,18 @@
 {"type": "proc_end", "station": "DRY1", "batch": "B037", "duration": 70.0, "t": 21218.38}
 {"type": "state", "station": "DRY1", "state": "idle", "occ": 1, "cap": 3, "t": 21218.38}
 {"type": "state", "station": "CUT2", "state": "busy", "occ": 1, "cap": 1, "t": 21287.83}
-{"type": "release", "batch": "B023", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 25500, "t": 22080.0}
-{"type": "release", "batch": "B052", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 25500, "t": 22080.0}
-{"type": "release", "batch": "B060", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 25500, "t": 22080.0}
-{"type": "release", "batch": "B062", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 25500, "t": 22080.0}
-{"type": "release", "batch": "B064", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 25500, "t": 22080.0}
-{"type": "release", "batch": "B065", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 25500, "t": 22080.0}
-{"type": "release", "batch": "B067", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 25500, "t": 22080.0}
-{"type": "release", "batch": "B072", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 25500, "t": 22080.0}
-{"type": "release", "batch": "B074", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 25500, "t": 22080.0}
-{"type": "release", "batch": "B078", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 25500, "t": 22080.0}
-{"type": "release", "batch": "B084", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 25500, "t": 22080.0}
-{"type": "release", "batch": "B087", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 25500, "t": 22080.0}
+{"type": "release", "batch": "B023", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 25500, "order_t": 2062.22, "t": 22080.0}
+{"type": "release", "batch": "B052", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 25500, "order_t": 4970.87, "t": 22080.0}
+{"type": "release", "batch": "B060", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 25500, "order_t": 6444.43, "t": 22080.0}
+{"type": "release", "batch": "B062", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 25500, "order_t": 6523.67, "t": 22080.0}
+{"type": "release", "batch": "B064", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 25500, "order_t": 6553.6, "t": 22080.0}
+{"type": "release", "batch": "B065", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 25500, "order_t": 10565.86, "t": 22080.0}
+{"type": "release", "batch": "B067", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 25500, "order_t": 10655.93, "t": 22080.0}
+{"type": "release", "batch": "B072", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 25500, "order_t": 10842.41, "t": 22080.0}
+{"type": "release", "batch": "B074", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 25500, "order_t": 10879.8, "t": 22080.0}
+{"type": "release", "batch": "B078", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 25500, "order_t": 12043.85, "t": 22080.0}
+{"type": "release", "batch": "B084", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 25500, "order_t": 12287.47, "t": 22080.0}
+{"type": "release", "batch": "B087", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 25500, "order_t": 13477.44, "t": 22080.0}
 {"type": "move", "vehicle": "H2", "batch": null, "path": [[53, 19.5], [52.5, 17.5], [56.5, 17.5], [59, 19.5]], "duration": 0.13, "loaded": false, "parts": 0, "t": 22080.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 22080.0}
 {"type": "move", "vehicle": "H2", "batch": "B037", "path": [[59, 19.5], [56.5, 17.5], [45.5, 13.5], [44.5, 9.5], [25.5, 7.5], [25.5, 6.5], [26.5, 6.8]], "duration": 0.56, "loaded": true, "parts": 72, "t": 22081.63}
@@ -4288,12 +4288,12 @@
 {"type": "queue", "station": "PACK2", "len": 0, "t": 22621.41}
 {"type": "state", "station": "BOR2", "state": "busy", "occ": 1, "cap": 1, "t": 22621.43}
 {"type": "state", "station": "BOR1", "state": "busy", "occ": 1, "cap": 1, "t": 22638.81}
-{"type": "release", "batch": "B073", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 26940, "t": 23520.0}
-{"type": "release", "batch": "B075", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 26940, "t": 23520.0}
-{"type": "release", "batch": "B081", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 26940, "t": 23520.0}
-{"type": "release", "batch": "B086", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 26940, "t": 23520.0}
-{"type": "release", "batch": "B098", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 26940, "t": 23520.0}
-{"type": "release", "batch": "B102", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 26940, "t": 23520.0}
+{"type": "release", "batch": "B073", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 26940, "order_t": 10851.5, "t": 23520.0}
+{"type": "release", "batch": "B075", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 26940, "order_t": 12012.68, "t": 23520.0}
+{"type": "release", "batch": "B081", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 26940, "order_t": 12255.35, "t": 23520.0}
+{"type": "release", "batch": "B086", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 26940, "order_t": 13473.32, "t": 23520.0}
+{"type": "release", "batch": "B098", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 26940, "order_t": 13754.37, "t": 23520.0}
+{"type": "release", "batch": "B102", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 26940, "order_t": 14982.62, "t": 23520.0}
 {"type": "state", "station": "ASM6", "state": "setup", "occ": 1, "cap": 1, "t": 23520.0}
 {"type": "setup", "station": "ASM6", "batch": "B054", "duration": 2, "t": 23520.0}
 {"type": "state", "station": "PACK2", "state": "busy", "occ": 1, "cap": 1, "t": 23520.0}
@@ -5057,20 +5057,20 @@
 {"type": "state", "station": "DRY1", "state": "busy", "occ": 2, "cap": 3, "t": 24074.31}
 {"type": "proc_end", "station": "DRY1", "batch": "B075", "duration": 70.0, "t": 24101.83}
 {"type": "state", "station": "DRY1", "state": "idle", "occ": 1, "cap": 3, "t": 24101.83}
-{"type": "release", "batch": "B057", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 31260, "t": 24960.0}
-{"type": "release", "batch": "B066", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 31260, "t": 24960.0}
-{"type": "release", "batch": "B068", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 31260, "t": 24960.0}
-{"type": "release", "batch": "B070", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 31260, "t": 24960.0}
-{"type": "release", "batch": "B077", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 31260, "t": 24960.0}
-{"type": "release", "batch": "B083", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 31260, "t": 24960.0}
-{"type": "release", "batch": "B090", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 31260, "t": 24960.0}
-{"type": "release", "batch": "B093", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 31260, "t": 24960.0}
-{"type": "release", "batch": "B096", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 31260, "t": 24960.0}
-{"type": "release", "batch": "B097", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 31260, "t": 24960.0}
-{"type": "release", "batch": "B103", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 31260, "t": 24960.0}
-{"type": "release", "batch": "B104", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 31260, "t": 24960.0}
-{"type": "release", "batch": "B109", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 31260, "t": 24960.0}
-{"type": "release", "batch": "B121", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 31260, "t": 24960.0}
+{"type": "release", "batch": "B057", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 31260, "order_t": 6340.56, "t": 24960.0}
+{"type": "release", "batch": "B066", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 31260, "order_t": 10625.08, "t": 24960.0}
+{"type": "release", "batch": "B068", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 31260, "order_t": 10665.41, "t": 24960.0}
+{"type": "release", "batch": "B070", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 31260, "order_t": 10721.94, "t": 24960.0}
+{"type": "release", "batch": "B077", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 31260, "order_t": 12033.79, "t": 24960.0}
+{"type": "release", "batch": "B083", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 31260, "order_t": 12281.04, "t": 24960.0}
+{"type": "release", "batch": "B090", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 31260, "order_t": 13518.22, "t": 24960.0}
+{"type": "release", "batch": "B093", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 31260, "order_t": 13562.56, "t": 24960.0}
+{"type": "release", "batch": "B096", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 31260, "order_t": 13734.59, "t": 24960.0}
+{"type": "release", "batch": "B097", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 31260, "order_t": 13735.09, "t": 24960.0}
+{"type": "release", "batch": "B103", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 31260, "order_t": 14986.03, "t": 24960.0}
+{"type": "release", "batch": "B104", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 31260, "order_t": 15006.52, "t": 24960.0}
+{"type": "release", "batch": "B109", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 31260, "order_t": 16344.98, "t": 24960.0}
+{"type": "release", "batch": "B121", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 31260, "order_t": 16627.55, "t": 24960.0}
 {"type": "move", "vehicle": "H2", "batch": null, "path": [[47.5, 6.8], [46.5, 6.5], [51.5, 9.5], [54.5, 10.5], [57.5, 16.5], [59, 19.5]], "duration": 0.28, "loaded": false, "parts": 0, "t": 24960.0}
 {"type": "move", "vehicle": "H1", "batch": null, "path": [[47.5, 6.8], [46.5, 6.5], [51.5, 9.5], [54.5, 10.5], [57.5, 16.5], [59, 19.5]], "duration": 0.28, "loaded": false, "parts": 0, "t": 24960.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 24960.0}
@@ -5762,13 +5762,13 @@
 {"type": "state", "station": "BOR2", "state": "idle", "occ": 1, "cap": 1, "t": 25500.14}
 {"type": "proc_end", "station": "PACK2", "batch": "B102", "duration": 50.4, "t": 25502.03}
 {"type": "state", "station": "PACK2", "state": "idle", "occ": 1, "cap": 1, "t": 25502.03}
-{"type": "release", "batch": "B059", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 32700, "t": 26400.0}
-{"type": "release", "batch": "B076", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 32700, "t": 26400.0}
-{"type": "release", "batch": "B082", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 32700, "t": 26400.0}
-{"type": "release", "batch": "B089", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 32700, "t": 26400.0}
-{"type": "release", "batch": "B113", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 32700, "t": 26400.0}
-{"type": "release", "batch": "B114", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 32700, "t": 26400.0}
-{"type": "release", "batch": "B116", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 32700, "t": 26400.0}
+{"type": "release", "batch": "B059", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 32700, "order_t": 6426.57, "t": 26400.0}
+{"type": "release", "batch": "B076", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 32700, "order_t": 12023.71, "t": 26400.0}
+{"type": "release", "batch": "B082", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 32700, "order_t": 12280.64, "t": 26400.0}
+{"type": "release", "batch": "B089", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 32700, "order_t": 13517.64, "t": 26400.0}
+{"type": "release", "batch": "B113", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 32700, "order_t": 16415.09, "t": 26400.0}
+{"type": "release", "batch": "B114", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 32700, "order_t": 16423.61, "t": 26400.0}
+{"type": "release", "batch": "B116", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 32700, "order_t": 16571.49, "t": 26400.0}
 {"type": "move", "vehicle": "H2", "batch": null, "path": [[42, 28.5], [42.5, 26.5], [50.5, 26.5], [50.5, 22.0]], "duration": 0.2, "loaded": false, "parts": 0, "t": 26400.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[13.5, 25.5], [26.5, 9.5], [50.5, 7.5], [52.5, 6.8]], "duration": 0.39, "loaded": false, "parts": 0, "t": 26400.0}
 {"type": "move", "vehicle": "H2", "batch": "B083", "path": [[50.5, 22.0], [40.5, 15.5], [32.5, 14.5], [32.5, 13.8]], "duration": 0.29, "loaded": true, "parts": 80, "t": 26401.7}
@@ -6467,17 +6467,17 @@
 {"type": "state", "station": "DRY1", "state": "idle", "occ": 1, "cap": 3, "t": 26945.1}
 {"type": "proc_end", "station": "ASM1", "batch": "B109", "duration": 170.6, "t": 26972.11}
 {"type": "state", "station": "ASM1", "state": "idle", "occ": 1, "cap": 1, "t": 26972.11}
-{"type": "release", "batch": "B069", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 34140, "t": 30720.0}
-{"type": "release", "batch": "B079", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 34140, "t": 30720.0}
-{"type": "release", "batch": "B080", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 34140, "t": 30720.0}
-{"type": "release", "batch": "B095", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 34140, "t": 30720.0}
-{"type": "release", "batch": "B100", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 34140, "t": 30720.0}
-{"type": "release", "batch": "B101", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 34140, "t": 30720.0}
-{"type": "release", "batch": "B105", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 34140, "t": 30720.0}
-{"type": "release", "batch": "B108", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 34140, "t": 30720.0}
-{"type": "release", "batch": "B120", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 34140, "t": 30720.0}
-{"type": "release", "batch": "B122", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 34140, "t": 30720.0}
-{"type": "release", "batch": "B130", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 34140, "t": 30720.0}
+{"type": "release", "batch": "B069", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 34140, "order_t": 10666.19, "t": 30720.0}
+{"type": "release", "batch": "B079", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 34140, "order_t": 12178.58, "t": 30720.0}
+{"type": "release", "batch": "B080", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 34140, "order_t": 12195.69, "t": 30720.0}
+{"type": "release", "batch": "B095", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 34140, "order_t": 13681.06, "t": 30720.0}
+{"type": "release", "batch": "B100", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 34140, "order_t": 14978.11, "t": 30720.0}
+{"type": "release", "batch": "B101", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 34140, "order_t": 14979.4, "t": 30720.0}
+{"type": "release", "batch": "B105", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 34140, "order_t": 15088.48, "t": 30720.0}
+{"type": "release", "batch": "B108", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 34140, "order_t": 15184.8, "t": 30720.0}
+{"type": "release", "batch": "B120", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 34140, "order_t": 16617.87, "t": 30720.0}
+{"type": "release", "batch": "B122", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 34140, "order_t": 16639.11, "t": 30720.0}
+{"type": "release", "batch": "B130", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 34140, "order_t": 20769.95, "t": 30720.0}
 {"type": "move", "vehicle": "H1", "batch": null, "path": [[32.5, 6.8], [32.5, 7.5], [44.5, 9.5], [46.5, 14.5], [56.5, 17.5], [59, 19.5]], "duration": 0.44, "loaded": false, "parts": 0, "t": 30720.0}
 {"type": "move", "vehicle": "H2", "batch": null, "path": [[42, 28.5], [40.5, 26.5], [30.5, 15.5], [31.5, 13.8]], "duration": 0.27, "loaded": false, "parts": 0, "t": 30720.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 30720.0}
@@ -7160,15 +7160,15 @@
 {"type": "arrive", "batch": "B130", "station": "EB1", "pos": [28.5, 29.0], "t": 31261.32}
 {"type": "queue", "station": "EB1", "len": 1, "t": 31261.32}
 {"type": "queue", "station": "EB1", "len": 0, "t": 31261.32}
-{"type": "release", "batch": "B091", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 35580, "t": 32160.0}
-{"type": "release", "batch": "B106", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 35580, "t": 32160.0}
-{"type": "release", "batch": "B115", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 35580, "t": 32160.0}
-{"type": "release", "batch": "B118", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 35580, "t": 32160.0}
-{"type": "release", "batch": "B119", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 35580, "t": 32160.0}
-{"type": "release", "batch": "B126", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 35580, "t": 32160.0}
-{"type": "release", "batch": "B133", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 35580, "t": 32160.0}
-{"type": "release", "batch": "B135", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 35580, "t": 32160.0}
-{"type": "release", "batch": "B142", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 35580, "t": 32160.0}
+{"type": "release", "batch": "B091", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 35580, "order_t": 13522.1, "t": 32160.0}
+{"type": "release", "batch": "B106", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 35580, "order_t": 15154.47, "t": 32160.0}
+{"type": "release", "batch": "B115", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 35580, "order_t": 16486.65, "t": 32160.0}
+{"type": "release", "batch": "B118", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 35580, "order_t": 16586.18, "t": 32160.0}
+{"type": "release", "batch": "B119", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 35580, "order_t": 16609.58, "t": 32160.0}
+{"type": "release", "batch": "B126", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 35580, "order_t": 20715.66, "t": 32160.0}
+{"type": "release", "batch": "B133", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 35580, "order_t": 20838.43, "t": 32160.0}
+{"type": "release", "batch": "B135", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 35580, "order_t": 22137.11, "t": 32160.0}
+{"type": "release", "batch": "B142", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 35580, "order_t": 22307.22, "t": 32160.0}
 {"type": "state", "station": "EB1", "state": "setup", "occ": 1, "cap": 1, "t": 32160.0}
 {"type": "setup", "station": "EB1", "batch": "B130", "duration": 8, "t": 32160.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 32160.0}
@@ -7807,21 +7807,21 @@
 {"type": "state", "station": "EB2", "state": "busy", "occ": 1, "cap": 1, "t": 32729.18}
 {"type": "proc_end", "station": "DRY1", "batch": "B119", "duration": 70.0, "t": 32729.3}
 {"type": "state", "station": "DRY1", "state": "idle", "occ": 1, "cap": 3, "t": 32729.3}
-{"type": "release", "batch": "B088", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 37020, "t": 33600.0}
-{"type": "release", "batch": "B092", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 37020, "t": 33600.0}
-{"type": "release", "batch": "B094", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 37020, "t": 33600.0}
-{"type": "release", "batch": "B099", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 37020, "t": 33600.0}
-{"type": "release", "batch": "B107", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 37020, "t": 33600.0}
-{"type": "release", "batch": "B112", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 37020, "t": 33600.0}
-{"type": "release", "batch": "B117", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 37020, "t": 33600.0}
-{"type": "release", "batch": "B123", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 37020, "t": 33600.0}
-{"type": "release", "batch": "B125", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 37020, "t": 33600.0}
-{"type": "release", "batch": "B127", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 37020, "t": 33600.0}
-{"type": "release", "batch": "B129", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 37020, "t": 33600.0}
-{"type": "release", "batch": "B146", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 37020, "t": 33600.0}
-{"type": "release", "batch": "B158", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 37020, "t": 33600.0}
-{"type": "release", "batch": "B159", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 37020, "t": 33600.0}
-{"type": "release", "batch": "B166", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 37020, "t": 33600.0}
+{"type": "release", "batch": "B088", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 37020, "order_t": 13494.23, "t": 33600.0}
+{"type": "release", "batch": "B092", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 37020, "order_t": 13535.26, "t": 33600.0}
+{"type": "release", "batch": "B094", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 37020, "order_t": 13576.41, "t": 33600.0}
+{"type": "release", "batch": "B099", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 37020, "order_t": 13760.16, "t": 33600.0}
+{"type": "release", "batch": "B107", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 37020, "order_t": 15169.49, "t": 33600.0}
+{"type": "release", "batch": "B112", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 37020, "order_t": 16376.13, "t": 33600.0}
+{"type": "release", "batch": "B117", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 37020, "order_t": 16577.57, "t": 33600.0}
+{"type": "release", "batch": "B123", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 37020, "order_t": 20642.42, "t": 33600.0}
+{"type": "release", "batch": "B125", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 37020, "order_t": 20684.8, "t": 33600.0}
+{"type": "release", "batch": "B127", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 37020, "order_t": 20723.95, "t": 33600.0}
+{"type": "release", "batch": "B129", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 37020, "order_t": 20768.89, "t": 33600.0}
+{"type": "release", "batch": "B146", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 37020, "order_t": 22391.07, "t": 33600.0}
+{"type": "release", "batch": "B158", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 37020, "order_t": 23814.48, "t": 33600.0}
+{"type": "release", "batch": "B159", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 37020, "order_t": 23830.85, "t": 33600.0}
+{"type": "release", "batch": "B166", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 37020, "order_t": 25202.11, "t": 33600.0}
 {"type": "move", "vehicle": "H1", "batch": null, "path": [[47.5, 6.8], [45.5, 6.5], [42.5, 7.5], [31.5, 7.5], [31.5, 6.8]], "duration": 0.23, "loaded": false, "parts": 0, "t": 33600.0}
 {"type": "move", "vehicle": "H2", "batch": null, "path": [[53, 19.5], [52.5, 17.5], [56.5, 17.5], [59, 19.5]], "duration": 0.13, "loaded": false, "parts": 0, "t": 33600.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 33600.0}
@@ -8461,17 +8461,17 @@
 {"type": "proc_start", "station": "EB1", "batch": "B125", "pos": [33, 31], "t": 34146.85}
 {"type": "proc_end", "station": "ASM5", "batch": "B092", "duration": 171.6, "t": 34169.82}
 {"type": "state", "station": "ASM5", "state": "idle", "occ": 1, "cap": 1, "t": 34169.82}
-{"type": "release", "batch": "B110", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 41340, "t": 35040.0}
-{"type": "release", "batch": "B111", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 41340, "t": 35040.0}
-{"type": "release", "batch": "B124", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 41340, "t": 35040.0}
-{"type": "release", "batch": "B132", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 41340, "t": 35040.0}
-{"type": "release", "batch": "B134", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 41340, "t": 35040.0}
-{"type": "release", "batch": "B137", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 41340, "t": 35040.0}
-{"type": "release", "batch": "B140", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 41340, "t": 35040.0}
-{"type": "release", "batch": "B150", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 41340, "t": 35040.0}
-{"type": "release", "batch": "B151", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 41340, "t": 35040.0}
-{"type": "release", "batch": "B152", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 41340, "t": 35040.0}
-{"type": "release", "batch": "B157", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 41340, "t": 35040.0}
+{"type": "release", "batch": "B110", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 41340, "order_t": 16354.63, "t": 35040.0}
+{"type": "release", "batch": "B111", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 41340, "order_t": 16365.9, "t": 35040.0}
+{"type": "release", "batch": "B124", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 41340, "order_t": 20680.54, "t": 35040.0}
+{"type": "release", "batch": "B132", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 41340, "order_t": 20811.3, "t": 35040.0}
+{"type": "release", "batch": "B134", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 41340, "order_t": 20908.57, "t": 35040.0}
+{"type": "release", "batch": "B137", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 41340, "order_t": 22161.19, "t": 35040.0}
+{"type": "release", "batch": "B140", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 41340, "order_t": 22265.08, "t": 35040.0}
+{"type": "release", "batch": "B150", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 41340, "order_t": 23560.93, "t": 35040.0}
+{"type": "release", "batch": "B151", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 41340, "order_t": 23573.38, "t": 35040.0}
+{"type": "release", "batch": "B152", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 41340, "order_t": 23600.42, "t": 35040.0}
+{"type": "release", "batch": "B157", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 41340, "order_t": 23762.86, "t": 35040.0}
 {"type": "move", "vehicle": "H2", "batch": null, "path": [[45.5, 22.0], [44.5, 9.5], [37.5, 7.5], [37.5, 6.8]], "duration": 0.29, "loaded": false, "parts": 0, "t": 35040.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[13.5, 25.5], [10.5, 19]], "duration": 0.06, "loaded": false, "parts": 0, "t": 35040.0}
 {"type": "move", "vehicle": "F1", "batch": "B110", "path": [[10.5, 19], [18.5, 20.5]], "duration": 0.07, "loaded": true, "parts": 80, "t": 35041.56}
@@ -9242,17 +9242,17 @@
 {"type": "state", "station": "CUT1", "state": "idle", "occ": 0, "cap": 1, "t": 35624.17}
 {"type": "proc_end", "station": "DRY1", "batch": "B159", "duration": 70.0, "t": 35645.15}
 {"type": "state", "station": "DRY1", "state": "idle", "occ": 1, "cap": 3, "t": 35645.15}
-{"type": "release", "batch": "B128", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 42780, "t": 36480.0}
-{"type": "release", "batch": "B131", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 42780, "t": 36480.0}
-{"type": "release", "batch": "B136", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 42780, "t": 36480.0}
-{"type": "release", "batch": "B138", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 42780, "t": 36480.0}
-{"type": "release", "batch": "B143", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 42780, "t": 36480.0}
-{"type": "release", "batch": "B144", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 42780, "t": 36480.0}
-{"type": "release", "batch": "B147", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 42780, "t": 36480.0}
-{"type": "release", "batch": "B148", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 42780, "t": 36480.0}
-{"type": "release", "batch": "B155", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 42780, "t": 36480.0}
-{"type": "release", "batch": "B162", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 42780, "t": 36480.0}
-{"type": "release", "batch": "B165", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 42780, "t": 36480.0}
+{"type": "release", "batch": "B128", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 42780, "order_t": 20755.0, "t": 36480.0}
+{"type": "release", "batch": "B131", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 42780, "order_t": 20802.29, "t": 36480.0}
+{"type": "release", "batch": "B136", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 42780, "order_t": 22150.51, "t": 36480.0}
+{"type": "release", "batch": "B138", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 42780, "order_t": 22200.4, "t": 36480.0}
+{"type": "release", "batch": "B143", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 42780, "order_t": 22318.6, "t": 36480.0}
+{"type": "release", "batch": "B144", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 42780, "order_t": 22357.43, "t": 36480.0}
+{"type": "release", "batch": "B147", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 42780, "order_t": 23521.3, "t": 36480.0}
+{"type": "release", "batch": "B148", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 42780, "order_t": 23558.26, "t": 36480.0}
+{"type": "release", "batch": "B155", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 42780, "order_t": 23652.26, "t": 36480.0}
+{"type": "release", "batch": "B162", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 42780, "order_t": 25122.12, "t": 36480.0}
+{"type": "release", "batch": "B165", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 42780, "order_t": 25145.52, "t": 36480.0}
 {"type": "move", "vehicle": "H2", "batch": null, "path": [[42, 28.5], [42.5, 26.5], [46.5, 21.5], [52.5, 17.5], [56.5, 17.5], [59, 19.5]], "duration": 0.32, "loaded": false, "parts": 0, "t": 36480.0}
 {"type": "move", "vehicle": "H1", "batch": null, "path": [[53, 19.5], [52.5, 17.5], [56.5, 17.5], [59, 19.5]], "duration": 0.13, "loaded": false, "parts": 0, "t": 36480.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 36480.0}
@@ -10180,19 +10180,19 @@
 {"type": "proc_start", "station": "BOR2", "batch": "B157", "pos": [48, 24], "t": 37027.27}
 {"type": "proc_end", "station": "DRY1", "batch": "B144", "duration": 70.0, "t": 37072.89}
 {"type": "state", "station": "DRY1", "state": "idle", "occ": 1, "cap": 3, "t": 37072.89}
-{"type": "release", "batch": "B141", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 44220, "t": 40800.0}
-{"type": "release", "batch": "B145", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 44220, "t": 40800.0}
-{"type": "release", "batch": "B149", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 44220, "t": 40800.0}
-{"type": "release", "batch": "B153", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 44220, "t": 40800.0}
-{"type": "release", "batch": "B156", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 44220, "t": 40800.0}
-{"type": "release", "batch": "B160", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 44220, "t": 40800.0}
-{"type": "release", "batch": "B161", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 44220, "t": 40800.0}
-{"type": "release", "batch": "B164", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 44220, "t": 40800.0}
-{"type": "release", "batch": "B167", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 44220, "t": 40800.0}
-{"type": "release", "batch": "B170", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 44220, "t": 40800.0}
-{"type": "release", "batch": "B171", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 44220, "t": 40800.0}
-{"type": "release", "batch": "B187", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 44220, "t": 40800.0}
-{"type": "release", "batch": "B190", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 44220, "t": 40800.0}
+{"type": "release", "batch": "B141", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 44220, "order_t": 22272.64, "t": 40800.0}
+{"type": "release", "batch": "B145", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 44220, "order_t": 22370.5, "t": 40800.0}
+{"type": "release", "batch": "B149", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 44220, "order_t": 23558.62, "t": 40800.0}
+{"type": "release", "batch": "B153", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 44220, "order_t": 23615.73, "t": 40800.0}
+{"type": "release", "batch": "B156", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 44220, "order_t": 23714.62, "t": 40800.0}
+{"type": "release", "batch": "B160", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 44220, "order_t": 25004.26, "t": 40800.0}
+{"type": "release", "batch": "B161", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 44220, "order_t": 25060.85, "t": 40800.0}
+{"type": "release", "batch": "B164", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 44220, "order_t": 25136.67, "t": 40800.0}
+{"type": "release", "batch": "B167", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 44220, "order_t": 25206.59, "t": 40800.0}
+{"type": "release", "batch": "B170", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 44220, "order_t": 26455.18, "t": 40800.0}
+{"type": "release", "batch": "B171", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 44220, "order_t": 26498.93, "t": 40800.0}
+{"type": "release", "batch": "B187", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 44220, "order_t": 30984.17, "t": 40800.0}
+{"type": "release", "batch": "B190", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 44220, "order_t": 31003.16, "t": 40800.0}
 {"type": "state", "station": "ASM5", "state": "busy", "occ": 1, "cap": 1, "t": 40800.0}
 {"type": "proc_start", "station": "ASM5", "batch": "B152", "pos": [35, 5], "t": 40800.0}
 {"type": "state", "station": "ASM2", "state": "setup", "occ": 1, "cap": 1, "t": 40800.0}
@@ -10830,19 +10830,19 @@
 {"type": "state", "station": "DRY1", "state": "busy", "occ": 2, "cap": 3, "t": 41374.22}
 {"type": "proc_end", "station": "DRY1", "batch": "B153", "duration": 70.0, "t": 41408.0}
 {"type": "state", "station": "DRY1", "state": "idle", "occ": 1, "cap": 3, "t": 41408.0}
-{"type": "release", "batch": "B139", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 45660, "t": 42240.0}
-{"type": "release", "batch": "B163", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 45660, "t": 42240.0}
-{"type": "release", "batch": "B168", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 45660, "t": 42240.0}
-{"type": "release", "batch": "B172", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 45660, "t": 42240.0}
-{"type": "release", "batch": "B174", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 45660, "t": 42240.0}
-{"type": "release", "batch": "B175", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 45660, "t": 42240.0}
-{"type": "release", "batch": "B176", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 45660, "t": 42240.0}
-{"type": "release", "batch": "B177", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 45660, "t": 42240.0}
-{"type": "release", "batch": "B180", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 45660, "t": 42240.0}
-{"type": "release", "batch": "B185", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 45660, "t": 42240.0}
-{"type": "release", "batch": "B194", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 45660, "t": 42240.0}
-{"type": "release", "batch": "B195", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 45660, "t": 42240.0}
-{"type": "release", "batch": "B199", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 45660, "t": 42240.0}
+{"type": "release", "batch": "B139", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 45660, "order_t": 22264.52, "t": 42240.0}
+{"type": "release", "batch": "B163", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 45660, "order_t": 25122.98, "t": 42240.0}
+{"type": "release", "batch": "B168", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 45660, "order_t": 25272.64, "t": 42240.0}
+{"type": "release", "batch": "B172", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 45660, "order_t": 26516.45, "t": 42240.0}
+{"type": "release", "batch": "B174", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 45660, "order_t": 26572.03, "t": 42240.0}
+{"type": "release", "batch": "B175", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 45660, "order_t": 26600.89, "t": 42240.0}
+{"type": "release", "batch": "B176", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 45660, "order_t": 26641.26, "t": 42240.0}
+{"type": "release", "batch": "B177", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 45660, "order_t": 26719.98, "t": 42240.0}
+{"type": "release", "batch": "B180", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 45660, "order_t": 30833.22, "t": 42240.0}
+{"type": "release", "batch": "B185", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 45660, "order_t": 30968.67, "t": 42240.0}
+{"type": "release", "batch": "B194", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 45660, "order_t": 32232.03, "t": 42240.0}
+{"type": "release", "batch": "B195", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 45660, "order_t": 32235.2, "t": 42240.0}
+{"type": "release", "batch": "B199", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 45660, "order_t": 32388.97, "t": 42240.0}
 {"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 22.0], [28.5, 21.5], [54.5, 17.5], [56.5, 17.5], [59, 19.5]], "duration": 0.44, "loaded": false, "parts": 0, "t": 42240.0}
 {"type": "move", "vehicle": "H1", "batch": null, "path": [[53, 19.5], [52.5, 17.5], [56.5, 17.5], [59, 19.5]], "duration": 0.13, "loaded": false, "parts": 0, "t": 42240.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 42240.0}
@@ -11626,21 +11626,21 @@
 {"type": "proc_end", "station": "DRY1", "batch": "B174", "duration": 70.0, "t": 42811.84}
 {"type": "state", "station": "DRY1", "state": "idle", "occ": 1, "cap": 3, "t": 42811.84}
 {"type": "state", "station": "EB1", "state": "busy", "occ": 1, "cap": 1, "t": 42847.23}
-{"type": "release", "batch": "B154", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 47100, "t": 43680.0}
-{"type": "release", "batch": "B178", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 47100, "t": 43680.0}
-{"type": "release", "batch": "B179", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 47100, "t": 43680.0}
-{"type": "release", "batch": "B181", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 47100, "t": 43680.0}
-{"type": "release", "batch": "B182", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 47100, "t": 43680.0}
-{"type": "release", "batch": "B188", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 47100, "t": 43680.0}
-{"type": "release", "batch": "B189", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 47100, "t": 43680.0}
-{"type": "release", "batch": "B192", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 47100, "t": 43680.0}
-{"type": "release", "batch": "B198", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 47100, "t": 43680.0}
-{"type": "release", "batch": "B203", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 47100, "t": 43680.0}
-{"type": "release", "batch": "B204", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 47100, "t": 43680.0}
-{"type": "release", "batch": "B206", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 47100, "t": 43680.0}
-{"type": "release", "batch": "B207", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 47100, "t": 43680.0}
-{"type": "release", "batch": "B209", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 47100, "t": 43680.0}
-{"type": "release", "batch": "B217", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 47100, "t": 43680.0}
+{"type": "release", "batch": "B154", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 47100, "order_t": 23625.45, "t": 43680.0}
+{"type": "release", "batch": "B178", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 47100, "order_t": 30769.27, "t": 43680.0}
+{"type": "release", "batch": "B179", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 47100, "order_t": 30805.72, "t": 43680.0}
+{"type": "release", "batch": "B181", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 47100, "order_t": 30896.34, "t": 43680.0}
+{"type": "release", "batch": "B182", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 47100, "order_t": 30916.17, "t": 43680.0}
+{"type": "release", "batch": "B188", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 47100, "order_t": 30989.88, "t": 43680.0}
+{"type": "release", "batch": "B189", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 47100, "order_t": 30994.19, "t": 43680.0}
+{"type": "release", "batch": "B192", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 47100, "order_t": 32169.89, "t": 43680.0}
+{"type": "release", "batch": "B198", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 47100, "order_t": 32357.53, "t": 43680.0}
+{"type": "release", "batch": "B203", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 47100, "order_t": 32451.4, "t": 43680.0}
+{"type": "release", "batch": "B204", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 47100, "order_t": 32472.27, "t": 43680.0}
+{"type": "release", "batch": "B206", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 47100, "order_t": 33617.93, "t": 43680.0}
+{"type": "release", "batch": "B207", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 47100, "order_t": 33632.39, "t": 43680.0}
+{"type": "release", "batch": "B209", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 47100, "order_t": 33670.16, "t": 43680.0}
+{"type": "release", "batch": "B217", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 47100, "order_t": 35058.51, "t": 43680.0}
 {"type": "state", "station": "FIN1", "state": "busy", "occ": 1, "cap": 1, "t": 43680.0}
 {"type": "proc_start", "station": "FIN1", "batch": "B175", "pos": [56, 31], "t": 43680.0}
 {"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 29.0], [28.5, 28.5], [38.5, 25.5], [52.5, 17.5], [56.5, 17.5], [59, 19.5]], "duration": 0.48, "loaded": false, "parts": 0, "t": 43680.0}
@@ -12678,16 +12678,16 @@
 {"type": "proc_end", "station": "PACK2", "batch": "B194", "duration": 51.5, "t": 44223.09}
 {"type": "state", "station": "PACK2", "state": "idle", "occ": 1, "cap": 1, "t": 44223.09}
 {"type": "queue", "station": "PACK2", "len": 0, "t": 44223.09}
-{"type": "release", "batch": "B169", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 51420, "t": 45120.0}
-{"type": "release", "batch": "B173", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 51420, "t": 45120.0}
-{"type": "release", "batch": "B183", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 51420, "t": 45120.0}
-{"type": "release", "batch": "B184", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 51420, "t": 45120.0}
-{"type": "release", "batch": "B191", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 51420, "t": 45120.0}
-{"type": "release", "batch": "B196", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 51420, "t": 45120.0}
-{"type": "release", "batch": "B205", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 51420, "t": 45120.0}
-{"type": "release", "batch": "B220", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 51420, "t": 45120.0}
-{"type": "release", "batch": "B226", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 51420, "t": 45120.0}
-{"type": "release", "batch": "B239", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 51420, "t": 45120.0}
+{"type": "release", "batch": "B169", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 51420, "order_t": 25275.42, "t": 45120.0}
+{"type": "release", "batch": "B173", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 51420, "order_t": 26532.5, "t": 45120.0}
+{"type": "release", "batch": "B183", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 51420, "order_t": 30925.33, "t": 45120.0}
+{"type": "release", "batch": "B184", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 51420, "order_t": 30949.4, "t": 45120.0}
+{"type": "release", "batch": "B191", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 51420, "order_t": 31023.63, "t": 45120.0}
+{"type": "release", "batch": "B196", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 51420, "order_t": 32266.8, "t": 45120.0}
+{"type": "release", "batch": "B205", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 51420, "order_t": 33611.25, "t": 45120.0}
+{"type": "release", "batch": "B220", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 51420, "order_t": 35089.34, "t": 45120.0}
+{"type": "release", "batch": "B226", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 51420, "order_t": 35285.77, "t": 45120.0}
+{"type": "release", "batch": "B239", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 51420, "order_t": 36723.72, "t": 45120.0}
 {"type": "state", "station": "ASM4", "state": "busy", "occ": 1, "cap": 1, "t": 45120.0}
 {"type": "proc_start", "station": "ASM4", "batch": "B181", "pos": [29, 5], "t": 45120.0}
 {"type": "move", "vehicle": "H1", "batch": null, "path": [[42, 28.5], [40.5, 26.5], [28.5, 14.5], [25.5, 14.5], [25.5, 9.5], [29.5, 7.5], [31.5, 6.8]], "duration": 0.47, "loaded": false, "parts": 0, "t": 45120.0}
@@ -13571,20 +13571,20 @@
 {"type": "proc_start", "station": "ASM1", "batch": "B184", "pos": [29, 12], "t": 45643.46}
 {"type": "proc_end", "station": "DRY1", "batch": "B183", "duration": 70.0, "t": 45696.14}
 {"type": "state", "station": "DRY1", "state": "idle", "occ": 1, "cap": 3, "t": 45696.14}
-{"type": "release", "batch": "B186", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 52860, "t": 46560.0}
-{"type": "release", "batch": "B193", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 52860, "t": 46560.0}
-{"type": "release", "batch": "B197", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 52860, "t": 46560.0}
-{"type": "release", "batch": "B200", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 52860, "t": 46560.0}
-{"type": "release", "batch": "B201", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 52860, "t": 46560.0}
-{"type": "release", "batch": "B202", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 52860, "t": 46560.0}
-{"type": "release", "batch": "B208", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 52860, "t": 46560.0}
-{"type": "release", "batch": "B211", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 52860, "t": 46560.0}
-{"type": "release", "batch": "B213", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 52860, "t": 46560.0}
-{"type": "release", "batch": "B219", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 52860, "t": 46560.0}
-{"type": "release", "batch": "B233", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 52860, "t": 46560.0}
-{"type": "release", "batch": "B237", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 52860, "t": 46560.0}
-{"type": "release", "batch": "B240", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 52860, "t": 46560.0}
-{"type": "release", "batch": "B251", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 52860, "t": 46560.0}
+{"type": "release", "batch": "B186", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 52860, "order_t": 30973.52, "t": 46560.0}
+{"type": "release", "batch": "B193", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 52860, "order_t": 32215.85, "t": 46560.0}
+{"type": "release", "batch": "B197", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 52860, "order_t": 32341.78, "t": 46560.0}
+{"type": "release", "batch": "B200", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 52860, "order_t": 32415.88, "t": 46560.0}
+{"type": "release", "batch": "B201", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 52860, "order_t": 32433.39, "t": 46560.0}
+{"type": "release", "batch": "B202", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 52860, "order_t": 32440.82, "t": 46560.0}
+{"type": "release", "batch": "B208", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 52860, "order_t": 33660.51, "t": 46560.0}
+{"type": "release", "batch": "B211", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 52860, "order_t": 33793.59, "t": 46560.0}
+{"type": "release", "batch": "B213", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 52860, "order_t": 33864.03, "t": 46560.0}
+{"type": "release", "batch": "B219", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 52860, "order_t": 35087.04, "t": 46560.0}
+{"type": "release", "batch": "B233", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 52860, "order_t": 36613.7, "t": 46560.0}
+{"type": "release", "batch": "B237", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 52860, "order_t": 36713.64, "t": 46560.0}
+{"type": "release", "batch": "B240", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 52860, "order_t": 36765.15, "t": 46560.0}
+{"type": "release", "batch": "B251", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 52860, "order_t": 41057.44, "t": 46560.0}
 {"type": "move", "vehicle": "H2", "batch": null, "path": [[47.5, 6.8], [46.5, 6.5], [51.5, 9.5], [54.5, 10.5], [57.5, 16.5], [59, 19.5]], "duration": 0.28, "loaded": false, "parts": 0, "t": 46560.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 46560.0}
 {"type": "move", "vehicle": "H2", "batch": "B183", "path": [[59, 19.5], [56.5, 17.5], [45.5, 13.5], [44.5, 9.5], [32.5, 7.5], [32.5, 6.8]], "duration": 0.44, "loaded": true, "parts": 40, "t": 46561.78}
@@ -14358,17 +14358,17 @@
 {"type": "proc_start", "station": "BOR1", "batch": "B202", "pos": [45, 31], "t": 47109.84}
 {"type": "proc_end", "station": "ASM3", "batch": "B196", "duration": 169.2, "t": 47133.18}
 {"type": "state", "station": "ASM3", "state": "idle", "occ": 1, "cap": 1, "t": 47133.18}
-{"type": "release", "batch": "B210", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 54300, "t": 50880.0}
-{"type": "release", "batch": "B212", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 54300, "t": 50880.0}
-{"type": "release", "batch": "B215", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 54300, "t": 50880.0}
-{"type": "release", "batch": "B221", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 54300, "t": 50880.0}
-{"type": "release", "batch": "B223", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 54300, "t": 50880.0}
-{"type": "release", "batch": "B224", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 54300, "t": 50880.0}
-{"type": "release", "batch": "B225", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 54300, "t": 50880.0}
-{"type": "release", "batch": "B227", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 54300, "t": 50880.0}
-{"type": "release", "batch": "B228", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 54300, "t": 50880.0}
-{"type": "release", "batch": "B229", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 54300, "t": 50880.0}
-{"type": "release", "batch": "B248", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 54300, "t": 50880.0}
+{"type": "release", "batch": "B210", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 54300, "order_t": 33759.53, "t": 50880.0}
+{"type": "release", "batch": "B212", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 54300, "order_t": 33828.07, "t": 50880.0}
+{"type": "release", "batch": "B215", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 54300, "order_t": 33912.38, "t": 50880.0}
+{"type": "release", "batch": "B221", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 54300, "order_t": 35162.95, "t": 50880.0}
+{"type": "release", "batch": "B223", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 54300, "order_t": 35169.58, "t": 50880.0}
+{"type": "release", "batch": "B224", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 54300, "order_t": 35228.0, "t": 50880.0}
+{"type": "release", "batch": "B225", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 54300, "order_t": 35255.4, "t": 50880.0}
+{"type": "release", "batch": "B227", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 54300, "order_t": 35325.13, "t": 50880.0}
+{"type": "release", "batch": "B228", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 54300, "order_t": 35336.03, "t": 50880.0}
+{"type": "release", "batch": "B229", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 54300, "order_t": 35337.7, "t": 50880.0}
+{"type": "release", "batch": "B248", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 54300, "order_t": 40937.65, "t": 50880.0}
 {"type": "move", "vehicle": "H1", "batch": null, "path": [[26.5, 6.8], [25.5, 6.5], [25.5, 14.5], [29.5, 14.5], [31.5, 13.8]], "duration": 0.21, "loaded": false, "parts": 0, "t": 50880.0}
 {"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 22.0], [28.5, 20.5], [41.5, 14.5], [43.5, 13.8]], "duration": 0.25, "loaded": false, "parts": 0, "t": 50880.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 50880.0}
@@ -15070,14 +15070,14 @@
 {"type": "queue", "station": "BOR1", "len": 0, "t": 51414.76}
 {"type": "state", "station": "BOR1", "state": "busy", "occ": 1, "cap": 1, "t": 51414.76}
 {"type": "proc_start", "station": "BOR1", "batch": "B215", "pos": [45, 31], "t": 51414.76}
-{"type": "release", "batch": "B216", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 55740, "t": 52320.0}
-{"type": "release", "batch": "B218", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 55740, "t": 52320.0}
-{"type": "release", "batch": "B222", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 55740, "t": 52320.0}
-{"type": "release", "batch": "B234", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 55740, "t": 52320.0}
-{"type": "release", "batch": "B236", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 55740, "t": 52320.0}
-{"type": "release", "batch": "B250", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 55740, "t": 52320.0}
-{"type": "release", "batch": "B253", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 55740, "t": 52320.0}
-{"type": "release", "batch": "B268", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 55740, "t": 52320.0}
+{"type": "release", "batch": "B216", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 55740, "order_t": 35044.92, "t": 52320.0}
+{"type": "release", "batch": "B218", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 55740, "order_t": 35082.11, "t": 52320.0}
+{"type": "release", "batch": "B222", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 55740, "order_t": 35164.14, "t": 52320.0}
+{"type": "release", "batch": "B234", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 55740, "order_t": 36617.41, "t": 52320.0}
+{"type": "release", "batch": "B236", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 55740, "order_t": 36711.19, "t": 52320.0}
+{"type": "release", "batch": "B250", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 55740, "order_t": 41037.36, "t": 52320.0}
+{"type": "release", "batch": "B253", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 55740, "order_t": 41077.3, "t": 52320.0}
+{"type": "release", "batch": "B268", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 55740, "order_t": 43739.81, "t": 52320.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 52320.0}
 {"type": "move", "vehicle": "F1", "batch": "B216", "path": [[10.5, 19], [13.5, 25.5]], "duration": 0.06, "loaded": true, "parts": 54, "t": 52321.88}
 {"type": "arrive", "batch": "B216", "station": "CUT1", "pos": [13.5, 25.5], "t": 52323.44}
@@ -15822,17 +15822,17 @@
 {"type": "move", "vehicle": "H1", "batch": "B268", "path": [[37.5, 29.0], [37.5, 28.5], [40.5, 27.5], [42, 28.5]], "duration": 0.08, "loaded": true, "parts": 40, "t": 52860.69}
 {"type": "arrive", "batch": "B268", "station": "BOR1", "pos": [42, 28.5], "t": 52862.26}
 {"type": "queue", "station": "BOR1", "len": 1, "t": 52862.26}
-{"type": "release", "batch": "B214", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 57180, "t": 53760.0}
-{"type": "release", "batch": "B232", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 57180, "t": 53760.0}
-{"type": "release", "batch": "B238", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 57180, "t": 53760.0}
-{"type": "release", "batch": "B242", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 57180, "t": 53760.0}
-{"type": "release", "batch": "B243", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 57180, "t": 53760.0}
-{"type": "release", "batch": "B246", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 57180, "t": 53760.0}
-{"type": "release", "batch": "B249", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 57180, "t": 53760.0}
-{"type": "release", "batch": "B252", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 57180, "t": 53760.0}
-{"type": "release", "batch": "B261", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 57180, "t": 53760.0}
-{"type": "release", "batch": "B265", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 57180, "t": 53760.0}
-{"type": "release", "batch": "B267", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 57180, "t": 53760.0}
+{"type": "release", "batch": "B214", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 57180, "order_t": 33888.0, "t": 53760.0}
+{"type": "release", "batch": "B232", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 57180, "order_t": 36594.45, "t": 53760.0}
+{"type": "release", "batch": "B238", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 57180, "order_t": 36720.82, "t": 53760.0}
+{"type": "release", "batch": "B242", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 57180, "order_t": 40842.12, "t": 53760.0}
+{"type": "release", "batch": "B243", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 57180, "order_t": 40879.51, "t": 53760.0}
+{"type": "release", "batch": "B246", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 57180, "order_t": 40906.95, "t": 53760.0}
+{"type": "release", "batch": "B249", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 57180, "order_t": 40980.53, "t": 53760.0}
+{"type": "release", "batch": "B252", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 57180, "order_t": 41061.44, "t": 53760.0}
+{"type": "release", "batch": "B261", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 57180, "order_t": 42410.47, "t": 53760.0}
+{"type": "release", "batch": "B265", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 57180, "order_t": 43696.23, "t": 53760.0}
+{"type": "release", "batch": "B267", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 57180, "order_t": 43714.65, "t": 53760.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 53760.0}
 {"type": "move", "vehicle": "F1", "batch": "B214", "path": [[10.5, 19], [13.5, 25.5]], "duration": 0.06, "loaded": true, "parts": 40, "t": 53761.88}
 {"type": "arrive", "batch": "B214", "station": "CUT1", "pos": [13.5, 25.5], "t": 53763.44}
@@ -16612,19 +16612,19 @@
 {"type": "proc_start", "station": "ASM2", "batch": "B242", "pos": [35, 12], "t": 54295.69}
 {"type": "state", "station": "FIN1", "state": "busy", "occ": 1, "cap": 1, "t": 54296.42}
 {"type": "proc_start", "station": "FIN1", "batch": "B246", "pos": [56, 31], "t": 54296.42}
-{"type": "release", "batch": "B231", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 61500, "t": 55200.0}
-{"type": "release", "batch": "B241", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 61500, "t": 55200.0}
-{"type": "release", "batch": "B245", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 61500, "t": 55200.0}
-{"type": "release", "batch": "B247", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 61500, "t": 55200.0}
-{"type": "release", "batch": "B258", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 61500, "t": 55200.0}
-{"type": "release", "batch": "B262", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 61500, "t": 55200.0}
-{"type": "release", "batch": "B263", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 61500, "t": 55200.0}
-{"type": "release", "batch": "B264", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 61500, "t": 55200.0}
-{"type": "release", "batch": "B270", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 61500, "t": 55200.0}
-{"type": "release", "batch": "B277", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 61500, "t": 55200.0}
-{"type": "release", "batch": "B278", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 61500, "t": 55200.0}
-{"type": "release", "batch": "B288", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 61500, "t": 55200.0}
-{"type": "release", "batch": "B301", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 61500, "t": 55200.0}
+{"type": "release", "batch": "B231", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 61500, "order_t": 36544.6, "t": 55200.0}
+{"type": "release", "batch": "B241", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 61500, "order_t": 40811.08, "t": 55200.0}
+{"type": "release", "batch": "B245", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 61500, "order_t": 40901.48, "t": 55200.0}
+{"type": "release", "batch": "B247", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 61500, "order_t": 40924.49, "t": 55200.0}
+{"type": "release", "batch": "B258", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 61500, "order_t": 42346.13, "t": 55200.0}
+{"type": "release", "batch": "B262", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 61500, "order_t": 42482.52, "t": 55200.0}
+{"type": "release", "batch": "B263", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 61500, "order_t": 42536.27, "t": 55200.0}
+{"type": "release", "batch": "B264", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 61500, "order_t": 42557.33, "t": 55200.0}
+{"type": "release", "batch": "B270", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 61500, "order_t": 43766.1, "t": 55200.0}
+{"type": "release", "batch": "B277", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 61500, "order_t": 43973.81, "t": 55200.0}
+{"type": "release", "batch": "B278", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 61500, "order_t": 45133.0, "t": 55200.0}
+{"type": "release", "batch": "B288", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 61500, "order_t": 45369.59, "t": 55200.0}
+{"type": "release", "batch": "B301", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 61500, "order_t": 46707.79, "t": 55200.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 55200.0}
 {"type": "move", "vehicle": "F1", "batch": "B231", "path": [[10.5, 19], [18.5, 20.5]], "duration": 0.07, "loaded": true, "parts": 80, "t": 55201.88}
 {"type": "arrive", "batch": "B231", "station": "CUT2", "pos": [18.5, 20.5], "t": 55203.44}
@@ -17216,16 +17216,16 @@
 {"type": "proc_start", "station": "ASM2", "batch": "B245", "pos": [35, 12], "t": 55723.93}
 {"type": "state", "station": "BOR1", "state": "busy", "occ": 1, "cap": 1, "t": 55725.69}
 {"type": "proc_start", "station": "BOR1", "batch": "B247", "pos": [45, 31], "t": 55725.69}
-{"type": "release", "batch": "B230", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 62940, "t": 56640.0}
-{"type": "release", "batch": "B235", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 62940, "t": 56640.0}
-{"type": "release", "batch": "B257", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 62940, "t": 56640.0}
-{"type": "release", "batch": "B260", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 62940, "t": 56640.0}
-{"type": "release", "batch": "B271", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 62940, "t": 56640.0}
-{"type": "release", "batch": "B273", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 62940, "t": 56640.0}
-{"type": "release", "batch": "B284", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 62940, "t": 56640.0}
-{"type": "release", "batch": "B285", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 62940, "t": 56640.0}
-{"type": "release", "batch": "B291", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 62940, "t": 56640.0}
-{"type": "release", "batch": "B299", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 62940, "t": 56640.0}
+{"type": "release", "batch": "B230", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 62940, "order_t": 36499.7, "t": 56640.0}
+{"type": "release", "batch": "B235", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 62940, "order_t": 36694.61, "t": 56640.0}
+{"type": "release", "batch": "B257", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 62940, "order_t": 42345.49, "t": 56640.0}
+{"type": "release", "batch": "B260", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 62940, "order_t": 42402.34, "t": 56640.0}
+{"type": "release", "batch": "B271", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 62940, "order_t": 43813.2, "t": 56640.0}
+{"type": "release", "batch": "B273", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 62940, "order_t": 43862.34, "t": 56640.0}
+{"type": "release", "batch": "B284", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 62940, "order_t": 45286.63, "t": 56640.0}
+{"type": "release", "batch": "B285", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 62940, "order_t": 45309.41, "t": 56640.0}
+{"type": "release", "batch": "B291", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 62940, "order_t": 45405.99, "t": 56640.0}
+{"type": "release", "batch": "B299", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 62940, "order_t": 46684.23, "t": 56640.0}
 {"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [38.5, 19.5], [10.5, 19]], "duration": 0.38, "loaded": false, "parts": 0, "t": 56640.0}
 {"type": "move", "vehicle": "F1", "batch": "B230", "path": [[10.5, 19], [13.5, 25.5]], "duration": 0.06, "loaded": true, "parts": 80, "t": 56641.88}
 {"type": "arrive", "batch": "B230", "station": "CUT1", "pos": [13.5, 25.5], "t": 56643.44}

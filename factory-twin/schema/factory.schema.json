@@ -62,6 +62,13 @@
       },
       "days_per_week": {
        "type": "integer"
+      },
+      "hourly_factor": {
+       "type": "object",
+       "description": "시각(문자열 '8'..'17') → 능률 배수. tools/hourly_profile.py --cycle 산출. 작업자 페이스 공정에만 적용",
+       "additionalProperties": {
+        "type": "number"
+       }
       }
      }
     },
@@ -80,6 +87,44 @@
        "type": "number",
        "description": "조명/사무실 등 상시 부하"
       }
+     }
+    },
+    "version": {
+     "type": "string",
+     "description": "SemVer: MAJOR 구조 변경 / MINOR 재보정 / PATCH 표기 (09 유지 프로토콜)"
+    },
+    "calibrated_on": {
+     "type": "string",
+     "description": "보정 완료일 YYYY-MM-DD"
+    },
+    "valid_until": {
+     "type": "string",
+     "description": "유효기간(12개월 또는 다음 MAJOR)"
+    },
+    "calibration_window": {
+     "type": "string",
+     "description": "보정에 쓴 로깅·기록 기간"
+    },
+    "absences": {
+     "type": "array",
+     "description": "결근 트레이스(출근부): 그 근무일 동안 스테이션 정지(1인 운전 가정)",
+     "items": {
+      "type": "object",
+      "properties": {
+       "day": {
+        "type": "integer"
+       },
+       "station": {
+        "type": "string"
+       },
+       "worker": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "day",
+       "station"
+      ]
      }
     }
    }
@@ -220,7 +265,10 @@
       "type": "string"
      },
      "year": {
-      "type": "integer"
+      "type": [
+       "integer",
+       "null"
+      ]
      },
      "capacity": {
       "type": "integer",
@@ -274,6 +322,14 @@
        "cv": {
         "type": "number",
         "description": "변동계수 (lognormal). 0이면 결정적"
+       },
+       "source": {
+        "type": "string",
+        "description": "stopwatch(PF&D 적용됨) / ct_log(실측 분포, 여유율 없음) / estimated"
+       },
+       "pfd": {
+        "type": "number",
+        "description": "적용된 여유율(스톱워치 정상시간 → 표준시간). CT 실측으로 교체 시 0"
        }
       }
      },
@@ -320,6 +376,18 @@
      "rework_to": {
       "type": "string",
       "description": "재작업 시 되돌아가는 공정명(예: cut)"
+     },
+     "paced": {
+      "type": "string",
+      "enum": [
+       "operator",
+       "machine"
+      ],
+      "description": "작업자/기계 페이스. 기본: assemble·pack·finish·sand=operator, 그 외 machine. hourly_factor 적용 여부"
+     },
+     "availability_source": {
+      "type": "string",
+      "description": "가용률 근거(워크샘플링 손실 % 등)"
      }
     }
    }
@@ -432,7 +500,11 @@
       }
      },
      "station": {
-      "type": "string"
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "주 담당 기계ID"
      },
      "monthly_wage_krw": {
       "type": "number"
@@ -707,17 +779,28 @@
    }
   },
   "rules": {
-   "type": "object",
-   "description": "의사결정 규칙(코드 반영분). dispatch: fifo | edd(납기 우선)",
-   "properties": {
-    "dispatch": {
-     "type": "string",
-     "enum": [
-      "fifo",
-      "edd"
-     ]
+   "description": "의사결정 규칙. 객체({dispatch: fifo|edd, ...}) 또는 시트 16 행 목록(변환기 출력; 시뮬이 납기 키워드로 dispatch 를 유도)",
+   "anyOf": [
+    {
+     "type": "object",
+     "description": "의사결정 규칙(코드 반영분). dispatch: fifo | edd(납기 우선)",
+     "properties": {
+      "dispatch": {
+       "type": "string",
+       "enum": [
+        "fifo",
+        "edd"
+       ]
+      }
+     }
+    },
+    {
+     "type": "array",
+     "items": {
+      "type": "object"
+     }
     }
-   }
+   ]
   }
  }
 }

@@ -12,6 +12,7 @@ def rect(x0, y0, x1, y1):
 
 factory = {
     "meta": {
+        "version": "0.5.0", "calibrated_on": "2026-10-10", "valid_until": "2027-10-10", "calibration_window": "샘플(가상)",
         "name": "샘플 판넬가구 공장 (가상)",
         "captured_on": "2026-10-10",
         "source": "sample",

@@ -346,8 +346,7 @@
    ],
    "photo": "",
    "notes": "",
-   "availability": 1.0,
-   "move_class": "B"
+   "availability": 1.0
   },
   {
    "id": "CUT1",
@@ -391,13 +390,14 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 0.942,
+    "base_min": 1.027,
     "per_unit": {},
     "cv": 0.22,
-    "n": 11
+    "n": 11,
+    "source": "stopwatch",
+    "pfd": 0.09
    },
    "availability": 1.0,
-   "move_class": "B",
    "setup_per_day_observed": 4.0
   },
   {
@@ -442,13 +442,14 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 0.933,
+    "base_min": 1.017,
     "per_unit": {},
     "cv": 0.19,
-    "n": 11
+    "n": 11,
+    "source": "stopwatch",
+    "pfd": 0.09
    },
-   "availability": 1.0,
-   "move_class": "B"
+   "availability": 1.0
   },
   {
    "id": "EB1",
@@ -502,9 +503,6 @@
     "form": "edge: Σ(L+G)/v_f + γ0 + γ1·N_pass (v_f·G 측정값 고정)"
    },
    "availability": 0.967,
-   "feed_mpm": 12,
-   "gap_m": 0.45,
-   "move_class": "B",
    "setup_per_day_observed": 4.0
   },
   {
@@ -559,9 +557,6 @@
     "form": "edge: Σ(L+G)/v_f + γ0 + γ1·N_pass (v_f·G 측정값 고정)"
    },
    "availability": 0.967,
-   "feed_mpm": 8,
-   "gap_m": 0.45,
-   "move_class": "B",
    "setup_per_day_observed": 4.0
   },
   {
@@ -606,15 +601,16 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 0.478,
+    "base_min": 0.521,
     "per_unit": {
-     "holes": 0.037
+     "holes": 0.0403
     },
     "cv": 0.21,
-    "n": 11
+    "n": 11,
+    "source": "stopwatch",
+    "pfd": 0.09
    },
-   "availability": 1.0,
-   "move_class": "B"
+   "availability": 1.0
   },
   {
    "id": "BOR2",
@@ -658,15 +654,16 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 0.523,
+    "base_min": 0.57,
     "per_unit": {
-     "holes": 0.0294
+     "holes": 0.032
     },
     "cv": 0.15,
-    "n": 11
+    "n": 11,
+    "source": "stopwatch",
+    "pfd": 0.09
    },
    "availability": 1.0,
-   "move_class": "B",
    "setup_per_day_observed": 4.0
   },
   {
@@ -709,13 +706,14 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 0.921,
+    "base_min": 1.004,
     "per_unit": {},
     "cv": 0.16,
-    "n": 11
+    "n": 11,
+    "source": "stopwatch",
+    "pfd": 0.09
    },
-   "availability": 1.0,
-   "move_class": "B"
+   "availability": 1.0
   },
   {
    "id": "DRY1",
@@ -761,8 +759,7 @@
     "per_unit": {},
     "cv": 0.3
    },
-   "availability": 1.0,
-   "move_class": "B"
+   "availability": 1.0
   },
   {
    "id": "ASM1",
@@ -804,10 +801,12 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 14.246,
+    "base_min": 15.528,
     "per_unit": {},
     "cv": 0.35,
     "n": 11,
+    "source": "stopwatch",
+    "pfd": 0.09,
     "per_product": {
      "P_DESK": 15.0,
      "P_BOOK": 15.0,
@@ -815,8 +814,7 @@
      "P_WARD": 15.0
     }
    },
-   "availability": 1.0,
-   "move_class": "B"
+   "availability": 1.0
   },
   {
    "id": "ASM2",
@@ -858,10 +856,12 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 13.076,
+    "base_min": 14.253,
     "per_unit": {},
     "cv": 0.38,
     "n": 11,
+    "source": "stopwatch",
+    "pfd": 0.09,
     "per_product": {
      "P_DESK": 15.0,
      "P_BOOK": 15.0,
@@ -869,8 +869,7 @@
      "P_WARD": 15.0
     }
    },
-   "availability": 1.0,
-   "move_class": "B"
+   "availability": 1.0
   },
   {
    "id": "ASM3",
@@ -912,10 +911,12 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 12.527,
+    "base_min": 13.654,
     "per_unit": {},
     "cv": 0.28,
     "n": 11,
+    "source": "stopwatch",
+    "pfd": 0.09,
     "per_product": {
      "P_DESK": 15.0,
      "P_BOOK": 15.0,
@@ -923,8 +924,7 @@
      "P_WARD": 15.0
     }
    },
-   "availability": 1.0,
-   "move_class": "B"
+   "availability": 1.0
   },
   {
    "id": "ASM4",
@@ -966,10 +966,12 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 11.147,
+    "base_min": 12.15,
     "per_unit": {},
     "cv": 0.32,
     "n": 11,
+    "source": "stopwatch",
+    "pfd": 0.09,
     "per_product": {
      "P_DESK": 15.0,
      "P_BOOK": 15.0,
@@ -977,8 +979,7 @@
      "P_WARD": 15.0
     }
    },
-   "availability": 1.0,
-   "move_class": "B"
+   "availability": 1.0
   },
   {
    "id": "ASM5",
@@ -1020,10 +1021,12 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 10.006,
+    "base_min": 10.907,
     "per_unit": {},
     "cv": 0.52,
     "n": 11,
+    "source": "stopwatch",
+    "pfd": 0.09,
     "per_product": {
      "P_DESK": 15.0,
      "P_BOOK": 15.0,
@@ -1031,8 +1034,7 @@
      "P_WARD": 15.0
     }
    },
-   "availability": 1.0,
-   "move_class": "B"
+   "availability": 1.0
   },
   {
    "id": "ASM6",
@@ -1074,10 +1076,12 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 13.227,
+    "base_min": 14.417,
     "per_unit": {},
     "cv": 0.33,
     "n": 11,
+    "source": "stopwatch",
+    "pfd": 0.09,
     "per_product": {
      "P_DESK": 15.0,
      "P_BOOK": 15.0,
@@ -1085,8 +1089,7 @@
      "P_WARD": 15.0
     }
    },
-   "availability": 1.0,
-   "move_class": "B"
+   "availability": 1.0
   },
   {
    "id": "PACK1",
@@ -1128,10 +1131,12 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 12.771,
+    "base_min": 13.92,
     "per_unit": {},
     "cv": 0.35,
     "n": 11,
+    "source": "stopwatch",
+    "pfd": 0.09,
     "per_product": {
      "P_DESK": 5.0,
      "P_BOOK": 5.0,
@@ -1139,8 +1144,7 @@
      "P_WARD": 5.0
     }
    },
-   "availability": 1.0,
-   "move_class": "B"
+   "availability": 1.0
   },
   {
    "id": "PACK2",
@@ -1182,10 +1186,12 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 11.561,
+    "base_min": 12.601,
     "per_unit": {},
     "cv": 0.5,
     "n": 11,
+    "source": "stopwatch",
+    "pfd": 0.09,
     "per_product": {
      "P_DESK": 5.0,
      "P_BOOK": 5.0,
@@ -1193,8 +1199,7 @@
      "P_WARD": 5.0
     }
    },
-   "availability": 1.0,
-   "move_class": "B"
+   "availability": 1.0
   },
   {
    "id": "FG",
@@ -1235,8 +1240,7 @@
    ],
    "photo": "",
    "notes": "",
-   "availability": 1.0,
-   "move_class": "B"
+   "availability": 1.0
   }
  ],
  "ancillary": [
@@ -2128,18 +2132,26 @@
  "rules": [
   {
    "주제(배치구성/투입/기계선택/셋업시점/운반/잔업/급한주문/조립착수/품질판정/인력대체)": "투입",
-   "만약 (조건)": "시공일이 정해지면",
+   "트리거(언제 결정: 아침 계획/대기열 변화/카트 참/전화)": "아침 계획",
+   "만약 (조건 변수·비교값)": "시공일이 정해지면",
    "그러면 (행동)": "시공일 근무일 기준 D-3 아침에 재단 투입",
    "예외": "급한 건은 당일",
+   "우선순위(1=최상위 예외, 큰 수=평상시)": 3,
    "말한 사람": "반장",
+   "근거 사례(주문ID·날짜)": "P_DESK 9/14",
+   "기록 지지(rule_fit: n/N)": null,
    "모델 반영(규칙 코드)": null
   },
   {
    "주제(배치구성/투입/기계선택/셋업시점/운반/잔업/급한주문/조립착수/품질판정/인력대체)": "배치구성",
-   "만약 (조건)": "같은 날 같은 색상·두께 주문이 여럿이면",
+   "트리거(언제 결정: 아침 계획/대기열 변화/카트 참/전화)": "대기열 변화",
+   "만약 (조건 변수·비교값)": "같은 날 같은 색상·두께 주문이 여럿이면",
    "그러면 (행동)": "색상·두께로 묶어 재단 후 현장별 분류",
    "예외": null,
+   "우선순위(1=최상위 예외, 큰 수=평상시)": 4,
    "말한 사람": "반장",
+   "근거 사례(주문ID·날짜)": null,
+   "기록 지지(rule_fit: n/N)": null,
    "모델 반영(규칙 코드)": null
   }
  ],
