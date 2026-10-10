@@ -15,7 +15,7 @@ def wilson_lo(p, n, z=1.96):
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("worklog"); ap.add_argument("--releases"); ap.add_argument("--out"); ap.add_argument("--min-candidates", type=int, default=2)
+    ap = argparse.ArgumentParser(); ap.add_argument("worklog"); ap.add_argument("--releases"); ap.add_argument("--out"); ap.add_argument("--min-candidates", type=int, default=2); ap.add_argument("--factory", help="factory.json: 제품→색상·두께 매핑으로 GROUP(같은 색상×두께 우선 = 재단 묶음·셋업 회피) 규칙 추가")
     a = ap.parse_args()
     steps = [dict(r, arrive=float(r["arrive"]), start=float(r["start"]), end=float(r["end"])) for r in csv.DictReader(open(a.worklog, encoding="utf-8"))]
     due = {}; 
@@ -31,11 +31,16 @@ def main():
         ss.sort(key=lambda x: x["arrive"]); rem = 0.0
         for s in reversed(ss): s["remaining_after"] = rem; rem += s["end"] - s["start"]
     D = lambda c: (due.get(c["batch"]) if due.get(c["batch"]) is not None else 1e12)
+    grp = {}
+    if a.factory:
+        import json, pathlib as _pl
+        for pr in json.loads(_pl.Path(a.factory).read_text(encoding="utf-8"))["products"]: grp[pr["id"]] = (pr.get("color", "-"), pr.get("thickness", 18))
     # 모든 규칙은 동점 시 FIFO 로 깨진다(현장도 그렇다). 'EDD' = 납기 → 도착 순.
     rules = {"FIFO": lambda c, now, prev: (c["arrive"],), "EDD": lambda c, now, prev: (D(c), c["arrive"]),
              "SPT": lambda c, now, prev: (c["end"] - c["start"], c["arrive"]), "LPT": lambda c, now, prev: (-(c["end"] - c["start"]), c["arrive"]),
              "SAME": lambda c, now, prev: (0 if prev and c["product"] == prev else 1, c["arrive"]),
              "SLACK": lambda c, now, prev: (D(c) - now - (c["end"] - c["start"]) - c["remaining_after"], c["arrive"])}
+    if grp: rules["GROUP"] = lambda c, now, prev: (0 if prev and grp.get(c["product"]) == grp.get(prev) else 1, c["arrive"])  # 같은 색상×두께 묶음 유지(셋업 회피)
     disc = {}  # (규칙A, 규칙B) -> [A가 맞은 수, B가 맞은 수, 두 규칙이 다른 선택을 한 결정 수]
     lines = ["# 규칙 재현율 (관측 착수 순서 vs 규칙 선택)", "", "| 스테이션 | 결정 수(후보≥%d) | 평균 후보 수 | " % a.min_candidates + " | ".join(rules) + " | RANDOM | 최적 규칙 | 95% 신뢰 하한 |", "|---|---|---|" + "---|" * (len(rules) + 3)]
     total = {r: [0.0, 0] for r in rules}; total_rand = [0.0, 0]
@@ -88,7 +93,7 @@ def main():
                     d = disc.get((ra, rb)) or disc.get((rb, ra))
                     if d: lines.append(f"| {ra} | {rb} | {d[2]} | {d[0]} | {d[1]} |")
         lines.append("판별 결정이 10개 미만이면 두 규칙은 이 기록으로 구분되지 않는다(투입이 납기 역산이면 FIFO≈EDD) → 트윈에는 어느 쪽을 넣어도 같고, 시나리오로만 의미가 있다.")
-    lines += ["", "읽는 법: RANDOM 열은 '무작위로 골라도 맞출 확률'(후보 수의 역수 평균) — 규칙 재현율이 이 값과 비슷하면 그 규칙은 설명력이 없다.",
+    lines += ["", "**범위**: 이 도구는 규칙의 두 층 중 (i) **묶음 간 순서(디스패칭)** 만 본다. (ii) **묶음 구성**(색상×두께 창에 어떤 주문을 합쳤나)은 대기열 순서가 아니라 '한 배치에 여러 주문'으로 나타나므로 시트 13 '함께 처리한 배치' 열과 `cut_batching`·`setups_per_day` KPI 로 따로 검증한다 — 자체 검증: 색상 묶음 공장(S6)에서도 재단 결정 수가 122→11 로 줄고 FIFO=GROUP=100% 로 나와 순서만으로는 묶음을 식별하지 못했다.", "읽는 법: RANDOM 열은 '무작위로 골라도 맞출 확률'(후보 수의 역수 평균) — 규칙 재현율이 이 값과 비슷하면 그 규칙은 설명력이 없다.",
               "합격 기준은 위 판정 줄(연구 19). 미달이면 인터뷰 규칙(시트 16)의 조건이 더 있거나(급한 주문·사장 지시·자재 도착) 상태 의존 혼합(평상시 EDD-묶음 / 과부하 시 셋업 최소화)이다 → 미스 15~20건을 반장과 함께 리뷰해 '기록되지 않은 교란율'을 따로 보고한다.",
               "주의: 후보 집합은 '도착했고 아직 착수 안 함'으로 복원하므로 기록되지 않은 대기(외주·자재)는 후보를 과대 집계한다. 결정 수 <20 이면 신뢰 하한만 믿는다."]
     out = "\n".join(lines); print(out)
