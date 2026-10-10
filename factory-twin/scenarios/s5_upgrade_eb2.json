@@ -1,0 +1,17 @@
+{
+  "id": "s5_upgrade_eb2",
+  "name": "S5. 반자동 엣지밴더(EB2)를 자동기로 교체 (20m/min) + 재단 네스팅 추가",
+  "hypothesis": "S1 + 엣지 자동화 결합 효과 (복합 투자)",
+  "capex_krw": 145000000,
+  "stations": {
+    "EB2": {"name": "자동 엣지밴더 #2 (신규 20m/min)", "workers_required": 1, "rated_kw": 18, "setup_min": 4, "mtbf_min": 1200, "mttr_min": 25,
+            "cycle": {"base_min": 0.0, "per_unit": {"edges_m": 0.05, "n_edges": 0.15}, "cv": 0.15}, "scrap_rate": 0.01}
+  },
+  "add_stations": [
+    {"id": "CUT3", "name": "CNC 네스팅 #2 (신규)", "process": "cut", "zone": "Z_CUT", "pos": [16, 22.5], "size": [4.5, 3.2, 2.0],
+     "rotation_deg": 0, "capacity": 1, "workers_required": 1, "rated_kw": 13, "load_factor": 0.6, "idle_kw": 1.2,
+     "mtbf_min": 1500, "mttr_min": 30, "setup_min": 6, "buffer_batches": 4, "scrap_rate": 0.005,
+     "cycle": {"base_min": 0.05, "per_unit": {"board": 5.5}, "cv": 0.15}, "ancillary": ["DC1"],
+     "in_pos": [12.5, 20.5], "out_pos": [19, 20.5]}
+  ]
+}

@@ -1,0 +1,1647 @@
+{
+ "meta": {
+  "name": "샘플 판넬가구 공장 (가상)",
+  "captured_on": "2026-10-10",
+  "source": "sample",
+  "shift": {
+   "start": "08:00",
+   "end": "17:00",
+   "breaks": [
+    [
+     "10:00",
+     "10:15"
+    ],
+    [
+     "12:00",
+     "13:00"
+    ],
+    [
+     "15:00",
+     "15:15"
+    ]
+   ],
+   "days_per_week": 5
+  },
+  "energy": {
+   "tariff_krw_per_kwh": 165,
+   "contract_kw": 300,
+   "base_load_kw": 12
+  },
+  "finance": {
+   "margin_rate": 0.25,
+   "working_days_per_year": 250,
+   "note": "제품 판매가 × 마진율 = 공헌이익(추정). 현장 손익으로 교체"
+  }
+ },
+ "site": {
+  "width": 60.0,
+  "depth": 36.0,
+  "height": 8,
+  "grid_m": 1.0,
+  "zones": [
+   {
+    "id": "Z_RAW",
+    "name": "원자재 창고(PB/MDF)",
+    "type": "storage",
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      12,
+      0
+     ],
+     [
+      12,
+      36
+     ],
+     [
+      0,
+      36
+     ]
+    ],
+    "color": "#8d6e63"
+   },
+   {
+    "id": "Z_CUT",
+    "name": "재단",
+    "type": "process",
+    "polygon": [
+     [
+      12,
+      18
+     ],
+     [
+      26,
+      18
+     ],
+     [
+      26,
+      36
+     ],
+     [
+      12,
+      36
+     ]
+    ],
+    "color": "#5c6bc0"
+   },
+   {
+    "id": "Z_EDGE",
+    "name": "엣지밴딩",
+    "type": "process",
+    "polygon": [
+     [
+      26,
+      18
+     ],
+     [
+      40,
+      18
+     ],
+     [
+      40,
+      36
+     ],
+     [
+      26,
+      36
+     ]
+    ],
+    "color": "#26a69a"
+   },
+   {
+    "id": "Z_BORE",
+    "name": "보링/가공",
+    "type": "process",
+    "polygon": [
+     [
+      40,
+      18
+     ],
+     [
+      52,
+      18
+     ],
+     [
+      52,
+      36
+     ],
+     [
+      40,
+      36
+     ]
+    ],
+    "color": "#7e57c2"
+   },
+   {
+    "id": "Z_FIN",
+    "name": "도장/건조",
+    "type": "process",
+    "polygon": [
+     [
+      52,
+      18
+     ],
+     [
+      60,
+      18
+     ],
+     [
+      60,
+      36
+     ],
+     [
+      52,
+      36
+     ]
+    ],
+    "color": "#ef5350"
+   },
+   {
+    "id": "Z_OFFICE",
+    "name": "사무실",
+    "type": "office",
+    "polygon": [
+     [
+      12,
+      0
+     ],
+     [
+      24,
+      0
+     ],
+     [
+      24,
+      8
+     ],
+     [
+      12,
+      8
+     ]
+    ],
+    "color": "#90a4ae"
+   },
+   {
+    "id": "Z_HW",
+    "name": "부자재/하드웨어",
+    "type": "storage",
+    "polygon": [
+     [
+      12,
+      8
+     ],
+     [
+      24,
+      8
+     ],
+     [
+      24,
+      16
+     ],
+     [
+      12,
+      16
+     ]
+    ],
+    "color": "#a1887f"
+   },
+   {
+    "id": "Z_ASM",
+    "name": "조립",
+    "type": "assembly",
+    "polygon": [
+     [
+      26,
+      0
+     ],
+     [
+      46,
+      0
+     ],
+     [
+      46,
+      16
+     ],
+     [
+      26,
+      16
+     ]
+    ],
+    "color": "#ffa726"
+   },
+   {
+    "id": "Z_PACK",
+    "name": "포장",
+    "type": "process",
+    "polygon": [
+     [
+      46,
+      0
+     ],
+     [
+      54,
+      0
+     ],
+     [
+      54,
+      16
+     ],
+     [
+      46,
+      16
+     ]
+    ],
+    "color": "#66bb6a"
+   },
+   {
+    "id": "Z_FG",
+    "name": "완제품/출하",
+    "type": "shipping",
+    "polygon": [
+     [
+      54,
+      0
+     ],
+     [
+      60,
+      0
+     ],
+     [
+      60,
+      16
+     ],
+     [
+      54,
+      16
+     ]
+    ],
+    "color": "#42a5f5"
+   },
+   {
+    "id": "Z_AISLE",
+    "name": "주통로",
+    "type": "aisle",
+    "polygon": [
+     [
+      12,
+      16
+     ],
+     [
+      60,
+      16
+     ],
+     [
+      60,
+      18
+     ],
+     [
+      12,
+      18
+     ]
+    ],
+    "color": "#e0e0e0"
+   }
+  ],
+  "obstacles": [
+   [
+    25.5,
+    17.5,
+    0.6,
+    0.6
+   ],
+   [
+    39.5,
+    17.5,
+    0.6,
+    0.6
+   ],
+   [
+    24.5,
+    1.5,
+    0.6,
+    0.6
+   ],
+   [
+    44.5,
+    1.5,
+    0.6,
+    0.6
+   ]
+  ]
+ },
+ "stations": [
+  {
+   "id": "RAW",
+   "name": "원자재 적치장",
+   "process": "raw",
+   "zone": "Z_RAW",
+   "pos": [
+    6,
+    20
+   ],
+   "size": [
+    8,
+    20,
+    1.2
+   ],
+   "rotation_deg": 0,
+   "capacity": 99,
+   "workers_required": 0,
+   "rated_kw": 0,
+   "load_factor": 0.6,
+   "idle_kw": 0,
+   "mtbf_min": 0,
+   "mttr_min": 0,
+   "setup_min": 0,
+   "buffer_batches": 99,
+   "scrap_rate": 0.0,
+   "in_pos": [
+    10.5,
+    17
+   ],
+   "out_pos": [
+    10.5,
+    19
+   ]
+  },
+  {
+   "id": "CUT1",
+   "name": "런닝쏘(빔쏘) 3200",
+   "process": "cut",
+   "zone": "Z_CUT",
+   "pos": [
+    17,
+    30
+   ],
+   "size": [
+    6.5,
+    4.5,
+    2.2
+   ],
+   "rotation_deg": 0,
+   "capacity": 1,
+   "workers_required": 2,
+   "rated_kw": 18.5,
+   "load_factor": 0.55,
+   "idle_kw": 1.5,
+   "mtbf_min": 600,
+   "mttr_min": 25,
+   "setup_min": 3,
+   "buffer_batches": 4,
+   "scrap_rate": 0.01,
+   "maker": "(국산)",
+   "model": "런닝쏘 3.2m",
+   "year": 2012,
+   "cycle": {
+    "base_min": 0.12,
+    "per_unit": {
+     "board": 2.6
+    },
+    "cv": 0.25
+   },
+   "ancillary": [
+    "DC1"
+   ],
+   "in_pos": [
+    13.5,
+    25.5
+   ],
+   "out_pos": [
+    21.5,
+    25.5
+   ]
+  },
+  {
+   "id": "CUT2",
+   "name": "CNC 네스팅 (2440x1220)",
+   "process": "cut",
+   "zone": "Z_CUT",
+   "pos": [
+    22,
+    22.5
+   ],
+   "size": [
+    4.5,
+    3.2,
+    2.0
+   ],
+   "rotation_deg": 0,
+   "capacity": 1,
+   "workers_required": 1,
+   "rated_kw": 13,
+   "load_factor": 0.6,
+   "idle_kw": 1.2,
+   "mtbf_min": 900,
+   "mttr_min": 40,
+   "setup_min": 6,
+   "buffer_batches": 4,
+   "scrap_rate": 0.005,
+   "maker": "(중국산)",
+   "model": "네스팅 1325",
+   "year": 2019,
+   "cycle": {
+    "base_min": 0.05,
+    "per_unit": {
+     "board": 6.0
+    },
+    "cv": 0.15
+   },
+   "ancillary": [
+    "DC1"
+   ],
+   "in_pos": [
+    18.5,
+    20.5
+   ],
+   "out_pos": [
+    25,
+    20.5
+   ]
+  },
+  {
+   "id": "EB1",
+   "name": "자동 엣지밴더 (사전밀링+코너라운딩)",
+   "process": "edge",
+   "zone": "Z_EDGE",
+   "pos": [
+    33,
+    31
+   ],
+   "size": [
+    7.0,
+    1.6,
+    1.6
+   ],
+   "rotation_deg": 0,
+   "capacity": 1,
+   "workers_required": 2,
+   "rated_kw": 15,
+   "load_factor": 0.5,
+   "idle_kw": 2.5,
+   "mtbf_min": 480,
+   "mttr_min": 30,
+   "setup_min": 8,
+   "buffer_batches": 4,
+   "scrap_rate": 0.02,
+   "maker": "(독일/이탈리아 중고)",
+   "model": "자동 EB 12m/min",
+   "year": 2016,
+   "cycle": {
+    "base_min": 0.0,
+    "per_unit": {
+     "edges_m": 0.08333333333333333,
+     "n_edges": 0.22
+    },
+    "cv": 0.2
+   },
+   "ancillary": [
+    "DC1"
+   ],
+   "in_pos": [
+    28.5,
+    29.0
+   ],
+   "out_pos": [
+    37.5,
+    29.0
+   ]
+  },
+  {
+   "id": "EB2",
+   "name": "반자동 엣지밴더",
+   "process": "edge",
+   "zone": "Z_EDGE",
+   "pos": [
+    32,
+    24
+   ],
+   "size": [
+    5.0,
+    1.5,
+    1.5
+   ],
+   "rotation_deg": 0,
+   "capacity": 1,
+   "workers_required": 1,
+   "rated_kw": 7.5,
+   "load_factor": 0.5,
+   "idle_kw": 1.0,
+   "mtbf_min": 360,
+   "mttr_min": 20,
+   "setup_min": 5,
+   "buffer_batches": 4,
+   "scrap_rate": 0.03,
+   "maker": "(국산)",
+   "model": "반자동 EB 8m/min",
+   "year": 2010,
+   "cycle": {
+    "base_min": 0.0,
+    "per_unit": {
+     "edges_m": 0.125,
+     "n_edges": 0.35
+    },
+    "cv": 0.25
+   },
+   "ancillary": [
+    "DC1"
+   ],
+   "in_pos": [
+    28.5,
+    22.0
+   ],
+   "out_pos": [
+    35.5,
+    22.0
+   ]
+  },
+  {
+   "id": "BOR1",
+   "name": "CNC 보링/가공센터",
+   "process": "bore",
+   "zone": "Z_BORE",
+   "pos": [
+    45,
+    31
+   ],
+   "size": [
+    4.0,
+    3.0,
+    2.0
+   ],
+   "rotation_deg": 0,
+   "capacity": 1,
+   "workers_required": 1,
+   "rated_kw": 11,
+   "load_factor": 0.55,
+   "idle_kw": 1.0,
+   "mtbf_min": 720,
+   "mttr_min": 35,
+   "setup_min": 4,
+   "buffer_batches": 4,
+   "scrap_rate": 0.01,
+   "maker": "(국산)",
+   "model": "CNC 보링 PTP",
+   "year": 2018,
+   "cycle": {
+    "base_min": 0.55,
+    "per_unit": {
+     "holes": 0.035
+    },
+    "cv": 0.15
+   },
+   "ancillary": [
+    "DC2"
+   ],
+   "in_pos": [
+    42,
+    28.5
+   ],
+   "out_pos": [
+    48,
+    28.5
+   ]
+  },
+  {
+   "id": "BOR2",
+   "name": "다축 보링기 (수동)",
+   "process": "bore",
+   "zone": "Z_BORE",
+   "pos": [
+    48,
+    24
+   ],
+   "size": [
+    2.5,
+    2.0,
+    1.6
+   ],
+   "rotation_deg": 0,
+   "capacity": 1,
+   "workers_required": 1,
+   "rated_kw": 4,
+   "load_factor": 0.5,
+   "idle_kw": 0.3,
+   "mtbf_min": 1200,
+   "mttr_min": 15,
+   "setup_min": 9,
+   "buffer_batches": 4,
+   "scrap_rate": 0.02,
+   "maker": "(국산)",
+   "model": "21축 보링",
+   "year": 2008,
+   "cycle": {
+    "base_min": 0.35,
+    "per_unit": {
+     "holes": 0.03
+    },
+    "cv": 0.3
+   },
+   "ancillary": [
+    "DC2"
+   ],
+   "in_pos": [
+    45.5,
+    22.0
+   ],
+   "out_pos": [
+    50.5,
+    22.0
+   ]
+  },
+  {
+   "id": "FIN1",
+   "name": "스프레이 부스",
+   "process": "finish",
+   "zone": "Z_FIN",
+   "pos": [
+    56,
+    31
+   ],
+   "size": [
+    5.0,
+    4.0,
+    2.5
+   ],
+   "rotation_deg": 0,
+   "capacity": 1,
+   "workers_required": 1,
+   "rated_kw": 7.5,
+   "load_factor": 0.7,
+   "idle_kw": 0.5,
+   "mtbf_min": 0,
+   "mttr_min": 0,
+   "setup_min": 10,
+   "buffer_batches": 4,
+   "scrap_rate": 0.04,
+   "cycle": {
+    "base_min": 1.6,
+    "per_unit": {
+     "area_m2": 0.8
+    },
+    "cv": 0.2
+   },
+   "in_pos": [
+    53,
+    28.5
+   ],
+   "out_pos": [
+    59,
+    28.5
+   ]
+  },
+  {
+   "id": "DRY1",
+   "name": "건조실 (강제건조)",
+   "process": "dry",
+   "zone": "Z_FIN",
+   "pos": [
+    56,
+    22
+   ],
+   "size": [
+    5.0,
+    5.0,
+    2.5
+   ],
+   "rotation_deg": 0,
+   "capacity": 3,
+   "workers_required": 0,
+   "rated_kw": 9,
+   "load_factor": 0.8,
+   "idle_kw": 0,
+   "mtbf_min": 0,
+   "mttr_min": 0,
+   "setup_min": 0,
+   "buffer_batches": 6,
+   "scrap_rate": 0.0,
+   "batch_time_min": 70,
+   "in_pos": [
+    53,
+    19.5
+   ],
+   "out_pos": [
+    59,
+    19.5
+   ]
+  },
+  {
+   "id": "ASM1",
+   "name": "조립 벤치 1",
+   "process": "assemble",
+   "zone": "Z_ASM",
+   "pos": [
+    29,
+    12
+   ],
+   "size": [
+    3.0,
+    1.6,
+    0.9
+   ],
+   "rotation_deg": 0,
+   "capacity": 1,
+   "workers_required": 1,
+   "rated_kw": 0.5,
+   "load_factor": 0.6,
+   "idle_kw": 0.05,
+   "mtbf_min": 0,
+   "mttr_min": 0,
+   "setup_min": 2,
+   "buffer_batches": 2,
+   "scrap_rate": 0.0,
+   "cycle": {
+    "base_min": 0,
+    "per_product": {
+     "P_DESK": 16,
+     "P_BOOK": 24,
+     "P_CAB": 13,
+     "P_WARD": 42
+    },
+    "cv": 0.2
+   },
+   "in_pos": [
+    26.5,
+    13.8
+   ],
+   "out_pos": [
+    31.5,
+    13.8
+   ]
+  },
+  {
+   "id": "ASM2",
+   "name": "조립 벤치 2",
+   "process": "assemble",
+   "zone": "Z_ASM",
+   "pos": [
+    35,
+    12
+   ],
+   "size": [
+    3.0,
+    1.6,
+    0.9
+   ],
+   "rotation_deg": 0,
+   "capacity": 1,
+   "workers_required": 1,
+   "rated_kw": 0.5,
+   "load_factor": 0.6,
+   "idle_kw": 0.05,
+   "mtbf_min": 0,
+   "mttr_min": 0,
+   "setup_min": 2,
+   "buffer_batches": 2,
+   "scrap_rate": 0.0,
+   "cycle": {
+    "base_min": 0,
+    "per_product": {
+     "P_DESK": 16,
+     "P_BOOK": 24,
+     "P_CAB": 13,
+     "P_WARD": 42
+    },
+    "cv": 0.2
+   },
+   "in_pos": [
+    32.5,
+    13.8
+   ],
+   "out_pos": [
+    37.5,
+    13.8
+   ]
+  },
+  {
+   "id": "ASM3",
+   "name": "조립 벤치 3",
+   "process": "assemble",
+   "zone": "Z_ASM",
+   "pos": [
+    41,
+    12
+   ],
+   "size": [
+    3.0,
+    1.6,
+    0.9
+   ],
+   "rotation_deg": 0,
+   "capacity": 1,
+   "workers_required": 1,
+   "rated_kw": 0.5,
+   "load_factor": 0.6,
+   "idle_kw": 0.05,
+   "mtbf_min": 0,
+   "mttr_min": 0,
+   "setup_min": 2,
+   "buffer_batches": 2,
+   "scrap_rate": 0.0,
+   "cycle": {
+    "base_min": 0,
+    "per_product": {
+     "P_DESK": 16,
+     "P_BOOK": 24,
+     "P_CAB": 13,
+     "P_WARD": 42
+    },
+    "cv": 0.2
+   },
+   "in_pos": [
+    38.5,
+    13.8
+   ],
+   "out_pos": [
+    43.5,
+    13.8
+   ]
+  },
+  {
+   "id": "ASM4",
+   "name": "조립 벤치 4",
+   "process": "assemble",
+   "zone": "Z_ASM",
+   "pos": [
+    29,
+    5
+   ],
+   "size": [
+    3.0,
+    1.6,
+    0.9
+   ],
+   "rotation_deg": 0,
+   "capacity": 1,
+   "workers_required": 1,
+   "rated_kw": 0.5,
+   "load_factor": 0.6,
+   "idle_kw": 0.05,
+   "mtbf_min": 0,
+   "mttr_min": 0,
+   "setup_min": 2,
+   "buffer_batches": 2,
+   "scrap_rate": 0.0,
+   "cycle": {
+    "base_min": 0,
+    "per_product": {
+     "P_DESK": 16,
+     "P_BOOK": 24,
+     "P_CAB": 13,
+     "P_WARD": 42
+    },
+    "cv": 0.2
+   },
+   "in_pos": [
+    26.5,
+    6.8
+   ],
+   "out_pos": [
+    31.5,
+    6.8
+   ]
+  },
+  {
+   "id": "ASM5",
+   "name": "조립 벤치 5",
+   "process": "assemble",
+   "zone": "Z_ASM",
+   "pos": [
+    35,
+    5
+   ],
+   "size": [
+    3.0,
+    1.6,
+    0.9
+   ],
+   "rotation_deg": 0,
+   "capacity": 1,
+   "workers_required": 1,
+   "rated_kw": 0.5,
+   "load_factor": 0.6,
+   "idle_kw": 0.05,
+   "mtbf_min": 0,
+   "mttr_min": 0,
+   "setup_min": 2,
+   "buffer_batches": 2,
+   "scrap_rate": 0.0,
+   "cycle": {
+    "base_min": 0,
+    "per_product": {
+     "P_DESK": 16,
+     "P_BOOK": 24,
+     "P_CAB": 13,
+     "P_WARD": 42
+    },
+    "cv": 0.2
+   },
+   "in_pos": [
+    32.5,
+    6.8
+   ],
+   "out_pos": [
+    37.5,
+    6.8
+   ]
+  },
+  {
+   "id": "ASM6",
+   "name": "조립 벤치 6",
+   "process": "assemble",
+   "zone": "Z_ASM",
+   "pos": [
+    41,
+    5
+   ],
+   "size": [
+    3.0,
+    1.6,
+    0.9
+   ],
+   "rotation_deg": 0,
+   "capacity": 1,
+   "workers_required": 1,
+   "rated_kw": 0.5,
+   "load_factor": 0.6,
+   "idle_kw": 0.05,
+   "mtbf_min": 0,
+   "mttr_min": 0,
+   "setup_min": 2,
+   "buffer_batches": 2,
+   "scrap_rate": 0.0,
+   "cycle": {
+    "base_min": 0,
+    "per_product": {
+     "P_DESK": 16,
+     "P_BOOK": 24,
+     "P_CAB": 13,
+     "P_WARD": 42
+    },
+    "cv": 0.2
+   },
+   "in_pos": [
+    38.5,
+    6.8
+   ],
+   "out_pos": [
+    43.5,
+    6.8
+   ]
+  },
+  {
+   "id": "PACK1",
+   "name": "포장대 1",
+   "process": "pack",
+   "zone": "Z_PACK",
+   "pos": [
+    50,
+    12
+   ],
+   "size": [
+    3.0,
+    1.5,
+    0.9
+   ],
+   "rotation_deg": 0,
+   "capacity": 1,
+   "workers_required": 1,
+   "rated_kw": 0.3,
+   "load_factor": 0.6,
+   "idle_kw": 0.05,
+   "mtbf_min": 0,
+   "mttr_min": 0,
+   "setup_min": 0,
+   "buffer_batches": 3,
+   "scrap_rate": 0.0,
+   "cycle": {
+    "base_min": 0,
+    "per_product": {
+     "P_DESK": 5,
+     "P_BOOK": 7,
+     "P_CAB": 4,
+     "P_WARD": 9
+    },
+    "cv": 0.2
+   },
+   "in_pos": [
+    47.5,
+    13.8
+   ],
+   "out_pos": [
+    52.5,
+    13.8
+   ]
+  },
+  {
+   "id": "PACK2",
+   "name": "포장대 2",
+   "process": "pack",
+   "zone": "Z_PACK",
+   "pos": [
+    50,
+    5
+   ],
+   "size": [
+    3.0,
+    1.5,
+    0.9
+   ],
+   "rotation_deg": 0,
+   "capacity": 1,
+   "workers_required": 1,
+   "rated_kw": 0.3,
+   "load_factor": 0.6,
+   "idle_kw": 0.05,
+   "mtbf_min": 0,
+   "mttr_min": 0,
+   "setup_min": 0,
+   "buffer_batches": 3,
+   "scrap_rate": 0.0,
+   "cycle": {
+    "base_min": 0,
+    "per_product": {
+     "P_DESK": 5,
+     "P_BOOK": 7,
+     "P_CAB": 4,
+     "P_WARD": 9
+    },
+    "cv": 0.2
+   },
+   "in_pos": [
+    47.5,
+    6.8
+   ],
+   "out_pos": [
+    52.5,
+    6.8
+   ]
+  },
+  {
+   "id": "FG",
+   "name": "완제품 적치/출하",
+   "process": "fg",
+   "zone": "Z_FG",
+   "pos": [
+    57,
+    8
+   ],
+   "size": [
+    5,
+    14,
+    1.5
+   ],
+   "rotation_deg": 0,
+   "capacity": 99,
+   "workers_required": 0,
+   "rated_kw": 0,
+   "load_factor": 0.6,
+   "idle_kw": 0,
+   "mtbf_min": 0,
+   "mttr_min": 0,
+   "setup_min": 0,
+   "buffer_batches": 99,
+   "scrap_rate": 0.0,
+   "in_pos": [
+    55.5,
+    16.8
+   ],
+   "out_pos": [
+    55.5,
+    16.8
+   ]
+  }
+ ],
+ "ancillary": [
+  {
+   "id": "DC1",
+   "name": "집진기 #1 (재단/엣지)",
+   "pos": [
+    20,
+    35
+   ],
+   "size": [
+    2,
+    1.5,
+    4
+   ],
+   "rated_kw": 22,
+   "mode": "when_any_on",
+   "load_factor": 0.85
+  },
+  {
+   "id": "DC2",
+   "name": "집진기 #2 (보링/샌딩)",
+   "pos": [
+    46,
+    35
+   ],
+   "size": [
+    2,
+    1.5,
+    4
+   ],
+   "rated_kw": 15,
+   "mode": "when_any_on",
+   "load_factor": 0.85
+  },
+  {
+   "id": "COMP1",
+   "name": "컴프레서 (스크류 22kW)",
+   "pos": [
+    58,
+    35
+   ],
+   "size": [
+    1.5,
+    1,
+    1.5
+   ],
+   "rated_kw": 22,
+   "mode": "shift",
+   "load_factor": 0.6
+  }
+ ],
+ "transport": {
+  "handlers": 2,
+  "handler_speed_mps": 1.2,
+  "cart_capacity_parts": 30,
+  "forklifts": 1,
+  "forklift_speed_mps": 2.0,
+  "load_unload_min": 1.5,
+  "forklift_processes": [
+   "raw",
+   "fg"
+  ]
+ },
+ "workers": [
+  {
+   "id": "W01",
+   "name": "재단 반장",
+   "role": "cut",
+   "skills": [
+    "cut"
+   ],
+   "station": "CUT1",
+   "monthly_wage_krw": 3900000
+  },
+  {
+   "id": "W02",
+   "name": "재단 보조",
+   "role": "cut",
+   "skills": [
+    "cut"
+   ],
+   "station": "CUT1",
+   "monthly_wage_krw": 2900000
+  },
+  {
+   "id": "W03",
+   "name": "CNC 재단",
+   "role": "cut",
+   "skills": [
+    "cut"
+   ],
+   "station": "CUT2",
+   "monthly_wage_krw": 3300000
+  },
+  {
+   "id": "W04",
+   "name": "엣지 반장",
+   "role": "edge",
+   "skills": [
+    "edge"
+   ],
+   "station": "EB1",
+   "monthly_wage_krw": 3700000
+  },
+  {
+   "id": "W05",
+   "name": "엣지 보조",
+   "role": "edge",
+   "skills": [
+    "edge"
+   ],
+   "station": "EB1",
+   "monthly_wage_krw": 2700000
+  },
+  {
+   "id": "W06",
+   "name": "엣지(반자동)",
+   "role": "edge",
+   "skills": [
+    "edge"
+   ],
+   "station": "EB2",
+   "monthly_wage_krw": 2800000
+  },
+  {
+   "id": "W07",
+   "name": "CNC 보링",
+   "role": "bore",
+   "skills": [
+    "bore"
+   ],
+   "station": "BOR1",
+   "monthly_wage_krw": 3300000
+  },
+  {
+   "id": "W08",
+   "name": "다축 보링",
+   "role": "bore",
+   "skills": [
+    "bore"
+   ],
+   "station": "BOR2",
+   "monthly_wage_krw": 2800000
+  },
+  {
+   "id": "W09",
+   "name": "도장",
+   "role": "finish",
+   "skills": [
+    "finish"
+   ],
+   "station": "FIN1",
+   "monthly_wage_krw": 3400000
+  },
+  {
+   "id": "W10",
+   "name": "조립",
+   "role": "assemble",
+   "skills": [
+    "assemble"
+   ],
+   "station": "ASM1",
+   "monthly_wage_krw": 3000000
+  },
+  {
+   "id": "W11",
+   "name": "조립",
+   "role": "assemble",
+   "skills": [
+    "assemble"
+   ],
+   "station": "ASM2",
+   "monthly_wage_krw": 3000000
+  },
+  {
+   "id": "W12",
+   "name": "조립",
+   "role": "assemble",
+   "skills": [
+    "assemble"
+   ],
+   "station": "ASM3",
+   "monthly_wage_krw": 2800000
+  },
+  {
+   "id": "W13",
+   "name": "조립",
+   "role": "assemble",
+   "skills": [
+    "assemble"
+   ],
+   "station": "ASM4",
+   "monthly_wage_krw": 2800000
+  },
+  {
+   "id": "W14",
+   "name": "조립(E-9)",
+   "role": "assemble",
+   "skills": [
+    "assemble"
+   ],
+   "station": "ASM5",
+   "monthly_wage_krw": 2600000
+  },
+  {
+   "id": "W15",
+   "name": "조립(E-9)",
+   "role": "assemble",
+   "skills": [
+    "assemble"
+   ],
+   "station": "ASM6",
+   "monthly_wage_krw": 2600000
+  },
+  {
+   "id": "W16",
+   "name": "포장",
+   "role": "pack",
+   "skills": [
+    "pack"
+   ],
+   "station": "PACK1",
+   "monthly_wage_krw": 2700000
+  },
+  {
+   "id": "W17",
+   "name": "포장(E-9)",
+   "role": "pack",
+   "skills": [
+    "pack"
+   ],
+   "station": "PACK2",
+   "monthly_wage_krw": 2600000
+  },
+  {
+   "id": "H01",
+   "name": "운반(대차)",
+   "role": "handler",
+   "skills": [
+    "handler"
+   ],
+   "station": null,
+   "monthly_wage_krw": 2700000
+  },
+  {
+   "id": "H02",
+   "name": "운반(대차)",
+   "role": "handler",
+   "skills": [
+    "handler"
+   ],
+   "station": null,
+   "monthly_wage_krw": 2700000
+  },
+  {
+   "id": "F01",
+   "name": "지게차",
+   "role": "forklift",
+   "skills": [
+    "forklift"
+   ],
+   "station": null,
+   "monthly_wage_krw": 3100000
+  }
+ ],
+ "products": [
+  {
+   "id": "P_DESK",
+   "name": "사무용 책상 1400",
+   "routing": [
+    "cut",
+    "edge",
+    "bore",
+    "assemble",
+    "pack"
+   ],
+   "parts": [
+    {
+     "id": "상판",
+     "qty": 1,
+     "w": 1.4,
+     "d": 0.7,
+     "t": 0.018,
+     "n_edges": 4,
+     "holes": 8,
+     "finish": false,
+     "material": "PB 18T LPM"
+    },
+    {
+     "id": "측판",
+     "qty": 2,
+     "w": 0.72,
+     "d": 0.7,
+     "t": 0.018,
+     "n_edges": 3,
+     "holes": 10,
+     "finish": false,
+     "material": "PB 18T LPM"
+    },
+    {
+     "id": "가림판",
+     "qty": 1,
+     "w": 1.3,
+     "d": 0.4,
+     "t": 0.018,
+     "n_edges": 2,
+     "holes": 6,
+     "finish": false,
+     "material": "PB 18T LPM"
+    },
+    {
+     "id": "서랍판",
+     "qty": 4,
+     "w": 0.4,
+     "d": 0.15,
+     "t": 0.015,
+     "n_edges": 2,
+     "holes": 4,
+     "finish": false,
+     "material": "PB 18T LPM"
+    }
+   ],
+   "price_krw": 180000
+  },
+  {
+   "id": "P_BOOK",
+   "name": "5단 책장 800x1800",
+   "routing": [
+    "cut",
+    "edge",
+    "bore",
+    "assemble",
+    "pack"
+   ],
+   "parts": [
+    {
+     "id": "측판",
+     "qty": 2,
+     "w": 1.8,
+     "d": 0.3,
+     "t": 0.018,
+     "n_edges": 3,
+     "holes": 14,
+     "finish": false,
+     "material": "PB 18T LPM"
+    },
+    {
+     "id": "상하판",
+     "qty": 2,
+     "w": 0.76,
+     "d": 0.3,
+     "t": 0.018,
+     "n_edges": 2,
+     "holes": 6,
+     "finish": false,
+     "material": "PB 18T LPM"
+    },
+    {
+     "id": "선반",
+     "qty": 4,
+     "w": 0.76,
+     "d": 0.28,
+     "t": 0.018,
+     "n_edges": 1,
+     "holes": 4,
+     "finish": false,
+     "material": "PB 18T LPM"
+    },
+    {
+     "id": "뒷판",
+     "qty": 1,
+     "w": 0.8,
+     "d": 1.8,
+     "t": 0.005,
+     "n_edges": 0,
+     "holes": 0,
+     "finish": false,
+     "material": "PB 18T LPM"
+    }
+   ],
+   "price_krw": 120000
+  },
+  {
+   "id": "P_CAB",
+   "name": "상부수납장 600 (도어 도장)",
+   "routing": [
+    "cut",
+    "edge",
+    "bore",
+    "finish",
+    "dry",
+    "assemble",
+    "pack"
+   ],
+   "parts": [
+    {
+     "id": "측판",
+     "qty": 2,
+     "w": 0.7,
+     "d": 0.35,
+     "t": 0.018,
+     "n_edges": 2,
+     "holes": 10,
+     "finish": false,
+     "material": "PB 18T LPM"
+    },
+    {
+     "id": "상하판",
+     "qty": 2,
+     "w": 0.56,
+     "d": 0.35,
+     "t": 0.018,
+     "n_edges": 1,
+     "holes": 6,
+     "finish": false,
+     "material": "PB 18T LPM"
+    },
+    {
+     "id": "도어",
+     "qty": 1,
+     "w": 0.6,
+     "d": 0.7,
+     "t": 0.018,
+     "n_edges": 4,
+     "holes": 6,
+     "finish": true,
+     "material": "PB 18T LPM"
+    },
+    {
+     "id": "뒷판",
+     "qty": 1,
+     "w": 0.6,
+     "d": 0.7,
+     "t": 0.005,
+     "n_edges": 0,
+     "holes": 0,
+     "finish": false,
+     "material": "PB 18T LPM"
+    }
+   ],
+   "price_krw": 95000
+  },
+  {
+   "id": "P_WARD",
+   "name": "붙박이장 모듈 1200x2400",
+   "routing": [
+    "cut",
+    "edge",
+    "bore",
+    "finish",
+    "dry",
+    "assemble",
+    "pack"
+   ],
+   "parts": [
+    {
+     "id": "측판",
+     "qty": 2,
+     "w": 2.4,
+     "d": 0.6,
+     "t": 0.018,
+     "n_edges": 3,
+     "holes": 24,
+     "finish": false,
+     "material": "PB 18T LPM"
+    },
+    {
+     "id": "상하판",
+     "qty": 2,
+     "w": 1.16,
+     "d": 0.6,
+     "t": 0.018,
+     "n_edges": 2,
+     "holes": 8,
+     "finish": false,
+     "material": "PB 18T LPM"
+    },
+    {
+     "id": "선반",
+     "qty": 3,
+     "w": 1.16,
+     "d": 0.55,
+     "t": 0.018,
+     "n_edges": 1,
+     "holes": 4,
+     "finish": false,
+     "material": "PB 18T LPM"
+    },
+    {
+     "id": "도어",
+     "qty": 2,
+     "w": 0.6,
+     "d": 2.35,
+     "t": 0.018,
+     "n_edges": 4,
+     "holes": 10,
+     "finish": true,
+     "material": "PB 18T LPM"
+    },
+    {
+     "id": "뒷판",
+     "qty": 1,
+     "w": 1.2,
+     "d": 2.4,
+     "t": 0.005,
+     "n_edges": 0,
+     "holes": 0,
+     "finish": false,
+     "material": "PB 18T LPM"
+    }
+   ],
+   "price_krw": 520000
+  }
+ ],
+ "orders": {
+  "mode": "generate",
+  "horizon_days": 5,
+  "orders_per_day": 13,
+  "release": "spread",
+  "batch_size": {
+   "P_DESK": 10,
+   "P_BOOK": 6,
+   "P_CAB": 12,
+   "P_WARD": 4
+  },
+  "mix": {
+   "P_DESK": 0.35,
+   "P_BOOK": 0.25,
+   "P_CAB": 0.25,
+   "P_WARD": 0.15
+  }
+ }
+}

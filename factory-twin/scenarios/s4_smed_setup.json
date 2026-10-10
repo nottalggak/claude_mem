@@ -1,0 +1,9 @@
+{
+  "id": "s4_smed",
+  "name": "S4. SMED(준비교체 단축): 엣지밴더/보링 셋업 50% 단축 + 다축보링 치구 개선",
+  "hypothesis": "투자 없이 셋업 표준화만으로 가동률 회복 가능한지",
+  "capex_krw": 3000000,
+  "stations": {
+    "EB1": {"setup_min": 4}, "EB2": {"setup_min": 2.5}, "BOR1": {"setup_min": 2}, "BOR2": {"setup_min": 4}, "CUT2": {"setup_min": 3}, "CUT1": {"setup_min": 1.5}
+  }
+}

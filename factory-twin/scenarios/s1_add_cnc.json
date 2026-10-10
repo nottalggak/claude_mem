@@ -1,0 +1,13 @@
+{
+  "id": "s1_add_cnc",
+  "name": "S1. CNC 네스팅 1대 추가 (재단 병목 해소)",
+  "hypothesis": "재단(CUT2) 가동률이 가장 높고 대기열이 길다 → 네스팅기 1대 증설 시 리드타임/처리량 변화",
+  "capex_krw": 85000000,
+  "add_stations": [
+    {"id": "CUT3", "name": "CNC 네스팅 #2 (신규)", "process": "cut", "zone": "Z_CUT", "pos": [16, 22.5], "size": [4.5, 3.2, 2.0],
+     "rotation_deg": 0, "capacity": 1, "workers_required": 1, "rated_kw": 13, "load_factor": 0.6, "idle_kw": 1.2,
+     "mtbf_min": 1500, "mttr_min": 30, "setup_min": 6, "buffer_batches": 4, "scrap_rate": 0.005,
+     "cycle": {"base_min": 0.05, "per_unit": {"board": 5.5}, "cv": 0.15}, "ancillary": ["DC1"],
+     "in_pos": [12.5, 20.5], "out_pos": [19, 20.5]}
+  ]
+}
