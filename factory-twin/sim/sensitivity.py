@@ -11,7 +11,7 @@ def run(f, seeds):
     tp, lt, bn = [], [], []
     for sd in seeds:
         k = Sim(f, seed=sd).run()
-        tp.append(k["throughput_products_per_day"]); lt.append(k["lead_time_work_min_avg"]); bn.append(k["bottleneck_ranking"][0]["station"])
+        tp.append(k["throughput_steady_per_day"]); lt.append(k["lead_time_work_min_avg"]); bn.append(k["bottleneck_ranking"][0]["station"])
     return statistics.mean(tp), statistics.mean(lt), max(set(bn), key=bn.count)
 
 

@@ -1,0 +1,13 @@
+{
+  "id": "s6_color_batching",
+  "name": "S6. 재단 배치 키를 현장→색상×두께로 (60분 창에 같은 색 주문 합쳐 재단)",
+  "hypothesis": "원장 교체 셋업이 줄어 재단 가동률은 오르지만, 묶음 대기와 분류 시간이 리드타임에 더해진다. 어느 쪽이 큰가",
+  "capex_krw": 0,
+  "orders": {
+    "batching": {
+      "cut_key": "color_thickness",
+      "cut_window_min": 60,
+      "sort_min_per_part": 0.1
+    }
+  }
+}

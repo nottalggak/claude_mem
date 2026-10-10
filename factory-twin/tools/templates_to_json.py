@@ -85,6 +85,21 @@ def main(xlsx, out):
             if st["process"] == "assemble" and num(r.get("조립 시간(분/제품)")): st.setdefault("cycle", {"base_min": 0, "per_unit": {}, "cv": 0.2}).setdefault("per_product", {})[pid] = num(r.get("조립 시간(분/제품)"))
             if st["process"] == "pack" and num(r.get("포장 시간(분/제품)")): st.setdefault("cycle", {"base_min": 0, "per_unit": {}, "cv": 0.2}).setdefault("per_product", {})[pid] = num(r.get("포장 시간(분/제품)"))
     f["products"] = list(prods.values())
+    # 외주 병렬 경로 (시트 20)
+    f["outsourced"] = []
+    if "20_외주경로" in wb.sheetnames:
+        for r in rows(wb["20_외주경로"]):
+            oa = str(r.get("발주 시점(어느 공정 후·시공일 D-n)") or "order")
+            order_at = "order" if ("주문" in oa or oa == "order") else ("release" if "투입" in oa else (f"after:{oa.split('후')[0].strip()}" if "후" in oa else "order"))
+            f["outsourced"].append({"id": "OUT_" + str(r["외주 품목(도어/상판/철재/유리/도장)"]), "name": str(r["외주 품목(도어/상판/철재/유리/도장)"]) + " 외주 (" + str(r.get("외주처") or "") + ")",
+                                    "products": [], "order_at": order_at,
+                                    "lead_days": {"min": num(r.get("리드타임 min(일)"), 3), "mode": num(r.get("mode"), 5), "max": num(r.get("max"), 9)},
+                                    "join_process": {"조립": "assemble", "포장": "pack", "시공현장": "install"}.get(str(r.get("합류 지점(조립/포장/시공현장)") or "조립"), "assemble"),
+                                    "delay_prob": min(1.0, num(r.get("지연 빈도(회/월)"), 0) / max(1, num(r.get("월 건수"), 1))), "delay_days": 2})
+            assumptions.append(f"외주 {f['outsourced'][-1]['id']}: 적용 제품(products) 비어 있음 → 도장/도어 포함 제품 ID를 수동 지정")
+    f["orders"]["release"] = "install_date"; f["orders"]["install_lead_days"] = {"min": 5, "mode": 8, "max": 12, "start_before_days": 2}
+    f["orders"]["batching"] = {"cut_key": "order", "cut_window_min": 60, "sort_min_per_part": 0.1}
+    assumptions.append("투입 규칙(시공일 역산 D-2)·배치 키(현장)는 기본값 → 시트 16 의사결정규칙으로 교체")
     tot = sum(f["orders"]["mix"].values()) or 1
     f["orders"]["mix"] = {k: round(v / tot, 3) for k, v in f["orders"]["mix"].items()}
     f["assumptions"] = assumptions

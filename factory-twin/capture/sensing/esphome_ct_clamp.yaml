@@ -1,0 +1,40 @@
+# 기계별 전류 센서 노드 (ESP32 + SCT-013-030 1V 출력형 + 1.65V 바이어스)
+# 3상 모터는 1상만 클램프. 상태 판별에는 전력이 아니라 전류만 있으면 된다.
+# 보정: 설치 당일 클램프미터로 공회전/가공 전류를 재서 calibrate_linear 를 채운다.
+esphome:
+  name: ct-edgebander-1
+esp32:
+  board: esp32dev
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+time:
+  - platform: sntp
+    servers: ["192.168.0.10"]   # Raspberry Pi (chrony NTP 서버)
+mqtt:
+  broker: 192.168.0.10
+  topic_prefix: kr/factory/sense
+sensor:
+  - platform: adc
+    pin: GPIO34
+    id: adc_ct
+    attenuation: 12db
+  - platform: ct_clamp
+    sensor: adc_ct
+    name: "EB1_current"
+    sample_duration: 200ms
+    update_interval: 1s
+    filters:
+      - calibrate_linear:
+          - 0.0 -> 0.0
+          - 0.0128 -> 9.3      # 원시값 -> 암페어 (현장 클램프미터로 교체)
+# 광전 센서(엣지밴더 투입구 부품 카운트) 노드 예
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO27
+      mode: INPUT_PULLUP
+    name: "EB1_infeed_beam"
+    filters:
+      - delayed_on: 30ms
+      - delayed_off: 30ms

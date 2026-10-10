@@ -51,9 +51,15 @@ factory = {
         "forklift_processes": ["raw", "fg"]
     },
     "workers": [],
+    "outsourced": [
+        {"id": "OUT_DOOR", "name": "PET 도어 외주", "products": ["P_CAB", "P_WARD"], "order_at": "order",
+         "lead_days": {"min": 3, "mode": 5, "max": 9}, "join_process": "assemble", "delay_prob": 0.15, "delay_days": 2}
+    ],
     "products": [],
     "orders": {
-        "mode": "generate", "horizon_days": 5, "orders_per_day": 13, "release": "spread",
+        "mode": "generate", "horizon_days": 15, "orders_per_day": 13, "release": "install_date",
+        "install_lead_days": {"min": 5, "mode": 8, "max": 12, "start_before_days": 2},
+        "batching": {"cut_key": "order", "cut_window_min": 60, "sort_min_per_part": 0.1},
         "batch_size": {"P_DESK": 10, "P_BOOK": 6, "P_CAB": 12, "P_WARD": 4},
         "mix": {"P_DESK": 0.35, "P_BOOK": 0.25, "P_CAB": 0.25, "P_WARD": 0.15}
     }
@@ -143,16 +149,16 @@ def part(id, qty, w, d, n_edges, holes, finish=False, t=0.018):
 factory["products"] = [
     {"id": "P_DESK", "name": "사무용 책상 1400", "routing": ["cut", "edge", "bore", "assemble", "pack"],
      "parts": [part("상판", 1, 1.4, 0.7, 4, 8), part("측판", 2, 0.72, 0.7, 3, 10), part("가림판", 1, 1.3, 0.4, 2, 6), part("서랍판", 4, 0.4, 0.15, 2, 4, t=0.015)],
-     "price_krw": 180000},
+     "price_krw": 180000, "color": "화이트", "thickness": 18},
     {"id": "P_BOOK", "name": "5단 책장 800x1800", "routing": ["cut", "edge", "bore", "assemble", "pack"],
      "parts": [part("측판", 2, 1.8, 0.3, 3, 14), part("상하판", 2, 0.76, 0.3, 2, 6), part("선반", 4, 0.76, 0.28, 1, 4), part("뒷판", 1, 0.8, 1.8, 0, 0, t=0.005)],
-     "price_krw": 120000},
+     "price_krw": 120000, "color": "오크", "thickness": 18},
     {"id": "P_CAB", "name": "상부수납장 600 (도어 도장)", "routing": ["cut", "edge", "bore", "finish", "dry", "assemble", "pack"],
      "parts": [part("측판", 2, 0.7, 0.35, 2, 10), part("상하판", 2, 0.56, 0.35, 1, 6), part("도어", 1, 0.6, 0.7, 4, 6, finish=True), part("뒷판", 1, 0.6, 0.7, 0, 0, t=0.005)],
-     "price_krw": 95000},
+     "price_krw": 95000, "color": "화이트", "thickness": 18},
     {"id": "P_WARD", "name": "붙박이장 모듈 1200x2400", "routing": ["cut", "edge", "bore", "finish", "dry", "assemble", "pack"],
      "parts": [part("측판", 2, 2.4, 0.6, 3, 24), part("상하판", 2, 1.16, 0.6, 2, 8), part("선반", 3, 1.16, 0.55, 1, 4), part("도어", 2, 0.6, 2.35, 4, 10, finish=True), part("뒷판", 1, 1.2, 2.4, 0, 0, t=0.005)],
-     "price_krw": 520000},
+     "price_krw": 520000, "color": "그레이", "thickness": 18},
 ]
 
 out = pathlib.Path(__file__).with_name("sample_factory.json")

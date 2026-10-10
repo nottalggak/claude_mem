@@ -1,209 +1,690 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.com/factory-twin/factory.schema.json",
-  "title": "Factory Digital Twin model (가구 공장 디지털 트윈 데이터 모델)",
-  "description": "현장에서 수집한 모든 데이터를 하나의 JSON으로 표현한다. 단위: 길이 m, 시간 min, 전력 kW. 좌표계: 공장 바닥 좌하단 원점, x 오른쪽, y 위쪽(평면도 기준). 3D 뷰어는 y를 z(깊이)로 사용한다.",
-  "type": "object",
-  "required": ["meta", "site", "stations", "transport", "workers", "products", "orders"],
-  "properties": {
-    "meta": {
-      "type": "object",
-      "required": ["name", "shift"],
-      "properties": {
-        "name": {"type": "string"},
-        "address": {"type": "string"},
-        "captured_on": {"type": "string", "description": "YYYY-MM-DD"},
-        "source": {"type": "string", "description": "sample | survey | scan"},
-        "shift": {
-          "type": "object",
-          "required": ["start", "end"],
-          "properties": {
-            "start": {"type": "string", "description": "HH:MM"},
-            "end": {"type": "string"},
-            "breaks": {"type": "array", "items": {"type": "array", "items": {"type": "string"}, "minItems": 2, "maxItems": 2}},
-            "days_per_week": {"type": "integer"}
-          }
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://example.com/factory-twin/factory.schema.json",
+ "title": "Factory Digital Twin model (가구 공장 디지털 트윈 데이터 모델)",
+ "description": "현장에서 수집한 모든 데이터를 하나의 JSON으로 표현한다. 단위: 길이 m, 시간 min, 전력 kW. 좌표계: 공장 바닥 좌하단 원점, x 오른쪽, y 위쪽(평면도 기준). 3D 뷰어는 y를 z(깊이)로 사용한다.",
+ "type": "object",
+ "required": [
+  "meta",
+  "site",
+  "stations",
+  "transport",
+  "workers",
+  "products",
+  "orders"
+ ],
+ "properties": {
+  "meta": {
+   "type": "object",
+   "required": [
+    "name",
+    "shift"
+   ],
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "address": {
+     "type": "string"
+    },
+    "captured_on": {
+     "type": "string",
+     "description": "YYYY-MM-DD"
+    },
+    "source": {
+     "type": "string",
+     "description": "sample | survey | scan"
+    },
+    "shift": {
+     "type": "object",
+     "required": [
+      "start",
+      "end"
+     ],
+     "properties": {
+      "start": {
+       "type": "string",
+       "description": "HH:MM"
+      },
+      "end": {
+       "type": "string"
+      },
+      "breaks": {
+       "type": "array",
+       "items": {
+        "type": "array",
+        "items": {
+         "type": "string"
         },
-        "energy": {
-          "type": "object",
-          "properties": {
-            "tariff_krw_per_kwh": {"type": "number", "description": "산업용 전력 평균 단가(가정). 한전 고지서로 보정"},
-            "contract_kw": {"type": "number", "description": "계약전력"},
-            "base_load_kw": {"type": "number", "description": "조명/사무실 등 상시 부하"}
-          }
-        }
+        "minItems": 2,
+        "maxItems": 2
+       }
+      },
+      "days_per_week": {
+       "type": "integer"
       }
+     }
     },
-    "site": {
-      "type": "object",
-      "required": ["width", "depth", "zones"],
-      "properties": {
-        "width": {"type": "number", "description": "x 방향 길이(m)"},
-        "depth": {"type": "number", "description": "y 방향 길이(m)"},
-        "height": {"type": "number"},
-        "grid_m": {"type": "number", "description": "경로 탐색 격자 크기(m)"},
-        "zones": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["id", "name", "polygon"],
-            "properties": {
-              "id": {"type": "string"},
-              "name": {"type": "string"},
-              "type": {"type": "string", "enum": ["storage", "process", "assembly", "office", "aisle", "shipping", "utility", "other"]},
-              "polygon": {"type": "array", "items": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2}},
-              "color": {"type": "string"}
-            }
-          }
-        },
-        "obstacles": {
-          "type": "array",
-          "description": "기둥, 벽 등 통행 불가 영역 (사각형 [x,y,w,d])",
-          "items": {"type": "array", "items": {"type": "number"}, "minItems": 4, "maxItems": 4}
-        }
+    "energy": {
+     "type": "object",
+     "properties": {
+      "tariff_krw_per_kwh": {
+       "type": "number",
+       "description": "산업용 전력 평균 단가(가정). 한전 고지서로 보정"
+      },
+      "contract_kw": {
+       "type": "number",
+       "description": "계약전력"
+      },
+      "base_load_kw": {
+       "type": "number",
+       "description": "조명/사무실 등 상시 부하"
       }
-    },
-    "stations": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["id", "name", "process", "pos", "size"],
-        "properties": {
-          "id": {"type": "string"},
-          "name": {"type": "string"},
-          "process": {"type": "string", "description": "routing 에서 참조하는 공정명 (cut, edge, bore, finish, dry, assemble, pack ...)"},
-          "zone": {"type": "string"},
-          "pos": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2, "description": "기계 중심 좌표"},
-          "size": {"type": "array", "items": {"type": "number"}, "minItems": 3, "maxItems": 3, "description": "[길이x, 깊이y, 높이z]"},
-          "rotation_deg": {"type": "number"},
-          "maker": {"type": "string"},
-          "model": {"type": "string"},
-          "year": {"type": "integer"},
-          "capacity": {"type": "integer", "description": "동시에 처리 가능한 배치 수 (기계 대수)"},
-          "workers_required": {"type": "integer"},
-          "rated_kw": {"type": "number", "description": "명판 정격 출력"},
-          "load_factor": {"type": "number", "description": "가동 시 실제 평균 부하율 (0~1). 클램프미터로 측정"},
-          "idle_kw": {"type": "number", "description": "대기 전력"},
-          "mtbf_min": {"type": "number"},
-          "mttr_min": {"type": "number"},
-          "setup_min": {"type": "number", "description": "배치(제품) 전환 시 준비시간"},
-          "cycle": {
-            "type": "object",
-            "description": "부품 1개 처리시간(분) = base + Σ per_unit[k]*part[k]. part 속성: w,d,area_m2,edges_m,holes,n_edges, qty. 제품단위 공정이면 per_product 사용",
-            "properties": {
-              "base_min": {"type": "number"},
-              "per_unit": {"type": "object", "additionalProperties": {"type": "number"}},
-              "per_product": {"type": "object", "additionalProperties": {"type": "number"}, "description": "제품ID → 분"},
-              "cv": {"type": "number", "description": "변동계수 (lognormal). 0이면 결정적"}
-            }
-          },
-          "batch_time_min": {"type": "number", "description": "배치 단위 고정 처리시간 (예: 건조실 60분)"},
-          "buffer_batches": {"type": "integer", "description": "입력 버퍼 수용 배치 수. 초과 시 상류 블로킹"},
-          "in_pos": {"type": "array", "items": {"type": "number"}},
-          "out_pos": {"type": "array", "items": {"type": "number"}},
-          "ancillary": {"type": "array", "items": {"type": "string"}, "description": "같이 돌아가는 부대설비 ID (집진기, 컴프레서)"},
-          "scrap_rate": {"type": "number"},
-          "photo": {"type": "string"},
-          "notes": {"type": "string"}
-        }
-      }
-    },
-    "ancillary": {
-      "type": "array",
-      "description": "집진기, 컴프레서, 보일러 등 부대설비",
-      "items": {
-        "type": "object",
-        "required": ["id", "name", "rated_kw", "mode"],
-        "properties": {
-          "id": {"type": "string"},
-          "name": {"type": "string"},
-          "pos": {"type": "array", "items": {"type": "number"}},
-          "size": {"type": "array", "items": {"type": "number"}},
-          "rated_kw": {"type": "number"},
-          "mode": {"type": "string", "enum": ["when_any_on", "shift", "always"], "description": "연결 기계 가동 시 / 근무시간 내내 / 24시간"},
-          "load_factor": {"type": "number"}
-        }
-      }
-    },
-    "transport": {
-      "type": "object",
-      "properties": {
-        "handlers": {"type": "integer", "description": "대차/수작업 운반 인원 수"},
-        "handler_speed_mps": {"type": "number"},
-        "cart_capacity_parts": {"type": "integer"},
-        "forklifts": {"type": "integer"},
-        "forklift_speed_mps": {"type": "number"},
-        "load_unload_min": {"type": "number"},
-        "forklift_processes": {"type": "array", "items": {"type": "string"}, "description": "지게차로 운반하는 구간 (예: raw→cut, pack→fg)"}
-      }
-    },
-    "workers": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["id", "role"],
-        "properties": {
-          "id": {"type": "string"},
-          "name": {"type": "string"},
-          "role": {"type": "string"},
-          "skills": {"type": "array", "items": {"type": "string"}},
-          "station": {"type": "string"},
-          "monthly_wage_krw": {"type": "number"},
-          "employment": {"type": "string", "description": "정규직/계약직/외국인(E-9) 등"}
-        }
-      }
-    },
-    "products": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["id", "name", "parts", "routing"],
-        "properties": {
-          "id": {"type": "string"},
-          "name": {"type": "string"},
-          "routing": {"type": "array", "items": {"type": "string"}},
-          "parts": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": ["id", "qty", "w", "d"],
-              "properties": {
-                "id": {"type": "string"},
-                "qty": {"type": "integer"},
-                "w": {"type": "number"}, "d": {"type": "number"}, "t": {"type": "number"},
-                "material": {"type": "string"},
-                "n_edges": {"type": "integer", "description": "엣지밴딩 하는 변 수"},
-                "holes": {"type": "integer"},
-                "finish": {"type": "boolean", "description": "도장 여부"}
-              }
-            }
-          },
-          "assemble_min": {"type": "number"},
-          "pack_min": {"type": "number"},
-          "price_krw": {"type": "number"}
-        }
-      }
-    },
-    "orders": {
-      "type": "object",
-      "properties": {
-        "mode": {"type": "string", "enum": ["generate", "list"]},
-        "horizon_days": {"type": "integer"},
-        "orders_per_day": {"type": "number"},
-        "batch_size": {"type": "object", "additionalProperties": {"type": "integer"}, "description": "제품ID → 1주문당 수량"},
-        "mix": {"type": "object", "additionalProperties": {"type": "number"}},
-        "release": {"type": "string", "enum": ["shift_start", "spread"], "description": "주문 투입 시점"},
-        "list": {"type": "array", "items": {"type": "object"}}
-      }
-    },
-    "observations": {
-      "type": "object",
-      "description": "현장 관측 원자료 (동선, 시간측정, 전력 측정) - 시뮬레이션 보정용",
-      "properties": {
-        "spaghetti": {"type": "array", "items": {"type": "object"}},
-        "time_studies": {"type": "array", "items": {"type": "object"}},
-        "power_readings": {"type": "array", "items": {"type": "object"}}
-      }
+     }
     }
+   }
+  },
+  "site": {
+   "type": "object",
+   "required": [
+    "width",
+    "depth",
+    "zones"
+   ],
+   "properties": {
+    "width": {
+     "type": "number",
+     "description": "x 방향 길이(m)"
+    },
+    "depth": {
+     "type": "number",
+     "description": "y 방향 길이(m)"
+    },
+    "height": {
+     "type": "number"
+    },
+    "grid_m": {
+     "type": "number",
+     "description": "경로 탐색 격자 크기(m)"
+    },
+    "zones": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "required": [
+       "id",
+       "name",
+       "polygon"
+      ],
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "name": {
+        "type": "string"
+       },
+       "type": {
+        "type": "string",
+        "enum": [
+         "storage",
+         "process",
+         "assembly",
+         "office",
+         "aisle",
+         "shipping",
+         "utility",
+         "other"
+        ]
+       },
+       "polygon": {
+        "type": "array",
+        "items": {
+         "type": "array",
+         "items": {
+          "type": "number"
+         },
+         "minItems": 2,
+         "maxItems": 2
+        }
+       },
+       "color": {
+        "type": "string"
+       }
+      }
+     }
+    },
+    "obstacles": {
+     "type": "array",
+     "description": "기둥, 벽 등 통행 불가 영역 (사각형 [x,y,w,d])",
+     "items": {
+      "type": "array",
+      "items": {
+       "type": "number"
+      },
+      "minItems": 4,
+      "maxItems": 4
+     }
+    }
+   }
+  },
+  "stations": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "name",
+     "process",
+     "pos",
+     "size"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "process": {
+      "type": "string",
+      "description": "routing 에서 참조하는 공정명 (cut, edge, bore, finish, dry, assemble, pack ...)"
+     },
+     "zone": {
+      "type": "string"
+     },
+     "pos": {
+      "type": "array",
+      "items": {
+       "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "기계 중심 좌표"
+     },
+     "size": {
+      "type": "array",
+      "items": {
+       "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "[길이x, 깊이y, 높이z]"
+     },
+     "rotation_deg": {
+      "type": "number"
+     },
+     "maker": {
+      "type": "string"
+     },
+     "model": {
+      "type": "string"
+     },
+     "year": {
+      "type": "integer"
+     },
+     "capacity": {
+      "type": "integer",
+      "description": "동시에 처리 가능한 배치 수 (기계 대수)"
+     },
+     "workers_required": {
+      "type": "integer"
+     },
+     "rated_kw": {
+      "type": "number",
+      "description": "명판 정격 출력"
+     },
+     "load_factor": {
+      "type": "number",
+      "description": "가동 시 실제 평균 부하율 (0~1). 클램프미터로 측정"
+     },
+     "idle_kw": {
+      "type": "number",
+      "description": "대기 전력"
+     },
+     "mtbf_min": {
+      "type": "number"
+     },
+     "mttr_min": {
+      "type": "number"
+     },
+     "setup_min": {
+      "type": "number",
+      "description": "배치(제품) 전환 시 준비시간"
+     },
+     "cycle": {
+      "type": "object",
+      "description": "부품 1개 처리시간(분) = base + Σ per_unit[k]*part[k]. part 속성: w,d,area_m2,edges_m,holes,n_edges, qty. 제품단위 공정이면 per_product 사용",
+      "properties": {
+       "base_min": {
+        "type": "number"
+       },
+       "per_unit": {
+        "type": "object",
+        "additionalProperties": {
+         "type": "number"
+        }
+       },
+       "per_product": {
+        "type": "object",
+        "additionalProperties": {
+         "type": "number"
+        },
+        "description": "제품ID → 분"
+       },
+       "cv": {
+        "type": "number",
+        "description": "변동계수 (lognormal). 0이면 결정적"
+       }
+      }
+     },
+     "batch_time_min": {
+      "type": "number",
+      "description": "배치 단위 고정 처리시간 (예: 건조실 60분)"
+     },
+     "buffer_batches": {
+      "type": "integer",
+      "description": "입력 버퍼 수용 배치 수. 초과 시 상류 블로킹"
+     },
+     "in_pos": {
+      "type": "array",
+      "items": {
+       "type": "number"
+      }
+     },
+     "out_pos": {
+      "type": "array",
+      "items": {
+       "type": "number"
+      }
+     },
+     "ancillary": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "description": "같이 돌아가는 부대설비 ID (집진기, 컴프레서)"
+     },
+     "scrap_rate": {
+      "type": "number"
+     },
+     "photo": {
+      "type": "string"
+     },
+     "notes": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "ancillary": {
+   "type": "array",
+   "description": "집진기, 컴프레서, 보일러 등 부대설비",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "name",
+     "rated_kw",
+     "mode"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "pos": {
+      "type": "array",
+      "items": {
+       "type": "number"
+      }
+     },
+     "size": {
+      "type": "array",
+      "items": {
+       "type": "number"
+      }
+     },
+     "rated_kw": {
+      "type": "number"
+     },
+     "mode": {
+      "type": "string",
+      "enum": [
+       "when_any_on",
+       "shift",
+       "always"
+      ],
+      "description": "연결 기계 가동 시 / 근무시간 내내 / 24시간"
+     },
+     "load_factor": {
+      "type": "number"
+     }
+    }
+   }
+  },
+  "transport": {
+   "type": "object",
+   "properties": {
+    "handlers": {
+     "type": "integer",
+     "description": "대차/수작업 운반 인원 수"
+    },
+    "handler_speed_mps": {
+     "type": "number"
+    },
+    "cart_capacity_parts": {
+     "type": "integer"
+    },
+    "forklifts": {
+     "type": "integer"
+    },
+    "forklift_speed_mps": {
+     "type": "number"
+    },
+    "load_unload_min": {
+     "type": "number"
+    },
+    "forklift_processes": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "description": "지게차로 운반하는 구간 (예: raw→cut, pack→fg)"
+    }
+   }
+  },
+  "workers": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "role"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "role": {
+      "type": "string"
+     },
+     "skills": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "station": {
+      "type": "string"
+     },
+     "monthly_wage_krw": {
+      "type": "number"
+     },
+     "employment": {
+      "type": "string",
+      "description": "정규직/계약직/외국인(E-9) 등"
+     }
+    }
+   }
+  },
+  "products": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "name",
+     "parts",
+     "routing"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "routing": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "parts": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "id",
+        "qty",
+        "w",
+        "d"
+       ],
+       "properties": {
+        "id": {
+         "type": "string"
+        },
+        "qty": {
+         "type": "integer"
+        },
+        "w": {
+         "type": "number"
+        },
+        "d": {
+         "type": "number"
+        },
+        "t": {
+         "type": "number"
+        },
+        "material": {
+         "type": "string"
+        },
+        "n_edges": {
+         "type": "integer",
+         "description": "엣지밴딩 하는 변 수"
+        },
+        "holes": {
+         "type": "integer"
+        },
+        "finish": {
+         "type": "boolean",
+         "description": "도장 여부"
+        }
+       }
+      }
+     },
+     "assemble_min": {
+      "type": "number"
+     },
+     "pack_min": {
+      "type": "number"
+     },
+     "price_krw": {
+      "type": "number"
+     },
+     "color": {
+      "type": "string",
+      "description": "원장 색상(재단 배치 키)"
+     },
+     "thickness": {
+      "type": "number"
+     }
+    }
+   }
+  },
+  "orders": {
+   "type": "object",
+   "properties": {
+    "mode": {
+     "type": "string",
+     "enum": [
+      "generate",
+      "list"
+     ]
+    },
+    "horizon_days": {
+     "type": "integer"
+    },
+    "orders_per_day": {
+     "type": "number"
+    },
+    "batch_size": {
+     "type": "object",
+     "additionalProperties": {
+      "type": "integer"
+     },
+     "description": "제품ID → 1주문당 수량"
+    },
+    "mix": {
+     "type": "object",
+     "additionalProperties": {
+      "type": "number"
+     }
+    },
+    "release": {
+     "type": "string",
+     "enum": [
+      "shift_start",
+      "spread",
+      "install_date"
+     ],
+     "description": "주문 투입 시점"
+    },
+    "list": {
+     "type": "array",
+     "items": {
+      "type": "object"
+     }
+    },
+    "batching": {
+     "type": "object",
+     "description": "2단계 배치: 재단 배치 키(색상×두께)로 묶어 재단 후 현장(주문) 단위로 분류",
+     "properties": {
+      "cut_key": {
+       "type": "string",
+       "enum": [
+        "order",
+        "color_thickness"
+       ],
+       "description": "order: 주문 단위 재단 / color_thickness: 같은 날 같은 색상×두께 주문을 합쳐 재단(원장 교체 = 셋업)"
+      },
+      "cut_window_min": {
+       "type": "number",
+       "description": "묶음 대기 창(분): 이 시간 안에 도착한 같은 키 주문을 합침"
+      },
+      "sort_min_per_part": {
+       "type": "number",
+       "description": "재단 후 현장별 분류 시간(분/부재)"
+      }
+     }
+    },
+    "install_lead_days": {
+     "type": "object",
+     "description": "release=install_date 일 때: 시공일까지 여유(근무일) 삼각분포와 투입 규칙 D-n",
+     "properties": {
+      "min": {
+       "type": "number"
+      },
+      "mode": {
+       "type": "number"
+      },
+      "max": {
+       "type": "number"
+      },
+      "start_before_days": {
+       "type": "number"
+      }
+     }
+    }
+   }
+  },
+  "observations": {
+   "type": "object",
+   "description": "현장 관측 원자료 (동선, 시간측정, 전력 측정) - 시뮬레이션 보정용",
+   "properties": {
+    "spaghetti": {
+     "type": "array",
+     "items": {
+      "type": "object"
+     }
+    },
+    "time_studies": {
+     "type": "array",
+     "items": {
+      "type": "object"
+     }
+    },
+    "power_readings": {
+     "type": "array",
+     "items": {
+      "type": "object"
+     }
+    }
+   }
+  },
+  "outsourced": {
+   "type": "array",
+   "description": "외주 병렬 경로(도어·상판·철재·유리). 몸통 흐름과 병렬로 진행되어 join_process 에서 합류. 지연 시 합류 공정 앞에서 대기(완조립 재공 적치)",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "name",
+     "products",
+     "order_at",
+     "lead_days",
+     "join_process"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "products": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "order_at": {
+      "type": "string",
+      "description": "발주 시점: order(고객 주문 접수 시) | release(생산 투입 시) | after:<process>(해당 공정 완료 후)"
+     },
+     "lead_days": {
+      "type": "object",
+      "properties": {
+       "min": {
+        "type": "number"
+       },
+       "mode": {
+        "type": "number"
+       },
+       "max": {
+        "type": "number"
+       }
+      },
+      "description": "리드타임 삼각분포(근무일)"
+     },
+     "join_process": {
+      "type": "string",
+      "description": "합류 공정(assemble/pack/install)"
+     },
+     "delay_prob": {
+      "type": "number",
+      "description": "추가 지연 확률"
+     },
+     "delay_days": {
+      "type": "number"
+     }
+    }
+   }
   }
+ }
 }

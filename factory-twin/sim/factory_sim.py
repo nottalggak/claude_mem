@@ -139,6 +139,7 @@ class Sim:
         self.horizon = self.horizon_days * 24 * 60
         self.products = {p["id"]: p for p in factory["products"]}
         self.scrap = 0; self.produced = 0
+        self.cut_pool = {}; self.cut_timers = {}; self.n_cut_batches = 0; self.orders_in_cut_batches = 0
 
     def ev(self, e):
         e["t"] = round(self.env.now, 2); self.events.append(e)
@@ -150,20 +151,93 @@ class Sim:
         if o.get("mode") == "list":
             for od in o["list"]:
                 yield self.env.timeout(max(0, od["release_min"] - self.env.now))
-                oid += 1; self.env.process(self.batch_flow(oid, od["product"], od["qty"]))
+                oid += 1; self.env.process(self.order_entry(oid, od["product"], od["qty"], od.get("due_min")))
             return
         mix = o["mix"]; keys = list(mix); wts = [mix[k] for k in keys]
+        il = o.get("install_lead_days")
         for day in range(self.horizon_days):
             n = o.get("orders_per_day", 6)
             n_today = max(1, int(self.rng_orders.gauss(n, n * 0.2)))
             base = day * 1440 + self.shift.start
-            times = sorted(self.rng_orders.uniform(0, (self.shift.end - self.shift.start) * 0.6) for _ in range(n_today)) if o.get("release") == "spread" else [0] * n_today
+            times = sorted(self.rng_orders.uniform(0, (self.shift.end - self.shift.start) * 0.6) for _ in range(n_today)) if o.get("release") != "shift_start" else [0] * n_today
             for tt in times:
                 yield self.env.timeout(max(0, base + tt - self.env.now))
                 pid = self.rng_orders.choices(keys, wts)[0]
                 qty = o["batch_size"].get(pid, 5)
                 oid += 1
-                self.env.process(self.batch_flow(oid, pid, qty))
+                due = None
+                if o.get("release") == "install_date" and il:
+                    lead_days = self.rng_orders.triangular(il["min"], il["max"], il["mode"])
+                    due = (day + lead_days) * 1440 + self.shift.end  # 시공일 종업 시각
+                self.env.process(self.order_entry(oid, pid, qty, due))
+
+    def order_entry(self, oid, pid, qty, due=None):
+        """고객 주문 접수 → (시공일 역산) 투입 시점까지 대기 → 외주 발주 → 재단 배치 풀 또는 즉시 흐름"""
+        o = self.f["orders"]
+        prod = self.products[pid]
+        parts = self.expand(pid, qty)
+        batch = {"id": f"B{oid:03d}", "product": pid, "qty": qty, "n_parts": len(parts), "order_t": self.env.now, "due": due,
+                 "transport_wait": 0.0, "transport_dist": 0.0, "queue_wait": 0.0, "proc_time": 0.0, "outsourced_wait": 0.0, "steps": [],
+                 "color": prod.get("color", "-"), "thickness": prod.get("thickness", 18), "parts": parts}
+        self.batches.append(batch)
+        batch["outsourced_ready"] = {}
+        for ou in self.f.get("outsourced", []):
+            if pid in ou["products"] and ou.get("order_at") == "order":
+                batch["outsourced_ready"][ou["id"]] = self.env.now + self.outsourced_lead(ou)
+        if due is not None and o.get("install_lead_days", {}).get("start_before_days"):
+            rel = due - o["install_lead_days"]["start_before_days"] * 1440
+            if rel > self.env.now:
+                yield self.env.timeout(rel - self.env.now)
+        batch["release"] = self.env.now
+        self.ev({"type": "release", "batch": batch["id"], "product": pid, "qty": qty, "n_parts": len(parts), "due": due})
+        # 외주 발주 (발주 시점 = release)
+        for ou in self.f.get("outsourced", []):
+            if pid in ou["products"] and ou.get("order_at", "release") == "release":
+                batch["outsourced_ready"][ou["id"]] = self.env.now + self.outsourced_lead(ou)
+        bt = o.get("batching", {})
+        if bt.get("cut_key") == "color_thickness" and "cut" in prod["routing"]:
+            key = (batch["color"], batch["thickness"])
+            self.cut_pool.setdefault(key, []).append(batch)
+            if key not in self.cut_timers:
+                self.cut_timers[key] = self.env.process(self.cut_collector(key, bt.get("cut_window_min", 60)))
+        else:
+            self.env.process(self.batch_flow(batch))
+
+    def outsourced_lead(self, ou):
+        ld = ou["lead_days"]; days = self.rng.triangular(ld["min"], ld["max"], ld["mode"])
+        if self.rng.random() < ou.get("delay_prob", 0):
+            days += ou.get("delay_days", 0)
+        return days * 1440
+
+    def cut_collector(self, key, window):
+        """같은 색상×두께 주문을 창(window) 동안 모아 하나의 재단 배치로 투입"""
+        yield self.env.timeout(window)
+        group = self.cut_pool.pop(key, []); self.cut_timers.pop(key, None)
+        if not group:
+            return
+        self.n_cut_batches += 1; self.orders_in_cut_batches += len(group)
+        self.env.process(self.merged_cut_flow(key, group))
+
+    def merged_cut_flow(self, key, group):
+        parts = [p for b in group for p in b["parts"]]
+        cb = {"id": "C" + "+".join(b["id"] for b in group), "product": f"{key[0]}/{key[1]}", "qty": sum(b["qty"] for b in group), "n_parts": len(parts),
+              "transport_wait": 0.0, "transport_dist": 0.0, "queue_wait": 0.0, "proc_time": 0.0, "steps": [], "parts": parts, "outsourced_ready": {}}
+        self.ev({"type": "cut_batch", "batch": cb["id"], "orders": [b["id"] for b in group], "n_parts": len(parts)})
+        cur = self.stations["RAW"]; cur_pos = tuple(cur.spec["out_pos"])
+        res = yield from self.run_steps(cb, ["cut"], cur, cur_pos, None, release_slot=False)
+        st, pos, slot = res
+        # 분류(현장별 소팅)
+        sort_min = self.f["orders"].get("batching", {}).get("sort_min_per_part", 0.1) * len(parts)
+        if sort_min > 0:
+            yield from self.work_unit(st, sort_min); self.ev({"type": "sort", "batch": cb["id"], "station": st.id, "duration": round(sort_min, 1)})
+        if slot is not None:
+            slot[0].buffer.release(slot[1])
+        for b in group:
+            b["queue_wait"] += cb["queue_wait"] / len(group); b["transport_wait"] += cb["transport_wait"] / len(group)
+            b["steps"].extend(cb["steps"])
+            routing = list(self.products[b["product"]]["routing"])
+            rest = routing[routing.index("cut") + 1:]
+            self.env.process(self.batch_flow(b, rest, st, pos))
 
     # ---------- 배치 부품 전개 ----------
     def expand(self, pid, qty):
@@ -194,7 +268,6 @@ class Sim:
             yield self.shift.wait()
             vid = f"{'F' if use_forklift else 'H'}{self.vehicle_slot(res, use_forklift)}"
             vpos = self.handler_pos.get(vid, frm)
-            # 빈 이동 (운반자가 배치 위치로) + 적재 이동
             for leg_from, leg_to, loaded in ((vpos, frm, False), (frm, to, True)):
                 path, length = self.grid.path(leg_from, leg_to)
                 dur = length / speed
@@ -216,27 +289,38 @@ class Sim:
             batch["transport_dist"] += length
 
     def vehicle_slot(self, res, fork):
-        # 단순 라운드로빈 차량 ID 할당 (뷰어 애니메이션용)
         key = "F" if fork else "H"
         n = self.vehicle_ids.get(key, 0); self.vehicle_ids[key] = n + 1
         return (n % res.capacity) + 1
 
     # ---------- 배치 흐름 ----------
-    def batch_flow(self, oid, pid, qty):
-        prod = self.products[pid]
-        parts = self.expand(pid, qty)
-        batch = {"id": f"B{oid:03d}", "product": pid, "qty": qty, "n_parts": len(parts), "release": self.env.now,
-                 "transport_wait": 0.0, "transport_dist": 0.0, "queue_wait": 0.0, "proc_time": 0.0, "steps": []}
-        self.batches.append(batch)
-        self.ev({"type": "release", "batch": batch["id"], "product": pid, "qty": qty, "n_parts": len(parts)})
-        cur = self.stations["RAW"]; cur_pos = tuple(cur.spec["out_pos"])
-        routing = list(prod["routing"]) + ["fg"]
-        prev_slot = None  # 현재 점유 중인 버퍼 슬롯 (station, request)
-        for step, proc in enumerate(routing):
+    def batch_flow(self, batch, routing=None, cur=None, cur_pos=None):
+        prod = self.products[batch["product"]]
+        routing = list(prod["routing"]) if routing is None else list(routing)
+        cur = cur or self.stations["RAW"]; cur_pos = cur_pos or tuple(cur.spec["out_pos"])
+        yield from self.run_steps(batch, routing + ["fg"], cur, cur_pos, None, release_slot=True)
+        batch["done"] = self.env.now
+        batch["lead_min"] = self.env.now - batch["release"]
+        batch["lead_work_min"] = sum(1 for t in range(int(batch["release"]), int(self.env.now)) if self.shift.working(t))
+        batch["late_min"] = max(0.0, self.env.now - batch["due"]) if batch.get("due") else 0.0
+        self.produced += batch["qty"]
+        self.ev({"type": "done", "batch": batch["id"], "lead_min": round(batch["lead_min"], 1), "late_min": round(batch["late_min"], 1)})
+
+    def run_steps(self, batch, routing, cur, cur_pos, prev_slot, release_slot=True):
+        """routing 의 공정을 순서대로 수행. 반환: (마지막 스테이션, 출발 위치, 점유 중인 버퍼 슬롯)"""
+        pid = batch["product"]; parts = batch["parts"]; qty = batch["qty"]
+        for proc in routing:
+            # 외주 합류 대기
+            for ou in self.f.get("outsourced", []):
+                if ou["join_process"] == proc and ou["id"] in batch.get("outsourced_ready", {}):
+                    ready = batch["outsourced_ready"][ou["id"]]
+                    if ready > self.env.now:
+                        w = ready - self.env.now; batch["outsourced_wait"] += w
+                        self.ev({"type": "wait_outsourced", "batch": batch["id"], "item": ou["id"], "station": cur.id, "duration": round(w, 1)})
+                        yield self.env.timeout(w)
             st = self.pick_station(proc)
             if st is None:
                 continue
-            # 다음 공정 버퍼 공간 확보 (없으면 현재 위치에서 블로킹)
             slot = st.buffer.request()
             t_block = self.env.now
             yield slot
@@ -262,7 +346,6 @@ class Sim:
                 yield self.shift.wait()
                 while st.down:
                     yield self.env.timeout(1)
-                # 셋업
                 setup = 0.0
                 if st.spec.get("setup_min", 0) > 0 and st.last_product != pid:
                     setup = st.spec["setup_min"]
@@ -273,7 +356,6 @@ class Sim:
                 st.log_state("busy")
                 self.ev({"type": "proc_start", "station": st.id, "batch": batch["id"], "pos": st.spec["pos"]})
                 t_start = self.env.now
-                # 가공
                 if st.spec.get("batch_time_min"):
                     yield self.env.timeout(st.spec["batch_time_min"]); st.busy_min += st.spec["batch_time_min"]
                 elif proc == "cut":
@@ -282,7 +364,7 @@ class Sim:
                     for b in range(boards):
                         yield from self.work_unit(st, st.part_time({"board": 1}, pid))
                     for p in parts:
-                        yield from self.work_unit(st, st.part_time({"board": 0, **p}, pid) - st.spec["cycle"].get("base_min", 0) * 0)
+                        yield from self.work_unit(st, st.part_time({"board": 0, **p}, pid))
                 elif proc in ("assemble", "pack"):
                     for i in range(qty):
                         yield from self.work_unit(st, st.part_time({}, pid))
@@ -290,28 +372,28 @@ class Sim:
                     sel = [p for p in parts if (p["finish"] if proc == "finish" else p.get("n_edges", 1) > 0 if proc == "edge" else p.get("holes", 1) > 0)]
                     for p in sel:
                         yield from self.work_unit(st, st.part_time(p, pid))
-                # 불량
                 sr = st.spec.get("scrap_rate", 0)
                 if sr > 0:
                     lost = sum(1 for _ in parts if self.rng.random() < sr)
                     if lost:
                         self.scrap += lost
                         rew = lost * (st.part_time(parts[0], pid) + 0.5)
-                        yield from self.work_unit(st, rew)  # 재가공
+                        yield from self.work_unit(st, rew)
                         self.ev({"type": "scrap", "station": st.id, "batch": batch["id"], "parts": lost})
                 dur = self.env.now - t_start
                 st.n_batches += 1; st.n_parts += len(parts); batch["proc_time"] += dur
                 batch["steps"].append({"station": st.id, "arrive": round(t_q, 1), "start": round(t_start, 1), "end": round(self.env.now, 1), "setup": setup})
                 self.ev({"type": "proc_end", "station": st.id, "batch": batch["id"], "duration": round(dur, 1)})
                 st.log_state("busy" if st.res.count > 1 else "idle")
+                # 외주 발주 시점 after:<proc>
+                for ou in self.f.get("outsourced", []):
+                    if pid in ou["products"] and ou.get("order_at") == f"after:{proc}":
+                        batch.setdefault("outsourced_ready", {})[ou["id"]] = self.env.now + self.outsourced_lead(ou)
             cur = st; cur_pos = tuple(st.spec["out_pos"])
-        if prev_slot is not None:
+        if release_slot and prev_slot is not None:
             prev_slot[0].buffer.release(prev_slot[1])
-        batch["done"] = self.env.now
-        batch["lead_min"] = self.env.now - batch["release"]
-        batch["lead_work_min"] = sum(1 for t in range(int(batch["release"]), int(self.env.now)) if self.shift.working(t))
-        self.produced += qty
-        self.ev({"type": "done", "batch": batch["id"], "lead_min": round(batch["lead_min"], 1)})
+            prev_slot = None
+        return cur, cur_pos, prev_slot
 
     def work_unit(self, st, minutes):
         """휴식/고장 시 중단되는 가공 단위"""
@@ -372,6 +454,11 @@ class Sim:
         energy_by["BASE"] = round(base, 1); energy_kwh += base
         tariff = self.f["meta"].get("energy", {}).get("tariff_krw_per_kwh", 160)
         done = [b for b in self.batches if "done" in b]
+        released = [b for b in self.batches if "release" in b]
+        warm = min(5, max(0, self.horizon_days // 3)) * 1440
+        steady_days = (self.horizon - warm) / 1440
+        tp_steady = sum(b["qty"] for b in done if b["done"] >= warm) / max(1e-9, steady_days)
+        due_in = [b for b in self.batches if b.get("due") and b["due"] <= self.horizon]
         # 병목 점수: 가동률 + 평균 대기(정규화) + 블로킹 유발
         ranked = []
         maxw = max([s["avg_queue_wait_min"] for s in stations.values()] + [1])
@@ -384,15 +471,20 @@ class Sim:
         wip_series = self.wip_series()
         return {
             "horizon_days": self.horizon_days, "shift_min_per_day": avail / self.horizon_days,
-            "orders_released": len(self.batches), "orders_completed": len(done),
+            "orders_received": len(self.batches), "orders_released": len(released), "orders_completed": len(done),
+            "orders_due_in_horizon": len(due_in), "completed_of_due": round(sum(1 for b in due_in if "done" in b) / max(1, len(due_in)), 3) if due_in else None,
             "products_completed": self.produced,
             "throughput_products_per_day": round(self.produced / self.horizon_days, 1),
+            "throughput_steady_per_day": round(tp_steady, 1), "warmup_days": warm / 1440,
             "lead_time_work_min_avg": round(sum(b["lead_work_min"] for b in done) / max(1, len(done)), 1),
             "lead_time_min": {"avg": round(sum(b["lead_min"] for b in done) / max(1, len(done)), 1),
                               "p90": round(sorted(b["lead_min"] for b in done)[int(0.9 * (len(done) - 1))], 1) if done else 0,
                               "max": round(max([b["lead_min"] for b in done] + [0]), 1)},
             "avg_wip_batches": round(sum(w for _, w in wip_series) / max(1, len(wip_series)), 2),
             "scrap_parts": self.scrap,
+            "outsourced_wait_avg_min": round(sum(b.get("outsourced_wait", 0) for b in done) / max(1, len(done)), 1),
+            "on_time_ratio": round(sum(1 for b in done if b.get("late_min", 0) == 0) / max(1, len(done)), 3) if any(b.get("due") for b in done) else None,
+            "cut_batching": {"cut_batches": self.n_cut_batches, "orders_per_cut_batch": round(self.orders_in_cut_batches / max(1, self.n_cut_batches), 2)} if self.n_cut_batches else None,
             "transport": {"handler_utilization": round(self.handler_busy / (avail * self.handlers.capacity), 3),
                           "forklift_utilization": round(self.forklift_busy / (avail * self.forklifts.capacity), 3),
                           "loaded_distance_m": round(dist_loaded), "empty_distance_m": round(dist_empty),
@@ -403,7 +495,7 @@ class Sim:
             "bottleneck_ranking": [{"station": sid, "score": sc, "utilization": stations[sid]["utilization"],
                                     "avg_queue_wait_min": stations[sid]["avg_queue_wait_min"]} for sc, sid in ranked[:6]],
             "stations": stations,
-            "batches": [{k: v for k, v in b.items() if k != "steps"} for b in self.batches],
+            "batches": [{k: v for k, v in b.items() if k not in ("steps", "parts", "outsourced_ready")} for b in self.batches],
         }
 
     def wip_series(self):
