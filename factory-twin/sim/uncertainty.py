@@ -8,8 +8,8 @@
 import json, sys, copy, pathlib, random, statistics, argparse
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from factory_sim import Sim, apply_scenario
+from common import WIDTH
 ROOT = pathlib.Path(__file__).parent.parent
-WIDTH = {"measured": None, "record": 0.10, "interview": 0.20, "estimated": 0.30}
 
 
 def perturb(f, rng):
@@ -34,6 +34,13 @@ def perturb(f, rng):
             s["availability"] = min(1.0, s["availability"] * (1 + rng.uniform(-0.05, 0.05)))
     tr = g["transport"]; w = WIDTH.get(prov.get("transport.handler_speed_mps", "estimated"), 0.3) or 0.1
     tr["handler_speed_mps"] *= (1 + rng.uniform(-w, w)); tr["load_unload_min"] *= (1 + rng.uniform(-w, w))
+    # 주문 측: 배치 크기(민감도 1위)·일 주문 수·버퍼 용량도 출처 폭만큼
+    o = g["orders"]; wb_ = WIDTH.get(prov.get("orders.batch_size", "interview"), 0.2) or 0.1
+    o["batch_size"] = {k: max(1, round(v * (1 + rng.uniform(-wb_, wb_)))) for k, v in o.get("batch_size", {}).items()}
+    wo = WIDTH.get(prov.get("orders.orders_per_day", "record"), 0.1) or 0.05
+    if o.get("orders_per_day"): o["orders_per_day"] *= (1 + rng.uniform(-wo, wo))
+    for s in g["stations"]:
+        if s.get("buffer_batches") and s["process"] not in ("raw", "fg"): s["buffer_batches"] = max(1, round(s["buffer_batches"] * (1 + rng.uniform(-0.25, 0.25))))
     return g
 
 
@@ -48,19 +55,27 @@ def ci(xs, a=0.05):
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--factory", default=str(ROOT / "data/sample_factory.json")); ap.add_argument("--B", type=int, default=10); ap.add_argument("--scenarios", nargs="*", default=None)
+    ap = argparse.ArgumentParser(); ap.add_argument("--factory", default=str(ROOT / "data/sample_factory.json")); ap.add_argument("--B", type=int, default=20); ap.add_argument("--R", type=int, default=2, help="세계(world)당 반복 수: σ_I² 와 σ²/R 분리용"); ap.add_argument("--scenarios", nargs="*", default=None)
     a = ap.parse_args(); base = json.loads(pathlib.Path(a.factory).read_text(encoding="utf-8"))
     files = sorted((ROOT / "scenarios").glob("*.json")); scns = [json.loads(p.read_text(encoding="utf-8")) for p in files]
     if a.scenarios: scns = [s for s in scns if s["id"] in a.scenarios]
     rng = random.Random(42); rows = {s["id"]: [] for s in scns}; names = {s["id"]: s["name"] for s in scns}
+    base_tp_worlds = []; within = []
     for b in range(a.B):
-        fb = perturb(base, rng); seed = 100 + b
-        k0 = kpi(fb, seed)
+        fb = perturb(base, rng)
+        k0s = [kpi(fb, 100 + b * a.R + r) for r in range(a.R)]
+        base_tp_worlds.append(statistics.mean(k["tp"] for k in k0s)); within.append(statistics.pvariance([k["tp"] for k in k0s]) if a.R > 1 else 0)
         for s in scns:
-            k1 = kpi(apply_scenario(fb, s), seed)
-            rows[s["id"]].append({"dtp": (k1["tp"] - k0["tp"]) / max(1e-9, k0["tp"]) * 100, "dlead": (k1["lead"] - k0["lead"]) / max(1e-9, k0["lead"]) * 100, "dot": k1["ot"] - k0["ot"], "bn": k1["bn"]})
+            ds = []
+            for r in range(a.R):
+                k1 = kpi(apply_scenario(fb, s), 100 + b * a.R + r); k0 = k0s[r]  # CRN: 같은 seed 짝
+                ds.append({"dtp": (k1["tp"] - k0["tp"]) / max(1e-9, k0["tp"]) * 100, "dlead": (k1["lead"] - k0["lead"]) / max(1e-9, k0["lead"]) * 100, "dot": k1["ot"] - k0["ot"], "bn": k1["bn"]})
+            rows[s["id"]].append({"dtp": statistics.mean(d["dtp"] for d in ds), "dlead": statistics.mean(d["dlead"] for d in ds), "dot": statistics.mean(d["dot"] for d in ds), "bn": ds[0]["bn"]})
         print(f"bootstrap {b + 1}/{a.B} done", flush=True)
-    out = [f"# 시나리오 효과의 불확실성 (입력 부트스트랩 B={a.B}, CRN 짝 비교)", "",
+    sig2_sim = statistics.mean(within) / max(1, a.R) if a.R > 1 else None
+    sig2_I = max(0.0, statistics.pvariance(base_tp_worlds) - (sig2_sim or 0)) if a.B > 1 else None
+    out = [f"# 시나리오 효과의 불확실성 (입력 부트스트랩 B={a.B}, 세계당 R={a.R}, CRN 짝 비교)", "",
+           f"베이스라인 처리량의 분산 분해(Ankenman–Nelson): 입력 불확실성 σ_I = {(sig2_I or 0) ** 0.5:.2f}/일, 시뮬레이션(평균의) σ = {(sig2_sim or 0) ** 0.5:.2f}/일 → " + ("**입력 데이터가 지배** (반복을 늘려도 못 줄임; 현장 표본을 늘려야 함)" if (sig2_I or 0) > (sig2_sim or 0) else "시뮬레이션 잡음이 지배 (반복을 늘리면 됨)"), "",
            "입력 파라미터를 표본 오차(측정)·출처 폭(추정)만큼 흔들어 베이스라인과 시나리오를 같은 seed 로 돌린 차이의 분포. **P(개선)이 0.9 미만이면 그 결론은 데이터를 더 모은 뒤에 말한다.**", "",
            "| 시나리오 | Δ처리량 % (평균, 95% 구간) | P(처리량↑) | Δ리드타임 % | P(리드타임↓) | Δ납기준수율 %p | P(납기↑) | 병목(최빈) |", "|---|---|---|---|---|---|---|---|"]
     for sid, rs in rows.items():

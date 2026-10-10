@@ -9,8 +9,14 @@ import json, sys, copy, pathlib, argparse, statistics
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from factory_sim import Sim
 from validate import get, validate
+from common import BOUND as WIDTH
 
-WIDTH = {"measured": 0.10, "record": 0.15, "interview": 0.25, "estimated": 0.40}
+
+def _setp(d, path, v):
+    ks = path.split("."); cur = d
+    for kk in ks[:-1]: cur = cur[int(kk)] if isinstance(cur, list) else cur[kk]
+    if isinstance(cur, list): cur[int(ks[-1])] = v
+    else: cur[ks[-1]] = v
 
 
 def set_param(f, name, mult):
@@ -24,7 +30,7 @@ def set_param(f, name, mult):
                 c = s["cycle"]; c["base_min"] *= mult; c["per_unit"] = {k: v * mult for k, v in c.get("per_unit", {}).items()}
                 if "per_product" in c: c["per_product"] = {k: v * mult for k, v in c["per_product"].items()}
             else:
-                s[key] = s[key] * mult
+                v = s[key] * mult; s[key] = max(1, int(round(v))) if isinstance(s[key], int) and key in ("buffer_batches", "capacity") else v
     return g
 
 
@@ -40,8 +46,8 @@ def run(f, seeds, return_sd=False):
 def loss(f, targets, mults, lam, seeds, bounds=None):
     out = run(f, seeds)
     err = sum(t.get("weight", 1) * ((out[t["metric"]] - t["actual"]) / max(1e-9, abs(t["actual"]))) ** 2 for t in targets)
-    # 규제: 경계 폭으로 정규화 ((m−1)/bound)² — 경계 끝에서 λ 만큼 벌점. λ 기본 0.02 (오차 항 ~0.01 수준과 균형)
-    reg = lam * sum(((m - 1) / (bounds[p] if bounds else 0.3)) ** 2 for p, m in mults.items())
+    # 규제: 측정 파라미터는 표준오차(se = cv/√n)로, 추정 파라미터는 경계 폭으로 정규화 — ((m−1)/scale)². 측정값은 1~2 se 넘게 움직이면 큰 벌점
+    reg = lam * sum(((m - 1) / (SCALE.get(p) or (bounds[p] if bounds else 0.3))) ** 2 for p, m in mults.items())
     return err + reg, out
 
 
@@ -51,9 +57,15 @@ def main():
     a = ap.parse_args(); f = json.loads(pathlib.Path(a.factory).read_text(encoding="utf-8")); targets = json.loads(a.targets); holdout = json.loads(a.holdout)
     global METRICS; METRICS = sorted({t["metric"] for t in targets} | {h["metric"] for h in holdout})
     if len(a.params) > len(targets):
-        print(f"경고: 조정 파라미터 {len(a.params)}개 > 보정 지표 {len(targets)}개 → 식별 불가(여러 해). 파라미터를 줄이거나 지표를 늘리세요.")
+        print(f"중단: 조정 파라미터 {len(a.params)}개 > 보정 지표 {len(targets)}개 → 식별 불가(여러 해). 파라미터를 줄이거나 지표를 늘리세요."); return
     prov = f.get("provenance", {}); mults = {p: 1.0 for p in a.params}; seeds = list(range(1, a.seeds + 1))
     bounds = {p: WIDTH.get(prov.get(p, "estimated"), 0.4) for p in a.params}
+    global SCALE; SCALE = {}
+    for p in a.params:  # 측정 사이클(n 있음)은 se 로 규제 스케일
+        if p.endswith(".cycle"):
+            st = next((s for s in f["stations"] if s["id"] == p.split(".")[0]), None)
+            if st and (st.get("cycle") or {}).get("n", 0) > 1: SCALE[p] = max(0.02, st["cycle"].get("cv", 0.3) / st["cycle"]["n"] ** 0.5 * 2)
+    evaluated = []  # (손실, 배수들) → 적격 집합
     def build(ms):
         g = f
         for q, mq in ms.items(): g = set_param(g, q, mq)
@@ -75,15 +87,24 @@ def main():
             for m2 in cands:
                 if abs(m2 - mults[p]) < 1e-6: continue
                 ms = {**mults, p: m2}; g = build(ms)
-                L, out = loss(g, targets, ms, a.lam, seeds, bounds)
+                L, out = loss(g, targets, ms, a.lam, seeds, bounds); evaluated.append((L, dict(ms)))
                 if L < best:
                     best, mults[p], cur, improved = L, m2, g, True; print(f"  iter {it + 1}: {p} ×{m2:.3f} → 손실 {L:.4f} {[round(out[t['metric']], 1) for t in targets]}")
         if not improved and it >= 1: break
     print("최종 배수", {k: round(v, 3) for k, v in mults.items()}, "손실", round(best, 4))
+    elig = [ms for L, ms in evaluated if L <= best * 2 + 1e-9]
+    print(f"적격 집합(손실 ≤ 최소×2): {len(elig)}개 조합 — 파라미터별 범위:", {p: (round(min(ms[p] for ms in elig), 3), round(max(ms[p] for ms in elig), 3)) for p in a.params} if elig else "-")
     for p in a.params:
         if abs(mults[p] - 1) >= bounds[p] - 1e-9: print(f"  주의: {p} 가 경계({bounds[p]:.0%})에 닿음 → 구조 오류 의심(측정 재확인)")
     if holdout:
-        ks = Sim(cur, seed=99).run(); ok, rows = validate(ks, holdout)
+        hk = [Sim(cur, seed=90 + i).run() for i in range(3)]  # 홀드아웃은 3회 평균
+        ks = hk[0]
+        for m in METRICS:
+            try:
+                vals = [get(x, m) for x in hk]
+                if all(isinstance(v, (int, float)) for v in vals): _setp(ks, m, sum(vals) / len(vals))
+            except Exception: pass
+        ok, rows = validate(ks, holdout)
         print("홀드아웃 판정:", "통과" if ok else "실패"); [print("  ", r) for r in rows]
     if a.out:
         cur["calibration"] = {"multipliers": mults, "targets": targets, "loss": best}

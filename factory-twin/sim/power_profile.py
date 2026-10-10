@@ -1,13 +1,18 @@
-"""이벤트 로그 → 15분 전력 프로파일 → 피크 kW·시간대별 요금.
-- 기계 상태(state 이벤트: busy/setup/idle/down)별 kW = 정격×부하율(busy,setup) / 대기전력(idle,down)
-- 부대설비: when_any_on(연결 기계 중 하나라도 busy/setup) / shift(근무시간) / always
-- 기본부하: 근무시간 내 base_load_kw
-- 요금: meta.energy.tou (없으면 단일 단가). tou 형식:
-  {"demand_krw_per_kw": 8320, "bands": {"off": 90, "mid": 130, "peak": 190}, "hours": {"off": [[22,8]], "mid": [[8,18],[21,22]], "peak": [[18,21]]}, "weekend_mid_discount": 0.5}
-  ※ 실제 2026 요율은 한전 요금표 원문으로 교체 (docs/research/16 참고)
-출력: sim/out/<scenario>/power_15min.csv, power_summary.json
-"""
+"""이벤트 로그 → 15분 전력 프로파일 → 피크·시간대 요금 (common.energy_from_events 와 단일 경로).
+meta.energy 설정:
+  tariff_class: "산업용(갑)I 저압" | "산업용(갑)I 고압A" | "산업용(갑)II 고압A" | "산업용(을) 고압A"  (300 kW 미만은 (갑); 저압 (갑)I 는 계시별 아님)
+  contract_kw, pf (평균 역률, 기본 0.9), tou: {
+    "season_of_month": {"summer":[7,8],"winter":[12,1,2]},   # 그 외 봄·가을
+    "hours": {"off":[[22,8]], "mid":[[8,18],[21,22]], "peak":[[18,21]]},     # 2026-04-16 개편 구조 [원문 확인 필요]
+    "rates": {"summer":{"off":..,"mid":..,"peak":..}, "winter":{...}, "spring_fall":{...}},   # 원/kWh, 요금표 원문으로 교체
+    "flat": 116.2,                       # 계시별이 아닌 종별(저압 (갑)I)의 단일 단가
+    "demand_krw_per_kw": {"I":7220,"II":8320,"III":9810},  # 선택요금별 기본요금 (또는 숫자 하나)
+    "rate_option": "II", "weekend_discount": {"months":[3,4,5,6,9,10,11], "hours":[11,14], "ratio":0.5},
+    "climate_krw": 9, "fuel_adj_krw": 5, "vat": 0.10, "fund": 0.027, "overage_multiplier": 1.5 }
+출력: power_15min.csv, power_summary.json  (요금적용전력은 시뮬 기간 내 최대수요로 근사 — 실제는 직전 11개월 하계·동계 최대 [미구현 표기])"""
 import json, sys, pathlib, csv, collections
+sys.path.insert(0, str(pathlib.Path(__file__).parent))
+from common import energy_from_events, Calendar
 
 
 def band_of(hour, hours):
@@ -18,72 +23,64 @@ def band_of(hour, hours):
     return "mid"
 
 
-def main(outdir):
+def main(outdir, start_month=10):
     outdir = pathlib.Path(outdir)
     f = json.loads((outdir / "factory.json").read_text(encoding="utf-8"))
     evs = [json.loads(l) for l in open(outdir / "events.jsonl", encoding="utf-8")]
-    sh = f["meta"]["shift"]; s0 = int(sh["start"][:2]) * 60 + int(sh["start"][3:]); s1 = int(sh["end"][:2]) * 60 + int(sh["end"][3:])
-    horizon = max(e["t"] for e in evs) + 1; slots = int(horizon // 15) + 1
-    spec = {s["id"]: s for s in f["stations"]}
-    # 상태 타임라인
-    state_ev = collections.defaultdict(list)
-    for e in evs:
-        if e["type"] == "state":
-            state_ev[e["station"]].append((e["t"], e["state"]))
-    per_slot = collections.defaultdict(lambda: [0.0] * slots)
-    on_any = collections.defaultdict(lambda: [False] * slots)
-    def working(k):
-        m = (k * 15) % 1440; d = (k * 15) // 1440
-        return d % 7 < 5 and s0 <= m < s1
-    for sid, lst in state_ev.items():
-        sp = spec[sid]; lst.sort(); cur = "idle"; t_prev = 0.0
-        lst.append((horizon, cur))
-        for t, st in lst:
-            # [t_prev, t) 구간 cur 상태
-            a, b = int(t_prev // 15), int(t // 15)
-            for k in range(a, min(b + 1, slots)):
-                lo, hi = max(t_prev, k * 15), min(t, (k + 1) * 15)
-                if hi > lo:
-                    # 가동/셋업: 정격×부하율. 대기: 근무시간에만 대기전력(야간·주말은 전원 OFF 가정)
-                    # 야간·주말은 전원 OFF (상태 로그는 교대 종료 시 'busy' 가 밤새 유지될 수 있어 근무시간으로 게이팅)
-                    p = 0.0 if not working(k) else (sp.get("rated_kw", 0) * sp.get("load_factor", 0.6) if cur in ("busy", "setup") else sp.get("idle_kw", 0))
-                    per_slot[sid][k] += p * (hi - lo) / 15
-                    if cur in ("busy", "setup"):
-                        for aid in sp.get("ancillary", []): on_any[aid][k] = True
-            t_prev, cur = t, st
-    for a in f.get("ancillary", []):
-        for k in range(slots):
-            on = (on_any[a["id"]][k] and working(k)) if a["mode"] == "when_any_on" else (working(k) if a["mode"] == "shift" else True)
-            per_slot[a["id"]][k] = a["rated_kw"] * a.get("load_factor", 0.7) if on else 0.0
-    base = f["meta"].get("energy", {}).get("base_load_kw", 0)
+    horizon = max(e["t"] for e in evs) + 1
+    per, total, slots = energy_from_events(f, evs, horizon)
+    en = f["meta"].get("energy", {}); tou = en.get("tou") or {}; cal = Calendar(f["meta"]["shift"])
+    tclass = en.get("tariff_class", "산업용(을) 고압A" if en.get("contract_kw", 0) >= 300 else "산업용(갑)II 고압A")
+    tou_based = "저압" not in tclass and bool(tou.get("rates"))
+    seasons = tou.get("season_of_month", {"summer": [7, 8], "winter": [12, 1, 2]})
+    def season(month): return "summer" if month in seasons["summer"] else ("winter" if month in seasons["winter"] else "spring_fall")
+    wd_disc = tou.get("weekend_discount", {"months": [3, 4, 5, 6, 9, 10, 11], "hours": [11, 14], "ratio": 0.5})
+    energy_cost = 0.0; by_band = collections.defaultdict(float); kwh_total = 0.0
     for k in range(slots):
-        per_slot["BASE"][k] = base if working(k) else base * 0.2
-    total = [sum(v[k] for v in per_slot.values()) for k in range(slots)]
-    en = f["meta"].get("energy", {}); tou = en.get("tou")
-    cost = 0.0; by_band = collections.defaultdict(float)
-    for k in range(slots):
-        kwh = total[k] * 0.25; hour = ((k * 15) % 1440) / 60; wd = (k * 15) // 1440 % 7
-        if tou:
-            b = band_of(hour, tou["hours"]); rate = tou["bands"][b]
-            if wd >= 5 and b == "mid" and tou.get("weekend_mid_discount"): rate *= (1 - tou["weekend_mid_discount"])
-            by_band[b] += kwh; cost += kwh * rate
+        kwh = total[k] * 0.25; kwh_total += kwh
+        day = (k * 15) // 1440; hour = ((k * 15) % 1440) / 60; wd = day % 7
+        month = ((start_month - 1 + day // 30) % 12) + 1  # 근사: 시작 월 + 30일/월
+        if tou_based:
+            b = band_of(hour, tou.get("hours", {"off": [[22, 8]], "mid": [[8, 18], [21, 22]], "peak": [[18, 21]]}))
+            if wd == 6: b = "off"  # 일요일·공휴일 전일 경부하 (개편 보도 기준) [원문 확인 필요]
+            elif wd == 5 and b == "peak": b = "mid"  # 토요일 최대부하 없음
+            rate = tou["rates"][season(month)][b]
+            if wd >= 5 and month in wd_disc["months"] and wd_disc["hours"][0] <= hour < wd_disc["hours"][1]: rate *= (1 - wd_disc["ratio"])
+            by_band[b] += kwh; energy_cost += kwh * rate
         else:
-            cost += kwh * en.get("tariff_krw_per_kwh", 160); by_band["flat"] += kwh
-    peak = max(total); peak_k = total.index(peak)
-    days = horizon / 1440
-    demand_charge = (tou or {}).get("demand_krw_per_kw", 0) * max(peak, en.get("contract_kw", 0) * 0.3) * (days / 30)
-    summary = {"peak_kw": round(peak, 1), "peak_at": f"Day {peak_k * 15 // 1440 + 1} {int((peak_k * 15) % 1440 // 60):02d}:{int((peak_k * 15) % 60):02d}",
-               "contract_kw": en.get("contract_kw"), "peak_over_contract": round(peak / en["contract_kw"], 2) if en.get("contract_kw") else None,
-               "kwh_total": round(sum(total) * 0.25), "kwh_by_band": {k: round(v) for k, v in by_band.items()},
-               "energy_cost_krw": round(cost), "demand_charge_krw_est": round(demand_charge), "days": round(days, 1),
-               "top_contributors_at_peak": sorted(((sid, round(v[peak_k], 1)) for sid, v in per_slot.items()), key=lambda x: -x[1])[:6]}
+            rate = tou.get("flat", en.get("tariff_krw_per_kwh", 160)); by_band["flat"] += kwh; energy_cost += kwh * rate
+    peak = max(total); peak_k = total.index(peak); days = horizon / 1440
+    contract = en.get("contract_kw", 0) or 0
+    billing_kw = max(peak, contract * 0.3)  # 요금적용전력 ≈ 기간 내 최대수요 (실제: 직전 11개월 하계·동계 최대, 미구현)
+    dem = tou.get("demand_krw_per_kw", 0); opt = tou.get("rate_option", "II")
+    dem_rate = dem[opt] if isinstance(dem, dict) else dem
+    months = days / 30
+    demand_charge = dem_rate * billing_kw * months
+    overage = max(0.0, peak - contract) if contract else 0.0
+    overage_charge = overage * dem_rate * (tou.get("overage_multiplier", 1.5) - 1) * months if overage > 0 else 0.0
+    pf = en.get("pf", 0.9); pf_adj = 0.0
+    if pf < 0.9: pf_adj = (0.9 - pf) * 100 * 0.002 * demand_charge
+    elif pf > 0.9: pf_adj = -min(0.05, pf - 0.9) * 100 * 0.002 * demand_charge
+    addons = kwh_total * (tou.get("climate_krw", 9) + tou.get("fuel_adj_krw", 5))
+    subtotal = energy_cost + demand_charge + overage_charge + pf_adj + addons
+    bill = subtotal * (1 + tou.get("vat", 0.10)) + subtotal * tou.get("fund", 0.027)
+    # 선택요금 I/II/III 동시 비교 (기본요금만 다르고 전력량 단가 차이는 미반영 [요금표 원문 필요])
+    options = {o: round(r * billing_kw * months + energy_cost) for o, r in dem.items()} if isinstance(dem, dict) else None
+    summary = {"tariff_class": tclass, "tou_based": tou_based, "peak_kw": round(peak, 1), "peak_at": f"Day {peak_k * 15 // 1440 + 1} {int((peak_k * 15) % 1440 // 60):02d}:{int((peak_k * 15) % 60):02d}",
+               "contract_kw": contract, "billing_kw_est": round(billing_kw, 1), "overage_kw": round(overage, 1),
+               "kwh_total": round(kwh_total), "kwh_by_band": {k: round(v) for k, v in by_band.items()}, "days": round(days, 1),
+               "energy_charge_krw": round(energy_cost), "demand_charge_krw": round(demand_charge), "overage_charge_krw": round(overage_charge),
+               "pf": pf, "pf_adjust_krw": round(pf_adj), "addons_krw": round(addons), "bill_est_krw": round(bill),
+               "rate_option_compare_krw": options,
+               "top_contributors_at_peak": sorted(((sid, round(v[peak_k], 1)) for sid, v in per.items()), key=lambda x: -x[1])[:6],
+               "notes": ["요금적용전력은 기간 내 최대수요로 근사(실제: 직전 11개월 하계·동계 최대)", "월은 시작 월 + 30일 단위 근사", "단가는 설정 파일 값 — 한전 요금표 원문으로 교체"]}
     with open(outdir / "power_15min.csv", "w", newline="", encoding="utf-8") as fp:
-        w = csv.writer(fp); w.writerow(["slot", "day", "hhmm", "total_kw"] + list(per_slot.keys()))
+        w = csv.writer(fp); w.writerow(["slot", "day", "hhmm", "total_kw"] + list(per.keys()))
         for k in range(slots):
-            w.writerow([k, k * 15 // 1440 + 1, f"{int((k * 15) % 1440 // 60):02d}:{int((k * 15) % 60):02d}", round(total[k], 2)] + [round(v[k], 2) for v in per_slot.values()])
+            w.writerow([k, k * 15 // 1440 + 1, f"{int((k * 15) % 1440 // 60):02d}:{int((k * 15) % 60):02d}", round(total[k], 2)] + [round(v[k], 2) for v in per.values()])
     (outdir / "power_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(json.dumps(summary, ensure_ascii=False, indent=1))
+    print(json.dumps({k: summary[k] for k in ("tariff_class", "peak_kw", "kwh_total", "energy_charge_krw", "demand_charge_krw", "bill_est_krw", "rate_option_compare_krw")}, ensure_ascii=False))
 
 
 if __name__ == "__main__":
-    main(sys.argv[1] if len(sys.argv) > 1 else str(pathlib.Path(__file__).parent / "out/baseline"))
+    main(sys.argv[1] if len(sys.argv) > 1 else str(pathlib.Path(__file__).parent / "out/baseline"), int(sys.argv[2]) if len(sys.argv) > 2 else 10)

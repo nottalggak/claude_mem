@@ -59,7 +59,7 @@ factory = {
     ],
     "products": [],
     "orders": {
-        "mode": "generate", "horizon_days": 20, "orders_per_day": 17, "release": "install_date",
+        "mode": "generate", "horizon_days": 40, "orders_per_day": 17, "release": "install_date",
         "install_lead_days": {"min": 5, "mode": 8, "max": 12, "start_before_days": 2},
         "batching": {"cut_key": "order", "cut_window_min": 60, "sort_min_per_part": 0.1},
         "batch_size": {"P_DESK": 10, "P_BOOK": 6, "P_CAB": 12, "P_WARD": 4},

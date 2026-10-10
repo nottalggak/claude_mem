@@ -42,7 +42,8 @@ for proc, sts in by_proc.items():
     m = sum(s.get("capacity", 1) for s in sts); avail = sum((s.get("availability", 1.0) or 1.0) for s in sts) / len(sts)
     te = (work + setup) / max(1e-9, lam) / avail  # 배치당 유효 처리시간
     u = lam * te / (m * shift_min)
-    c0 = sts[0].get("cycle", {}).get("cv", 0.3) ** 2
+    n_parts_avg = sum(sum(part["qty"] for part in prods[pid]["parts"]) * o.get("batch_size", {}).get(pid, 5) * share for pid, share in mix.items() if proc in prods[pid]["routing"]) / max(1e-9, sum(share for pid, share in mix.items() if proc in prods[pid]["routing"]))
+    c0 = (sts[0].get("cycle", {}).get("cv", 0.3) ** 2) / max(1, n_parts_avg)  # 배치 = n개 부품 합 → 분산 축소
     mtbf, mttr = sts[0].get("mtbf_min", 0), sts[0].get("mttr_min", 0)
     A = mtbf / (mtbf + mttr) if mtbf else 1.0; ce2 = c0 + (2 * A * (1 - A) * mttr / max(1e-9, te)) if mtbf else c0
     if u < 1: ctq = ((a.ca2 + ce2) / 2) * (u ** (math.sqrt(2 * (m + 1)) - 1) / (m * (1 - u))) * te
@@ -53,4 +54,4 @@ print(f"# Kingman 사전 스크리닝 (수요 ×{a.demand}, 교대 {shift_min}�
 for u, proc, ids, m, te, ctq, ce2 in rows:
     verdict = "증설 후보(u≥0.85)" if u >= 0.85 else ("주의(u≥0.7)" if u >= 0.7 else "여유")
     print(f"| {proc} | {ids} | {m} | {te} | {u:.2f} | {ctq if ctq != float('inf') else '∞'} | {ce2} | {verdict} |")
-print("\n해석: u 가 0.8→0.9 로 가면 대기가 약 2배. 수요 ×1.2(성수기) 로 다시 돌려 체제별 후보를 본다. 이 근사는 시뮬레이션 전 거름망이며, 최종 판단은 트윈 + 신뢰구간.")
+print("\n해석: u 가 0.8→0.9 로 가면 대기가 약 2배. 수요 ×1.2(성수기) 로 다시 돌려 체제별 후보를 본다. 이 근사는 시뮬레이션 전 거름망이며, 최종 판단은 트윈 + 신뢰구간. λ는 전 주문이 투입된다고 가정(시공일 역산 체제의 과도 구간과 다를 수 있음).")

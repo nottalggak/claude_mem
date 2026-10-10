@@ -1,17 +1,24 @@
 {
- "peak_kw": 107.4,
- "peak_at": "Day 18 10:00",
+ "tariff_class": "산업용(을) 고압A",
+ "tou_based": false,
+ "peak_kw": 107.3,
+ "peak_at": "Day 18 14:00",
  "contract_kw": 300,
- "peak_over_contract": 0.36,
- "kwh_total": 9924,
+ "billing_kw_est": 107.3,
+ "overage_kw": 0.0,
+ "kwh_total": 8528,
  "kwh_by_band": {
-  "off": 451,
-  "mid": 9343,
-  "peak": 130
+  "flat": 8528
  },
- "energy_cost_krw": 1224907,
- "demand_charge_krw_est": 557369,
  "days": 18.7,
+ "energy_charge_krw": 1407137,
+ "demand_charge_krw": 556696,
+ "overage_charge_krw": 0,
+ "pf": 0.9,
+ "pf_adjust_krw": 0,
+ "addons_krw": 119393,
+ "bill_est_krw": 2347796,
+ "rate_option_compare_krw": null,
  "top_contributors_at_peak": [
   [
    "DC1",
@@ -37,5 +44,10 @@
    "CUT2",
    7.8
   ]
+ ],
+ "notes": [
+  "요금적용전력은 기간 내 최대수요로 근사(실제: 직전 11개월 하계·동계 최대)",
+  "월은 시작 월 + 30일 단위 근사",
+  "단가는 설정 파일 값 — 한전 요금표 원문으로 교체"
  ]
 }

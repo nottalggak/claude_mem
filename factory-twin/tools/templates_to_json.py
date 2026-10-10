@@ -63,9 +63,10 @@ def main(xlsx, out):
         if sec is None or kind in ("셋업", "대기"): continue
         if str(r.get("첫 사이클(버림 Y)") or "").upper().startswith("Y"): continue
         rating = num(r.get("평정(100=정상 속도)"), 100) / 100.0
-        k = (r["기계ID"], r.get("측정#") or id(r))
-        d = ct.setdefault(r["기계ID"], {}).setdefault(k, {"min": 0.0, "edges": num(r.get("엣지 변 수"), 0), "holes": num(r.get("홀 수"), 0)})
+        k = (r["기계ID"], r.get("측정#") if r.get("측정#") not in (None, "") else f"row{len(ct.get(r['기계ID'], {}))}")
+        d = ct.setdefault(r["기계ID"], {}).setdefault(k, {"min": 0.0, "edges": 0, "holes": 0, "edge_len": 0.0})
         d["min"] += sec / 60 * rating  # 정상 속도로 정규화
+        d["edges"] = max(d["edges"], num(r.get("엣지 변 수"), 0)); d["holes"] = max(d["holes"], num(r.get("홀 수"), 0)); d["edge_len"] = max(d["edge_len"], num(r.get("엣지 길이 합(m)"), 0))
     for st in f["stations"]:
         obs = list(ct.get(st["id"], {}).values())
         if obs:
@@ -75,9 +76,9 @@ def main(xlsx, out):
             key = "n_edges" if st["process"] == "edge" else ("holes" if st["process"] == "bore" else None)
             vf = num(next((r.get("이송속도 v_f(m/min, 엣지·샌더·런닝쏘)") for r in rows(wb["2_기계대장"]) if r["기계ID"] == st["id"]), None))
             gap = num(next((r.get("부품 간격 G(m, 엣지)") for r in rows(wb["2_기계대장"]) if r["기계ID"] == st["id"]), None), 0.45)
-            if st["process"] == "edge" and vf:
+            if st["process"] == "edge" and vf and all(o["edge_len"] > 0 for o in obs):
                 # T_part = Σ_pass (L_edge + G)/v_f + γ0 + γ1·N_pass → per_unit: edges_m = 1/v_f, n_edges = G/v_f + γ1 ; base = γ0
-                feed_terms = [(o["edges"] * gap) / vf for o in obs]  # 관측치의 간격 항 (엣지 길이는 부품별이라 기록이 없으면 평균 가정)
+                feed_terms = [(o["edge_len"] + o["edges"] * gap) / vf for o in obs]  # 이송 항 전체(엣지 길이 합 + 간격)를 관측치에서 뺀다
                 resid = [y - ft for y, ft in zip(ys, feed_terms)]
                 xs2 = [o["edges"] for o in obs]; xm = sum(xs2) / len(xs2); rm = sum(resid) / len(resid)
                 den = sum((x - xm) ** 2 for x in xs2)
@@ -85,6 +86,8 @@ def main(xlsx, out):
                 g0 = max(0.0, rm - g1 * xm)
                 st["cycle"] = {"base_min": round(g0, 3), "per_unit": {"edges_m": round(1 / vf, 4), "n_edges": round(gap / vf + max(0.0, g1), 4)}, "cv": round(sd / (mean + 1e-9), 2), "n": len(obs), "form": "edge: Σ(L+G)/v_f + γ0 + γ1·N_pass (v_f·G 측정값 고정)"}
                 continue
+            elif st["process"] == "edge" and vf:
+                assumptions.append(f"{st['id']}: 시트 4에 '엣지 길이 합(m)' 이 없어 물리항 회귀 불가 → 일반 회귀 사용")
             xs = [o["edges"] if key == "n_edges" else o["holes"] for o in obs] if key else []
             if key and len(obs) >= 5 and max(xs) > min(xs):
                 xm = sum(xs) / len(xs); b = sum((x - xm) * (y - mean) for x, y in zip(xs, ys)) / sum((x - xm) ** 2 for x in xs)
@@ -123,9 +126,12 @@ def main(xlsx, out):
                 if st["id"] == tgt:
                     if "가공" in state and st.get("rated_kw"): st["load_factor"] = round(min(1.0, kw / st["rated_kw"]), 2)
                     elif "공회전" in state: st["idle_kw"] = round(kw, 2)
+    n_handlers = 0
     for r in rows(wb["6_작업자"]):
+        if "운반" in str(r.get("역할") or "") or "대차" in str(r.get("역할") or ""): n_handlers += 1
         f["workers"].append({"id": r["작업자ID"], "name": r.get("이름/호칭") or "", "role": r.get("역할") or "", "station": r.get("주 담당 기계ID") or None,
                              "skills": [s.strip() for s in str(r.get("보조 가능 공정(스킬)") or "").split(",") if s.strip()], "employment": r.get("고용형태(정규/계약/E-9)") or "", "monthly_wage_krw": num(r.get("월 임금(원, 추정)"), 0)})
+    if n_handlers: f["transport"]["handlers"] = n_handlers
     prods = {}
     for r in rows(wb["7_제품_BOM"]):
         pid = r["제품ID"]
@@ -205,7 +211,7 @@ def main(xlsx, out):
         for r in rows(wb["23_운반_출하대장"]):
             item = str(r.get("항목(대차/A형대차/팔레트/지게차/탑차/시공팀)") or "")
             if "대차" in item:
-                f["transport"]["handlers"] = int(num(r.get("수량"), f["transport"]["handlers"])); f["transport"]["cart_capacity_parts"] = int(num(r.get("적재량(부품 수 또는 현장 수)"), 30))
+                f["transport"]["carts"] = int(num(r.get("수량"), 0)) or None; f["transport"]["cart_capacity_parts"] = int(num(r.get("적재량(부품 수 또는 현장 수)"), 30))
                 if num(r.get("속도(m/s) 또는 상차 시간(분/현장)")): f["transport"]["handler_speed_mps"] = num(r.get("속도(m/s) 또는 상차 시간(분/현장)"))
                 if num(r.get("적재·하역 시간(분)")): f["transport"]["load_unload_min"] = num(r.get("적재·하역 시간(분)"))
             elif "지게차" in item:
@@ -222,9 +228,27 @@ def main(xlsx, out):
     # 시트 20 외주 products 열 → 매핑(쉼표 구분 제품ID)
     tot = sum(f["orders"]["mix"].values()) or 1
     f["orders"]["mix"] = {k: round(v / tot, 3) for k, v in f["orders"]["mix"].items()}
+    # 출처 태깅(provenance): 시트 4 n≥10 → measured, 시트 5/8/11 → record, 시트 16 → interview, 기본값 → estimated
+    prov = {}
+    for st in f["stations"]:
+        if st["process"] in ("raw", "fg"): continue
+        n = (st.get("cycle") or {}).get("n", 0)
+        prov[f"{st['id']}.cycle"] = "measured" if n >= 10 else ("interview" if n > 0 else "estimated")
+        prov[f"{st['id']}.setup_min"] = "record" if st.get("setup_per_day_observed") else "estimated"
+        prov[f"{st['id']}.load_factor"] = "measured" if st.get("load_factor") and "11_전력측정" in wb.sheetnames else "estimated"
+        prov[f"{st['id']}.mtbf_min"] = "record" if st.get("mtbf_min") else "estimated"
+    prov["orders.batch_size"] = "record" if f["orders"].get("history_list") else "interview"
+    prov["orders.orders_per_day"] = "record" if f["orders"].get("history_list") else "estimated"
+    prov["transport.handler_speed_mps"] = "measured" if "23_운반_출하대장" in wb.sheetnames and f["transport"].get("carts") else "estimated"
+    if f.get("rules"): prov["orders.batching"] = "interview"
+    f["provenance"] = prov
+    if HISTORY_MODE and f["orders"].get("history_list"): f["orders"]["mode"] = "history"
+    assumptions = [a for a in assumptions if not ("D-2" in a and f["orders"].get("install_lead_days", {}).get("start_before_days", 2) != 2)]
     f["assumptions"] = assumptions
     pathlib.Path(out).write_text(json.dumps(f, ensure_ascii=False, indent=1), encoding="utf-8")
     print("wrote", out, "| stations", len(f["stations"]), "| products", len(f["products"]), "| assumptions", len(assumptions))
 
+HISTORY_MODE = False
 if __name__ == "__main__":
-    main(sys.argv[1] if len(sys.argv) > 1 else "capture/templates/현장수집_템플릿.xlsx", sys.argv[2] if len(sys.argv) > 2 else "data/survey_factory.json")
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]; HISTORY_MODE = "--history" in sys.argv
+    main(args[0] if args else "capture/templates/현장수집_템플릿.xlsx", args[1] if len(args) > 1 else "data/survey_factory.json")

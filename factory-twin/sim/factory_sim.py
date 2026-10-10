@@ -13,6 +13,7 @@
 import json, math, random, sys, pathlib, argparse, copy
 import simpy
 from pathfind import Grid
+from common import Calendar, energy_from_events
 
 BOARD_AREA = 2.44 * 1.22
 YIELD = 0.78
@@ -22,39 +23,16 @@ def hhmm(s):
     h, m = s.split(":"); return int(h) * 60 + int(m)
 
 
-class Shift:
-    """근무 캘린더: 시각·휴식 + 주 근무일(요일) + 잔업(평일 연장 분, 토요 특근 시간).
-    meta.shift.days_per_week (5=월~금, 6=월~토), meta.shift.overtime = {"weekday_min": 120, "saturday": ["08:00","12:00"]}"""
+class Shift(Calendar):
     def __init__(self, env, meta):
-        self.env = env
-        sh = meta["shift"]
-        self.start, self.end = hhmm(sh["start"]), hhmm(sh["end"])
-        self.breaks = [(hhmm(a), hhmm(b)) for a, b in sh.get("breaks", [])]
-        self.day_min = 24 * 60
-        self.days_per_week = int(sh.get("days_per_week", 5))
-        ot = sh.get("overtime", {}) or {}
-        self.ot_weekday = ot.get("weekday_min", 0)
-        self.sat = tuple(hhmm(x) for x in ot["saturday"]) if ot.get("saturday") else None
+        super().__init__(meta["shift"]); self.env = env; self.day_min = 1440
 
     def weekday(self, t):
-        return int(t // self.day_min) % 7  # Day 1 = 월요일(0)
-
-    def working(self, t):
-        wd = self.weekday(t); m = t % self.day_min
-        if wd >= 5:  # 토(5)·일(6)
-            if wd == 5 and self.days_per_week >= 6:
-                return self.start <= m < self.end and not any(a <= m < b for a, b in self.breaks)
-            if wd == 5 and self.sat:
-                return self.sat[0] <= m < self.sat[1]
-            return False
-        if not (self.start <= m < self.end + self.ot_weekday):
-            return False
-        return not any(a <= m < b for a, b in self.breaks)
+        return int(t // self.day_min) % 7
 
     def next_open(self, t):
         if self.working(t):
             return t
-        # 분 단위 전진 탐색 (최대 8일)
         tt = int(t) + 1
         while tt < t + 8 * self.day_min:
             if self.working(tt):
@@ -64,9 +42,7 @@ class Shift:
 
     def wait(self):
         t = self.env.now; n = self.next_open(t)
-        if n > t:
-            return self.env.timeout(n - t)
-        return self.env.timeout(0)
+        return self.env.timeout(n - t) if n > t else self.env.timeout(0)
 
     def worked_minutes(self, horizon):
         return sum(1 for t in range(int(horizon)) if self.working(t))
@@ -91,7 +67,7 @@ class Station:
 
     def log_state(self, state):
         self.state = state
-        self.sim.ev({"type": "state", "station": self.id, "state": state})
+        self.sim.ev({"type": "state", "station": self.id, "state": state, "occ": self.res.count, "cap": self.cap})
 
     def breakdowns(self):
         while True:
@@ -158,6 +134,12 @@ class Sim:
         self.handler_pos = {i: tuple(self.stations["RAW"].spec["out_pos"]) for i in range(self.handlers.capacity)}
         self.vehicle_ids = {}
         self.horizon_days = horizon_days or factory["orders"].get("horizon_days", 5)
+        if factory["orders"].get("mode") == "history" and factory["orders"].get("history_list"):
+            import datetime as _dt
+            ds = [_dt.date.fromisoformat(str(h["order_date"])[:10]) for h in factory["orders"]["history_list"] if h.get("order_date")]
+            dues = [_dt.date.fromisoformat(str(h["due_date"])[:10]) for h in factory["orders"]["history_list"] if h.get("due_date")]
+            d0 = min(ds); last = max(ds + dues)
+            self.horizon_days = (last - d0).days + d0.weekday() + 8
         self.horizon = self.horizon_days * 24 * 60
         self.products = {p["id"]: p for p in factory["products"]}
         self.scrap = 0; self.produced = 0
@@ -189,7 +171,6 @@ class Sim:
                     dd = _dt.date.fromisoformat(str(h["due_date"])[:10]); due = ((dd - d0).days + off) * 1440 + self.shift.end
                 items.append((day * 1440 + self.shift.start + self.rng_orders.uniform(0, 240), h["product"], int(h.get("qty") or 1), due))
             items.sort()
-            self.horizon = max(self.horizon, (max(i[0] for i in items) // 1440 + 8) * 1440); self.horizon_days = int(self.horizon // 1440)
             for t, pid, qty, due in items:
                 yield self.env.timeout(max(0, t - self.env.now))
                 oid += 1; self.env.process(self.order_entry(oid, pid, qty, due))
@@ -197,7 +178,7 @@ class Sim:
         mix = o["mix"]; keys = list(mix); wts = [mix[k] for k in keys]
         il = o.get("install_lead_days")
         for day in range(self.horizon_days):
-            if day % 7 >= 5:  # 주말 주문 접수 없음
+            if not self.shift.is_workday(day):  # 비근무일 주문 접수 없음
                 continue
             n = o.get("orders_per_day", 6)
             n_today = max(1, int(self.rng_orders.gauss(n, n * 0.2)))
@@ -215,11 +196,11 @@ class Sim:
                 self.env.process(self.order_entry(oid, pid, qty, due))
 
     def add_workdays(self, day, n):
-        """day(0=월) 에서 근무일 n일 뒤의 달력일 (주말 건너뜀)"""
+        """day(0=월) 에서 근무일 n일 뒤의 달력일 (비근무일 건너뜀)"""
         d = day; left = n
         while left > 0:
             d += 1
-            if d % 7 < 5:
+            if self.shift.is_workday(d):
                 left -= 1
         return d
 
@@ -240,7 +221,7 @@ class Sim:
             due_day = int(due // 1440); n = o["install_lead_days"]["start_before_days"]; d = due_day
             while n > 0:  # 근무일 기준 D-n
                 d -= 1
-                if d % 7 < 5:
+                if self.shift.is_workday(d):
                     n -= 1
             rel = d * 1440 + self.shift.start
             if rel > self.env.now:
@@ -496,19 +477,16 @@ class Sim:
         avail = self.shift.worked_minutes(self.horizon)
         shift_hours = avail / 60
         stations = {}
-        energy_kwh = 0.0; energy_by = {}
-        anc_on = {a["id"]: 0.0 for a in self.f.get("ancillary", [])}
+        # 에너지: 상태 로그 15분 적분(단일 경로, power_profile 과 동일 함수)
+        per_slot, total_kw, _ = energy_from_events(self.f, self.events, self.horizon)
+        energy_kwh = sum(total_kw) * 0.25; energy_by = {k: round(sum(v) * 0.25, 1) for k, v in per_slot.items()}
         for st in self.stations.values():
             sp = st.spec
             if st.process in ("raw", "fg"):
                 continue
             cap_avail = avail * st.cap
             util = (st.busy_min + st.setup_min) / cap_avail if cap_avail else 0
-            idle = max(0, cap_avail - st.busy_min - st.setup_min - st.down_min)
-            kwh = sp.get("rated_kw", 0) * sp.get("load_factor", 0.6) * st.busy_min / 60 + sp.get("idle_kw", 0) * idle / 60
-            energy_by[st.id] = round(kwh, 1); energy_kwh += kwh
-            for aid in sp.get("ancillary", []):
-                anc_on[aid] = max(anc_on.get(aid, 0), st.busy_min + st.setup_min)
+            kwh = energy_by.get(st.id, 0.0)
             qs = st.queue_series
             tw_q = sum((qs[i + 1][0] - qs[i][0]) * qs[i][1] for i in range(len(qs) - 1)) / max(1, self.horizon)
             stations[st.id] = {
@@ -521,24 +499,16 @@ class Sim:
                 "avg_queue_len": round(tw_q, 2), "max_queue_len": max(q for _, q in qs),
                 "energy_kwh": round(kwh, 1), "workers": sp.get("workers_required", 1),
             }
-        for a in self.f.get("ancillary", []):
-            if a["mode"] == "when_any_on":
-                # 연결된 기계 중 하나라도 돌면 가동 → 연결 기계 가동시간 합의 상한을 근사 (보수적으로 최대값*1.3, 교대시간 이하)
-                on = min(avail, anc_on.get(a["id"], 0) * 1.3)
-            elif a["mode"] == "shift":
-                on = avail
-            else:
-                on = self.horizon
-            kwh = a["rated_kw"] * a.get("load_factor", 0.7) * on / 60
-            energy_by[a["id"]] = round(kwh, 1); energy_kwh += kwh
-        base = self.f["meta"].get("energy", {}).get("base_load_kw", 0) * shift_hours
-        energy_by["BASE"] = round(base, 1); energy_kwh += base
         tariff = self.f["meta"].get("energy", {}).get("tariff_krw_per_kwh", 160)
         done = [b for b in self.batches if "done" in b]
         released = [b for b in self.batches if "release" in b]
         warm = min(5, max(0, self.horizon_days // 3)) * 1440
-        steady_days = sum(1 for d in range(int(warm // 1440), self.horizon_days) if d % 7 < 5)  # 워밍업 이후 근무일 수
+        steady_days = self.shift.workdays(int(warm // 1440), self.horizon_days)  # 워밍업 이후 근무일 수
         tp_steady = sum(b["qty"] for b in done if b["done"] >= warm) / max(1e-9, steady_days)
+        products_steady = sum(b["qty"] for b in done if b["done"] >= warm)
+        n_setups = sum(1 for e in self.events if e["type"] == "setup")
+        lead_work_sorted = sorted(b["lead_work_min"] for b in done)
+        lead_work_p90 = lead_work_sorted[int(0.9 * (len(lead_work_sorted) - 1))] if lead_work_sorted else 0
         due_in = [b for b in self.batches if b.get("due") and b["due"] <= self.horizon]
         # 병목 점수: 가동률 + 평균 대기(정규화) + 블로킹 유발
         ranked = []
@@ -554,8 +524,10 @@ class Sim:
             "horizon_days": self.horizon_days, "shift_min_per_day": avail / self.horizon_days,
             "orders_received": len(self.batches), "orders_released": len(released), "orders_completed": len(done),
             "orders_due_in_horizon": len(due_in), "completed_of_due": round(sum(1 for b in due_in if "done" in b) / max(1, len(due_in)), 3) if due_in else None,
-            "products_completed": self.produced,
+            "products_completed": self.produced, "products_completed_steady": products_steady, "steady_days": steady_days,
             "throughput_products_per_day": round(self.produced / self.horizon_days, 1),
+            "setups_per_day": round(n_setups / max(1, self.shift.workdays(0, self.horizon_days)), 2),
+            "lead_time_work_min_p90": round(lead_work_p90, 1),
             "throughput_steady_per_day": round(tp_steady, 1), "warmup_days": warm / 1440,
             "lead_time_work_min_avg": round(sum(b["lead_work_min"] for b in done) / max(1, len(done)), 1),
             "order_lead_days_avg": round(sum(b.get("order_lead_days", 0) for b in done) / max(1, len(done)), 2),
