@@ -9,6 +9,10 @@ NAMES = {
     "ad1548ea0ce1ac927": "04_scan_to_3d_browser_pipeline.md",
     "afc5504492a834bca": "05_korea_smart_factory_ax_market.md",
     "a5bd004691830dd0e": "06_open_source_repos_shortlist.md",
+    "ab5edc8bd0ed15bbc": "07_evidence_standard_validation_statistics.md",
+    "af693dc2c1388efcb": "08_plant_diagnostic_field_methods.md",
+    "ad8a2716dc2ef44cb": "09_records_mining_and_sensing.md",
+    "aaced108644f0be21": "10_korean_furniture_shop_reality.md",
 }
 OUT.mkdir(parents=True, exist_ok=True)
 for aid, name in NAMES.items():
