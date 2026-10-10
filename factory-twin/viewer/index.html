@@ -234,12 +234,16 @@ function renderKpi(k) {
   if (k.scenario?.hypothesis) h += `<div style="color:var(--muted);font-size:11px;margin-bottom:6px">${k.scenario.hypothesis}</div>`;
   h += `<table>
   <tr><td>기간</td><td>${k.horizon_days}일 (교대 ${k.shift_min_per_day}분/일)</td></tr>
-  <tr><td>주문 완료/투입</td><td>${k.orders_completed} / ${k.orders_released}</td></tr>
+  <tr><td>주문 접수/투입/완료</td><td>${k.orders_received ?? '-'} / ${k.orders_released} / ${k.orders_completed}</td></tr>
   <tr><td>처리량 (제품/일)</td><td>${f(a.throughput_per_day ?? k.throughput_products_per_day)}</td></tr>
   <tr><td>리드타임 (작업시간 기준, 분)</td><td>${f(a.lead_work_min ?? k.lead_time_work_min_avg)}</td></tr>
   <tr><td>리드타임 (달력, 분) 평균/P90</td><td>${k.lead_time_min.avg} / ${k.lead_time_min.p90}</td></tr>
   <tr><td>평균 WIP (배치)</td><td>${f(a.wip ?? k.avg_wip_batches)}</td></tr>
   <tr><td>불량 부품</td><td>${k.scrap_parts}</td></tr>
+  ${k.on_time_ratio != null ? `<tr><td>납기준수율 (시공일 기준)</td><td>${(k.on_time_ratio*100).toFixed(0)}%</td></tr>` : ''}
+  ${k.outsourced_wait_avg_min != null ? `<tr><td>외주 입고 대기 (분/주문)</td><td>${k.outsourced_wait_avg_min}</td></tr>` : ''}
+  ${k.cut_batching ? `<tr><td>묶음 재단 (배치 수 / 주문·배치)</td><td>${k.cut_batching.cut_batches} / ${k.cut_batching.orders_per_cut_batch}</td></tr>` : ''}
+  <tr><td>정상상태 처리량 (워밍업 ${k.warmup_days}일 제외)</td><td>${k.throughput_steady_per_day}</td></tr>
   <tr><td>운반자 / 지게차 가동률</td><td>${(k.transport.handler_utilization*100).toFixed(0)}% / ${(k.transport.forklift_utilization*100).toFixed(0)}%</td></tr>
   <tr><td>운반거리 (적재/공차, m)</td><td>${k.transport.loaded_distance_m} / ${k.transport.empty_distance_m}</td></tr>
   <tr><td>운반거리 / 제품</td><td>${k.transport.distance_per_product_m} m</td></tr>
