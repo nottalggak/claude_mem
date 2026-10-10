@@ -29,7 +29,7 @@ def main(xlsx, out):
                   "overtime_note": basic.get("잔업 패턴") or "", "erp": basic.get("ERP/MES 사용") or "", "headcount": basic.get("종업원 수 (내국인/외국인)") or ""},
          "site": {"width": W, "depth": D, "height": num(basic.get("천장고 (m)"), 8), "grid_m": 1.0, "zones": [], "obstacles": []},
          "stations": [], "ancillary": [], "transport": {"handlers": 2, "handler_speed_mps": 1.2, "cart_capacity_parts": 30, "forklifts": 1, "forklift_speed_mps": 2.0, "load_unload_min": 1.5, "forklift_processes": ["raw", "fg"]},
-         "workers": [], "products": [], "orders": {"mode": "generate", "horizon_days": 5, "orders_per_day": 8, "release": "spread", "batch_size": {}, "mix": {}}}
+         "workers": [], "products": [], "orders": {"mode": "generate", "horizon_days": 20, "orders_per_day": 8, "release": "spread", "batch_size": {}, "mix": {}}}
     for r in rows(wb["1_구역"]):
         x0, y0, x1, y1 = (num(r[k], 0) for k in ("x0", "y0", "x1", "y1"))
         f["site"]["zones"].append({"id": r["구역ID"], "name": r["구역명"], "type": r.get("유형(storage/process/assembly/office/aisle/shipping/utility)") or "other",
@@ -122,7 +122,8 @@ def main(xlsx, out):
         if r.get("부품명"):
             p["parts"].append({"id": r["부품명"], "qty": int(num(r.get("수량/제품"), 1)), "w": num(r.get("가로 w(m)"), 0.6), "d": num(r.get("세로 d(m)"), 0.4), "t": num(r.get("두께 t(m)"), 0.018),
                                "material": r.get("자재") or "", "n_edges": int(num(r.get("엣지 변 수"), 0)), "holes": int(num(r.get("홀 수"), 0)), "finish": str(r.get("도장(Y/N)") or "N").upper().startswith("Y")})
-        if num(r.get("주문당 수량(배치)")): f["orders"]["batch_size"][pid] = int(num(r.get("주문당 수량(배치)")))
+        bsz = num(r.get("주문당 수량(배치, 평균; 분포는 시트 8)")) or num(r.get("주문당 수량(배치)"))
+        if bsz: f["orders"]["batch_size"][pid] = int(bsz)
         if num(r.get("월 수량")): f["orders"]["mix"][pid] = num(r.get("월 수량"))
         for st in f["stations"]:
             if st["process"] == "assemble" and num(r.get("조립 시간(분/제품)")): st.setdefault("cycle", {"base_min": 0, "per_unit": {}, "cv": 0.2}).setdefault("per_product", {})[pid] = num(r.get("조립 시간(분/제품)"))

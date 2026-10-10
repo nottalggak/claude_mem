@@ -1,0 +1,1986 @@
+{"type": "state", "station": "EB1", "state": "down", "t": 594.77}
+{"type": "breakdown", "station": "EB1", "duration": 155.1, "t": 594.77}
+{"type": "state", "station": "EB2", "state": "down", "t": 641.86}
+{"type": "breakdown", "station": "EB2", "duration": 4.3, "t": 641.86}
+{"type": "state", "station": "EB2", "state": "idle", "t": 646.19}
+{"type": "state", "station": "EB1", "state": "idle", "t": 749.89}
+{"type": "state", "station": "BOR1", "state": "down", "t": 1000.41}
+{"type": "breakdown", "station": "BOR1", "duration": 38.7, "t": 1000.41}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 1039.06}
+{"type": "release", "batch": "B004", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 6780, "t": 1920.0}
+{"type": "state", "station": "CUT1", "state": "down", "t": 1937.51}
+{"type": "breakdown", "station": "CUT1", "duration": 19.4, "t": 1937.51}
+{"type": "state", "station": "CUT1", "state": "idle", "t": 1956.96}
+{"type": "state", "station": "BOR1", "state": "down", "t": 1968.48}
+{"type": "breakdown", "station": "BOR1", "duration": 100.0, "t": 1968.48}
+{"type": "cut_batch", "batch": "CB004", "orders": ["B004"], "n_parts": 40, "t": 1980.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[10.5, 19.0], [10.5, 19.0]], "duration": 0.0, "loaded": false, "parts": 0, "t": 1980.0}
+{"type": "move", "vehicle": "F1", "batch": "CB004", "path": [[10.5, 19.0], [18.5, 20.5]], "duration": 0.07, "loaded": true, "parts": 40, "t": 1981.5}
+{"type": "arrive", "batch": "CB004", "station": "CUT2", "pos": [18.5, 20.5], "t": 1983.07}
+{"type": "queue", "station": "CUT2", "len": 1, "t": 1983.07}
+{"type": "queue", "station": "CUT2", "len": 0, "t": 1983.07}
+{"type": "state", "station": "CUT2", "state": "setup", "t": 1983.07}
+{"type": "setup", "station": "CUT2", "batch": "CB004", "duration": 6.0, "t": 1983.07}
+{"type": "state", "station": "CUT2", "state": "busy", "t": 1989.07}
+{"type": "proc_start", "station": "CUT2", "batch": "CB004", "pos": [22.0, 22.5], "t": 1989.07}
+{"type": "state", "station": "EB1", "state": "down", "t": 1992.63}
+{"type": "breakdown", "station": "EB1", "duration": 18.6, "t": 1992.63}
+{"type": "state", "station": "EB1", "state": "idle", "t": 2011.22}
+{"type": "proc_end", "station": "CUT2", "batch": "CB004", "duration": 69.2, "t": 2058.25}
+{"type": "state", "station": "CUT2", "state": "idle", "t": 2058.25}
+{"type": "sort", "batch": "CB004", "station": "CUT2", "duration": 4.0, "t": 2062.25}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[25.0, 20.5], [25.0, 20.5]], "duration": 0.0, "loaded": false, "parts": 0, "t": 2062.25}
+{"type": "move", "vehicle": "H1", "batch": "B004", "path": [[25.0, 20.5], [26.5, 21.5], [28.5, 22.0]], "duration": 0.05, "loaded": true, "parts": 40, "t": 2063.75}
+{"type": "arrive", "batch": "B004", "station": "EB2", "pos": [28.5, 22.0], "t": 2065.3}
+{"type": "queue", "station": "EB2", "len": 1, "t": 2065.3}
+{"type": "queue", "station": "EB2", "len": 0, "t": 2065.3}
+{"type": "state", "station": "EB2", "state": "setup", "t": 2065.3}
+{"type": "setup", "station": "EB2", "batch": "B004", "duration": 5.0, "t": 2065.3}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 2068.45}
+{"type": "state", "station": "EB2", "state": "busy", "t": 2070.3}
+{"type": "proc_start", "station": "EB2", "batch": "B004", "pos": [32.0, 24.0], "t": 2070.3}
+{"type": "scrap", "station": "EB2", "batch": "B004", "parts": 1, "t": 2103.36}
+{"type": "proc_end", "station": "EB2", "batch": "B004", "duration": 33.1, "t": 2103.36}
+{"type": "state", "station": "EB2", "state": "idle", "t": 2103.36}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[35.5, 22.0], [35.5, 22.0]], "duration": 0.0, "loaded": false, "parts": 0, "t": 2103.36}
+{"type": "move", "vehicle": "H2", "batch": "B004", "path": [[35.5, 22.0], [35.5, 21.5], [45.5, 22.0]], "duration": 0.15, "loaded": true, "parts": 40, "t": 2104.86}
+{"type": "arrive", "batch": "B004", "station": "BOR2", "pos": [45.5, 22.0], "t": 2106.51}
+{"type": "queue", "station": "BOR2", "len": 1, "t": 2106.51}
+{"type": "queue", "station": "BOR2", "len": 0, "t": 2106.51}
+{"type": "state", "station": "BOR2", "state": "setup", "t": 2106.51}
+{"type": "setup", "station": "BOR2", "batch": "B004", "duration": 9.0, "t": 2106.51}
+{"type": "state", "station": "BOR2", "state": "busy", "t": 2115.51}
+{"type": "proc_start", "station": "BOR2", "batch": "B004", "pos": [48.0, 24.0], "t": 2115.51}
+{"type": "scrap", "station": "BOR2", "batch": "B004", "parts": 1, "t": 2148.56}
+{"type": "proc_end", "station": "BOR2", "batch": "B004", "duration": 33.1, "t": 2148.56}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 2148.56}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[28.5, 22.0], [28.5, 21.5], [50.5, 22.0]], "duration": 0.31, "loaded": false, "parts": 0, "t": 2148.56}
+{"type": "move", "vehicle": "H1", "batch": "B004", "path": [[50.5, 22.0], [51.5, 26.5], [53.0, 28.5]], "duration": 0.1, "loaded": true, "parts": 40, "t": 2150.38}
+{"type": "arrive", "batch": "B004", "station": "FIN1", "pos": [53.0, 28.5], "t": 2151.98}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 2151.98}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 2151.98}
+{"type": "state", "station": "FIN1", "state": "setup", "t": 2151.98}
+{"type": "setup", "station": "FIN1", "batch": "B004", "duration": 10.0, "t": 2151.98}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 2161.98}
+{"type": "proc_start", "station": "FIN1", "batch": "B004", "pos": [56.0, 31.0], "t": 2161.98}
+{"type": "proc_end", "station": "FIN1", "batch": "B004", "duration": 65.5, "t": 2227.47}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 2227.47}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[45.5, 22.0], [45.5, 26.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.25, "loaded": false, "parts": 0, "t": 2227.47}
+{"type": "move", "vehicle": "H2", "batch": "B004", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 40, "t": 2229.22}
+{"type": "arrive", "batch": "B004", "station": "DRY1", "pos": [53.0, 19.5], "t": 2230.98}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 2230.98}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 2230.98}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 2230.98}
+{"type": "proc_start", "station": "DRY1", "batch": "B004", "pos": [56.0, 22.0], "t": 2230.98}
+{"type": "state", "station": "EB1", "state": "down", "t": 2246.2}
+{"type": "breakdown", "station": "EB1", "duration": 67.7, "t": 2246.2}
+{"type": "proc_end", "station": "DRY1", "batch": "B004", "duration": 36.4, "t": 2267.34}
+{"type": "state", "station": "DRY1", "state": "idle", "t": 2267.34}
+{"type": "wait_outsourced", "batch": "B004", "item": "OUT_도어", "station": "DRY1", "duration": 7850.8, "t": 2267.34}
+{"type": "state", "station": "EB1", "state": "idle", "t": 2313.88}
+{"type": "state", "station": "CUT1", "state": "down", "t": 2388.54}
+{"type": "breakdown", "station": "CUT1", "duration": 9.7, "t": 2388.54}
+{"type": "state", "station": "CUT1", "state": "idle", "t": 2398.2}
+{"type": "release", "batch": "B002", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 11100, "t": 3360.0}
+{"type": "state", "station": "EB1", "state": "down", "t": 3361.29}
+{"type": "breakdown", "station": "EB1", "duration": 2.1, "t": 3361.29}
+{"type": "state", "station": "EB1", "state": "idle", "t": 3363.41}
+{"type": "cut_batch", "batch": "CB002", "orders": ["B002"], "n_parts": 80, "t": 3420.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[18.5, 20.5], [10.5, 19.0]], "duration": 0.07, "loaded": false, "parts": 0, "t": 3420.0}
+{"type": "move", "vehicle": "F1", "batch": "CB002", "path": [[10.5, 19.0], [13.5, 25.5]], "duration": 0.06, "loaded": true, "parts": 80, "t": 3421.57}
+{"type": "arrive", "batch": "CB002", "station": "CUT1", "pos": [13.5, 25.5], "t": 3423.13}
+{"type": "queue", "station": "CUT1", "len": 1, "t": 3423.13}
+{"type": "queue", "station": "CUT1", "len": 0, "t": 3423.13}
+{"type": "state", "station": "CUT1", "state": "setup", "t": 3423.13}
+{"type": "setup", "station": "CUT1", "batch": "CB002", "duration": 3.0, "t": 3423.13}
+{"type": "state", "station": "CUT1", "state": "busy", "t": 3426.13}
+{"type": "proc_start", "station": "CUT1", "batch": "CB002", "pos": [17.0, 30.0], "t": 3426.13}
+{"type": "proc_end", "station": "CUT1", "batch": "CB002", "duration": 98.8, "t": 3524.91}
+{"type": "state", "station": "CUT1", "state": "idle", "t": 3524.91}
+{"type": "sort", "batch": "CB002", "station": "CUT1", "duration": 8.0, "t": 3532.91}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 28.5], [51.5, 27.5], [23.5, 26.5], [21.5, 25.5]], "duration": 0.45, "loaded": false, "parts": 0, "t": 3532.91}
+{"type": "state", "station": "EB1", "state": "down", "t": 3533.49}
+{"type": "breakdown", "station": "EB1", "duration": 16.5, "t": 3533.49}
+{"type": "move", "vehicle": "H1", "batch": "B002", "path": [[21.5, 25.5], [26.5, 28.5], [28.5, 29.0]], "duration": 0.11, "loaded": true, "parts": 80, "t": 3534.86}
+{"type": "arrive", "batch": "B002", "station": "EB1", "pos": [28.5, 29.0], "t": 3536.47}
+{"type": "queue", "station": "EB1", "len": 1, "t": 3536.47}
+{"type": "queue", "station": "EB1", "len": 0, "t": 3536.47}
+{"type": "state", "station": "EB1", "state": "busy", "t": 3550.02}
+{"type": "state", "station": "EB1", "state": "setup", "t": 3550.47}
+{"type": "setup", "station": "EB1", "batch": "B002", "duration": 8.0, "t": 3550.47}
+{"type": "state", "station": "EB1", "state": "busy", "t": 3558.47}
+{"type": "proc_start", "station": "EB1", "batch": "B002", "pos": [33.0, 31.0], "t": 3558.47}
+{"type": "scrap", "station": "EB1", "batch": "B002", "parts": 2, "t": 3698.47}
+{"type": "proc_end", "station": "EB1", "batch": "B002", "duration": 140.0, "t": 3698.47}
+{"type": "state", "station": "EB1", "state": "idle", "t": 3698.47}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 19.5], [50.5, 18.5], [37.5, 28.5], [37.5, 29.0]], "duration": 0.27, "loaded": false, "parts": 0, "t": 3698.47}
+{"type": "move", "vehicle": "H2", "batch": "B002", "path": [[37.5, 29.0], [37.5, 27.5], [45.5, 22.0]], "duration": 0.16, "loaded": true, "parts": 80, "t": 3700.24}
+{"type": "arrive", "batch": "B002", "station": "BOR2", "pos": [45.5, 22.0], "t": 3701.9}
+{"type": "queue", "station": "BOR2", "len": 1, "t": 3701.9}
+{"type": "queue", "station": "BOR2", "len": 0, "t": 3701.9}
+{"type": "state", "station": "BOR2", "state": "setup", "t": 3701.9}
+{"type": "setup", "station": "BOR2", "batch": "B002", "duration": 9.0, "t": 3701.9}
+{"type": "state", "station": "BOR2", "state": "busy", "t": 3710.9}
+{"type": "proc_start", "station": "BOR2", "batch": "B002", "pos": [48.0, 24.0], "t": 3710.9}
+{"type": "scrap", "station": "BOR2", "batch": "B002", "parts": 3, "t": 3770.11}
+{"type": "proc_end", "station": "BOR2", "batch": "B002", "duration": 59.2, "t": 3770.11}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 3770.11}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[28.5, 29.0], [28.5, 28.5], [38.5, 25.5], [46.5, 21.5], [50.5, 22.0]], "duration": 0.33, "loaded": false, "parts": 0, "t": 3770.11}
+{"type": "move", "vehicle": "H1", "batch": "B002", "path": [[50.5, 22.0], [38.5, 14.5], [38.5, 13.8]], "duration": 0.21, "loaded": true, "parts": 80, "t": 3771.95}
+{"type": "arrive", "batch": "B002", "station": "ASM3", "pos": [38.5, 13.8], "t": 3773.65}
+{"type": "queue", "station": "ASM3", "len": 1, "t": 3773.65}
+{"type": "queue", "station": "ASM3", "len": 0, "t": 3773.65}
+{"type": "state", "station": "ASM3", "state": "setup", "t": 3773.65}
+{"type": "setup", "station": "ASM3", "batch": "B002", "duration": 2.0, "t": 3773.65}
+{"type": "state", "station": "ASM3", "state": "busy", "t": 3775.65}
+{"type": "proc_start", "station": "ASM3", "batch": "B002", "pos": [41.0, 12.0], "t": 3775.65}
+{"type": "release", "batch": "B005", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 12540, "t": 4800.0}
+{"type": "state", "station": "CUT1", "state": "down", "t": 4836.42}
+{"type": "breakdown", "station": "CUT1", "duration": 16.8, "t": 4836.42}
+{"type": "state", "station": "CUT1", "state": "idle", "t": 4853.2}
+{"type": "cut_batch", "batch": "CB005", "orders": ["B005"], "n_parts": 40, "t": 4860.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[13.5, 25.5], [10.5, 19.0]], "duration": 0.06, "loaded": false, "parts": 0, "t": 4860.0}
+{"type": "move", "vehicle": "F1", "batch": "CB005", "path": [[10.5, 19.0], [18.5, 20.5]], "duration": 0.07, "loaded": true, "parts": 40, "t": 4861.56}
+{"type": "arrive", "batch": "CB005", "station": "CUT2", "pos": [18.5, 20.5], "t": 4863.13}
+{"type": "queue", "station": "CUT2", "len": 1, "t": 4863.13}
+{"type": "queue", "station": "CUT2", "len": 0, "t": 4863.13}
+{"type": "state", "station": "CUT2", "state": "busy", "t": 4863.13}
+{"type": "proc_start", "station": "CUT2", "batch": "CB005", "pos": [22.0, 22.5], "t": 4863.13}
+{"type": "scrap", "station": "CUT2", "batch": "CB005", "parts": 1, "t": 4917.91}
+{"type": "proc_end", "station": "CUT2", "batch": "CB005", "duration": 54.8, "t": 4917.91}
+{"type": "state", "station": "CUT2", "state": "idle", "t": 4917.91}
+{"type": "sort", "batch": "CB005", "station": "CUT2", "duration": 4.0, "t": 4921.91}
+{"type": "proc_end", "station": "ASM3", "batch": "B002", "duration": 1153.8, "t": 4929.44}
+{"type": "state", "station": "ASM3", "state": "idle", "t": 4929.44}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[45.5, 22.0], [25.0, 20.5]], "duration": 0.29, "loaded": false, "parts": 0, "t": 4935.0}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[38.5, 13.8], [38.5, 14.5], [41.5, 14.5], [43.5, 13.8]], "duration": 0.08, "loaded": false, "parts": 0, "t": 4935.0}
+{"type": "move", "vehicle": "H1", "batch": "B002", "path": [[43.5, 13.8], [43.5, 14.5], [45.5, 13.5], [47.5, 13.8]], "duration": 0.07, "loaded": true, "parts": 80, "t": 4936.58}
+{"type": "move", "vehicle": "H2", "batch": "B005", "path": [[25.0, 20.5], [27.5, 27.5], [28.5, 29.0]], "duration": 0.13, "loaded": true, "parts": 40, "t": 4936.79}
+{"type": "arrive", "batch": "B002", "station": "PACK1", "pos": [47.5, 13.8], "t": 4938.15}
+{"type": "queue", "station": "PACK1", "len": 1, "t": 4938.15}
+{"type": "queue", "station": "PACK1", "len": 0, "t": 4938.15}
+{"type": "state", "station": "PACK1", "state": "busy", "t": 4938.15}
+{"type": "proc_start", "station": "PACK1", "batch": "B002", "pos": [50.0, 12.0], "t": 4938.15}
+{"type": "arrive", "batch": "B005", "station": "EB1", "pos": [28.5, 29.0], "t": 4938.41}
+{"type": "queue", "station": "EB1", "len": 1, "t": 4938.41}
+{"type": "queue", "station": "EB1", "len": 0, "t": 4938.41}
+{"type": "state", "station": "EB1", "state": "setup", "t": 4938.41}
+{"type": "setup", "station": "EB1", "batch": "B005", "duration": 8.0, "t": 4938.41}
+{"type": "state", "station": "EB1", "state": "busy", "t": 4946.41}
+{"type": "proc_start", "station": "EB1", "batch": "B005", "pos": [33.0, 31.0], "t": 4946.41}
+{"type": "proc_end", "station": "EB1", "batch": "B005", "duration": 31.7, "t": 4978.08}
+{"type": "state", "station": "EB1", "state": "idle", "t": 4978.08}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 29.0], [28.5, 28.5], [35.5, 28.5], [37.5, 29.0]], "duration": 0.13, "loaded": false, "parts": 0, "t": 4978.08}
+{"type": "move", "vehicle": "H2", "batch": "B005", "path": [[37.5, 29.0], [37.5, 28.5], [40.5, 27.5], [42.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 40, "t": 4979.71}
+{"type": "arrive", "batch": "B005", "station": "BOR1", "pos": [42.0, 28.5], "t": 4981.29}
+{"type": "queue", "station": "BOR1", "len": 1, "t": 4981.29}
+{"type": "queue", "station": "BOR1", "len": 0, "t": 4981.29}
+{"type": "state", "station": "BOR1", "state": "setup", "t": 4981.29}
+{"type": "setup", "station": "BOR1", "batch": "B005", "duration": 4.0, "t": 4981.29}
+{"type": "state", "station": "BOR1", "state": "busy", "t": 4985.29}
+{"type": "proc_start", "station": "BOR1", "batch": "B005", "pos": [45.0, 31.0], "t": 4985.29}
+{"type": "scrap", "station": "BOR1", "batch": "B005", "parts": 1, "t": 5018.25}
+{"type": "proc_end", "station": "BOR1", "batch": "B005", "duration": 33.0, "t": 5018.25}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 5018.25}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[47.5, 13.8], [46.5, 13.5], [50.5, 22.5], [50.5, 26.5], [48.0, 28.5]], "duration": 0.25, "loaded": false, "parts": 0, "t": 5018.25}
+{"type": "move", "vehicle": "H1", "batch": "B005", "path": [[48.0, 28.5], [51.5, 27.5], [53.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 40, "t": 5020.0}
+{"type": "arrive", "batch": "B005", "station": "FIN1", "pos": [53.0, 28.5], "t": 5021.57}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 5021.57}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 5021.57}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 5021.57}
+{"type": "proc_start", "station": "FIN1", "batch": "B005", "pos": [56.0, 31.0], "t": 5021.57}
+{"type": "scrap", "station": "FIN1", "batch": "B005", "parts": 1, "t": 5030.27}
+{"type": "proc_end", "station": "FIN1", "batch": "B005", "duration": 8.7, "t": 5030.27}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 5030.27}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[42.0, 28.5], [42.5, 27.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.25, "loaded": false, "parts": 0, "t": 5030.27}
+{"type": "move", "vehicle": "H2", "batch": "B005", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 40, "t": 5032.01}
+{"type": "arrive", "batch": "B005", "station": "DRY1", "pos": [53.0, 19.5], "t": 5033.77}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 5033.77}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 5033.77}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 5033.77}
+{"type": "proc_start", "station": "DRY1", "batch": "B005", "pos": [56.0, 22.0], "t": 5033.77}
+{"type": "proc_end", "station": "DRY1", "batch": "B005", "duration": 95.5, "t": 5129.22}
+{"type": "state", "station": "DRY1", "state": "idle", "t": 5129.22}
+{"type": "wait_outsourced", "batch": "B005", "item": "OUT_도어", "station": "DRY1", "duration": 4898.5, "t": 5129.22}
+{"type": "proc_end", "station": "PACK1", "batch": "B002", "duration": 198.3, "t": 5136.49}
+{"type": "state", "station": "PACK1", "state": "idle", "t": 5136.49}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[18.5, 20.5], [19.5, 19.5], [50.5, 14.5], [52.5, 13.8]], "duration": 0.29, "loaded": false, "parts": 0, "t": 5136.49}
+{"type": "move", "vehicle": "F1", "batch": "B002", "path": [[52.5, 13.8], [52.5, 15.5], [55.5, 16.8]], "duration": 0.04, "loaded": true, "parts": 80, "t": 5138.28}
+{"type": "arrive", "batch": "B002", "station": "FG", "pos": [55.5, 16.8], "t": 5139.82}
+{"type": "done", "batch": "B002", "lead_min": 1779.8, "late_min": 0.0, "t": 5139.82}
+{"type": "state", "station": "EB1", "state": "down", "t": 5159.56}
+{"type": "breakdown", "station": "EB1", "duration": 100.1, "t": 5159.56}
+{"type": "state", "station": "EB1", "state": "idle", "t": 5259.7}
+{"type": "state", "station": "EB2", "state": "down", "t": 5263.9}
+{"type": "breakdown", "station": "EB2", "duration": 27.4, "t": 5263.9}
+{"type": "state", "station": "EB2", "state": "idle", "t": 5291.27}
+{"type": "state", "station": "BOR2", "state": "down", "t": 5329.76}
+{"type": "breakdown", "station": "BOR2", "duration": 21.9, "t": 5329.76}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 5351.61}
+{"type": "release", "batch": "B003", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 13980, "t": 6240.0}
+{"type": "release", "batch": "B007", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 13980, "t": 6240.0}
+{"type": "cut_batch", "batch": "CB003+B007", "orders": ["B003", "B007"], "n_parts": 80, "t": 6300.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [10.5, 19.0]], "duration": 0.38, "loaded": false, "parts": 0, "t": 6300.0}
+{"type": "move", "vehicle": "F1", "batch": "CB003+B007", "path": [[10.5, 19.0], [13.5, 25.5]], "duration": 0.06, "loaded": true, "parts": 80, "t": 6301.88}
+{"type": "arrive", "batch": "CB003+B007", "station": "CUT1", "pos": [13.5, 25.5], "t": 6303.44}
+{"type": "queue", "station": "CUT1", "len": 1, "t": 6303.44}
+{"type": "queue", "station": "CUT1", "len": 0, "t": 6303.44}
+{"type": "state", "station": "CUT1", "state": "setup", "t": 6303.44}
+{"type": "setup", "station": "CUT1", "batch": "CB003+B007", "duration": 3.0, "t": 6303.44}
+{"type": "state", "station": "CUT1", "state": "busy", "t": 6306.44}
+{"type": "proc_start", "station": "CUT1", "batch": "CB003+B007", "pos": [17.0, 30.0], "t": 6306.44}
+{"type": "proc_end", "station": "CUT1", "batch": "CB003+B007", "duration": 133.2, "t": 6439.68}
+{"type": "state", "station": "CUT1", "state": "idle", "t": 6439.68}
+{"type": "sort", "batch": "CB003+B007", "station": "CUT1", "duration": 8.0, "t": 6447.68}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 28.5], [51.5, 27.5], [23.5, 26.5], [21.5, 25.5]], "duration": 0.45, "loaded": false, "parts": 0, "t": 6447.68}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 19.5], [50.5, 17.5], [35.5, 26.5], [23.5, 26.5], [21.5, 25.5]], "duration": 0.49, "loaded": false, "parts": 0, "t": 6447.68}
+{"type": "move", "vehicle": "H1", "batch": "B003", "path": [[21.5, 25.5], [26.5, 28.5], [28.5, 29.0]], "duration": 0.11, "loaded": true, "parts": 40, "t": 6449.63}
+{"type": "move", "vehicle": "H2", "batch": "B007", "path": [[21.5, 25.5], [25.5, 25.5], [27.5, 22.5], [28.5, 22.0]], "duration": 0.12, "loaded": true, "parts": 40, "t": 6449.67}
+{"type": "arrive", "batch": "B003", "station": "EB1", "pos": [28.5, 29.0], "t": 6451.24}
+{"type": "queue", "station": "EB1", "len": 1, "t": 6451.24}
+{"type": "queue", "station": "EB1", "len": 0, "t": 6451.24}
+{"type": "state", "station": "EB1", "state": "busy", "t": 6451.24}
+{"type": "proc_start", "station": "EB1", "batch": "B003", "pos": [33.0, 31.0], "t": 6451.24}
+{"type": "arrive", "batch": "B007", "station": "EB2", "pos": [28.5, 22.0], "t": 6451.29}
+{"type": "queue", "station": "EB2", "len": 1, "t": 6451.29}
+{"type": "queue", "station": "EB2", "len": 0, "t": 6451.29}
+{"type": "state", "station": "EB2", "state": "busy", "t": 6451.29}
+{"type": "proc_start", "station": "EB2", "batch": "B007", "pos": [32.0, 24.0], "t": 6451.29}
+{"type": "state", "station": "BOR1", "state": "down", "t": 6468.11}
+{"type": "breakdown", "station": "BOR1", "duration": 11.7, "t": 6468.11}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 6479.81}
+{"type": "proc_end", "station": "EB2", "batch": "B007", "duration": 91.9, "t": 6543.21}
+{"type": "state", "station": "EB2", "state": "idle", "t": 6543.21}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[28.5, 29.0], [27.5, 27.5], [27.5, 21.5], [33.5, 21.5], [35.5, 22.0]], "duration": 0.22, "loaded": false, "parts": 0, "t": 6543.21}
+{"type": "proc_end", "station": "EB1", "batch": "B003", "duration": 93.0, "t": 6544.27}
+{"type": "state", "station": "EB1", "state": "idle", "t": 6544.27}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 22.0], [27.5, 22.5], [27.5, 26.5], [35.5, 28.5], [37.5, 29.0]], "duration": 0.21, "loaded": false, "parts": 0, "t": 6544.27}
+{"type": "move", "vehicle": "H1", "batch": "B007", "path": [[35.5, 22.0], [35.5, 21.5], [41.5, 26.5], [42.0, 28.5]], "duration": 0.14, "loaded": true, "parts": 40, "t": 6544.93}
+{"type": "move", "vehicle": "H2", "batch": "B003", "path": [[37.5, 29.0], [37.5, 27.5], [45.5, 22.0]], "duration": 0.16, "loaded": true, "parts": 40, "t": 6545.99}
+{"type": "arrive", "batch": "B007", "station": "BOR1", "pos": [42.0, 28.5], "t": 6546.57}
+{"type": "queue", "station": "BOR1", "len": 1, "t": 6546.57}
+{"type": "queue", "station": "BOR1", "len": 0, "t": 6546.57}
+{"type": "state", "station": "BOR1", "state": "busy", "t": 6546.57}
+{"type": "proc_start", "station": "BOR1", "batch": "B007", "pos": [45.0, 31.0], "t": 6546.57}
+{"type": "arrive", "batch": "B003", "station": "BOR2", "pos": [45.5, 22.0], "t": 6547.64}
+{"type": "queue", "station": "BOR2", "len": 1, "t": 6547.64}
+{"type": "queue", "station": "BOR2", "len": 0, "t": 6547.64}
+{"type": "state", "station": "BOR2", "state": "setup", "t": 6547.64}
+{"type": "setup", "station": "BOR2", "batch": "B003", "duration": 9.0, "t": 6547.64}
+{"type": "state", "station": "BOR2", "state": "busy", "t": 6556.64}
+{"type": "proc_start", "station": "BOR2", "batch": "B003", "pos": [48.0, 24.0], "t": 6556.64}
+{"type": "state", "station": "EB2", "state": "down", "t": 6566.97}
+{"type": "breakdown", "station": "EB2", "duration": 74.7, "t": 6566.97}
+{"type": "scrap", "station": "BOR1", "batch": "B007", "parts": 2, "t": 6581.21}
+{"type": "proc_end", "station": "BOR1", "batch": "B007", "duration": 34.6, "t": 6581.21}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 6581.21}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[42.0, 28.5], [42.5, 27.5], [48.5, 27.5], [48.0, 28.5]], "duration": 0.11, "loaded": false, "parts": 0, "t": 6581.21}
+{"type": "move", "vehicle": "H1", "batch": "B007", "path": [[48.0, 28.5], [51.5, 27.5], [53.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 40, "t": 6582.82}
+{"type": "arrive", "batch": "B007", "station": "FIN1", "pos": [53.0, 28.5], "t": 6584.4}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 6584.4}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 6584.4}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 6584.4}
+{"type": "proc_start", "station": "FIN1", "batch": "B007", "pos": [56.0, 31.0], "t": 6584.4}
+{"type": "scrap", "station": "BOR2", "batch": "B003", "parts": 1, "t": 6590.46}
+{"type": "proc_end", "station": "BOR2", "batch": "B003", "duration": 33.8, "t": 6590.46}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 6590.46}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[45.5, 22.0], [50.5, 21.5], [50.5, 22.0]], "duration": 0.08, "loaded": false, "parts": 0, "t": 6590.46}
+{"type": "move", "vehicle": "H2", "batch": "B003", "path": [[50.5, 22.0], [51.5, 26.5], [53.0, 28.5]], "duration": 0.1, "loaded": true, "parts": 40, "t": 6592.03}
+{"type": "scrap", "station": "FIN1", "batch": "B007", "parts": 1, "t": 6593.02}
+{"type": "proc_end", "station": "FIN1", "batch": "B007", "duration": 8.6, "t": 6593.02}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 6593.02}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 28.5], [53.5, 27.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.1, "loaded": false, "parts": 0, "t": 6593.02}
+{"type": "arrive", "batch": "B003", "station": "FIN1", "pos": [53.0, 28.5], "t": 6593.63}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 6593.63}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 6593.63}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 6593.63}
+{"type": "proc_start", "station": "FIN1", "batch": "B003", "pos": [56.0, 31.0], "t": 6593.63}
+{"type": "move", "vehicle": "H1", "batch": "B007", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 40, "t": 6594.61}
+{"type": "arrive", "batch": "B007", "station": "DRY1", "pos": [53.0, 19.5], "t": 6596.37}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 6596.37}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 6596.37}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 6596.37}
+{"type": "proc_start", "station": "DRY1", "batch": "B007", "pos": [56.0, 22.0], "t": 6596.37}
+{"type": "scrap", "station": "FIN1", "batch": "B003", "parts": 1, "t": 6601.88}
+{"type": "proc_end", "station": "FIN1", "batch": "B003", "duration": 8.3, "t": 6601.88}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 6601.88}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 28.5], [53.5, 27.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.1, "loaded": false, "parts": 0, "t": 6601.88}
+{"type": "move", "vehicle": "H2", "batch": "B003", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 40, "t": 6603.48}
+{"type": "arrive", "batch": "B003", "station": "DRY1", "pos": [53.0, 19.5], "t": 6605.23}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 6605.23}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 6605.23}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 6605.23}
+{"type": "proc_start", "station": "DRY1", "batch": "B003", "pos": [56.0, 22.0], "t": 6605.23}
+{"type": "proc_end", "station": "DRY1", "batch": "B007", "duration": 37.4, "t": 6633.74}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 6633.74}
+{"type": "wait_outsourced", "batch": "B007", "item": "OUT_도어", "station": "DRY1", "duration": 4019.3, "t": 6633.74}
+{"type": "proc_end", "station": "DRY1", "batch": "B003", "duration": 34.5, "t": 6639.71}
+{"type": "state", "station": "DRY1", "state": "idle", "t": 6639.71}
+{"type": "wait_outsourced", "batch": "B003", "item": "OUT_도어", "station": "DRY1", "duration": 3524.9, "t": 6639.71}
+{"type": "state", "station": "EB2", "state": "idle", "t": 6641.68}
+{"type": "state", "station": "EB1", "state": "down", "t": 6686.47}
+{"type": "breakdown", "station": "EB1", "duration": 83.0, "t": 6686.47}
+{"type": "state", "station": "EB1", "state": "idle", "t": 6769.44}
+{"type": "release", "batch": "B001", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 15420, "t": 10560.0}
+{"type": "release", "batch": "B006", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 15420, "t": 10560.0}
+{"type": "release", "batch": "B008", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 15420, "t": 10560.0}
+{"type": "release", "batch": "B009", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 15420, "t": 10560.0}
+{"type": "release", "batch": "B010", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 15420, "t": 10560.0}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 19.5], [52.5, 17.5], [56.5, 17.5], [59.0, 19.5]], "duration": 0.13, "loaded": false, "parts": 0, "t": 10560.0}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 19.5], [52.5, 17.5], [56.5, 17.5], [59.0, 19.5]], "duration": 0.13, "loaded": false, "parts": 0, "t": 10560.0}
+{"type": "move", "vehicle": "H1", "batch": "B005", "path": [[59.0, 19.5], [56.5, 17.5], [45.5, 13.5], [44.5, 9.5], [25.5, 7.5], [25.5, 6.5], [26.5, 6.8]], "duration": 0.56, "loaded": true, "parts": 40, "t": 10561.63}
+{"type": "move", "vehicle": "H2", "batch": "B004", "path": [[59.0, 19.5], [56.5, 17.5], [38.5, 14.5], [38.5, 13.8]], "duration": 0.31, "loaded": true, "parts": 40, "t": 10561.63}
+{"type": "arrive", "batch": "B004", "station": "ASM3", "pos": [38.5, 13.8], "t": 10563.44}
+{"type": "queue", "station": "ASM3", "len": 1, "t": 10563.44}
+{"type": "queue", "station": "ASM3", "len": 0, "t": 10563.44}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 19.5], [52.5, 17.5], [56.5, 17.5], [59.0, 19.5]], "duration": 0.13, "loaded": false, "parts": 0, "t": 10563.44}
+{"type": "state", "station": "ASM3", "state": "setup", "t": 10563.44}
+{"type": "setup", "station": "ASM3", "batch": "B004", "duration": 2.0, "t": 10563.44}
+{"type": "arrive", "batch": "B005", "station": "ASM4", "pos": [26.5, 6.8], "t": 10563.69}
+{"type": "queue", "station": "ASM4", "len": 1, "t": 10563.69}
+{"type": "queue", "station": "ASM4", "len": 0, "t": 10563.69}
+{"type": "state", "station": "ASM4", "state": "setup", "t": 10563.69}
+{"type": "setup", "station": "ASM4", "batch": "B005", "duration": 2.0, "t": 10563.69}
+{"type": "move", "vehicle": "H1", "batch": "B003", "path": [[59.0, 19.5], [56.5, 17.5], [25.5, 14.5], [25.5, 13.5], [26.5, 13.8]], "duration": 0.51, "loaded": true, "parts": 40, "t": 10565.06}
+{"type": "state", "station": "ASM3", "state": "busy", "t": 10565.44}
+{"type": "proc_start", "station": "ASM3", "batch": "B004", "pos": [41.0, 12.0], "t": 10565.44}
+{"type": "state", "station": "ASM4", "state": "busy", "t": 10565.69}
+{"type": "proc_start", "station": "ASM4", "batch": "B005", "pos": [29.0, 5.0], "t": 10565.69}
+{"type": "arrive", "batch": "B003", "station": "ASM1", "pos": [26.5, 13.8], "t": 10567.07}
+{"type": "queue", "station": "ASM1", "len": 1, "t": 10567.07}
+{"type": "queue", "station": "ASM1", "len": 0, "t": 10567.07}
+{"type": "state", "station": "ASM1", "state": "setup", "t": 10567.07}
+{"type": "setup", "station": "ASM1", "batch": "B003", "duration": 2.0, "t": 10567.07}
+{"type": "state", "station": "ASM1", "state": "busy", "t": 10569.07}
+{"type": "proc_start", "station": "ASM1", "batch": "B003", "pos": [29.0, 12.0], "t": 10569.07}
+{"type": "cut_batch", "batch": "CB001+B006+B008+B009", "orders": ["B001", "B006", "B008", "B009"], "n_parts": 312, "t": 10620.0}
+{"type": "cut_batch", "batch": "CB010", "orders": ["B010"], "n_parts": 54, "t": 10620.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[13.5, 25.5], [10.5, 19.0]], "duration": 0.06, "loaded": false, "parts": 0, "t": 10620.0}
+{"type": "move", "vehicle": "F1", "batch": "CB001+B006+B008+B009", "path": [[10.5, 19.0], [13.5, 25.5]], "duration": 0.06, "loaded": true, "parts": 312, "t": 10621.56}
+{"type": "arrive", "batch": "CB001+B006+B008+B009", "station": "CUT1", "pos": [13.5, 25.5], "t": 10623.12}
+{"type": "queue", "station": "CUT1", "len": 1, "t": 10623.12}
+{"type": "queue", "station": "CUT1", "len": 0, "t": 10623.12}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[13.5, 25.5], [10.5, 19.0]], "duration": 0.06, "loaded": false, "parts": 0, "t": 10623.12}
+{"type": "state", "station": "CUT1", "state": "setup", "t": 10623.12}
+{"type": "setup", "station": "CUT1", "batch": "CB001+B006+B008+B009", "duration": 3.0, "t": 10623.12}
+{"type": "move", "vehicle": "F1", "batch": "CB010", "path": [[10.5, 19.0], [18.5, 20.5]], "duration": 0.07, "loaded": true, "parts": 54, "t": 10624.68}
+{"type": "state", "station": "CUT1", "state": "busy", "t": 10626.12}
+{"type": "proc_start", "station": "CUT1", "batch": "CB001+B006+B008+B009", "pos": [17.0, 30.0], "t": 10626.12}
+{"type": "arrive", "batch": "CB010", "station": "CUT2", "pos": [18.5, 20.5], "t": 10626.25}
+{"type": "queue", "station": "CUT2", "len": 1, "t": 10626.25}
+{"type": "queue", "station": "CUT2", "len": 0, "t": 10626.25}
+{"type": "state", "station": "CUT2", "state": "setup", "t": 10626.25}
+{"type": "setup", "station": "CUT2", "batch": "CB010", "duration": 6.0, "t": 10626.25}
+{"type": "state", "station": "CUT2", "state": "busy", "t": 10632.25}
+{"type": "proc_start", "station": "CUT2", "batch": "CB010", "pos": [22.0, 22.5], "t": 10632.25}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[38.5, 13.8], [38.5, 14.5], [56.5, 17.5], [59.0, 19.5]], "duration": 0.31, "loaded": false, "parts": 0, "t": 10653.0}
+{"type": "move", "vehicle": "H2", "batch": "B007", "path": [[59.0, 19.5], [56.5, 17.5], [32.5, 14.5], [32.5, 13.8]], "duration": 0.39, "loaded": true, "parts": 40, "t": 10654.8}
+{"type": "proc_end", "station": "ASM4", "batch": "B005", "duration": 89.4, "t": 10655.09}
+{"type": "state", "station": "ASM4", "state": "idle", "t": 10655.09}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[26.5, 13.8], [25.5, 11.5], [25.5, 9.5], [29.5, 7.5], [31.5, 6.8]], "duration": 0.15, "loaded": false, "parts": 0, "t": 10655.09}
+{"type": "arrive", "batch": "B007", "station": "ASM2", "pos": [32.5, 13.8], "t": 10656.69}
+{"type": "queue", "station": "ASM2", "len": 1, "t": 10656.69}
+{"type": "queue", "station": "ASM2", "len": 0, "t": 10656.69}
+{"type": "state", "station": "ASM2", "state": "setup", "t": 10656.69}
+{"type": "setup", "station": "ASM2", "batch": "B007", "duration": 2.0, "t": 10656.69}
+{"type": "move", "vehicle": "H1", "batch": "B005", "path": [[31.5, 6.8], [31.5, 7.5], [44.5, 9.5], [46.5, 11.5], [47.5, 13.8]], "duration": 0.27, "loaded": true, "parts": 40, "t": 10656.74}
+{"type": "arrive", "batch": "B005", "station": "PACK1", "pos": [47.5, 13.8], "t": 10658.51}
+{"type": "queue", "station": "PACK1", "len": 1, "t": 10658.51}
+{"type": "queue", "station": "PACK1", "len": 0, "t": 10658.51}
+{"type": "state", "station": "PACK1", "state": "busy", "t": 10658.51}
+{"type": "proc_start", "station": "PACK1", "batch": "B005", "pos": [50.0, 12.0], "t": 10658.51}
+{"type": "state", "station": "ASM2", "state": "busy", "t": 10658.69}
+{"type": "proc_start", "station": "ASM2", "batch": "B007", "pos": [35.0, 12.0], "t": 10658.69}
+{"type": "proc_end", "station": "ASM3", "batch": "B004", "duration": 94.7, "t": 10660.13}
+{"type": "state", "station": "ASM3", "state": "idle", "t": 10660.13}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[32.5, 13.8], [32.5, 14.5], [41.5, 14.5], [43.5, 13.8]], "duration": 0.16, "loaded": false, "parts": 0, "t": 10660.13}
+{"type": "move", "vehicle": "H2", "batch": "B004", "path": [[43.5, 13.8], [43.5, 14.5], [44.5, 13.5], [46.5, 6.5], [47.5, 6.8]], "duration": 0.14, "loaded": true, "parts": 40, "t": 10661.79}
+{"type": "arrive", "batch": "B004", "station": "PACK2", "pos": [47.5, 6.8], "t": 10663.44}
+{"type": "queue", "station": "PACK2", "len": 1, "t": 10663.44}
+{"type": "queue", "station": "PACK2", "len": 0, "t": 10663.44}
+{"type": "state", "station": "PACK2", "state": "busy", "t": 10663.44}
+{"type": "proc_start", "station": "PACK2", "batch": "B004", "pos": [50.0, 5.0], "t": 10663.44}
+{"type": "proc_end", "station": "ASM1", "batch": "B003", "duration": 95.1, "t": 10664.2}
+{"type": "state", "station": "ASM1", "state": "idle", "t": 10664.2}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[47.5, 13.8], [45.5, 13.5], [42.5, 14.5], [31.5, 14.5], [31.5, 13.8]], "duration": 0.23, "loaded": false, "parts": 0, "t": 10664.2}
+{"type": "move", "vehicle": "H1", "batch": "B003", "path": [[31.5, 13.8], [31.5, 14.5], [44.5, 14.5], [45.5, 13.5], [47.5, 13.8]], "duration": 0.24, "loaded": true, "parts": 40, "t": 10665.93}
+{"type": "arrive", "batch": "B003", "station": "PACK1", "pos": [47.5, 13.8], "t": 10667.67}
+{"type": "queue", "station": "PACK1", "len": 1, "t": 10667.67}
+{"type": "proc_end", "station": "CUT2", "batch": "CB010", "duration": 73.9, "t": 10706.19}
+{"type": "state", "station": "CUT2", "state": "idle", "t": 10706.19}
+{"type": "sort", "batch": "CB010", "station": "CUT2", "duration": 5.4, "t": 10711.59}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[47.5, 6.8], [45.5, 6.5], [44.5, 14.5], [25.0, 20.5]], "duration": 0.42, "loaded": false, "parts": 0, "t": 10711.59}
+{"type": "move", "vehicle": "H2", "batch": "B010", "path": [[25.0, 20.5], [27.5, 27.5], [28.5, 29.0]], "duration": 0.13, "loaded": true, "parts": 54, "t": 10713.51}
+{"type": "arrive", "batch": "B010", "station": "EB1", "pos": [28.5, 29.0], "t": 10715.14}
+{"type": "queue", "station": "EB1", "len": 1, "t": 10715.14}
+{"type": "queue", "station": "EB1", "len": 0, "t": 10715.14}
+{"type": "state", "station": "EB1", "state": "setup", "t": 10715.14}
+{"type": "setup", "station": "EB1", "batch": "B010", "duration": 8.0, "t": 10715.14}
+{"type": "state", "station": "EB1", "state": "busy", "t": 10723.14}
+{"type": "proc_start", "station": "EB1", "batch": "B010", "pos": [33.0, 31.0], "t": 10723.14}
+{"type": "proc_end", "station": "PACK1", "batch": "B005", "duration": 95.5, "t": 10754.03}
+{"type": "state", "station": "PACK1", "state": "idle", "t": 10754.03}
+{"type": "queue", "station": "PACK1", "len": 0, "t": 10754.03}
+{"type": "state", "station": "PACK1", "state": "busy", "t": 10754.03}
+{"type": "proc_start", "station": "PACK1", "batch": "B003", "pos": [50.0, 12.0], "t": 10754.03}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[18.5, 20.5], [19.5, 19.5], [50.5, 14.5], [52.5, 13.8]], "duration": 0.29, "loaded": false, "parts": 0, "t": 10754.03}
+{"type": "move", "vehicle": "F1", "batch": "B005", "path": [[52.5, 13.8], [52.5, 15.5], [55.5, 16.8]], "duration": 0.04, "loaded": true, "parts": 40, "t": 10755.83}
+{"type": "proc_end", "station": "EB1", "batch": "B010", "duration": 33.2, "t": 10756.31}
+{"type": "state", "station": "EB1", "state": "idle", "t": 10756.31}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[47.5, 13.8], [45.5, 13.5], [36.5, 27.5], [37.5, 29.0]], "duration": 0.28, "loaded": false, "parts": 0, "t": 10756.31}
+{"type": "arrive", "batch": "B005", "station": "FG", "pos": [55.5, 16.8], "t": 10757.37}
+{"type": "done", "batch": "B005", "lead_min": 5957.4, "late_min": 0.0, "t": 10757.37}
+{"type": "move", "vehicle": "H1", "batch": "B010", "path": [[37.5, 29.0], [37.5, 28.5], [40.5, 27.5], [42.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 54, "t": 10758.1}
+{"type": "arrive", "batch": "B010", "station": "BOR1", "pos": [42.0, 28.5], "t": 10759.67}
+{"type": "queue", "station": "BOR1", "len": 1, "t": 10759.67}
+{"type": "queue", "station": "BOR1", "len": 0, "t": 10759.67}
+{"type": "state", "station": "BOR1", "state": "setup", "t": 10759.67}
+{"type": "setup", "station": "BOR1", "batch": "B010", "duration": 4.0, "t": 10759.67}
+{"type": "proc_end", "station": "PACK2", "batch": "B004", "duration": 98.2, "t": 10761.63}
+{"type": "state", "station": "PACK2", "state": "idle", "t": 10761.63}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 8.5], [52.5, 6.8]], "duration": 0.09, "loaded": false, "parts": 0, "t": 10761.63}
+{"type": "move", "vehicle": "F1", "batch": "B004", "path": [[52.5, 6.8], [52.5, 8.5], [55.5, 16.8]], "duration": 0.09, "loaded": true, "parts": 40, "t": 10763.21}
+{"type": "state", "station": "BOR1", "state": "busy", "t": 10763.67}
+{"type": "proc_start", "station": "BOR1", "batch": "B010", "pos": [45.0, 31.0], "t": 10763.67}
+{"type": "arrive", "batch": "B004", "station": "FG", "pos": [55.5, 16.8], "t": 10764.8}
+{"type": "done", "batch": "B004", "lead_min": 8844.8, "late_min": 3984.8, "t": 10764.8}
+{"type": "proc_end", "station": "ASM2", "batch": "B007", "duration": 137.1, "t": 10795.78}
+{"type": "state", "station": "ASM2", "state": "idle", "t": 10795.78}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 29.0], [27.5, 27.5], [27.5, 21.5], [35.5, 14.5], [37.5, 13.8]], "duration": 0.29, "loaded": false, "parts": 0, "t": 10795.78}
+{"type": "move", "vehicle": "H2", "batch": "B007", "path": [[37.5, 13.8], [37.5, 14.5], [44.5, 14.5], [46.5, 6.5], [47.5, 6.8]], "duration": 0.24, "loaded": true, "parts": 40, "t": 10797.57}
+{"type": "arrive", "batch": "B007", "station": "PACK2", "pos": [47.5, 6.8], "t": 10799.3}
+{"type": "queue", "station": "PACK2", "len": 1, "t": 10799.3}
+{"type": "queue", "station": "PACK2", "len": 0, "t": 10799.3}
+{"type": "state", "station": "PACK2", "state": "busy", "t": 10799.3}
+{"type": "proc_start", "station": "PACK2", "batch": "B007", "pos": [50.0, 5.0], "t": 10799.3}
+{"type": "proc_end", "station": "BOR1", "batch": "B010", "duration": 36.3, "t": 10799.94}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 10799.94}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[42.0, 28.5], [42.5, 27.5], [48.5, 27.5], [48.0, 28.5]], "duration": 0.11, "loaded": false, "parts": 0, "t": 10799.94}
+{"type": "move", "vehicle": "H1", "batch": "B010", "path": [[48.0, 28.5], [48.5, 27.5], [43.5, 24.5], [32.5, 14.5], [32.5, 13.8]], "duration": 0.31, "loaded": true, "parts": 54, "t": 10801.55}
+{"type": "arrive", "batch": "B010", "station": "ASM2", "pos": [32.5, 13.8], "t": 10803.36}
+{"type": "queue", "station": "ASM2", "len": 1, "t": 10803.36}
+{"type": "queue", "station": "ASM2", "len": 0, "t": 10803.36}
+{"type": "state", "station": "ASM2", "state": "setup", "t": 10860.0}
+{"type": "setup", "station": "ASM2", "batch": "B010", "duration": 2.0, "t": 10860.0}
+{"type": "state", "station": "ASM2", "state": "busy", "t": 10862.0}
+{"type": "proc_start", "station": "ASM2", "batch": "B010", "pos": [35.0, 12.0], "t": 10862.0}
+{"type": "proc_end", "station": "PACK1", "batch": "B003", "duration": 116.8, "t": 10870.85}
+{"type": "state", "station": "PACK1", "state": "idle", "t": 10870.85}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 14.5], [52.5, 13.8]], "duration": 0.04, "loaded": false, "parts": 0, "t": 10870.85}
+{"type": "move", "vehicle": "F1", "batch": "B003", "path": [[52.5, 13.8], [52.5, 15.5], [55.5, 16.8]], "duration": 0.04, "loaded": true, "parts": 40, "t": 10872.39}
+{"type": "arrive", "batch": "B003", "station": "FG", "pos": [55.5, 16.8], "t": 10873.93}
+{"type": "done", "batch": "B003", "lead_min": 4633.9, "late_min": 0.0, "t": 10873.93}
+{"type": "state", "station": "BOR1", "state": "down", "t": 10908.62}
+{"type": "breakdown", "station": "BOR1", "duration": 100.1, "t": 10908.62}
+{"type": "proc_end", "station": "PACK2", "batch": "B007", "duration": 128.4, "t": 10927.65}
+{"type": "state", "station": "PACK2", "state": "idle", "t": 10927.65}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 8.5], [52.5, 6.8]], "duration": 0.09, "loaded": false, "parts": 0, "t": 10927.65}
+{"type": "move", "vehicle": "F1", "batch": "B007", "path": [[52.5, 6.8], [52.5, 8.5], [55.5, 16.8]], "duration": 0.09, "loaded": true, "parts": 40, "t": 10929.24}
+{"type": "arrive", "batch": "B007", "station": "FG", "pos": [55.5, 16.8], "t": 10930.83}
+{"type": "done", "batch": "B007", "lead_min": 4690.8, "late_min": 0.0, "t": 10930.83}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 11008.76}
+{"type": "proc_end", "station": "ASM2", "batch": "B010", "duration": 153.5, "t": 11015.48}
+{"type": "state", "station": "ASM2", "state": "idle", "t": 11015.48}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[47.5, 6.8], [45.5, 6.5], [44.5, 14.5], [37.5, 14.5], [37.5, 13.8]], "duration": 0.25, "loaded": false, "parts": 0, "t": 11015.48}
+{"type": "move", "vehicle": "H2", "batch": "B010", "path": [[37.5, 13.8], [37.5, 14.5], [44.5, 14.5], [45.5, 13.5], [47.5, 13.8]], "duration": 0.15, "loaded": true, "parts": 54, "t": 11017.23}
+{"type": "arrive", "batch": "B010", "station": "PACK1", "pos": [47.5, 13.8], "t": 11018.88}
+{"type": "queue", "station": "PACK1", "len": 1, "t": 11018.88}
+{"type": "queue", "station": "PACK1", "len": 0, "t": 11018.88}
+{"type": "state", "station": "PACK1", "state": "busy", "t": 11018.88}
+{"type": "proc_start", "station": "PACK1", "batch": "B010", "pos": [50.0, 12.0], "t": 11018.88}
+{"type": "proc_end", "station": "CUT1", "batch": "CB001+B006+B008+B009", "duration": 425.0, "t": 11051.09}
+{"type": "state", "station": "CUT1", "state": "idle", "t": 11051.09}
+{"type": "sort", "batch": "CB001+B006+B008+B009", "station": "CUT1", "duration": 31.2, "t": 11082.29}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[32.5, 13.8], [30.5, 15.5], [24.5, 25.5], [21.5, 25.5]], "duration": 0.24, "loaded": false, "parts": 0, "t": 11082.29}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[47.5, 13.8], [45.5, 13.5], [26.5, 22.5], [24.5, 25.5], [21.5, 25.5]], "duration": 0.41, "loaded": false, "parts": 0, "t": 11082.29}
+{"type": "move", "vehicle": "H1", "batch": "B001", "path": [[21.5, 25.5], [26.5, 28.5], [28.5, 29.0]], "duration": 0.11, "loaded": true, "parts": 72, "t": 11084.03}
+{"type": "move", "vehicle": "H2", "batch": "B006", "path": [[21.5, 25.5], [26.5, 28.5], [28.5, 29.0]], "duration": 0.11, "loaded": true, "parts": 80, "t": 11084.21}
+{"type": "arrive", "batch": "B001", "station": "EB1", "pos": [28.5, 29.0], "t": 11085.64}
+{"type": "queue", "station": "EB1", "len": 1, "t": 11085.64}
+{"type": "queue", "station": "EB1", "len": 0, "t": 11085.64}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[28.5, 29.0], [26.5, 27.5], [21.5, 25.5]], "duration": 0.11, "loaded": false, "parts": 0, "t": 11085.64}
+{"type": "state", "station": "EB1", "state": "setup", "t": 11085.64}
+{"type": "setup", "station": "EB1", "batch": "B001", "duration": 8.0, "t": 11085.64}
+{"type": "arrive", "batch": "B006", "station": "EB1", "pos": [28.5, 29.0], "t": 11085.82}
+{"type": "queue", "station": "EB1", "len": 1, "t": 11085.82}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 29.0], [26.5, 27.5], [21.5, 25.5]], "duration": 0.11, "loaded": false, "parts": 0, "t": 11085.82}
+{"type": "move", "vehicle": "H1", "batch": "B008", "path": [[21.5, 25.5], [25.5, 25.5], [27.5, 22.5], [28.5, 22.0]], "duration": 0.12, "loaded": true, "parts": 80, "t": 11087.25}
+{"type": "move", "vehicle": "H2", "batch": "B009", "path": [[21.5, 25.5], [26.5, 28.5], [28.5, 29.0]], "duration": 0.11, "loaded": true, "parts": 80, "t": 11087.42}
+{"type": "arrive", "batch": "B008", "station": "EB2", "pos": [28.5, 22.0], "t": 11088.87}
+{"type": "queue", "station": "EB2", "len": 1, "t": 11088.87}
+{"type": "queue", "station": "EB2", "len": 0, "t": 11088.87}
+{"type": "state", "station": "EB2", "state": "setup", "t": 11088.87}
+{"type": "setup", "station": "EB2", "batch": "B008", "duration": 5.0, "t": 11088.87}
+{"type": "arrive", "batch": "B009", "station": "EB1", "pos": [28.5, 29.0], "t": 11089.03}
+{"type": "queue", "station": "EB1", "len": 2, "t": 11089.03}
+{"type": "state", "station": "EB1", "state": "busy", "t": 11093.64}
+{"type": "proc_start", "station": "EB1", "batch": "B001", "pos": [33.0, 31.0], "t": 11093.64}
+{"type": "state", "station": "EB2", "state": "busy", "t": 11093.87}
+{"type": "proc_start", "station": "EB2", "batch": "B008", "pos": [32.0, 24.0], "t": 11093.87}
+{"type": "proc_end", "station": "PACK1", "batch": "B010", "duration": 95.2, "t": 11114.11}
+{"type": "state", "station": "PACK1", "state": "idle", "t": 11114.11}
+{"type": "release", "batch": "B013", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 16860, "t": 12000.0}
+{"type": "release", "batch": "B017", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 16860, "t": 12000.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 14.5], [52.5, 13.8]], "duration": 0.04, "loaded": false, "parts": 0, "t": 12000.0}
+{"type": "move", "vehicle": "F1", "batch": "B010", "path": [[52.5, 13.8], [52.5, 15.5], [55.5, 16.8]], "duration": 0.04, "loaded": true, "parts": 54, "t": 12001.54}
+{"type": "arrive", "batch": "B010", "station": "FG", "pos": [55.5, 16.8], "t": 12003.08}
+{"type": "done", "batch": "B010", "lead_min": 1443.1, "late_min": 0.0, "t": 12003.08}
+{"type": "state", "station": "EB2", "state": "down", "t": 12016.07}
+{"type": "breakdown", "station": "EB2", "duration": 7.1, "t": 12016.07}
+{"type": "state", "station": "EB2", "state": "busy", "t": 12023.15}
+{"type": "proc_end", "station": "EB1", "batch": "B001", "duration": 945.5, "t": 12039.11}
+{"type": "state", "station": "EB1", "state": "idle", "t": 12039.11}
+{"type": "queue", "station": "EB1", "len": 1, "t": 12039.11}
+{"type": "state", "station": "EB1", "state": "setup", "t": 12039.11}
+{"type": "setup", "station": "EB1", "batch": "B006", "duration": 8.0, "t": 12039.11}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[28.5, 22.0], [27.5, 22.5], [27.5, 26.5], [35.5, 28.5], [37.5, 29.0]], "duration": 0.21, "loaded": false, "parts": 0, "t": 12039.11}
+{"type": "move", "vehicle": "H1", "batch": "B001", "path": [[37.5, 29.0], [37.5, 28.5], [40.5, 27.5], [42.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 72, "t": 12040.82}
+{"type": "arrive", "batch": "B001", "station": "BOR1", "pos": [42.0, 28.5], "t": 12042.4}
+{"type": "queue", "station": "BOR1", "len": 1, "t": 12042.4}
+{"type": "queue", "station": "BOR1", "len": 0, "t": 12042.4}
+{"type": "state", "station": "BOR1", "state": "setup", "t": 12042.4}
+{"type": "setup", "station": "BOR1", "batch": "B001", "duration": 4.0, "t": 12042.4}
+{"type": "state", "station": "BOR1", "state": "busy", "t": 12046.4}
+{"type": "proc_start", "station": "BOR1", "batch": "B001", "pos": [45.0, 31.0], "t": 12046.4}
+{"type": "state", "station": "EB1", "state": "busy", "t": 12047.11}
+{"type": "proc_start", "station": "EB1", "batch": "B006", "pos": [33.0, 31.0], "t": 12047.11}
+{"type": "cut_batch", "batch": "CB013+B017", "orders": ["B013", "B017"], "n_parts": 152, "t": 12060.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [10.5, 19.0]], "duration": 0.38, "loaded": false, "parts": 0, "t": 12060.0}
+{"type": "move", "vehicle": "F1", "batch": "CB013+B017", "path": [[10.5, 19.0], [13.5, 25.5]], "duration": 0.06, "loaded": true, "parts": 152, "t": 12061.88}
+{"type": "arrive", "batch": "CB013+B017", "station": "CUT1", "pos": [13.5, 25.5], "t": 12063.44}
+{"type": "queue", "station": "CUT1", "len": 1, "t": 12063.44}
+{"type": "queue", "station": "CUT1", "len": 0, "t": 12063.44}
+{"type": "state", "station": "CUT1", "state": "busy", "t": 12063.44}
+{"type": "proc_start", "station": "CUT1", "batch": "CB013+B017", "pos": [17.0, 30.0], "t": 12063.44}
+{"type": "scrap", "station": "EB2", "batch": "B008", "parts": 4, "t": 12072.1}
+{"type": "proc_end", "station": "EB2", "batch": "B008", "duration": 978.2, "t": 12072.1}
+{"type": "state", "station": "EB2", "state": "idle", "t": 12072.1}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 29.0], [27.5, 27.5], [27.5, 21.5], [33.5, 21.5], [35.5, 22.0]], "duration": 0.22, "loaded": false, "parts": 0, "t": 12072.1}
+{"type": "move", "vehicle": "H2", "batch": "B008", "path": [[35.5, 22.0], [35.5, 21.5], [45.5, 22.0]], "duration": 0.15, "loaded": true, "parts": 80, "t": 12073.83}
+{"type": "arrive", "batch": "B008", "station": "BOR2", "pos": [45.5, 22.0], "t": 12075.47}
+{"type": "queue", "station": "BOR2", "len": 1, "t": 12075.47}
+{"type": "queue", "station": "BOR2", "len": 0, "t": 12075.47}
+{"type": "state", "station": "BOR2", "state": "setup", "t": 12075.47}
+{"type": "setup", "station": "BOR2", "batch": "B008", "duration": 9.0, "t": 12075.47}
+{"type": "state", "station": "CUT1", "state": "down", "t": 12077.2}
+{"type": "breakdown", "station": "CUT1", "duration": 39.6, "t": 12077.2}
+{"type": "state", "station": "BOR2", "state": "busy", "t": 12084.47}
+{"type": "proc_start", "station": "BOR2", "batch": "B008", "pos": [48.0, 24.0], "t": 12084.47}
+{"type": "scrap", "station": "BOR1", "batch": "B001", "parts": 1, "t": 12091.64}
+{"type": "proc_end", "station": "BOR1", "batch": "B001", "duration": 45.2, "t": 12091.64}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 12091.64}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[42.0, 28.5], [42.5, 27.5], [48.5, 27.5], [48.0, 28.5]], "duration": 0.11, "loaded": false, "parts": 0, "t": 12091.64}
+{"type": "move", "vehicle": "H1", "batch": "B001", "path": [[48.0, 28.5], [51.5, 27.5], [53.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 72, "t": 12093.25}
+{"type": "arrive", "batch": "B001", "station": "FIN1", "pos": [53.0, 28.5], "t": 12094.83}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 12094.83}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 12094.83}
+{"type": "state", "station": "FIN1", "state": "setup", "t": 12094.83}
+{"type": "setup", "station": "FIN1", "batch": "B001", "duration": 10.0, "t": 12094.83}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 12104.83}
+{"type": "proc_start", "station": "FIN1", "batch": "B001", "pos": [56.0, 31.0], "t": 12104.83}
+{"type": "state", "station": "CUT1", "state": "busy", "t": 12116.81}
+{"type": "scrap", "station": "FIN1", "batch": "B001", "parts": 3, "t": 12120.12}
+{"type": "proc_end", "station": "FIN1", "batch": "B001", "duration": 15.3, "t": 12120.12}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 12120.12}
+{"type": "scrap", "station": "EB1", "batch": "B006", "parts": 1, "t": 12120.32}
+{"type": "proc_end", "station": "EB1", "batch": "B006", "duration": 73.2, "t": 12120.32}
+{"type": "state", "station": "EB1", "state": "idle", "t": 12120.32}
+{"type": "queue", "station": "EB1", "len": 0, "t": 12120.32}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[45.5, 22.0], [45.5, 26.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.25, "loaded": false, "parts": 0, "t": 12135.0}
+{"type": "state", "station": "EB1", "state": "busy", "t": 12135.0}
+{"type": "proc_start", "station": "EB1", "batch": "B009", "pos": [33.0, 31.0], "t": 12135.0}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 28.5], [51.5, 27.5], [38.5, 27.5], [37.5, 28.5], [37.5, 29.0]], "duration": 0.23, "loaded": false, "parts": 0, "t": 12135.0}
+{"type": "move", "vehicle": "H1", "batch": "B006", "path": [[37.5, 29.0], [37.5, 28.5], [40.5, 27.5], [42.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 80, "t": 12136.73}
+{"type": "move", "vehicle": "H2", "batch": "B001", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 72, "t": 12136.75}
+{"type": "arrive", "batch": "B006", "station": "BOR1", "pos": [42.0, 28.5], "t": 12138.31}
+{"type": "queue", "station": "BOR1", "len": 1, "t": 12138.31}
+{"type": "queue", "station": "BOR1", "len": 0, "t": 12138.31}
+{"type": "state", "station": "BOR1", "state": "setup", "t": 12138.31}
+{"type": "setup", "station": "BOR1", "batch": "B006", "duration": 4.0, "t": 12138.31}
+{"type": "arrive", "batch": "B001", "station": "DRY1", "pos": [53.0, 19.5], "t": 12138.51}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 12138.51}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 12138.51}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 12138.51}
+{"type": "proc_start", "station": "DRY1", "batch": "B001", "pos": [56.0, 22.0], "t": 12138.51}
+{"type": "state", "station": "BOR1", "state": "busy", "t": 12142.31}
+{"type": "proc_start", "station": "BOR1", "batch": "B006", "pos": [45.0, 31.0], "t": 12142.31}
+{"type": "scrap", "station": "BOR2", "batch": "B008", "parts": 3, "t": 12162.0}
+{"type": "proc_end", "station": "BOR2", "batch": "B008", "duration": 77.5, "t": 12162.0}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 12162.0}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 19.5], [51.5, 18.5], [50.5, 22.0]], "duration": 0.08, "loaded": false, "parts": 0, "t": 12162.0}
+{"type": "move", "vehicle": "H2", "batch": "B008", "path": [[50.5, 22.0], [32.5, 14.5], [32.5, 13.8]], "duration": 0.28, "loaded": true, "parts": 80, "t": 12163.57}
+{"type": "arrive", "batch": "B008", "station": "ASM2", "pos": [32.5, 13.8], "t": 12165.35}
+{"type": "queue", "station": "ASM2", "len": 1, "t": 12165.35}
+{"type": "queue", "station": "ASM2", "len": 0, "t": 12165.35}
+{"type": "state", "station": "ASM2", "state": "setup", "t": 12165.35}
+{"type": "setup", "station": "ASM2", "batch": "B008", "duration": 2.0, "t": 12165.35}
+{"type": "state", "station": "ASM2", "state": "busy", "t": 12167.35}
+{"type": "proc_start", "station": "ASM2", "batch": "B008", "pos": [35.0, 12.0], "t": 12167.35}
+{"type": "proc_end", "station": "DRY1", "batch": "B001", "duration": 60.5, "t": 12198.97}
+{"type": "state", "station": "DRY1", "state": "idle", "t": 12198.97}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[42.0, 28.5], [42.5, 26.5], [46.5, 21.5], [52.5, 17.5], [56.5, 17.5], [59.0, 19.5]], "duration": 0.32, "loaded": false, "parts": 0, "t": 12198.97}
+{"type": "move", "vehicle": "H1", "batch": "B001", "path": [[59.0, 19.5], [56.5, 17.5], [38.5, 14.5], [38.5, 13.8]], "duration": 0.31, "loaded": true, "parts": 72, "t": 12200.79}
+{"type": "scrap", "station": "BOR1", "batch": "B006", "parts": 1, "t": 12202.24}
+{"type": "proc_end", "station": "BOR1", "batch": "B006", "duration": 59.9, "t": 12202.24}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 12202.24}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[32.5, 13.8], [32.5, 15.5], [47.5, 27.5], [48.5, 27.5], [48.0, 28.5]], "duration": 0.32, "loaded": false, "parts": 0, "t": 12202.24}
+{"type": "arrive", "batch": "B001", "station": "ASM3", "pos": [38.5, 13.8], "t": 12202.6}
+{"type": "queue", "station": "ASM3", "len": 1, "t": 12202.6}
+{"type": "queue", "station": "ASM3", "len": 0, "t": 12202.6}
+{"type": "state", "station": "ASM3", "state": "setup", "t": 12202.6}
+{"type": "setup", "station": "ASM3", "batch": "B001", "duration": 2.0, "t": 12202.6}
+{"type": "move", "vehicle": "H2", "batch": "B006", "path": [[48.0, 28.5], [48.5, 27.5], [44.5, 25.5], [44.5, 9.5], [32.5, 7.5], [32.5, 6.8]], "duration": 0.48, "loaded": true, "parts": 80, "t": 12204.06}
+{"type": "state", "station": "ASM3", "state": "busy", "t": 12204.6}
+{"type": "proc_start", "station": "ASM3", "batch": "B001", "pos": [41.0, 12.0], "t": 12204.6}
+{"type": "arrive", "batch": "B006", "station": "ASM5", "pos": [32.5, 6.8], "t": 12206.04}
+{"type": "queue", "station": "ASM5", "len": 1, "t": 12206.04}
+{"type": "queue", "station": "ASM5", "len": 0, "t": 12206.04}
+{"type": "state", "station": "ASM5", "state": "setup", "t": 12206.04}
+{"type": "setup", "station": "ASM5", "batch": "B006", "duration": 2.0, "t": 12206.04}
+{"type": "scrap", "station": "EB1", "batch": "B009", "parts": 2, "t": 12207.02}
+{"type": "proc_end", "station": "EB1", "batch": "B009", "duration": 72.0, "t": 12207.02}
+{"type": "state", "station": "EB1", "state": "idle", "t": 12207.02}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[38.5, 13.8], [37.5, 15.5], [36.5, 27.5], [37.5, 29.0]], "duration": 0.22, "loaded": false, "parts": 0, "t": 12207.02}
+{"type": "state", "station": "ASM5", "state": "busy", "t": 12208.04}
+{"type": "proc_start", "station": "ASM5", "batch": "B006", "pos": [35.0, 5.0], "t": 12208.04}
+{"type": "move", "vehicle": "H1", "batch": "B009", "path": [[37.5, 29.0], [37.5, 27.5], [45.5, 22.0]], "duration": 0.16, "loaded": true, "parts": 80, "t": 12208.74}
+{"type": "arrive", "batch": "B009", "station": "BOR2", "pos": [45.5, 22.0], "t": 12210.4}
+{"type": "queue", "station": "BOR2", "len": 1, "t": 12210.4}
+{"type": "queue", "station": "BOR2", "len": 0, "t": 12210.4}
+{"type": "state", "station": "BOR2", "state": "busy", "t": 12210.4}
+{"type": "proc_start", "station": "BOR2", "batch": "B009", "pos": [48.0, 24.0], "t": 12210.4}
+{"type": "scrap", "station": "BOR2", "batch": "B009", "parts": 2, "t": 12328.53}
+{"type": "proc_end", "station": "BOR2", "batch": "B009", "duration": 118.1, "t": 12328.53}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 12328.53}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[32.5, 6.8], [32.5, 8.5], [44.5, 9.5], [50.5, 22.0]], "duration": 0.38, "loaded": false, "parts": 0, "t": 12328.53}
+{"type": "move", "vehicle": "H2", "batch": "B009", "path": [[50.5, 22.0], [44.5, 9.5], [38.5, 7.5], [38.5, 6.8]], "duration": 0.29, "loaded": true, "parts": 80, "t": 12330.41}
+{"type": "arrive", "batch": "B009", "station": "ASM6", "pos": [38.5, 6.8], "t": 12332.2}
+{"type": "queue", "station": "ASM6", "len": 1, "t": 12332.2}
+{"type": "queue", "station": "ASM6", "len": 0, "t": 12332.2}
+{"type": "state", "station": "ASM6", "state": "setup", "t": 12332.2}
+{"type": "setup", "station": "ASM6", "batch": "B009", "duration": 2.0, "t": 12332.2}
+{"type": "state", "station": "ASM6", "state": "busy", "t": 12334.2}
+{"type": "proc_start", "station": "ASM6", "batch": "B009", "pos": [41.0, 5.0], "t": 12334.2}
+{"type": "scrap", "station": "CUT1", "batch": "CB013+B017", "parts": 1, "t": 12340.35}
+{"type": "proc_end", "station": "CUT1", "batch": "CB013+B017", "duration": 276.9, "t": 12340.35}
+{"type": "state", "station": "CUT1", "state": "idle", "t": 12340.35}
+{"type": "sort", "batch": "CB013+B017", "station": "CUT1", "duration": 15.2, "t": 12355.55}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[45.5, 22.0], [35.5, 26.5], [23.5, 26.5], [21.5, 25.5]], "duration": 0.35, "loaded": false, "parts": 0, "t": 12355.55}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[38.5, 6.8], [36.5, 8.5], [25.5, 9.5], [25.5, 25.5], [21.5, 25.5]], "duration": 0.47, "loaded": false, "parts": 0, "t": 12355.55}
+{"type": "move", "vehicle": "H1", "batch": "B013", "path": [[21.5, 25.5], [26.5, 28.5], [28.5, 29.0]], "duration": 0.11, "loaded": true, "parts": 80, "t": 12357.4}
+{"type": "move", "vehicle": "H2", "batch": "B017", "path": [[21.5, 25.5], [25.5, 25.5], [27.5, 22.5], [28.5, 22.0]], "duration": 0.12, "loaded": true, "parts": 72, "t": 12357.52}
+{"type": "arrive", "batch": "B013", "station": "EB1", "pos": [28.5, 29.0], "t": 12359.01}
+{"type": "queue", "station": "EB1", "len": 1, "t": 12359.01}
+{"type": "queue", "station": "EB1", "len": 0, "t": 12359.01}
+{"type": "state", "station": "EB1", "state": "busy", "t": 12359.01}
+{"type": "proc_start", "station": "EB1", "batch": "B013", "pos": [33.0, 31.0], "t": 12359.01}
+{"type": "arrive", "batch": "B017", "station": "EB2", "pos": [28.5, 22.0], "t": 12359.14}
+{"type": "queue", "station": "EB2", "len": 1, "t": 12359.14}
+{"type": "queue", "station": "EB2", "len": 0, "t": 12359.14}
+{"type": "state", "station": "EB2", "state": "setup", "t": 12359.14}
+{"type": "setup", "station": "EB2", "batch": "B017", "duration": 5.0, "t": 12359.14}
+{"type": "state", "station": "EB2", "state": "busy", "t": 12364.14}
+{"type": "proc_start", "station": "EB2", "batch": "B017", "pos": [32.0, 24.0], "t": 12364.14}
+{"type": "scrap", "station": "EB2", "batch": "B017", "parts": 2, "t": 12413.64}
+{"type": "proc_end", "station": "EB2", "batch": "B017", "duration": 49.5, "t": 12413.64}
+{"type": "state", "station": "EB2", "state": "idle", "t": 12413.64}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[28.5, 29.0], [27.5, 27.5], [27.5, 21.5], [33.5, 21.5], [35.5, 22.0]], "duration": 0.22, "loaded": false, "parts": 0, "t": 12413.64}
+{"type": "move", "vehicle": "H1", "batch": "B017", "path": [[35.5, 22.0], [35.5, 21.5], [41.5, 26.5], [42.0, 28.5]], "duration": 0.14, "loaded": true, "parts": 72, "t": 12415.36}
+{"type": "arrive", "batch": "B017", "station": "BOR1", "pos": [42.0, 28.5], "t": 12417.0}
+{"type": "queue", "station": "BOR1", "len": 1, "t": 12417.0}
+{"type": "queue", "station": "BOR1", "len": 0, "t": 12417.0}
+{"type": "state", "station": "BOR1", "state": "setup", "t": 12417.0}
+{"type": "setup", "station": "BOR1", "batch": "B017", "duration": 4.0, "t": 12417.0}
+{"type": "state", "station": "BOR1", "state": "busy", "t": 12421.0}
+{"type": "proc_start", "station": "BOR1", "batch": "B017", "pos": [45.0, 31.0], "t": 12421.0}
+{"type": "scrap", "station": "EB1", "batch": "B013", "parts": 1, "t": 12454.96}
+{"type": "proc_end", "station": "EB1", "batch": "B013", "duration": 95.9, "t": 12454.96}
+{"type": "state", "station": "EB1", "state": "idle", "t": 12454.96}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 22.0], [27.5, 22.5], [27.5, 26.5], [35.5, 28.5], [37.5, 29.0]], "duration": 0.21, "loaded": false, "parts": 0, "t": 12454.96}
+{"type": "move", "vehicle": "H2", "batch": "B013", "path": [[37.5, 29.0], [37.5, 27.5], [45.5, 22.0]], "duration": 0.16, "loaded": true, "parts": 80, "t": 12456.67}
+{"type": "arrive", "batch": "B013", "station": "BOR2", "pos": [45.5, 22.0], "t": 12458.33}
+{"type": "queue", "station": "BOR2", "len": 1, "t": 12458.33}
+{"type": "queue", "station": "BOR2", "len": 0, "t": 12458.33}
+{"type": "state", "station": "BOR2", "state": "busy", "t": 12458.33}
+{"type": "proc_start", "station": "BOR2", "batch": "B013", "pos": [48.0, 24.0], "t": 12458.33}
+{"type": "proc_end", "station": "BOR1", "batch": "B017", "duration": 58.9, "t": 12479.92}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 12479.92}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[42.0, 28.5], [42.5, 27.5], [48.5, 27.5], [48.0, 28.5]], "duration": 0.11, "loaded": false, "parts": 0, "t": 12479.92}
+{"type": "move", "vehicle": "H1", "batch": "B017", "path": [[48.0, 28.5], [51.5, 27.5], [53.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 72, "t": 12481.54}
+{"type": "arrive", "batch": "B017", "station": "FIN1", "pos": [53.0, 28.5], "t": 12483.11}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 12483.11}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 12483.11}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 12483.11}
+{"type": "proc_start", "station": "FIN1", "batch": "B017", "pos": [56.0, 31.0], "t": 12483.11}
+{"type": "state", "station": "BOR1", "state": "down", "t": 12484.51}
+{"type": "breakdown", "station": "BOR1", "duration": 13.2, "t": 12484.51}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 12497.75}
+{"type": "scrap", "station": "FIN1", "batch": "B017", "parts": 4, "t": 12500.24}
+{"type": "proc_end", "station": "FIN1", "batch": "B017", "duration": 17.1, "t": 12500.24}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 12500.24}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[45.5, 22.0], [45.5, 26.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.25, "loaded": false, "parts": 0, "t": 12500.24}
+{"type": "move", "vehicle": "H2", "batch": "B017", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 72, "t": 12501.99}
+{"type": "arrive", "batch": "B017", "station": "DRY1", "pos": [53.0, 19.5], "t": 12503.75}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 12503.75}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 12503.75}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 12503.75}
+{"type": "proc_start", "station": "DRY1", "batch": "B017", "pos": [56.0, 22.0], "t": 12503.75}
+{"type": "proc_end", "station": "ASM5", "batch": "B006", "duration": 300.7, "t": 12508.75}
+{"type": "state", "station": "ASM5", "state": "idle", "t": 12508.75}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 28.5], [51.5, 26.5], [49.5, 20.5], [44.5, 9.5], [37.5, 7.5], [37.5, 6.8]], "duration": 0.4, "loaded": false, "parts": 0, "t": 12508.75}
+{"type": "move", "vehicle": "H1", "batch": "B006", "path": [[37.5, 6.8], [37.5, 7.5], [44.5, 7.5], [45.5, 6.5], [47.5, 6.8]], "duration": 0.15, "loaded": true, "parts": 80, "t": 12510.66}
+{"type": "arrive", "batch": "B006", "station": "PACK2", "pos": [47.5, 6.8], "t": 12512.31}
+{"type": "queue", "station": "PACK2", "len": 1, "t": 12512.31}
+{"type": "queue", "station": "PACK2", "len": 0, "t": 12512.31}
+{"type": "state", "station": "PACK2", "state": "busy", "t": 12512.31}
+{"type": "proc_start", "station": "PACK2", "batch": "B006", "pos": [50.0, 5.0], "t": 12512.31}
+{"type": "scrap", "station": "BOR2", "batch": "B013", "parts": 3, "t": 12515.83}
+{"type": "proc_end", "station": "BOR2", "batch": "B013", "duration": 57.5, "t": 12515.83}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 12515.83}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 19.5], [51.5, 18.5], [50.5, 22.0]], "duration": 0.08, "loaded": false, "parts": 0, "t": 12515.83}
+{"type": "move", "vehicle": "H2", "batch": "B013", "path": [[50.5, 22.0], [44.5, 9.5], [25.5, 7.5], [25.5, 6.5], [26.5, 6.8]], "duration": 0.49, "loaded": true, "parts": 80, "t": 12517.4}
+{"type": "arrive", "batch": "B013", "station": "ASM4", "pos": [26.5, 6.8], "t": 12519.39}
+{"type": "queue", "station": "ASM4", "len": 1, "t": 12519.39}
+{"type": "queue", "station": "ASM4", "len": 0, "t": 12519.39}
+{"type": "state", "station": "ASM4", "state": "setup", "t": 12519.39}
+{"type": "setup", "station": "ASM4", "batch": "B013", "duration": 2.0, "t": 12519.39}
+{"type": "state", "station": "ASM4", "state": "busy", "t": 12521.39}
+{"type": "proc_start", "station": "ASM4", "batch": "B013", "pos": [29.0, 5.0], "t": 12521.39}
+{"type": "proc_end", "station": "ASM3", "batch": "B001", "duration": 351.1, "t": 12555.73}
+{"type": "state", "station": "ASM3", "state": "idle", "t": 12555.73}
+{"type": "release", "batch": "B011", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 21180, "t": 13440.0}
+{"type": "release", "batch": "B014", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 21180, "t": 13440.0}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[47.5, 6.8], [46.5, 6.5], [44.5, 14.5], [43.5, 14.5], [43.5, 13.8]], "duration": 0.15, "loaded": false, "parts": 0, "t": 13440.0}
+{"type": "move", "vehicle": "H1", "batch": "B001", "path": [[43.5, 13.8], [43.5, 14.5], [45.5, 13.5], [47.5, 13.8]], "duration": 0.07, "loaded": true, "parts": 72, "t": 13441.65}
+{"type": "arrive", "batch": "B001", "station": "PACK1", "pos": [47.5, 13.8], "t": 13443.22}
+{"type": "queue", "station": "PACK1", "len": 1, "t": 13443.22}
+{"type": "queue", "station": "PACK1", "len": 0, "t": 13443.22}
+{"type": "state", "station": "PACK1", "state": "busy", "t": 13443.22}
+{"type": "proc_start", "station": "PACK1", "batch": "B001", "pos": [50.0, 12.0], "t": 13443.22}
+{"type": "proc_end", "station": "ASM2", "batch": "B008", "duration": 1285.4, "t": 13452.73}
+{"type": "state", "station": "ASM2", "state": "idle", "t": 13452.73}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[26.5, 6.8], [25.5, 6.5], [25.5, 14.5], [35.5, 14.5], [37.5, 13.8]], "duration": 0.29, "loaded": false, "parts": 0, "t": 13452.73}
+{"type": "move", "vehicle": "H2", "batch": "B008", "path": [[37.5, 13.8], [37.5, 14.5], [44.5, 14.5], [46.5, 6.5], [47.5, 6.8]], "duration": 0.24, "loaded": true, "parts": 80, "t": 13454.52}
+{"type": "arrive", "batch": "B008", "station": "PACK2", "pos": [47.5, 6.8], "t": 13456.26}
+{"type": "queue", "station": "PACK2", "len": 1, "t": 13456.26}
+{"type": "proc_end", "station": "DRY1", "batch": "B017", "duration": 958.7, "t": 13462.46}
+{"type": "state", "station": "DRY1", "state": "idle", "t": 13462.46}
+{"type": "wait_outsourced", "batch": "B017", "item": "OUT_도어", "station": "DRY1", "duration": 519.6, "t": 13462.46}
+{"type": "state", "station": "EB2", "state": "down", "t": 13491.14}
+{"type": "breakdown", "station": "EB2", "duration": 45.7, "t": 13491.14}
+{"type": "cut_batch", "batch": "CB011+B014", "orders": ["B011", "B014"], "n_parts": 152, "t": 13500.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[13.5, 25.5], [10.5, 19.0]], "duration": 0.06, "loaded": false, "parts": 0, "t": 13500.0}
+{"type": "move", "vehicle": "F1", "batch": "CB011+B014", "path": [[10.5, 19.0], [13.5, 25.5]], "duration": 0.06, "loaded": true, "parts": 152, "t": 13501.56}
+{"type": "arrive", "batch": "CB011+B014", "station": "CUT1", "pos": [13.5, 25.5], "t": 13503.12}
+{"type": "queue", "station": "CUT1", "len": 1, "t": 13503.12}
+{"type": "queue", "station": "CUT1", "len": 0, "t": 13503.12}
+{"type": "state", "station": "CUT1", "state": "busy", "t": 13503.12}
+{"type": "proc_start", "station": "CUT1", "batch": "CB011+B014", "pos": [17.0, 30.0], "t": 13503.12}
+{"type": "proc_end", "station": "ASM6", "batch": "B009", "duration": 1196.1, "t": 13530.35}
+{"type": "state", "station": "ASM6", "state": "idle", "t": 13530.35}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[47.5, 13.8], [45.5, 11.5], [43.5, 8.5], [43.5, 6.8]], "duration": 0.12, "loaded": false, "parts": 0, "t": 13530.35}
+{"type": "move", "vehicle": "H1", "batch": "B009", "path": [[43.5, 6.8], [43.5, 8.5], [46.5, 11.5], [47.5, 13.8]], "duration": 0.12, "loaded": true, "parts": 80, "t": 13531.97}
+{"type": "arrive", "batch": "B009", "station": "PACK1", "pos": [47.5, 13.8], "t": 13533.59}
+{"type": "queue", "station": "PACK1", "len": 1, "t": 13533.59}
+{"type": "state", "station": "EB2", "state": "idle", "t": 13536.87}
+{"type": "proc_end", "station": "PACK2", "batch": "B006", "duration": 1054.7, "t": 13567.0}
+{"type": "state", "station": "PACK2", "state": "idle", "t": 13567.0}
+{"type": "queue", "station": "PACK2", "len": 0, "t": 13567.0}
+{"type": "state", "station": "PACK2", "state": "busy", "t": 13575.0}
+{"type": "proc_start", "station": "PACK2", "batch": "B008", "pos": [50.0, 5.0], "t": 13575.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[13.5, 25.5], [26.5, 9.5], [50.5, 7.5], [52.5, 6.8]], "duration": 0.39, "loaded": false, "parts": 0, "t": 13575.0}
+{"type": "state", "station": "BOR1", "state": "down", "t": 13576.38}
+{"type": "breakdown", "station": "BOR1", "duration": 2.9, "t": 13576.38}
+{"type": "move", "vehicle": "F1", "batch": "B006", "path": [[52.5, 6.8], [52.5, 8.5], [55.5, 16.8]], "duration": 0.09, "loaded": true, "parts": 80, "t": 13576.89}
+{"type": "arrive", "batch": "B006", "station": "FG", "pos": [55.5, 16.8], "t": 13578.48}
+{"type": "done", "batch": "B006", "lead_min": 3018.5, "late_min": 0.0, "t": 13578.48}
+{"type": "state", "station": "EB1", "state": "down", "t": 13578.97}
+{"type": "breakdown", "station": "EB1", "duration": 10.0, "t": 13578.97}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 13579.32}
+{"type": "state", "station": "EB1", "state": "idle", "t": 13589.02}
+{"type": "proc_end", "station": "PACK1", "batch": "B001", "duration": 248.6, "t": 13691.86}
+{"type": "state", "station": "PACK1", "state": "idle", "t": 13691.86}
+{"type": "queue", "station": "PACK1", "len": 0, "t": 13691.86}
+{"type": "proc_end", "station": "ASM4", "batch": "B013", "duration": 1179.6, "t": 13700.95}
+{"type": "state", "station": "ASM4", "state": "idle", "t": 13700.95}
+{"type": "state", "station": "PACK1", "state": "busy", "t": 13740.0}
+{"type": "proc_start", "station": "PACK1", "batch": "B009", "pos": [50.0, 12.0], "t": 13740.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 14.5], [52.5, 13.8]], "duration": 0.04, "loaded": false, "parts": 0, "t": 13740.0}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[47.5, 6.8], [45.5, 6.5], [42.5, 7.5], [31.5, 7.5], [31.5, 6.8]], "duration": 0.23, "loaded": false, "parts": 0, "t": 13740.0}
+{"type": "move", "vehicle": "F1", "batch": "B001", "path": [[52.5, 13.8], [52.5, 15.5], [55.5, 16.8]], "duration": 0.04, "loaded": true, "parts": 72, "t": 13741.54}
+{"type": "move", "vehicle": "H2", "batch": "B013", "path": [[31.5, 6.8], [31.5, 7.5], [44.5, 9.5], [46.5, 11.5], [47.5, 13.8]], "duration": 0.27, "loaded": true, "parts": 80, "t": 13741.73}
+{"type": "arrive", "batch": "B001", "station": "FG", "pos": [55.5, 16.8], "t": 13743.08}
+{"type": "done", "batch": "B001", "lead_min": 3183.1, "late_min": 0.0, "t": 13743.08}
+{"type": "arrive", "batch": "B013", "station": "PACK1", "pos": [47.5, 13.8], "t": 13743.5}
+{"type": "queue", "station": "PACK1", "len": 1, "t": 13743.5}
+{"type": "scrap", "station": "CUT1", "batch": "CB011+B014", "parts": 2, "t": 13745.53}
+{"type": "proc_end", "station": "CUT1", "batch": "CB011+B014", "duration": 242.4, "t": 13745.53}
+{"type": "state", "station": "CUT1", "state": "idle", "t": 13745.53}
+{"type": "sort", "batch": "CB011+B014", "station": "CUT1", "duration": 15.2, "t": 13760.73}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[47.5, 13.8], [45.5, 13.5], [26.5, 22.5], [24.5, 25.5], [21.5, 25.5]], "duration": 0.41, "loaded": false, "parts": 0, "t": 13760.73}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[47.5, 13.8], [45.5, 13.5], [26.5, 22.5], [24.5, 25.5], [21.5, 25.5]], "duration": 0.41, "loaded": false, "parts": 0, "t": 13760.73}
+{"type": "move", "vehicle": "H1", "batch": "B011", "path": [[21.5, 25.5], [25.5, 25.5], [27.5, 22.5], [28.5, 22.0]], "duration": 0.12, "loaded": true, "parts": 80, "t": 13762.64}
+{"type": "move", "vehicle": "H2", "batch": "B014", "path": [[21.5, 25.5], [26.5, 28.5], [28.5, 29.0]], "duration": 0.11, "loaded": true, "parts": 72, "t": 13762.64}
+{"type": "arrive", "batch": "B014", "station": "EB1", "pos": [28.5, 29.0], "t": 13764.25}
+{"type": "queue", "station": "EB1", "len": 1, "t": 13764.25}
+{"type": "queue", "station": "EB1", "len": 0, "t": 13764.25}
+{"type": "state", "station": "EB1", "state": "setup", "t": 13764.25}
+{"type": "setup", "station": "EB1", "batch": "B014", "duration": 8.0, "t": 13764.25}
+{"type": "arrive", "batch": "B011", "station": "EB2", "pos": [28.5, 22.0], "t": 13764.26}
+{"type": "queue", "station": "EB2", "len": 1, "t": 13764.26}
+{"type": "queue", "station": "EB2", "len": 0, "t": 13764.26}
+{"type": "state", "station": "EB2", "state": "setup", "t": 13764.26}
+{"type": "setup", "station": "EB2", "batch": "B011", "duration": 5.0, "t": 13764.26}
+{"type": "state", "station": "EB2", "state": "busy", "t": 13769.26}
+{"type": "proc_start", "station": "EB2", "batch": "B011", "pos": [32.0, 24.0], "t": 13769.26}
+{"type": "state", "station": "EB1", "state": "busy", "t": 13772.25}
+{"type": "proc_start", "station": "EB1", "batch": "B014", "pos": [33.0, 31.0], "t": 13772.25}
+{"type": "state", "station": "BOR1", "state": "down", "t": 13774.89}
+{"type": "breakdown", "station": "BOR1", "duration": 41.8, "t": 13774.89}
+{"type": "proc_end", "station": "PACK2", "batch": "B008", "duration": 209.8, "t": 13784.83}
+{"type": "state", "station": "PACK2", "state": "idle", "t": 13784.83}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 8.5], [52.5, 6.8]], "duration": 0.09, "loaded": false, "parts": 0, "t": 13784.83}
+{"type": "move", "vehicle": "F1", "batch": "B008", "path": [[52.5, 6.8], [52.5, 8.5], [55.5, 16.8]], "duration": 0.09, "loaded": true, "parts": 80, "t": 13786.42}
+{"type": "arrive", "batch": "B008", "station": "FG", "pos": [55.5, 16.8], "t": 13788.0}
+{"type": "done", "batch": "B008", "lead_min": 3228.0, "late_min": 0.0, "t": 13788.0}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 13816.68}
+{"type": "scrap", "station": "EB1", "batch": "B014", "parts": 1, "t": 13824.1}
+{"type": "proc_end", "station": "EB1", "batch": "B014", "duration": 51.9, "t": 13824.1}
+{"type": "state", "station": "EB1", "state": "idle", "t": 13824.1}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[28.5, 22.0], [27.5, 22.5], [27.5, 26.5], [35.5, 28.5], [37.5, 29.0]], "duration": 0.21, "loaded": false, "parts": 0, "t": 13824.1}
+{"type": "move", "vehicle": "H1", "batch": "B014", "path": [[37.5, 29.0], [37.5, 27.5], [45.5, 22.0]], "duration": 0.16, "loaded": true, "parts": 72, "t": 13825.82}
+{"type": "arrive", "batch": "B014", "station": "BOR2", "pos": [45.5, 22.0], "t": 13827.47}
+{"type": "queue", "station": "BOR2", "len": 1, "t": 13827.47}
+{"type": "queue", "station": "BOR2", "len": 0, "t": 13827.47}
+{"type": "state", "station": "BOR2", "state": "setup", "t": 13827.47}
+{"type": "setup", "station": "BOR2", "batch": "B014", "duration": 9.0, "t": 13827.47}
+{"type": "state", "station": "BOR2", "state": "busy", "t": 13836.47}
+{"type": "proc_start", "station": "BOR2", "batch": "B014", "pos": [48.0, 24.0], "t": 13836.47}
+{"type": "scrap", "station": "EB2", "batch": "B011", "parts": 2, "t": 13844.63}
+{"type": "proc_end", "station": "EB2", "batch": "B011", "duration": 75.4, "t": 13844.63}
+{"type": "state", "station": "EB2", "state": "idle", "t": 13844.63}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 29.0], [27.5, 27.5], [27.5, 21.5], [33.5, 21.5], [35.5, 22.0]], "duration": 0.22, "loaded": false, "parts": 0, "t": 13844.63}
+{"type": "move", "vehicle": "H2", "batch": "B011", "path": [[35.5, 22.0], [35.5, 21.5], [41.5, 26.5], [42.0, 28.5]], "duration": 0.14, "loaded": true, "parts": 80, "t": 13846.35}
+{"type": "arrive", "batch": "B011", "station": "BOR1", "pos": [42.0, 28.5], "t": 13848.0}
+{"type": "queue", "station": "BOR1", "len": 1, "t": 13848.0}
+{"type": "queue", "station": "BOR1", "len": 0, "t": 13848.0}
+{"type": "state", "station": "BOR1", "state": "setup", "t": 13848.0}
+{"type": "setup", "station": "BOR1", "batch": "B011", "duration": 4.0, "t": 13848.0}
+{"type": "state", "station": "BOR1", "state": "busy", "t": 13852.0}
+{"type": "proc_start", "station": "BOR1", "batch": "B011", "pos": [45.0, 31.0], "t": 13852.0}
+{"type": "state", "station": "BOR1", "state": "down", "t": 13887.37}
+{"type": "breakdown", "station": "BOR1", "duration": 120.1, "t": 13887.37}
+{"type": "scrap", "station": "BOR2", "batch": "B014", "parts": 1, "t": 13898.28}
+{"type": "proc_end", "station": "BOR2", "batch": "B014", "duration": 61.8, "t": 13898.28}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 13898.28}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[45.5, 22.0], [50.5, 21.5], [50.5, 22.0]], "duration": 0.08, "loaded": false, "parts": 0, "t": 13898.28}
+{"type": "move", "vehicle": "H1", "batch": "B014", "path": [[50.5, 22.0], [51.5, 26.5], [53.0, 28.5]], "duration": 0.1, "loaded": true, "parts": 72, "t": 13899.86}
+{"type": "arrive", "batch": "B014", "station": "FIN1", "pos": [53.0, 28.5], "t": 13901.46}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 13901.46}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 13901.46}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 13901.46}
+{"type": "proc_start", "station": "FIN1", "batch": "B014", "pos": [56.0, 31.0], "t": 13901.46}
+{"type": "scrap", "station": "FIN1", "batch": "B014", "parts": 5, "t": 13919.68}
+{"type": "proc_end", "station": "FIN1", "batch": "B014", "duration": 18.2, "t": 13919.68}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 13919.68}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[42.0, 28.5], [42.5, 27.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.25, "loaded": false, "parts": 0, "t": 13919.68}
+{"type": "move", "vehicle": "H2", "batch": "B014", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 72, "t": 13921.43}
+{"type": "arrive", "batch": "B014", "station": "DRY1", "pos": [53.0, 19.5], "t": 13923.18}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 13923.18}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 13923.18}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 13923.18}
+{"type": "proc_start", "station": "DRY1", "batch": "B014", "pos": [56.0, 22.0], "t": 13923.18}
+{"type": "state", "station": "CUT2", "state": "down", "t": 13924.57}
+{"type": "breakdown", "station": "CUT2", "duration": 86.7, "t": 13924.57}
+{"type": "proc_end", "station": "PACK1", "batch": "B009", "duration": 190.9, "t": 13930.87}
+{"type": "state", "station": "PACK1", "state": "idle", "t": 13930.87}
+{"type": "queue", "station": "PACK1", "len": 0, "t": 13930.87}
+{"type": "state", "station": "PACK1", "state": "busy", "t": 13930.87}
+{"type": "proc_start", "station": "PACK1", "batch": "B013", "pos": [50.0, 12.0], "t": 13930.87}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 14.5], [52.5, 13.8]], "duration": 0.04, "loaded": false, "parts": 0, "t": 13930.87}
+{"type": "move", "vehicle": "F1", "batch": "B009", "path": [[52.5, 13.8], [52.5, 15.5], [55.5, 16.8]], "duration": 0.04, "loaded": true, "parts": 80, "t": 13932.41}
+{"type": "arrive", "batch": "B009", "station": "FG", "pos": [55.5, 16.8], "t": 13933.95}
+{"type": "done", "batch": "B009", "lead_min": 3374.0, "late_min": 0.0, "t": 13933.95}
+{"type": "state", "station": "BOR1", "state": "busy", "t": 14007.43}
+{"type": "state", "station": "CUT2", "state": "idle", "t": 14011.27}
+{"type": "release", "batch": "B012", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 22620, "t": 14880.0}
+{"type": "release", "batch": "B016", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 22620, "t": 14880.0}
+{"type": "release", "batch": "B018", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 22620, "t": 14880.0}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 28.5], [51.5, 26.5], [51.5, 17.5], [56.5, 17.5], [59.0, 19.5]], "duration": 0.27, "loaded": false, "parts": 0, "t": 14880.0}
+{"type": "move", "vehicle": "H1", "batch": "B017", "path": [[59.0, 19.5], [56.5, 17.5], [38.5, 14.5], [38.5, 13.8]], "duration": 0.31, "loaded": true, "parts": 72, "t": 14881.77}
+{"type": "arrive", "batch": "B017", "station": "ASM3", "pos": [38.5, 13.8], "t": 14883.58}
+{"type": "queue", "station": "ASM3", "len": 1, "t": 14883.58}
+{"type": "queue", "station": "ASM3", "len": 0, "t": 14883.58}
+{"type": "state", "station": "ASM3", "state": "busy", "t": 14883.58}
+{"type": "proc_start", "station": "ASM3", "batch": "B017", "pos": [41.0, 12.0], "t": 14883.58}
+{"type": "proc_end", "station": "DRY1", "batch": "B014", "duration": 962.2, "t": 14885.38}
+{"type": "state", "station": "DRY1", "state": "idle", "t": 14885.38}
+{"type": "wait_outsourced", "batch": "B014", "item": "OUT_도어", "station": "DRY1", "duration": 480.0, "t": 14885.38}
+{"type": "scrap", "station": "BOR1", "batch": "B011", "parts": 1, "t": 14916.12}
+{"type": "proc_end", "station": "BOR1", "batch": "B011", "duration": 1064.1, "t": 14916.12}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 14916.12}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 19.5], [51.5, 18.5], [50.5, 26.5], [48.0, 28.5]], "duration": 0.18, "loaded": false, "parts": 0, "t": 14916.12}
+{"type": "move", "vehicle": "H2", "batch": "B011", "path": [[48.0, 28.5], [48.5, 27.5], [25.5, 13.5], [25.5, 6.5], [26.5, 6.8]], "duration": 0.5, "loaded": true, "parts": 80, "t": 14917.8}
+{"type": "arrive", "batch": "B011", "station": "ASM4", "pos": [26.5, 6.8], "t": 14919.8}
+{"type": "queue", "station": "ASM4", "len": 1, "t": 14919.8}
+{"type": "queue", "station": "ASM4", "len": 0, "t": 14919.8}
+{"type": "state", "station": "ASM4", "state": "busy", "t": 14919.8}
+{"type": "proc_start", "station": "ASM4", "batch": "B011", "pos": [29.0, 5.0], "t": 14919.8}
+{"type": "cut_batch", "batch": "CB012+B016", "orders": ["B012", "B016"], "n_parts": 80, "t": 14940.0}
+{"type": "cut_batch", "batch": "CB018", "orders": ["B018"], "n_parts": 54, "t": 14940.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [10.5, 19.0]], "duration": 0.38, "loaded": false, "parts": 0, "t": 14940.0}
+{"type": "move", "vehicle": "F1", "batch": "CB012+B016", "path": [[10.5, 19.0], [18.5, 20.5]], "duration": 0.07, "loaded": true, "parts": 80, "t": 14941.88}
+{"type": "arrive", "batch": "CB012+B016", "station": "CUT2", "pos": [18.5, 20.5], "t": 14943.44}
+{"type": "queue", "station": "CUT2", "len": 1, "t": 14943.44}
+{"type": "queue", "station": "CUT2", "len": 0, "t": 14943.44}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[18.5, 20.5], [10.5, 19.0]], "duration": 0.07, "loaded": false, "parts": 0, "t": 14943.44}
+{"type": "state", "station": "CUT2", "state": "setup", "t": 14943.44}
+{"type": "setup", "station": "CUT2", "batch": "CB012+B016", "duration": 6.0, "t": 14943.44}
+{"type": "move", "vehicle": "F1", "batch": "CB018", "path": [[10.5, 19.0], [18.5, 20.5]], "duration": 0.07, "loaded": true, "parts": 54, "t": 14945.01}
+{"type": "arrive", "batch": "CB018", "station": "CUT2", "pos": [18.5, 20.5], "t": 14946.58}
+{"type": "queue", "station": "CUT2", "len": 1, "t": 14946.58}
+{"type": "state", "station": "CUT2", "state": "busy", "t": 14949.44}
+{"type": "proc_start", "station": "CUT2", "batch": "CB012+B016", "pos": [22.0, 22.5], "t": 14949.44}
+{"type": "state", "station": "CUT2", "state": "down", "t": 14977.83}
+{"type": "breakdown", "station": "CUT2", "duration": 11.5, "t": 14977.83}
+{"type": "state", "station": "CUT2", "state": "busy", "t": 14989.28}
+{"type": "state", "station": "EB2", "state": "down", "t": 15015.51}
+{"type": "breakdown", "station": "EB2", "duration": 36.6, "t": 15015.51}
+{"type": "proc_end", "station": "PACK1", "batch": "B013", "duration": 1095.5, "t": 15026.34}
+{"type": "state", "station": "PACK1", "state": "idle", "t": 15026.34}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[18.5, 20.5], [19.5, 19.5], [50.5, 14.5], [52.5, 13.8]], "duration": 0.29, "loaded": false, "parts": 0, "t": 15026.34}
+{"type": "move", "vehicle": "F1", "batch": "B013", "path": [[52.5, 13.8], [52.5, 15.5], [55.5, 16.8]], "duration": 0.04, "loaded": true, "parts": 80, "t": 15028.13}
+{"type": "arrive", "batch": "B013", "station": "FG", "pos": [55.5, 16.8], "t": 15029.67}
+{"type": "done", "batch": "B013", "lead_min": 3029.7, "late_min": 0.0, "t": 15029.67}
+{"type": "state", "station": "EB2", "state": "idle", "t": 15052.08}
+{"type": "state", "station": "BOR2", "state": "down", "t": 15053.07}
+{"type": "breakdown", "station": "BOR2", "duration": 5.0, "t": 15053.07}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 15058.06}
+{"type": "proc_end", "station": "CUT2", "batch": "CB012+B016", "duration": 133.2, "t": 15082.68}
+{"type": "state", "station": "CUT2", "state": "idle", "t": 15082.68}
+{"type": "queue", "station": "CUT2", "len": 0, "t": 15082.68}
+{"type": "state", "station": "CUT2", "state": "setup", "t": 15082.68}
+{"type": "setup", "station": "CUT2", "batch": "CB018", "duration": 6.0, "t": 15082.68}
+{"type": "state", "station": "CUT2", "state": "busy", "t": 15088.68}
+{"type": "proc_start", "station": "CUT2", "batch": "CB018", "pos": [22.0, 22.5], "t": 15088.68}
+{"type": "sort", "batch": "CB012+B016", "station": "CUT2", "duration": 8.0, "t": 15090.68}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[38.5, 13.8], [36.5, 15.5], [25.0, 20.5]], "duration": 0.21, "loaded": false, "parts": 0, "t": 15090.68}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[26.5, 6.8], [25.5, 6.5], [25.0, 20.5]], "duration": 0.21, "loaded": false, "parts": 0, "t": 15090.68}
+{"type": "move", "vehicle": "H2", "batch": "B016", "path": [[25.0, 20.5], [27.5, 27.5], [28.5, 29.0]], "duration": 0.13, "loaded": true, "parts": 40, "t": 15092.39}
+{"type": "move", "vehicle": "H1", "batch": "B012", "path": [[25.0, 20.5], [26.5, 21.5], [28.5, 22.0]], "duration": 0.05, "loaded": true, "parts": 40, "t": 15092.39}
+{"type": "arrive", "batch": "B012", "station": "EB2", "pos": [28.5, 22.0], "t": 15093.94}
+{"type": "queue", "station": "EB2", "len": 1, "t": 15093.94}
+{"type": "queue", "station": "EB2", "len": 0, "t": 15093.94}
+{"type": "state", "station": "EB2", "state": "setup", "t": 15093.94}
+{"type": "setup", "station": "EB2", "batch": "B012", "duration": 5.0, "t": 15093.94}
+{"type": "arrive", "batch": "B016", "station": "EB1", "pos": [28.5, 29.0], "t": 15094.02}
+{"type": "queue", "station": "EB1", "len": 1, "t": 15094.02}
+{"type": "queue", "station": "EB1", "len": 0, "t": 15094.02}
+{"type": "state", "station": "EB1", "state": "setup", "t": 15094.02}
+{"type": "setup", "station": "EB1", "batch": "B016", "duration": 8.0, "t": 15094.02}
+{"type": "state", "station": "EB2", "state": "busy", "t": 15098.94}
+{"type": "proc_start", "station": "EB2", "batch": "B012", "pos": [32.0, 24.0], "t": 15098.94}
+{"type": "state", "station": "EB1", "state": "busy", "t": 15102.02}
+{"type": "proc_start", "station": "EB1", "batch": "B016", "pos": [33.0, 31.0], "t": 15102.02}
+{"type": "proc_end", "station": "EB2", "batch": "B012", "duration": 89.9, "t": 15188.83}
+{"type": "state", "station": "EB2", "state": "idle", "t": 15188.83}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[28.5, 22.0], [28.5, 21.5], [33.5, 21.5], [35.5, 22.0]], "duration": 0.11, "loaded": false, "parts": 0, "t": 15188.83}
+{"type": "move", "vehicle": "H1", "batch": "B012", "path": [[35.5, 22.0], [35.5, 21.5], [41.5, 26.5], [42.0, 28.5]], "duration": 0.14, "loaded": true, "parts": 40, "t": 15190.43}
+{"type": "arrive", "batch": "B012", "station": "BOR1", "pos": [42.0, 28.5], "t": 15192.08}
+{"type": "queue", "station": "BOR1", "len": 1, "t": 15192.08}
+{"type": "queue", "station": "BOR1", "len": 0, "t": 15192.08}
+{"type": "state", "station": "BOR1", "state": "setup", "t": 15192.08}
+{"type": "setup", "station": "BOR1", "batch": "B012", "duration": 4.0, "t": 15192.08}
+{"type": "scrap", "station": "EB1", "batch": "B016", "parts": 1, "t": 15194.27}
+{"type": "proc_end", "station": "EB1", "batch": "B016", "duration": 92.3, "t": 15194.27}
+{"type": "state", "station": "EB1", "state": "idle", "t": 15194.27}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 29.0], [28.5, 28.5], [35.5, 28.5], [37.5, 29.0]], "duration": 0.13, "loaded": false, "parts": 0, "t": 15194.27}
+{"type": "move", "vehicle": "H2", "batch": "B016", "path": [[37.5, 29.0], [37.5, 27.5], [45.5, 22.0]], "duration": 0.16, "loaded": true, "parts": 40, "t": 15195.91}
+{"type": "state", "station": "BOR1", "state": "busy", "t": 15196.08}
+{"type": "proc_start", "station": "BOR1", "batch": "B012", "pos": [45.0, 31.0], "t": 15196.08}
+{"type": "arrive", "batch": "B016", "station": "BOR2", "pos": [45.5, 22.0], "t": 15197.56}
+{"type": "queue", "station": "BOR2", "len": 1, "t": 15197.56}
+{"type": "queue", "station": "BOR2", "len": 0, "t": 15197.56}
+{"type": "state", "station": "BOR2", "state": "setup", "t": 15197.56}
+{"type": "setup", "station": "BOR2", "batch": "B016", "duration": 9.0, "t": 15197.56}
+{"type": "proc_end", "station": "CUT2", "batch": "CB018", "duration": 117.6, "t": 15206.29}
+{"type": "state", "station": "CUT2", "state": "idle", "t": 15206.29}
+{"type": "state", "station": "BOR2", "state": "busy", "t": 15206.56}
+{"type": "proc_start", "station": "BOR2", "batch": "B016", "pos": [48.0, 24.0], "t": 15206.56}
+{"type": "sort", "batch": "CB018", "station": "CUT2", "duration": 5.4, "t": 15211.69}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[42.0, 28.5], [40.5, 26.5], [35.5, 21.5], [25.0, 20.5]], "duration": 0.28, "loaded": false, "parts": 0, "t": 15211.69}
+{"type": "move", "vehicle": "H1", "batch": "B018", "path": [[25.0, 20.5], [26.5, 21.5], [28.5, 22.0]], "duration": 0.05, "loaded": true, "parts": 54, "t": 15213.46}
+{"type": "arrive", "batch": "B018", "station": "EB2", "pos": [28.5, 22.0], "t": 15215.02}
+{"type": "queue", "station": "EB2", "len": 1, "t": 15215.02}
+{"type": "queue", "station": "EB2", "len": 0, "t": 15215.02}
+{"type": "state", "station": "EB2", "state": "setup", "t": 15215.02}
+{"type": "setup", "station": "EB2", "batch": "B018", "duration": 5.0, "t": 15215.02}
+{"type": "state", "station": "EB2", "state": "busy", "t": 15220.02}
+{"type": "proc_start", "station": "EB2", "batch": "B018", "pos": [32.0, 24.0], "t": 15220.02}
+{"type": "proc_end", "station": "BOR1", "batch": "B012", "duration": 30.3, "t": 15226.42}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 15226.42}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[45.5, 22.0], [45.5, 26.5], [48.5, 27.5], [48.0, 28.5]], "duration": 0.12, "loaded": false, "parts": 0, "t": 15226.42}
+{"type": "proc_end", "station": "ASM4", "batch": "B011", "duration": 307.8, "t": 15227.56}
+{"type": "state", "station": "ASM4", "state": "idle", "t": 15227.56}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[28.5, 22.0], [27.5, 20.5], [25.5, 12.5], [25.5, 9.5], [29.5, 7.5], [31.5, 6.8]], "duration": 0.27, "loaded": false, "parts": 0, "t": 15227.56}
+{"type": "move", "vehicle": "H2", "batch": "B012", "path": [[48.0, 28.5], [51.5, 27.5], [53.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 40, "t": 15228.05}
+{"type": "move", "vehicle": "H1", "batch": "B011", "path": [[31.5, 6.8], [31.5, 7.5], [44.5, 9.5], [46.5, 11.5], [47.5, 13.8]], "duration": 0.27, "loaded": true, "parts": 80, "t": 15229.33}
+{"type": "arrive", "batch": "B012", "station": "FIN1", "pos": [53.0, 28.5], "t": 15229.62}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 15229.62}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 15229.62}
+{"type": "state", "station": "FIN1", "state": "setup", "t": 15229.62}
+{"type": "setup", "station": "FIN1", "batch": "B012", "duration": 10.0, "t": 15229.62}
+{"type": "arrive", "batch": "B011", "station": "PACK1", "pos": [47.5, 13.8], "t": 15231.09}
+{"type": "queue", "station": "PACK1", "len": 1, "t": 15231.09}
+{"type": "queue", "station": "PACK1", "len": 0, "t": 15231.09}
+{"type": "state", "station": "PACK1", "state": "busy", "t": 15231.09}
+{"type": "proc_start", "station": "PACK1", "batch": "B011", "pos": [50.0, 12.0], "t": 15231.09}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 15239.62}
+{"type": "proc_start", "station": "FIN1", "batch": "B012", "pos": [56.0, 31.0], "t": 15239.62}
+{"type": "scrap", "station": "BOR2", "batch": "B016", "parts": 2, "t": 15239.74}
+{"type": "proc_end", "station": "BOR2", "batch": "B016", "duration": 33.2, "t": 15239.74}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 15239.74}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 28.5], [51.5, 26.5], [50.5, 22.0]], "duration": 0.1, "loaded": false, "parts": 0, "t": 15239.74}
+{"type": "move", "vehicle": "H2", "batch": "B016", "path": [[50.5, 22.0], [51.5, 26.5], [53.0, 28.5]], "duration": 0.1, "loaded": true, "parts": 40, "t": 15241.34}
+{"type": "arrive", "batch": "B016", "station": "FIN1", "pos": [53.0, 28.5], "t": 15242.94}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 15242.94}
+{"type": "scrap", "station": "FIN1", "batch": "B012", "parts": 1, "t": 15248.03}
+{"type": "proc_end", "station": "FIN1", "batch": "B012", "duration": 8.4, "t": 15248.03}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 15248.03}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 15248.03}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 15248.03}
+{"type": "proc_start", "station": "FIN1", "batch": "B016", "pos": [56.0, 31.0], "t": 15248.03}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[47.5, 13.8], [46.5, 13.5], [51.5, 25.5], [52.5, 26.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.31, "loaded": false, "parts": 0, "t": 15248.03}
+{"type": "move", "vehicle": "H1", "batch": "B012", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 40, "t": 15249.84}
+{"type": "arrive", "batch": "B012", "station": "DRY1", "pos": [53.0, 19.5], "t": 15251.59}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 15251.59}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 15251.59}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 15251.59}
+{"type": "proc_start", "station": "DRY1", "batch": "B012", "pos": [56.0, 22.0], "t": 15251.59}
+{"type": "scrap", "station": "FIN1", "batch": "B016", "parts": 1, "t": 15256.7}
+{"type": "proc_end", "station": "FIN1", "batch": "B016", "duration": 8.7, "t": 15256.7}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 15256.7}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 28.5], [53.5, 27.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.1, "loaded": false, "parts": 0, "t": 15256.7}
+{"type": "move", "vehicle": "H2", "batch": "B016", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 40, "t": 15258.29}
+{"type": "proc_end", "station": "EB2", "batch": "B018", "duration": 39.8, "t": 15259.82}
+{"type": "state", "station": "EB2", "state": "idle", "t": 15259.82}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 19.5], [50.5, 17.5], [35.5, 21.5], [35.5, 22.0]], "duration": 0.27, "loaded": false, "parts": 0, "t": 15259.82}
+{"type": "arrive", "batch": "B016", "station": "DRY1", "pos": [53.0, 19.5], "t": 15260.05}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 15260.05}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 15260.05}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 15260.05}
+{"type": "proc_start", "station": "DRY1", "batch": "B016", "pos": [56.0, 22.0], "t": 15260.05}
+{"type": "move", "vehicle": "H1", "batch": "B018", "path": [[35.5, 22.0], [35.5, 21.5], [41.5, 26.5], [42.0, 28.5]], "duration": 0.14, "loaded": true, "parts": 54, "t": 15261.59}
+{"type": "arrive", "batch": "B018", "station": "BOR1", "pos": [42.0, 28.5], "t": 15263.23}
+{"type": "queue", "station": "BOR1", "len": 1, "t": 15263.23}
+{"type": "queue", "station": "BOR1", "len": 0, "t": 15263.23}
+{"type": "state", "station": "BOR1", "state": "setup", "t": 15263.23}
+{"type": "setup", "station": "BOR1", "batch": "B018", "duration": 4.0, "t": 15263.23}
+{"type": "state", "station": "BOR1", "state": "busy", "t": 15267.23}
+{"type": "proc_start", "station": "BOR1", "batch": "B018", "pos": [45.0, 31.0], "t": 15267.23}
+{"type": "proc_end", "station": "ASM3", "batch": "B017", "duration": 386.9, "t": 15270.5}
+{"type": "state", "station": "ASM3", "state": "idle", "t": 15270.5}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 19.5], [50.5, 17.5], [43.5, 14.5], [43.5, 13.8]], "duration": 0.16, "loaded": false, "parts": 0, "t": 15270.5}
+{"type": "move", "vehicle": "H2", "batch": "B017", "path": [[43.5, 13.8], [43.5, 14.5], [44.5, 13.5], [46.5, 6.5], [47.5, 6.8]], "duration": 0.14, "loaded": true, "parts": 72, "t": 15272.16}
+{"type": "arrive", "batch": "B017", "station": "PACK2", "pos": [47.5, 6.8], "t": 15273.81}
+{"type": "queue", "station": "PACK2", "len": 1, "t": 15273.81}
+{"type": "queue", "station": "PACK2", "len": 0, "t": 15273.81}
+{"type": "state", "station": "PACK2", "state": "busy", "t": 15273.81}
+{"type": "proc_start", "station": "PACK2", "batch": "B017", "pos": [50.0, 5.0], "t": 15273.81}
+{"type": "proc_end", "station": "DRY1", "batch": "B012", "duration": 31.2, "t": 15282.82}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 15282.82}
+{"type": "wait_outsourced", "batch": "B012", "item": "OUT_도어", "station": "DRY1", "duration": 1659.6, "t": 15282.82}
+{"type": "proc_end", "station": "DRY1", "batch": "B016", "duration": 33.8, "t": 15293.85}
+{"type": "state", "station": "DRY1", "state": "idle", "t": 15293.85}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[42.0, 28.5], [42.5, 26.5], [46.5, 21.5], [52.5, 17.5], [56.5, 17.5], [59.0, 19.5]], "duration": 0.32, "loaded": false, "parts": 0, "t": 15293.85}
+{"type": "move", "vehicle": "H1", "batch": "B016", "path": [[59.0, 19.5], [56.5, 17.5], [25.5, 14.5], [25.5, 13.5], [26.5, 13.8]], "duration": 0.51, "loaded": true, "parts": 40, "t": 15295.67}
+{"type": "arrive", "batch": "B016", "station": "ASM1", "pos": [26.5, 13.8], "t": 15297.67}
+{"type": "queue", "station": "ASM1", "len": 1, "t": 15297.67}
+{"type": "queue", "station": "ASM1", "len": 0, "t": 15297.67}
+{"type": "state", "station": "ASM1", "state": "busy", "t": 15297.67}
+{"type": "proc_start", "station": "ASM1", "batch": "B016", "pos": [29.0, 12.0], "t": 15297.67}
+{"type": "scrap", "station": "BOR1", "batch": "B018", "parts": 2, "t": 15320.89}
+{"type": "proc_end", "station": "BOR1", "batch": "B018", "duration": 53.7, "t": 15320.89}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 15320.89}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[47.5, 6.8], [46.5, 6.5], [46.5, 16.5], [50.5, 22.5], [50.5, 26.5], [48.0, 28.5]], "duration": 0.35, "loaded": false, "parts": 0, "t": 15320.89}
+{"type": "move", "vehicle": "H2", "batch": "B018", "path": [[48.0, 28.5], [48.5, 27.5], [45.5, 25.5], [44.5, 9.5], [38.5, 7.5], [38.5, 6.8]], "duration": 0.39, "loaded": true, "parts": 54, "t": 15322.74}
+{"type": "arrive", "batch": "B018", "station": "ASM6", "pos": [38.5, 6.8], "t": 15324.63}
+{"type": "queue", "station": "ASM6", "len": 1, "t": 15324.63}
+{"type": "queue", "station": "ASM6", "len": 0, "t": 15324.63}
+{"type": "state", "station": "ASM6", "state": "setup", "t": 15324.63}
+{"type": "setup", "station": "ASM6", "batch": "B018", "duration": 2.0, "t": 15324.63}
+{"type": "state", "station": "ASM6", "state": "busy", "t": 15326.63}
+{"type": "proc_start", "station": "ASM6", "batch": "B018", "pos": [41.0, 5.0], "t": 15326.63}
+{"type": "state", "station": "EB1", "state": "down", "t": 15336.16}
+{"type": "breakdown", "station": "EB1", "duration": 88.5, "t": 15336.16}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[26.5, 13.8], [25.5, 13.5], [26.5, 14.5], [56.5, 17.5], [59.0, 19.5]], "duration": 0.5, "loaded": false, "parts": 0, "t": 15365.36}
+{"type": "move", "vehicle": "H1", "batch": "B014", "path": [[59.0, 19.5], [56.5, 17.5], [45.5, 13.5], [44.5, 9.5], [32.5, 7.5], [32.5, 6.8]], "duration": 0.44, "loaded": true, "parts": 72, "t": 15367.36}
+{"type": "arrive", "batch": "B014", "station": "ASM5", "pos": [32.5, 6.8], "t": 15369.3}
+{"type": "queue", "station": "ASM5", "len": 1, "t": 15369.3}
+{"type": "queue", "station": "ASM5", "len": 0, "t": 15369.3}
+{"type": "state", "station": "ASM5", "state": "setup", "t": 15369.3}
+{"type": "setup", "station": "ASM5", "batch": "B014", "duration": 2.0, "t": 15369.3}
+{"type": "state", "station": "ASM5", "state": "busy", "t": 15371.3}
+{"type": "proc_start", "station": "ASM5", "batch": "B014", "pos": [35.0, 5.0], "t": 15371.3}
+{"type": "proc_end", "station": "ASM1", "batch": "B016", "duration": 116.0, "t": 15413.72}
+{"type": "state", "station": "ASM1", "state": "idle", "t": 15413.72}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[38.5, 6.8], [36.5, 8.5], [25.5, 9.5], [25.5, 14.5], [29.5, 14.5], [31.5, 13.8]], "duration": 0.34, "loaded": false, "parts": 0, "t": 15413.72}
+{"type": "move", "vehicle": "H2", "batch": "B016", "path": [[31.5, 13.8], [31.5, 14.5], [44.5, 14.5], [46.5, 6.5], [47.5, 6.8]], "duration": 0.32, "loaded": true, "parts": 40, "t": 15415.56}
+{"type": "arrive", "batch": "B016", "station": "PACK2", "pos": [47.5, 6.8], "t": 15417.38}
+{"type": "queue", "station": "PACK2", "len": 1, "t": 15417.38}
+{"type": "state", "station": "EB1", "state": "idle", "t": 15424.7}
+{"type": "release", "batch": "B015", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 24060, "t": 16320.0}
+{"type": "release", "batch": "B019", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 24060, "t": 16320.0}
+{"type": "state", "station": "CUT1", "state": "down", "t": 16335.18}
+{"type": "breakdown", "station": "CUT1", "duration": 19.3, "t": 16335.18}
+{"type": "proc_end", "station": "PACK1", "batch": "B011", "duration": 1107.8, "t": 16338.91}
+{"type": "state", "station": "PACK1", "state": "idle", "t": 16338.91}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 14.5], [52.5, 13.8]], "duration": 0.04, "loaded": false, "parts": 0, "t": 16338.91}
+{"type": "move", "vehicle": "F1", "batch": "B011", "path": [[52.5, 13.8], [52.5, 15.5], [55.5, 16.8]], "duration": 0.04, "loaded": true, "parts": 80, "t": 16340.45}
+{"type": "arrive", "batch": "B011", "station": "FG", "pos": [55.5, 16.8], "t": 16341.99}
+{"type": "done", "batch": "B011", "lead_min": 2902.0, "late_min": 0.0, "t": 16341.99}
+{"type": "proc_end", "station": "ASM6", "batch": "B018", "duration": 1016.1, "t": 16342.69}
+{"type": "state", "station": "ASM6", "state": "idle", "t": 16342.69}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[32.5, 6.8], [32.5, 7.5], [41.5, 7.5], [43.5, 6.8]], "duration": 0.16, "loaded": false, "parts": 0, "t": 16342.69}
+{"type": "move", "vehicle": "H1", "batch": "B018", "path": [[43.5, 6.8], [43.5, 8.5], [46.5, 11.5], [47.5, 13.8]], "duration": 0.12, "loaded": true, "parts": 54, "t": 16344.35}
+{"type": "proc_end", "station": "PACK2", "batch": "B017", "duration": 1071.8, "t": 16345.58}
+{"type": "state", "station": "PACK2", "state": "idle", "t": 16345.58}
+{"type": "queue", "station": "PACK2", "len": 0, "t": 16345.58}
+{"type": "state", "station": "PACK2", "state": "busy", "t": 16345.58}
+{"type": "proc_start", "station": "PACK2", "batch": "B016", "pos": [50.0, 5.0], "t": 16345.58}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 8.5], [52.5, 6.8]], "duration": 0.09, "loaded": false, "parts": 0, "t": 16345.58}
+{"type": "arrive", "batch": "B018", "station": "PACK1", "pos": [47.5, 13.8], "t": 16345.97}
+{"type": "queue", "station": "PACK1", "len": 1, "t": 16345.97}
+{"type": "queue", "station": "PACK1", "len": 0, "t": 16345.97}
+{"type": "state", "station": "PACK1", "state": "busy", "t": 16345.97}
+{"type": "proc_start", "station": "PACK1", "batch": "B018", "pos": [50.0, 12.0], "t": 16345.97}
+{"type": "move", "vehicle": "F1", "batch": "B017", "path": [[52.5, 6.8], [52.5, 8.5], [55.5, 16.8]], "duration": 0.09, "loaded": true, "parts": 72, "t": 16347.17}
+{"type": "arrive", "batch": "B017", "station": "FG", "pos": [55.5, 16.8], "t": 16348.76}
+{"type": "done", "batch": "B017", "lead_min": 4348.8, "late_min": 0.0, "t": 16348.76}
+{"type": "state", "station": "CUT1", "state": "idle", "t": 16354.44}
+{"type": "state", "station": "EB2", "state": "down", "t": 16370.26}
+{"type": "breakdown", "station": "EB2", "duration": 18.5, "t": 16370.26}
+{"type": "cut_batch", "batch": "CB015+B019", "orders": ["B015", "B019"], "n_parts": 144, "t": 16380.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [10.5, 19.0]], "duration": 0.38, "loaded": false, "parts": 0, "t": 16380.0}
+{"type": "move", "vehicle": "F1", "batch": "CB015+B019", "path": [[10.5, 19.0], [13.5, 25.5]], "duration": 0.06, "loaded": true, "parts": 144, "t": 16381.88}
+{"type": "arrive", "batch": "CB015+B019", "station": "CUT1", "pos": [13.5, 25.5], "t": 16383.44}
+{"type": "queue", "station": "CUT1", "len": 1, "t": 16383.44}
+{"type": "queue", "station": "CUT1", "len": 0, "t": 16383.44}
+{"type": "state", "station": "CUT1", "state": "busy", "t": 16383.44}
+{"type": "proc_start", "station": "CUT1", "batch": "CB015+B019", "pos": [17.0, 30.0], "t": 16383.44}
+{"type": "state", "station": "EB2", "state": "idle", "t": 16388.78}
+{"type": "proc_end", "station": "PACK2", "batch": "B016", "duration": 82.5, "t": 16428.07}
+{"type": "state", "station": "PACK2", "state": "idle", "t": 16428.07}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[13.5, 25.5], [26.5, 9.5], [50.5, 7.5], [52.5, 6.8]], "duration": 0.39, "loaded": false, "parts": 0, "t": 16428.07}
+{"type": "move", "vehicle": "F1", "batch": "B016", "path": [[52.5, 6.8], [52.5, 8.5], [55.5, 16.8]], "duration": 0.09, "loaded": true, "parts": 40, "t": 16429.96}
+{"type": "arrive", "batch": "B016", "station": "FG", "pos": [55.5, 16.8], "t": 16431.55}
+{"type": "done", "batch": "B016", "lead_min": 1551.5, "late_min": 0.0, "t": 16431.55}
+{"type": "state", "station": "EB2", "state": "down", "t": 16455.56}
+{"type": "breakdown", "station": "EB2", "duration": 4.1, "t": 16455.56}
+{"type": "state", "station": "EB2", "state": "idle", "t": 16459.61}
+{"type": "proc_end", "station": "PACK1", "batch": "B018", "duration": 120.7, "t": 16466.65}
+{"type": "state", "station": "PACK1", "state": "idle", "t": 16466.65}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 14.5], [52.5, 13.8]], "duration": 0.04, "loaded": false, "parts": 0, "t": 16466.65}
+{"type": "move", "vehicle": "F1", "batch": "B018", "path": [[52.5, 13.8], [52.5, 15.5], [55.5, 16.8]], "duration": 0.04, "loaded": true, "parts": 54, "t": 16468.19}
+{"type": "arrive", "batch": "B018", "station": "FG", "pos": [55.5, 16.8], "t": 16469.73}
+{"type": "done", "batch": "B018", "lead_min": 1589.7, "late_min": 0.0, "t": 16469.73}
+{"type": "state", "station": "CUT1", "state": "down", "t": 16533.95}
+{"type": "breakdown", "station": "CUT1", "duration": 39.1, "t": 16533.95}
+{"type": "proc_end", "station": "ASM5", "batch": "B014", "duration": 1192.2, "t": 16563.53}
+{"type": "state", "station": "ASM5", "state": "idle", "t": 16563.53}
+{"type": "state", "station": "CUT1", "state": "busy", "t": 16573.08}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[47.5, 6.8], [45.5, 6.5], [42.5, 7.5], [37.5, 7.5], [37.5, 6.8]], "duration": 0.15, "loaded": false, "parts": 0, "t": 16620.0}
+{"type": "move", "vehicle": "H2", "batch": "B014", "path": [[37.5, 6.8], [37.5, 8.5], [44.5, 9.5], [46.5, 11.5], [47.5, 13.8]], "duration": 0.2, "loaded": true, "parts": 72, "t": 16621.65}
+{"type": "arrive", "batch": "B014", "station": "PACK1", "pos": [47.5, 13.8], "t": 16623.35}
+{"type": "queue", "station": "PACK1", "len": 1, "t": 16623.35}
+{"type": "queue", "station": "PACK1", "len": 0, "t": 16623.35}
+{"type": "state", "station": "PACK1", "state": "busy", "t": 16623.35}
+{"type": "proc_start", "station": "PACK1", "batch": "B014", "pos": [50.0, 12.0], "t": 16623.35}
+{"type": "scrap", "station": "CUT1", "batch": "CB015+B019", "parts": 2, "t": 16636.36}
+{"type": "proc_end", "station": "CUT1", "batch": "CB015+B019", "duration": 252.9, "t": 16636.36}
+{"type": "state", "station": "CUT1", "state": "idle", "t": 16636.36}
+{"type": "sort", "batch": "CB015+B019", "station": "CUT1", "duration": 14.4, "t": 16650.76}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[47.5, 13.8], [45.5, 13.5], [26.5, 22.5], [24.5, 25.5], [21.5, 25.5]], "duration": 0.41, "loaded": false, "parts": 0, "t": 16650.76}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[47.5, 13.8], [45.5, 13.5], [26.5, 22.5], [24.5, 25.5], [21.5, 25.5]], "duration": 0.41, "loaded": false, "parts": 0, "t": 16650.76}
+{"type": "move", "vehicle": "H1", "batch": "B015", "path": [[21.5, 25.5], [26.5, 28.5], [28.5, 29.0]], "duration": 0.11, "loaded": true, "parts": 72, "t": 16652.67}
+{"type": "move", "vehicle": "H2", "batch": "B019", "path": [[21.5, 25.5], [26.5, 28.5], [28.5, 29.0]], "duration": 0.11, "loaded": true, "parts": 72, "t": 16652.67}
+{"type": "arrive", "batch": "B015", "station": "EB1", "pos": [28.5, 29.0], "t": 16654.28}
+{"type": "queue", "station": "EB1", "len": 1, "t": 16654.28}
+{"type": "arrive", "batch": "B019", "station": "EB1", "pos": [28.5, 29.0], "t": 16654.28}
+{"type": "queue", "station": "EB1", "len": 2, "t": 16654.28}
+{"type": "queue", "station": "EB1", "len": 1, "t": 16654.28}
+{"type": "state", "station": "EB1", "state": "setup", "t": 16654.28}
+{"type": "setup", "station": "EB1", "batch": "B015", "duration": 8.0, "t": 16654.28}
+{"type": "state", "station": "EB1", "state": "busy", "t": 16662.28}
+{"type": "proc_start", "station": "EB1", "batch": "B015", "pos": [33.0, 31.0], "t": 16662.28}
+{"type": "state", "station": "EB1", "state": "down", "t": 16695.58}
+{"type": "breakdown", "station": "EB1", "duration": 11.7, "t": 16695.58}
+{"type": "state", "station": "BOR1", "state": "down", "t": 16699.71}
+{"type": "breakdown", "station": "BOR1", "duration": 33.2, "t": 16699.71}
+{"type": "state", "station": "CUT2", "state": "down", "t": 16705.81}
+{"type": "breakdown", "station": "CUT2", "duration": 45.8, "t": 16705.81}
+{"type": "state", "station": "EB1", "state": "busy", "t": 16707.24}
+{"type": "state", "station": "CUT1", "state": "down", "t": 16709.01}
+{"type": "breakdown", "station": "CUT1", "duration": 34.8, "t": 16709.01}
+{"type": "scrap", "station": "EB1", "batch": "B015", "parts": 1, "t": 16720.51}
+{"type": "proc_end", "station": "EB1", "batch": "B015", "duration": 58.2, "t": 16720.51}
+{"type": "state", "station": "EB1", "state": "idle", "t": 16720.51}
+{"type": "queue", "station": "EB1", "len": 0, "t": 16720.51}
+{"type": "state", "station": "EB1", "state": "busy", "t": 16720.51}
+{"type": "proc_start", "station": "EB1", "batch": "B019", "pos": [33.0, 31.0], "t": 16720.51}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[28.5, 29.0], [28.5, 28.5], [35.5, 28.5], [37.5, 29.0]], "duration": 0.13, "loaded": false, "parts": 0, "t": 16720.51}
+{"type": "move", "vehicle": "H1", "batch": "B015", "path": [[37.5, 29.0], [37.5, 28.5], [40.5, 27.5], [42.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 72, "t": 16722.14}
+{"type": "arrive", "batch": "B015", "station": "BOR1", "pos": [42.0, 28.5], "t": 16723.72}
+{"type": "queue", "station": "BOR1", "len": 1, "t": 16723.72}
+{"type": "queue", "station": "BOR1", "len": 0, "t": 16723.72}
+{"type": "state", "station": "BOR1", "state": "busy", "t": 16732.93}
+{"type": "state", "station": "BOR1", "state": "setup", "t": 16733.72}
+{"type": "setup", "station": "BOR1", "batch": "B015", "duration": 4.0, "t": 16733.72}
+{"type": "state", "station": "BOR1", "state": "busy", "t": 16737.72}
+{"type": "proc_start", "station": "BOR1", "batch": "B015", "pos": [45.0, 31.0], "t": 16737.72}
+{"type": "state", "station": "CUT1", "state": "idle", "t": 16743.85}
+{"type": "state", "station": "CUT2", "state": "idle", "t": 16751.57}
+{"type": "proc_end", "station": "EB1", "batch": "B019", "duration": 59.5, "t": 16780.03}
+{"type": "state", "station": "EB1", "state": "idle", "t": 16780.03}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 29.0], [28.5, 28.5], [35.5, 28.5], [37.5, 29.0]], "duration": 0.13, "loaded": false, "parts": 0, "t": 16780.03}
+{"type": "move", "vehicle": "H2", "batch": "B019", "path": [[37.5, 29.0], [37.5, 27.5], [45.5, 22.0]], "duration": 0.16, "loaded": true, "parts": 72, "t": 16781.66}
+{"type": "arrive", "batch": "B019", "station": "BOR2", "pos": [45.5, 22.0], "t": 16783.32}
+{"type": "queue", "station": "BOR2", "len": 1, "t": 16783.32}
+{"type": "queue", "station": "BOR2", "len": 0, "t": 16783.32}
+{"type": "state", "station": "BOR2", "state": "setup", "t": 16783.32}
+{"type": "setup", "station": "BOR2", "batch": "B019", "duration": 9.0, "t": 16783.32}
+{"type": "state", "station": "BOR2", "state": "busy", "t": 16792.32}
+{"type": "proc_start", "station": "BOR2", "batch": "B019", "pos": [48.0, 24.0], "t": 16792.32}
+{"type": "scrap", "station": "BOR1", "batch": "B015", "parts": 1, "t": 16797.85}
+{"type": "proc_end", "station": "BOR1", "batch": "B015", "duration": 60.1, "t": 16797.85}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 16797.85}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[42.0, 28.5], [42.5, 27.5], [48.5, 27.5], [48.0, 28.5]], "duration": 0.11, "loaded": false, "parts": 0, "t": 16797.85}
+{"type": "move", "vehicle": "H1", "batch": "B015", "path": [[48.0, 28.5], [51.5, 27.5], [53.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 72, "t": 16799.46}
+{"type": "arrive", "batch": "B015", "station": "FIN1", "pos": [53.0, 28.5], "t": 16801.04}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 16801.04}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 16801.04}
+{"type": "state", "station": "FIN1", "state": "setup", "t": 16801.04}
+{"type": "setup", "station": "FIN1", "batch": "B015", "duration": 10.0, "t": 16801.04}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 16811.04}
+{"type": "proc_start", "station": "FIN1", "batch": "B015", "pos": [56.0, 31.0], "t": 16811.04}
+{"type": "scrap", "station": "FIN1", "batch": "B015", "parts": 2, "t": 16824.08}
+{"type": "proc_end", "station": "FIN1", "batch": "B015", "duration": 13.0, "t": 16824.08}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 16824.08}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[45.5, 22.0], [45.5, 26.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.25, "loaded": false, "parts": 0, "t": 16824.08}
+{"type": "move", "vehicle": "H2", "batch": "B015", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 72, "t": 16825.83}
+{"type": "arrive", "batch": "B015", "station": "DRY1", "pos": [53.0, 19.5], "t": 16827.59}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 16827.59}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 16827.59}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 16827.59}
+{"type": "proc_start", "station": "DRY1", "batch": "B015", "pos": [56.0, 22.0], "t": 16827.59}
+{"type": "proc_end", "station": "PACK1", "batch": "B014", "duration": 207.9, "t": 16831.24}
+{"type": "state", "station": "PACK1", "state": "idle", "t": 16831.24}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 14.5], [52.5, 13.8]], "duration": 0.04, "loaded": false, "parts": 0, "t": 16831.24}
+{"type": "move", "vehicle": "F1", "batch": "B014", "path": [[52.5, 13.8], [52.5, 15.5], [55.5, 16.8]], "duration": 0.04, "loaded": true, "parts": 72, "t": 16832.78}
+{"type": "arrive", "batch": "B014", "station": "FG", "pos": [55.5, 16.8], "t": 16834.32}
+{"type": "done", "batch": "B014", "lead_min": 3394.3, "late_min": 0.0, "t": 16834.32}
+{"type": "scrap", "station": "BOR2", "batch": "B019", "parts": 1, "t": 16837.64}
+{"type": "proc_end", "station": "BOR2", "batch": "B019", "duration": 45.3, "t": 16837.64}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 16837.64}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 28.5], [51.5, 26.5], [50.5, 22.0]], "duration": 0.1, "loaded": false, "parts": 0, "t": 16837.64}
+{"type": "move", "vehicle": "H1", "batch": "B019", "path": [[50.5, 22.0], [51.5, 26.5], [53.0, 28.5]], "duration": 0.1, "loaded": true, "parts": 72, "t": 16839.24}
+{"type": "arrive", "batch": "B019", "station": "FIN1", "pos": [53.0, 28.5], "t": 16840.84}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 16840.84}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 16840.84}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 16840.84}
+{"type": "proc_start", "station": "FIN1", "batch": "B019", "pos": [56.0, 31.0], "t": 16840.84}
+{"type": "scrap", "station": "FIN1", "batch": "B019", "parts": 5, "t": 16860.22}
+{"type": "proc_end", "station": "FIN1", "batch": "B019", "duration": 19.4, "t": 16860.22}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 16860.22}
+{"type": "release", "batch": "B020", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 25500, "t": 20640.0}
+{"type": "release", "batch": "B021", "product": "P_BOOK", "qty": 6, "n_parts": 54, "due": 25500, "t": 20640.0}
+{"type": "release", "batch": "B023", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 25500, "t": 20640.0}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 19.5], [51.5, 18.5], [51.5, 26.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.25, "loaded": false, "parts": 0, "t": 20640.0}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 28.5], [51.5, 26.5], [51.5, 17.5], [56.5, 17.5], [59.0, 19.5]], "duration": 0.27, "loaded": false, "parts": 0, "t": 20640.0}
+{"type": "move", "vehicle": "H2", "batch": "B019", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 72, "t": 20641.75}
+{"type": "move", "vehicle": "H1", "batch": "B012", "path": [[59.0, 19.5], [56.5, 17.5], [32.5, 14.5], [32.5, 13.8]], "duration": 0.39, "loaded": true, "parts": 40, "t": 20641.77}
+{"type": "arrive", "batch": "B019", "station": "DRY1", "pos": [53.0, 19.5], "t": 20643.5}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 20643.5}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 20643.5}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 20643.5}
+{"type": "proc_start", "station": "DRY1", "batch": "B019", "pos": [56.0, 22.0], "t": 20643.5}
+{"type": "arrive", "batch": "B012", "station": "ASM2", "pos": [32.5, 13.8], "t": 20643.66}
+{"type": "queue", "station": "ASM2", "len": 1, "t": 20643.66}
+{"type": "queue", "station": "ASM2", "len": 0, "t": 20643.66}
+{"type": "state", "station": "ASM2", "state": "setup", "t": 20643.66}
+{"type": "setup", "station": "ASM2", "batch": "B012", "duration": 2.0, "t": 20643.66}
+{"type": "state", "station": "ASM2", "state": "busy", "t": 20645.66}
+{"type": "proc_start", "station": "ASM2", "batch": "B012", "pos": [35.0, 12.0], "t": 20645.66}
+{"type": "proc_end", "station": "DRY1", "batch": "B015", "duration": 3839.3, "t": 20666.92}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 20666.92}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 19.5], [52.5, 17.5], [56.5, 17.5], [59.0, 19.5]], "duration": 0.13, "loaded": false, "parts": 0, "t": 20666.92}
+{"type": "move", "vehicle": "H2", "batch": "B015", "path": [[59.0, 19.5], [56.5, 17.5], [45.5, 13.5], [44.5, 9.5], [32.5, 7.5], [32.5, 6.8]], "duration": 0.44, "loaded": true, "parts": 72, "t": 20668.55}
+{"type": "arrive", "batch": "B015", "station": "ASM5", "pos": [32.5, 6.8], "t": 20670.49}
+{"type": "queue", "station": "ASM5", "len": 1, "t": 20670.49}
+{"type": "queue", "station": "ASM5", "len": 0, "t": 20670.49}
+{"type": "state", "station": "ASM5", "state": "busy", "t": 20670.49}
+{"type": "proc_start", "station": "ASM5", "batch": "B015", "pos": [35.0, 5.0], "t": 20670.49}
+{"type": "cut_batch", "batch": "CB020", "orders": ["B020"], "n_parts": 40, "t": 20700.0}
+{"type": "cut_batch", "batch": "CB021", "orders": ["B021"], "n_parts": 54, "t": 20700.0}
+{"type": "cut_batch", "batch": "CB023", "orders": ["B023"], "n_parts": 72, "t": 20700.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [10.5, 19.0]], "duration": 0.38, "loaded": false, "parts": 0, "t": 20700.0}
+{"type": "move", "vehicle": "F1", "batch": "CB020", "path": [[10.5, 19.0], [18.5, 20.5]], "duration": 0.07, "loaded": true, "parts": 40, "t": 20701.88}
+{"type": "proc_end", "station": "DRY1", "batch": "B019", "duration": 59.8, "t": 20703.27}
+{"type": "state", "station": "DRY1", "state": "idle", "t": 20703.27}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[32.5, 13.8], [32.5, 14.5], [56.5, 17.5], [59.0, 19.5]], "duration": 0.39, "loaded": false, "parts": 0, "t": 20703.27}
+{"type": "arrive", "batch": "CB020", "station": "CUT2", "pos": [18.5, 20.5], "t": 20703.44}
+{"type": "queue", "station": "CUT2", "len": 1, "t": 20703.44}
+{"type": "queue", "station": "CUT2", "len": 0, "t": 20703.44}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[18.5, 20.5], [10.5, 19.0]], "duration": 0.07, "loaded": false, "parts": 0, "t": 20703.44}
+{"type": "state", "station": "CUT2", "state": "setup", "t": 20703.44}
+{"type": "setup", "station": "CUT2", "batch": "CB020", "duration": 6.0, "t": 20703.44}
+{"type": "move", "vehicle": "F1", "batch": "CB021", "path": [[10.5, 19.0], [13.5, 25.5]], "duration": 0.06, "loaded": true, "parts": 54, "t": 20705.01}
+{"type": "move", "vehicle": "H1", "batch": "B019", "path": [[59.0, 19.5], [56.5, 17.5], [45.5, 13.5], [44.5, 9.5], [25.5, 7.5], [25.5, 6.5], [26.5, 6.8]], "duration": 0.56, "loaded": true, "parts": 72, "t": 20705.16}
+{"type": "arrive", "batch": "CB021", "station": "CUT1", "pos": [13.5, 25.5], "t": 20706.57}
+{"type": "queue", "station": "CUT1", "len": 1, "t": 20706.57}
+{"type": "queue", "station": "CUT1", "len": 0, "t": 20706.57}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[13.5, 25.5], [10.5, 19.0]], "duration": 0.06, "loaded": false, "parts": 0, "t": 20706.57}
+{"type": "state", "station": "CUT1", "state": "setup", "t": 20706.57}
+{"type": "setup", "station": "CUT1", "batch": "CB021", "duration": 3.0, "t": 20706.57}
+{"type": "arrive", "batch": "B019", "station": "ASM4", "pos": [26.5, 6.8], "t": 20707.22}
+{"type": "queue", "station": "ASM4", "len": 1, "t": 20707.22}
+{"type": "queue", "station": "ASM4", "len": 0, "t": 20707.22}
+{"type": "state", "station": "ASM4", "state": "setup", "t": 20707.22}
+{"type": "setup", "station": "ASM4", "batch": "B019", "duration": 2.0, "t": 20707.22}
+{"type": "move", "vehicle": "F1", "batch": "CB023", "path": [[10.5, 19.0], [18.5, 20.5]], "duration": 0.07, "loaded": true, "parts": 72, "t": 20708.13}
+{"type": "state", "station": "ASM4", "state": "busy", "t": 20709.22}
+{"type": "proc_start", "station": "ASM4", "batch": "B019", "pos": [29.0, 5.0], "t": 20709.22}
+{"type": "state", "station": "CUT2", "state": "busy", "t": 20709.44}
+{"type": "proc_start", "station": "CUT2", "batch": "CB020", "pos": [22.0, 22.5], "t": 20709.44}
+{"type": "state", "station": "CUT1", "state": "busy", "t": 20709.57}
+{"type": "proc_start", "station": "CUT1", "batch": "CB021", "pos": [17.0, 30.0], "t": 20709.57}
+{"type": "arrive", "batch": "CB023", "station": "CUT2", "pos": [18.5, 20.5], "t": 20709.7}
+{"type": "queue", "station": "CUT2", "len": 1, "t": 20709.7}
+{"type": "proc_end", "station": "ASM2", "batch": "B012", "duration": 119.6, "t": 20765.31}
+{"type": "state", "station": "ASM2", "state": "idle", "t": 20765.31}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[32.5, 6.8], [30.5, 8.5], [25.5, 9.5], [25.5, 14.5], [35.5, 14.5], [37.5, 13.8]], "duration": 0.35, "loaded": false, "parts": 0, "t": 20775.0}
+{"type": "move", "vehicle": "H2", "batch": "B012", "path": [[37.5, 13.8], [37.5, 14.5], [44.5, 14.5], [45.5, 13.5], [47.5, 13.8]], "duration": 0.15, "loaded": true, "parts": 40, "t": 20776.85}
+{"type": "arrive", "batch": "B012", "station": "PACK1", "pos": [47.5, 13.8], "t": 20778.5}
+{"type": "queue", "station": "PACK1", "len": 1, "t": 20778.5}
+{"type": "queue", "station": "PACK1", "len": 0, "t": 20778.5}
+{"type": "state", "station": "PACK1", "state": "busy", "t": 20778.5}
+{"type": "proc_start", "station": "PACK1", "batch": "B012", "pos": [50.0, 12.0], "t": 20778.5}
+{"type": "scrap", "station": "CUT2", "batch": "CB020", "parts": 1, "t": 20782.46}
+{"type": "proc_end", "station": "CUT2", "batch": "CB020", "duration": 73.0, "t": 20782.46}
+{"type": "state", "station": "CUT2", "state": "idle", "t": 20782.46}
+{"type": "queue", "station": "CUT2", "len": 0, "t": 20782.46}
+{"type": "state", "station": "CUT2", "state": "setup", "t": 20782.46}
+{"type": "setup", "station": "CUT2", "batch": "CB023", "duration": 6.0, "t": 20782.46}
+{"type": "sort", "batch": "CB020", "station": "CUT2", "duration": 4.0, "t": 20786.46}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[26.5, 6.8], [25.5, 6.5], [25.0, 20.5]], "duration": 0.21, "loaded": false, "parts": 0, "t": 20786.46}
+{"type": "move", "vehicle": "H1", "batch": "B020", "path": [[25.0, 20.5], [26.5, 21.5], [28.5, 22.0]], "duration": 0.05, "loaded": true, "parts": 40, "t": 20788.17}
+{"type": "state", "station": "CUT2", "state": "busy", "t": 20788.46}
+{"type": "proc_start", "station": "CUT2", "batch": "CB023", "pos": [22.0, 22.5], "t": 20788.46}
+{"type": "scrap", "station": "CUT1", "batch": "CB021", "parts": 2, "t": 20788.51}
+{"type": "proc_end", "station": "CUT1", "batch": "CB021", "duration": 78.9, "t": 20788.51}
+{"type": "state", "station": "CUT1", "state": "idle", "t": 20788.51}
+{"type": "arrive", "batch": "B020", "station": "EB2", "pos": [28.5, 22.0], "t": 20789.72}
+{"type": "queue", "station": "EB2", "len": 1, "t": 20789.72}
+{"type": "queue", "station": "EB2", "len": 0, "t": 20789.72}
+{"type": "state", "station": "EB2", "state": "setup", "t": 20789.72}
+{"type": "setup", "station": "EB2", "batch": "B020", "duration": 5.0, "t": 20789.72}
+{"type": "sort", "batch": "CB021", "station": "CUT1", "duration": 5.4, "t": 20793.91}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[47.5, 13.8], [45.5, 13.5], [26.5, 22.5], [24.5, 25.5], [21.5, 25.5]], "duration": 0.41, "loaded": false, "parts": 0, "t": 20793.91}
+{"type": "state", "station": "EB2", "state": "busy", "t": 20794.72}
+{"type": "proc_start", "station": "EB2", "batch": "B020", "pos": [32.0, 24.0], "t": 20794.72}
+{"type": "move", "vehicle": "H2", "batch": "B021", "path": [[21.5, 25.5], [26.5, 28.5], [28.5, 29.0]], "duration": 0.11, "loaded": true, "parts": 54, "t": 20795.82}
+{"type": "arrive", "batch": "B021", "station": "EB1", "pos": [28.5, 29.0], "t": 20797.43}
+{"type": "queue", "station": "EB1", "len": 1, "t": 20797.43}
+{"type": "queue", "station": "EB1", "len": 0, "t": 20797.43}
+{"type": "state", "station": "EB1", "state": "setup", "t": 20797.43}
+{"type": "setup", "station": "EB1", "batch": "B021", "duration": 8.0, "t": 20797.43}
+{"type": "state", "station": "EB1", "state": "busy", "t": 20805.43}
+{"type": "proc_start", "station": "EB1", "batch": "B021", "pos": [33.0, 31.0], "t": 20805.43}
+{"type": "proc_end", "station": "EB2", "batch": "B020", "duration": 36.0, "t": 20830.76}
+{"type": "state", "station": "EB2", "state": "idle", "t": 20830.76}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[28.5, 22.0], [28.5, 21.5], [33.5, 21.5], [35.5, 22.0]], "duration": 0.11, "loaded": false, "parts": 0, "t": 20830.76}
+{"type": "move", "vehicle": "H1", "batch": "B020", "path": [[35.5, 22.0], [35.5, 21.5], [41.5, 26.5], [42.0, 28.5]], "duration": 0.14, "loaded": true, "parts": 40, "t": 20832.36}
+{"type": "arrive", "batch": "B020", "station": "BOR1", "pos": [42.0, 28.5], "t": 20834.01}
+{"type": "queue", "station": "BOR1", "len": 1, "t": 20834.01}
+{"type": "queue", "station": "BOR1", "len": 0, "t": 20834.01}
+{"type": "state", "station": "BOR1", "state": "setup", "t": 20834.01}
+{"type": "setup", "station": "BOR1", "batch": "B020", "duration": 4.0, "t": 20834.01}
+{"type": "proc_end", "station": "EB1", "batch": "B021", "duration": 32.1, "t": 20837.54}
+{"type": "state", "station": "EB1", "state": "idle", "t": 20837.54}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 29.0], [28.5, 28.5], [35.5, 28.5], [37.5, 29.0]], "duration": 0.13, "loaded": false, "parts": 0, "t": 20837.54}
+{"type": "state", "station": "BOR1", "state": "busy", "t": 20838.01}
+{"type": "proc_start", "station": "BOR1", "batch": "B020", "pos": [45.0, 31.0], "t": 20838.01}
+{"type": "move", "vehicle": "H2", "batch": "B021", "path": [[37.5, 29.0], [37.5, 27.5], [45.5, 22.0]], "duration": 0.16, "loaded": true, "parts": 54, "t": 20839.18}
+{"type": "arrive", "batch": "B021", "station": "BOR2", "pos": [45.5, 22.0], "t": 20840.83}
+{"type": "queue", "station": "BOR2", "len": 1, "t": 20840.83}
+{"type": "queue", "station": "BOR2", "len": 0, "t": 20840.83}
+{"type": "state", "station": "BOR2", "state": "setup", "t": 20840.83}
+{"type": "setup", "station": "BOR2", "batch": "B021", "duration": 9.0, "t": 20840.83}
+{"type": "state", "station": "BOR2", "state": "busy", "t": 20849.83}
+{"type": "proc_start", "station": "BOR2", "batch": "B021", "pos": [48.0, 24.0], "t": 20849.83}
+{"type": "proc_end", "station": "PACK1", "batch": "B012", "duration": 77.6, "t": 20856.07}
+{"type": "state", "station": "PACK1", "state": "idle", "t": 20856.07}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[18.5, 20.5], [19.5, 19.5], [50.5, 14.5], [52.5, 13.8]], "duration": 0.29, "loaded": false, "parts": 0, "t": 20856.07}
+{"type": "move", "vehicle": "F1", "batch": "B012", "path": [[52.5, 13.8], [52.5, 15.5], [55.5, 16.8]], "duration": 0.04, "loaded": true, "parts": 40, "t": 20857.86}
+{"type": "arrive", "batch": "B012", "station": "FG", "pos": [55.5, 16.8], "t": 20859.4}
+{"type": "done", "batch": "B012", "lead_min": 5979.4, "late_min": 0.0, "t": 20859.4}
+{"type": "scrap", "station": "CUT2", "batch": "CB023", "parts": 1, "t": 20866.78}
+{"type": "proc_end", "station": "CUT2", "batch": "CB023", "duration": 78.3, "t": 20866.78}
+{"type": "state", "station": "CUT2", "state": "idle", "t": 20866.78}
+{"type": "scrap", "station": "BOR1", "batch": "B020", "parts": 1, "t": 20869.92}
+{"type": "proc_end", "station": "BOR1", "batch": "B020", "duration": 31.9, "t": 20869.92}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 20869.92}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[42.0, 28.5], [42.5, 27.5], [48.5, 27.5], [48.0, 28.5]], "duration": 0.11, "loaded": false, "parts": 0, "t": 20869.92}
+{"type": "move", "vehicle": "H1", "batch": "B020", "path": [[48.0, 28.5], [51.5, 27.5], [53.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 40, "t": 20871.54}
+{"type": "arrive", "batch": "B020", "station": "FIN1", "pos": [53.0, 28.5], "t": 20873.11}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 20873.11}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 20873.11}
+{"type": "state", "station": "FIN1", "state": "setup", "t": 20873.11}
+{"type": "setup", "station": "FIN1", "batch": "B020", "duration": 10.0, "t": 20873.11}
+{"type": "sort", "batch": "CB023", "station": "CUT2", "duration": 7.2, "t": 20873.98}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[45.5, 22.0], [25.0, 20.5]], "duration": 0.29, "loaded": false, "parts": 0, "t": 20873.98}
+{"type": "move", "vehicle": "H2", "batch": "B023", "path": [[25.0, 20.5], [26.5, 21.5], [28.5, 22.0]], "duration": 0.05, "loaded": true, "parts": 72, "t": 20875.77}
+{"type": "arrive", "batch": "B023", "station": "EB2", "pos": [28.5, 22.0], "t": 20877.32}
+{"type": "queue", "station": "EB2", "len": 1, "t": 20877.32}
+{"type": "queue", "station": "EB2", "len": 0, "t": 20877.32}
+{"type": "state", "station": "EB2", "state": "setup", "t": 20877.32}
+{"type": "setup", "station": "EB2", "batch": "B023", "duration": 5.0, "t": 20877.32}
+{"type": "state", "station": "EB2", "state": "busy", "t": 20882.32}
+{"type": "proc_start", "station": "EB2", "batch": "B023", "pos": [32.0, 24.0], "t": 20882.32}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 20883.11}
+{"type": "proc_start", "station": "FIN1", "batch": "B020", "pos": [56.0, 31.0], "t": 20883.11}
+{"type": "scrap", "station": "BOR2", "batch": "B021", "parts": 2, "t": 20947.77}
+{"type": "proc_end", "station": "BOR2", "batch": "B021", "duration": 97.9, "t": 20947.77}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 20947.77}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 28.5], [51.5, 26.5], [50.5, 22.0]], "duration": 0.1, "loaded": false, "parts": 0, "t": 20947.77}
+{"type": "move", "vehicle": "H1", "batch": "B021", "path": [[50.5, 22.0], [44.5, 9.5], [38.5, 7.5], [38.5, 6.8]], "duration": 0.29, "loaded": true, "parts": 54, "t": 20949.37}
+{"type": "scrap", "station": "FIN1", "batch": "B020", "parts": 2, "t": 20950.49}
+{"type": "proc_end", "station": "FIN1", "batch": "B020", "duration": 67.4, "t": 20950.49}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 20950.49}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 22.0], [28.5, 21.5], [38.5, 21.5], [46.5, 26.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.46, "loaded": false, "parts": 0, "t": 20950.49}
+{"type": "arrive", "batch": "B021", "station": "ASM6", "pos": [38.5, 6.8], "t": 20951.16}
+{"type": "queue", "station": "ASM6", "len": 1, "t": 20951.16}
+{"type": "queue", "station": "ASM6", "len": 0, "t": 20951.16}
+{"type": "state", "station": "ASM6", "state": "busy", "t": 20951.16}
+{"type": "proc_start", "station": "ASM6", "batch": "B021", "pos": [41.0, 5.0], "t": 20951.16}
+{"type": "move", "vehicle": "H2", "batch": "B020", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 40, "t": 20952.44}
+{"type": "arrive", "batch": "B020", "station": "DRY1", "pos": [53.0, 19.5], "t": 20954.2}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 20954.2}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 20954.2}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 20954.2}
+{"type": "proc_start", "station": "DRY1", "batch": "B020", "pos": [56.0, 22.0], "t": 20954.2}
+{"type": "proc_end", "station": "ASM5", "batch": "B015", "duration": 294.2, "t": 20964.68}
+{"type": "state", "station": "ASM5", "state": "idle", "t": 20964.68}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[38.5, 6.8], [37.5, 6.8]], "duration": 0.01, "loaded": false, "parts": 0, "t": 20964.68}
+{"type": "move", "vehicle": "H1", "batch": "B015", "path": [[37.5, 6.8], [37.5, 7.5], [44.5, 7.5], [45.5, 6.5], [47.5, 6.8]], "duration": 0.15, "loaded": true, "parts": 72, "t": 20966.2}
+{"type": "arrive", "batch": "B015", "station": "PACK2", "pos": [47.5, 6.8], "t": 20967.85}
+{"type": "queue", "station": "PACK2", "len": 1, "t": 20967.85}
+{"type": "queue", "station": "PACK2", "len": 0, "t": 20967.85}
+{"type": "state", "station": "PACK2", "state": "busy", "t": 20967.85}
+{"type": "proc_start", "station": "PACK2", "batch": "B015", "pos": [50.0, 5.0], "t": 20967.85}
+{"type": "proc_end", "station": "DRY1", "batch": "B020", "duration": 33.9, "t": 20988.08}
+{"type": "state", "station": "DRY1", "state": "idle", "t": 20988.08}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 19.5], [52.5, 17.5], [56.5, 17.5], [59.0, 19.5]], "duration": 0.13, "loaded": false, "parts": 0, "t": 20988.08}
+{"type": "state", "station": "EB2", "state": "down", "t": 20988.98}
+{"type": "breakdown", "station": "EB2", "duration": 63.7, "t": 20988.98}
+{"type": "move", "vehicle": "H2", "batch": "B020", "path": [[59.0, 19.5], [56.5, 17.5], [45.5, 13.5], [44.5, 9.5], [32.5, 7.5], [32.5, 6.8]], "duration": 0.44, "loaded": true, "parts": 40, "t": 20989.71}
+{"type": "arrive", "batch": "B020", "station": "ASM5", "pos": [32.5, 6.8], "t": 20991.65}
+{"type": "queue", "station": "ASM5", "len": 1, "t": 20991.65}
+{"type": "queue", "station": "ASM5", "len": 0, "t": 20991.65}
+{"type": "state", "station": "ASM5", "state": "setup", "t": 20991.65}
+{"type": "setup", "station": "ASM5", "batch": "B020", "duration": 2.0, "t": 20991.65}
+{"type": "state", "station": "ASM5", "state": "busy", "t": 20993.65}
+{"type": "proc_start", "station": "ASM5", "batch": "B020", "pos": [35.0, 5.0], "t": 20993.65}
+{"type": "scrap", "station": "EB2", "batch": "B023", "parts": 5, "t": 20995.58}
+{"type": "proc_end", "station": "EB2", "batch": "B023", "duration": 113.3, "t": 20995.58}
+{"type": "state", "station": "EB2", "state": "idle", "t": 20995.58}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[47.5, 6.8], [45.5, 6.5], [44.5, 14.5], [35.5, 21.5], [35.5, 22.0]], "duration": 0.31, "loaded": false, "parts": 0, "t": 20995.58}
+{"type": "move", "vehicle": "H1", "batch": "B023", "path": [[35.5, 22.0], [35.5, 21.5], [45.5, 22.0]], "duration": 0.15, "loaded": true, "parts": 72, "t": 20997.39}
+{"type": "arrive", "batch": "B023", "station": "BOR2", "pos": [45.5, 22.0], "t": 20999.03}
+{"type": "queue", "station": "BOR2", "len": 1, "t": 20999.03}
+{"type": "queue", "station": "BOR2", "len": 0, "t": 20999.03}
+{"type": "state", "station": "BOR2", "state": "setup", "t": 20999.03}
+{"type": "setup", "station": "BOR2", "batch": "B023", "duration": 9.0, "t": 20999.03}
+{"type": "state", "station": "BOR2", "state": "busy", "t": 21008.03}
+{"type": "proc_start", "station": "BOR2", "batch": "B023", "pos": [48.0, 24.0], "t": 21008.03}
+{"type": "state", "station": "EB2", "state": "idle", "t": 21052.73}
+{"type": "scrap", "station": "BOR2", "batch": "B023", "parts": 3, "t": 21057.84}
+{"type": "proc_end", "station": "BOR2", "batch": "B023", "duration": 49.8, "t": 21057.84}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 21057.84}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[32.5, 6.8], [32.5, 8.5], [44.5, 9.5], [50.5, 22.0]], "duration": 0.38, "loaded": false, "parts": 0, "t": 21057.84}
+{"type": "move", "vehicle": "H2", "batch": "B023", "path": [[50.5, 22.0], [51.5, 26.5], [53.0, 28.5]], "duration": 0.1, "loaded": true, "parts": 72, "t": 21059.73}
+{"type": "arrive", "batch": "B023", "station": "FIN1", "pos": [53.0, 28.5], "t": 21061.33}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 21061.33}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 21061.33}
+{"type": "state", "station": "FIN1", "state": "setup", "t": 21075.0}
+{"type": "setup", "station": "FIN1", "batch": "B023", "duration": 10.0, "t": 21075.0}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 21085.0}
+{"type": "proc_start", "station": "FIN1", "batch": "B023", "pos": [56.0, 31.0], "t": 21085.0}
+{"type": "scrap", "station": "FIN1", "batch": "B023", "parts": 2, "t": 21099.07}
+{"type": "proc_end", "station": "FIN1", "batch": "B023", "duration": 14.1, "t": 21099.07}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 21099.07}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[45.5, 22.0], [45.5, 26.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.25, "loaded": false, "parts": 0, "t": 21099.07}
+{"type": "move", "vehicle": "H1", "batch": "B023", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 72, "t": 21100.82}
+{"type": "arrive", "batch": "B023", "station": "DRY1", "pos": [53.0, 19.5], "t": 21102.58}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 21102.58}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 21102.58}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 21102.58}
+{"type": "proc_start", "station": "DRY1", "batch": "B023", "pos": [56.0, 22.0], "t": 21102.58}
+{"type": "proc_end", "station": "ASM5", "batch": "B020", "duration": 118.2, "t": 21111.8}
+{"type": "state", "station": "ASM5", "state": "idle", "t": 21111.8}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 28.5], [51.5, 26.5], [49.5, 20.5], [44.5, 9.5], [37.5, 7.5], [37.5, 6.8]], "duration": 0.4, "loaded": false, "parts": 0, "t": 21111.8}
+{"type": "move", "vehicle": "H2", "batch": "B020", "path": [[37.5, 6.8], [37.5, 8.5], [44.5, 9.5], [46.5, 11.5], [47.5, 13.8]], "duration": 0.2, "loaded": true, "parts": 40, "t": 21113.7}
+{"type": "arrive", "batch": "B020", "station": "PACK1", "pos": [47.5, 13.8], "t": 21115.4}
+{"type": "queue", "station": "PACK1", "len": 1, "t": 21115.4}
+{"type": "queue", "station": "PACK1", "len": 0, "t": 21115.4}
+{"type": "state", "station": "PACK1", "state": "busy", "t": 21115.4}
+{"type": "proc_start", "station": "PACK1", "batch": "B020", "pos": [50.0, 12.0], "t": 21115.4}
+{"type": "proc_end", "station": "ASM6", "batch": "B021", "duration": 165.8, "t": 21116.99}
+{"type": "state", "station": "ASM6", "state": "idle", "t": 21116.99}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 19.5], [50.5, 16.5], [44.5, 12.5], [44.5, 9.5], [43.5, 8.5], [43.5, 6.8]], "duration": 0.24, "loaded": false, "parts": 0, "t": 21116.99}
+{"type": "move", "vehicle": "H1", "batch": "B021", "path": [[43.5, 6.8], [43.5, 7.5], [45.5, 6.5], [47.5, 6.8]], "duration": 0.07, "loaded": true, "parts": 54, "t": 21118.73}
+{"type": "arrive", "batch": "B021", "station": "PACK2", "pos": [47.5, 6.8], "t": 21120.3}
+{"type": "queue", "station": "PACK2", "len": 1, "t": 21120.3}
+{"type": "proc_end", "station": "ASM4", "batch": "B019", "duration": 436.2, "t": 21145.4}
+{"type": "state", "station": "ASM4", "state": "idle", "t": 21145.4}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[47.5, 13.8], [45.5, 11.5], [43.5, 9.5], [31.5, 7.5], [31.5, 6.8]], "duration": 0.26, "loaded": false, "parts": 0, "t": 21145.4}
+{"type": "proc_end", "station": "PACK2", "batch": "B015", "duration": 178.9, "t": 21146.76}
+{"type": "state", "station": "PACK2", "state": "idle", "t": 21146.76}
+{"type": "queue", "station": "PACK2", "len": 0, "t": 21146.76}
+{"type": "state", "station": "PACK2", "state": "busy", "t": 21146.76}
+{"type": "proc_start", "station": "PACK2", "batch": "B021", "pos": [50.0, 5.0], "t": 21146.76}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 8.5], [52.5, 6.8]], "duration": 0.09, "loaded": false, "parts": 0, "t": 21146.76}
+{"type": "move", "vehicle": "H2", "batch": "B019", "path": [[31.5, 6.8], [31.5, 7.5], [44.5, 9.5], [46.5, 11.5], [47.5, 13.8]], "duration": 0.27, "loaded": true, "parts": 72, "t": 21147.16}
+{"type": "move", "vehicle": "F1", "batch": "B015", "path": [[52.5, 6.8], [52.5, 8.5], [55.5, 16.8]], "duration": 0.09, "loaded": true, "parts": 72, "t": 21148.35}
+{"type": "arrive", "batch": "B019", "station": "PACK1", "pos": [47.5, 13.8], "t": 21148.93}
+{"type": "queue", "station": "PACK1", "len": 1, "t": 21148.93}
+{"type": "arrive", "batch": "B015", "station": "FG", "pos": [55.5, 16.8], "t": 21149.94}
+{"type": "done", "batch": "B015", "lead_min": 4829.9, "late_min": 0.0, "t": 21149.94}
+{"type": "proc_end", "station": "DRY1", "batch": "B023", "duration": 59.1, "t": 21161.63}
+{"type": "state", "station": "DRY1", "state": "idle", "t": 21161.63}
+{"type": "wait_outsourced", "batch": "B023", "item": "OUT_도어", "station": "DRY1", "duration": 706.2, "t": 21161.63}
+{"type": "proc_end", "station": "PACK1", "batch": "B020", "duration": 57.0, "t": 21172.41}
+{"type": "state", "station": "PACK1", "state": "idle", "t": 21172.41}
+{"type": "queue", "station": "PACK1", "len": 0, "t": 21172.41}
+{"type": "state", "station": "PACK1", "state": "busy", "t": 21172.41}
+{"type": "proc_start", "station": "PACK1", "batch": "B019", "pos": [50.0, 12.0], "t": 21172.41}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 14.5], [52.5, 13.8]], "duration": 0.04, "loaded": false, "parts": 0, "t": 21172.41}
+{"type": "move", "vehicle": "F1", "batch": "B020", "path": [[52.5, 13.8], [52.5, 15.5], [55.5, 16.8]], "duration": 0.04, "loaded": true, "parts": 40, "t": 21173.95}
+{"type": "arrive", "batch": "B020", "station": "FG", "pos": [55.5, 16.8], "t": 21175.49}
+{"type": "done", "batch": "B020", "lead_min": 535.5, "late_min": 0.0, "t": 21175.49}
+{"type": "release", "batch": "B024", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 26940, "t": 22080.0}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[47.5, 6.8], [46.5, 6.5], [51.5, 9.5], [54.5, 10.5], [57.5, 16.5], [59.0, 19.5]], "duration": 0.28, "loaded": false, "parts": 0, "t": 22080.0}
+{"type": "move", "vehicle": "H1", "batch": "B023", "path": [[59.0, 19.5], [56.5, 17.5], [38.5, 14.5], [38.5, 13.8]], "duration": 0.31, "loaded": true, "parts": 72, "t": 22081.78}
+{"type": "arrive", "batch": "B023", "station": "ASM3", "pos": [38.5, 13.8], "t": 22083.59}
+{"type": "queue", "station": "ASM3", "len": 1, "t": 22083.59}
+{"type": "queue", "station": "ASM3", "len": 0, "t": 22083.59}
+{"type": "state", "station": "ASM3", "state": "busy", "t": 22083.59}
+{"type": "proc_start", "station": "ASM3", "batch": "B023", "pos": [41.0, 12.0], "t": 22083.59}
+{"type": "cut_batch", "batch": "CB024", "orders": ["B024"], "n_parts": 40, "t": 22140.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [10.5, 19.0]], "duration": 0.38, "loaded": false, "parts": 0, "t": 22140.0}
+{"type": "move", "vehicle": "F1", "batch": "CB024", "path": [[10.5, 19.0], [13.5, 25.5]], "duration": 0.06, "loaded": true, "parts": 40, "t": 22141.88}
+{"type": "arrive", "batch": "CB024", "station": "CUT1", "pos": [13.5, 25.5], "t": 22143.44}
+{"type": "queue", "station": "CUT1", "len": 1, "t": 22143.44}
+{"type": "queue", "station": "CUT1", "len": 0, "t": 22143.44}
+{"type": "state", "station": "CUT1", "state": "setup", "t": 22143.44}
+{"type": "setup", "station": "CUT1", "batch": "CB024", "duration": 3.0, "t": 22143.44}
+{"type": "proc_end", "station": "PACK2", "batch": "B021", "duration": 999.0, "t": 22145.73}
+{"type": "state", "station": "PACK2", "state": "idle", "t": 22145.73}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[13.5, 25.5], [26.5, 9.5], [50.5, 7.5], [52.5, 6.8]], "duration": 0.39, "loaded": false, "parts": 0, "t": 22145.73}
+{"type": "state", "station": "CUT1", "state": "busy", "t": 22146.44}
+{"type": "proc_start", "station": "CUT1", "batch": "CB024", "pos": [17.0, 30.0], "t": 22146.44}
+{"type": "move", "vehicle": "F1", "batch": "B021", "path": [[52.5, 6.8], [52.5, 8.5], [55.5, 16.8]], "duration": 0.09, "loaded": true, "parts": 54, "t": 22147.62}
+{"type": "arrive", "batch": "B021", "station": "FG", "pos": [55.5, 16.8], "t": 22149.21}
+{"type": "done", "batch": "B021", "lead_min": 1509.2, "late_min": 0.0, "t": 22149.21}
+{"type": "state", "station": "BOR2", "state": "down", "t": 22164.01}
+{"type": "breakdown", "station": "BOR2", "duration": 45.1, "t": 22164.01}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 22209.1}
+{"type": "scrap", "station": "CUT1", "batch": "CB024", "parts": 2, "t": 22220.89}
+{"type": "proc_end", "station": "CUT1", "batch": "CB024", "duration": 74.5, "t": 22220.89}
+{"type": "state", "station": "CUT1", "state": "idle", "t": 22220.89}
+{"type": "sort", "batch": "CB024", "station": "CUT1", "duration": 4.0, "t": 22224.89}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[47.5, 13.8], [45.5, 13.5], [26.5, 22.5], [24.5, 25.5], [21.5, 25.5]], "duration": 0.41, "loaded": false, "parts": 0, "t": 22224.89}
+{"type": "move", "vehicle": "H2", "batch": "B024", "path": [[21.5, 25.5], [26.5, 28.5], [28.5, 29.0]], "duration": 0.11, "loaded": true, "parts": 40, "t": 22226.8}
+{"type": "arrive", "batch": "B024", "station": "EB1", "pos": [28.5, 29.0], "t": 22228.41}
+{"type": "queue", "station": "EB1", "len": 1, "t": 22228.41}
+{"type": "queue", "station": "EB1", "len": 0, "t": 22228.41}
+{"type": "state", "station": "EB1", "state": "setup", "t": 22228.41}
+{"type": "setup", "station": "EB1", "batch": "B024", "duration": 8.0, "t": 22228.41}
+{"type": "state", "station": "EB1", "state": "busy", "t": 22236.41}
+{"type": "proc_start", "station": "EB1", "batch": "B024", "pos": [33.0, 31.0], "t": 22236.41}
+{"type": "scrap", "station": "EB1", "batch": "B024", "parts": 2, "t": 22272.5}
+{"type": "proc_end", "station": "EB1", "batch": "B024", "duration": 36.1, "t": 22272.5}
+{"type": "state", "station": "EB1", "state": "idle", "t": 22272.5}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[38.5, 13.8], [37.5, 15.5], [36.5, 27.5], [37.5, 29.0]], "duration": 0.22, "loaded": false, "parts": 0, "t": 22272.5}
+{"type": "move", "vehicle": "H1", "batch": "B024", "path": [[37.5, 29.0], [37.5, 28.5], [40.5, 27.5], [42.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 40, "t": 22274.22}
+{"type": "arrive", "batch": "B024", "station": "BOR1", "pos": [42.0, 28.5], "t": 22275.79}
+{"type": "queue", "station": "BOR1", "len": 1, "t": 22275.79}
+{"type": "queue", "station": "BOR1", "len": 0, "t": 22275.79}
+{"type": "state", "station": "BOR1", "state": "busy", "t": 22275.79}
+{"type": "proc_start", "station": "BOR1", "batch": "B024", "pos": [45.0, 31.0], "t": 22275.79}
+{"type": "proc_end", "station": "PACK1", "batch": "B019", "duration": 1111.0, "t": 22283.37}
+{"type": "state", "station": "PACK1", "state": "idle", "t": 22283.37}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 14.5], [52.5, 13.8]], "duration": 0.04, "loaded": false, "parts": 0, "t": 22283.37}
+{"type": "move", "vehicle": "F1", "batch": "B019", "path": [[52.5, 13.8], [52.5, 15.5], [55.5, 16.8]], "duration": 0.04, "loaded": true, "parts": 72, "t": 22284.91}
+{"type": "arrive", "batch": "B019", "station": "FG", "pos": [55.5, 16.8], "t": 22286.45}
+{"type": "done", "batch": "B019", "lead_min": 5966.5, "late_min": 0.0, "t": 22286.45}
+{"type": "scrap", "station": "BOR1", "batch": "B024", "parts": 1, "t": 22309.34}
+{"type": "proc_end", "station": "BOR1", "batch": "B024", "duration": 33.6, "t": 22309.34}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 22309.34}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 29.0], [28.5, 28.5], [48.5, 27.5], [48.0, 28.5]], "duration": 0.3, "loaded": false, "parts": 0, "t": 22309.34}
+{"type": "move", "vehicle": "H2", "batch": "B024", "path": [[48.0, 28.5], [51.5, 27.5], [53.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 40, "t": 22311.14}
+{"type": "arrive", "batch": "B024", "station": "FIN1", "pos": [53.0, 28.5], "t": 22312.72}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 22312.72}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 22312.72}
+{"type": "state", "station": "FIN1", "state": "setup", "t": 22312.72}
+{"type": "setup", "station": "FIN1", "batch": "B024", "duration": 10.0, "t": 22312.72}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 22322.72}
+{"type": "proc_start", "station": "FIN1", "batch": "B024", "pos": [56.0, 31.0], "t": 22322.72}
+{"type": "scrap", "station": "FIN1", "batch": "B024", "parts": 3, "t": 22391.55}
+{"type": "proc_end", "station": "FIN1", "batch": "B024", "duration": 68.8, "t": 22391.55}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 22391.55}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[42.0, 28.5], [42.5, 27.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.25, "loaded": false, "parts": 0, "t": 22391.55}
+{"type": "move", "vehicle": "H1", "batch": "B024", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 40, "t": 22393.3}
+{"type": "arrive", "batch": "B024", "station": "DRY1", "pos": [53.0, 19.5], "t": 22395.05}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 22395.05}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 22395.05}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 22395.05}
+{"type": "proc_start", "station": "DRY1", "batch": "B024", "pos": [56.0, 22.0], "t": 22395.05}
+{"type": "proc_end", "station": "DRY1", "batch": "B024", "duration": 35.9, "t": 22430.91}
+{"type": "state", "station": "DRY1", "state": "idle", "t": 22430.91}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 28.5], [51.5, 26.5], [51.5, 17.5], [56.5, 17.5], [59.0, 19.5]], "duration": 0.27, "loaded": false, "parts": 0, "t": 22430.91}
+{"type": "move", "vehicle": "H2", "batch": "B024", "path": [[59.0, 19.5], [56.5, 17.5], [32.5, 14.5], [32.5, 13.8]], "duration": 0.39, "loaded": true, "parts": 40, "t": 22432.69}
+{"type": "arrive", "batch": "B024", "station": "ASM2", "pos": [32.5, 13.8], "t": 22434.58}
+{"type": "queue", "station": "ASM2", "len": 1, "t": 22434.58}
+{"type": "queue", "station": "ASM2", "len": 0, "t": 22434.58}
+{"type": "state", "station": "ASM2", "state": "busy", "t": 22434.58}
+{"type": "proc_start", "station": "ASM2", "batch": "B024", "pos": [35.0, 12.0], "t": 22434.58}
+{"type": "proc_end", "station": "ASM3", "batch": "B023", "duration": 354.1, "t": 22437.69}
+{"type": "state", "station": "ASM3", "state": "idle", "t": 22437.69}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 19.5], [50.5, 17.5], [43.5, 14.5], [43.5, 13.8]], "duration": 0.16, "loaded": false, "parts": 0, "t": 22437.69}
+{"type": "move", "vehicle": "H1", "batch": "B023", "path": [[43.5, 13.8], [43.5, 14.5], [45.5, 13.5], [47.5, 13.8]], "duration": 0.07, "loaded": true, "parts": 72, "t": 22439.35}
+{"type": "arrive", "batch": "B023", "station": "PACK1", "pos": [47.5, 13.8], "t": 22440.91}
+{"type": "queue", "station": "PACK1", "len": 1, "t": 22440.91}
+{"type": "queue", "station": "PACK1", "len": 0, "t": 22440.91}
+{"type": "state", "station": "PACK1", "state": "busy", "t": 22440.91}
+{"type": "proc_start", "station": "PACK1", "batch": "B023", "pos": [50.0, 12.0], "t": 22440.91}
+{"type": "state", "station": "EB2", "state": "down", "t": 22498.15}
+{"type": "breakdown", "station": "EB2", "duration": 8.1, "t": 22498.15}
+{"type": "state", "station": "EB2", "state": "idle", "t": 22506.24}
+{"type": "state", "station": "EB2", "state": "down", "t": 22556.02}
+{"type": "breakdown", "station": "EB2", "duration": 40.7, "t": 22556.02}
+{"type": "proc_end", "station": "ASM2", "batch": "B024", "duration": 143.0, "t": 22577.58}
+{"type": "state", "station": "ASM2", "state": "idle", "t": 22577.58}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[32.5, 13.8], [32.5, 14.5], [35.5, 14.5], [37.5, 13.8]], "duration": 0.08, "loaded": false, "parts": 0, "t": 22577.58}
+{"type": "move", "vehicle": "H2", "batch": "B024", "path": [[37.5, 13.8], [37.5, 14.5], [44.5, 14.5], [46.5, 6.5], [47.5, 6.8]], "duration": 0.24, "loaded": true, "parts": 40, "t": 22579.16}
+{"type": "arrive", "batch": "B024", "station": "PACK2", "pos": [47.5, 6.8], "t": 22580.89}
+{"type": "queue", "station": "PACK2", "len": 1, "t": 22580.89}
+{"type": "queue", "station": "PACK2", "len": 0, "t": 22580.89}
+{"type": "state", "station": "PACK2", "state": "busy", "t": 22580.89}
+{"type": "proc_start", "station": "PACK2", "batch": "B024", "pos": [50.0, 5.0], "t": 22580.89}
+{"type": "state", "station": "EB2", "state": "idle", "t": 22596.73}
+{"type": "release", "batch": "B026", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 31260, "t": 23520.0}
+{"type": "proc_end", "station": "PACK1", "batch": "B023", "duration": 1091.4, "t": 23532.34}
+{"type": "state", "station": "PACK1", "state": "idle", "t": 23532.34}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 14.5], [52.5, 13.8]], "duration": 0.04, "loaded": false, "parts": 0, "t": 23532.34}
+{"type": "state", "station": "EB2", "state": "down", "t": 23532.44}
+{"type": "breakdown", "station": "EB2", "duration": 61.4, "t": 23532.44}
+{"type": "move", "vehicle": "F1", "batch": "B023", "path": [[52.5, 13.8], [52.5, 15.5], [55.5, 16.8]], "duration": 0.04, "loaded": true, "parts": 72, "t": 23533.88}
+{"type": "arrive", "batch": "B023", "station": "FG", "pos": [55.5, 16.8], "t": 23535.42}
+{"type": "done", "batch": "B023", "lead_min": 2895.4, "late_min": 0.0, "t": 23535.42}
+{"type": "proc_end", "station": "PACK2", "batch": "B024", "duration": 973.6, "t": 23554.48}
+{"type": "state", "station": "PACK2", "state": "idle", "t": 23554.48}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 8.5], [52.5, 6.8]], "duration": 0.09, "loaded": false, "parts": 0, "t": 23554.48}
+{"type": "move", "vehicle": "F1", "batch": "B024", "path": [[52.5, 6.8], [52.5, 8.5], [55.5, 16.8]], "duration": 0.09, "loaded": true, "parts": 40, "t": 23556.07}
+{"type": "arrive", "batch": "B024", "station": "FG", "pos": [55.5, 16.8], "t": 23557.65}
+{"type": "done", "batch": "B024", "lead_min": 1477.7, "late_min": 0.0, "t": 23557.65}
+{"type": "cut_batch", "batch": "CB026", "orders": ["B026"], "n_parts": 72, "t": 23580.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [10.5, 19.0]], "duration": 0.38, "loaded": false, "parts": 0, "t": 23580.0}
+{"type": "move", "vehicle": "F1", "batch": "CB026", "path": [[10.5, 19.0], [18.5, 20.5]], "duration": 0.07, "loaded": true, "parts": 72, "t": 23581.88}
+{"type": "arrive", "batch": "CB026", "station": "CUT2", "pos": [18.5, 20.5], "t": 23583.44}
+{"type": "queue", "station": "CUT2", "len": 1, "t": 23583.44}
+{"type": "queue", "station": "CUT2", "len": 0, "t": 23583.44}
+{"type": "state", "station": "CUT2", "state": "busy", "t": 23583.44}
+{"type": "proc_start", "station": "CUT2", "batch": "CB026", "pos": [22.0, 22.5], "t": 23583.44}
+{"type": "state", "station": "CUT1", "state": "down", "t": 23587.75}
+{"type": "breakdown", "station": "CUT1", "duration": 13.1, "t": 23587.75}
+{"type": "state", "station": "EB2", "state": "idle", "t": 23593.83}
+{"type": "state", "station": "CUT1", "state": "idle", "t": 23600.87}
+{"type": "state", "station": "BOR2", "state": "down", "t": 23635.25}
+{"type": "breakdown", "station": "BOR2", "duration": 12.0, "t": 23635.25}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 23647.27}
+{"type": "state", "station": "BOR1", "state": "down", "t": 23671.63}
+{"type": "breakdown", "station": "BOR1", "duration": 65.3, "t": 23671.63}
+{"type": "scrap", "station": "CUT2", "batch": "CB026", "parts": 1, "t": 23674.16}
+{"type": "proc_end", "station": "CUT2", "batch": "CB026", "duration": 90.7, "t": 23674.16}
+{"type": "state", "station": "CUT2", "state": "idle", "t": 23674.16}
+{"type": "sort", "batch": "CB026", "station": "CUT2", "duration": 7.2, "t": 23681.36}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[47.5, 13.8], [45.5, 13.5], [25.0, 20.5]], "duration": 0.33, "loaded": false, "parts": 0, "t": 23681.36}
+{"type": "move", "vehicle": "H1", "batch": "B026", "path": [[25.0, 20.5], [26.5, 21.5], [28.5, 22.0]], "duration": 0.05, "loaded": true, "parts": 72, "t": 23683.19}
+{"type": "arrive", "batch": "B026", "station": "EB2", "pos": [28.5, 22.0], "t": 23684.74}
+{"type": "queue", "station": "EB2", "len": 1, "t": 23684.74}
+{"type": "queue", "station": "EB2", "len": 0, "t": 23684.74}
+{"type": "state", "station": "EB2", "state": "busy", "t": 23684.74}
+{"type": "proc_start", "station": "EB2", "batch": "B026", "pos": [32.0, 24.0], "t": 23684.74}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 23736.95}
+{"type": "scrap", "station": "EB2", "batch": "B026", "parts": 3, "t": 23743.22}
+{"type": "proc_end", "station": "EB2", "batch": "B026", "duration": 58.5, "t": 23743.22}
+{"type": "state", "station": "EB2", "state": "idle", "t": 23743.22}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[47.5, 6.8], [45.5, 6.5], [44.5, 14.5], [35.5, 21.5], [35.5, 22.0]], "duration": 0.31, "loaded": false, "parts": 0, "t": 23743.22}
+{"type": "move", "vehicle": "H2", "batch": "B026", "path": [[35.5, 22.0], [35.5, 21.5], [41.5, 26.5], [42.0, 28.5]], "duration": 0.14, "loaded": true, "parts": 72, "t": 23745.02}
+{"type": "arrive", "batch": "B026", "station": "BOR1", "pos": [42.0, 28.5], "t": 23746.67}
+{"type": "queue", "station": "BOR1", "len": 1, "t": 23746.67}
+{"type": "queue", "station": "BOR1", "len": 0, "t": 23746.67}
+{"type": "state", "station": "BOR1", "state": "setup", "t": 23746.67}
+{"type": "setup", "station": "BOR1", "batch": "B026", "duration": 4.0, "t": 23746.67}
+{"type": "state", "station": "BOR1", "state": "busy", "t": 23750.67}
+{"type": "proc_start", "station": "BOR1", "batch": "B026", "pos": [45.0, 31.0], "t": 23750.67}
+{"type": "scrap", "station": "BOR1", "batch": "B026", "parts": 1, "t": 23855.6}
+{"type": "proc_end", "station": "BOR1", "batch": "B026", "duration": 104.9, "t": 23855.6}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 23855.6}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[28.5, 22.0], [28.5, 21.5], [36.5, 21.5], [48.5, 27.5], [48.0, 28.5]], "duration": 0.32, "loaded": false, "parts": 0, "t": 23855.6}
+{"type": "move", "vehicle": "H1", "batch": "B026", "path": [[48.0, 28.5], [51.5, 27.5], [53.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 72, "t": 23857.42}
+{"type": "arrive", "batch": "B026", "station": "FIN1", "pos": [53.0, 28.5], "t": 23859.0}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 23859.0}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 23859.0}
+{"type": "state", "station": "FIN1", "state": "setup", "t": 23859.0}
+{"type": "setup", "station": "FIN1", "batch": "B026", "duration": 10.0, "t": 23859.0}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 23869.0}
+{"type": "proc_start", "station": "FIN1", "batch": "B026", "pos": [56.0, 31.0], "t": 23869.0}
+{"type": "scrap", "station": "FIN1", "batch": "B026", "parts": 2, "t": 23884.73}
+{"type": "proc_end", "station": "FIN1", "batch": "B026", "duration": 15.7, "t": 23884.73}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 23884.73}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[42.0, 28.5], [42.5, 27.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.25, "loaded": false, "parts": 0, "t": 23884.73}
+{"type": "move", "vehicle": "H2", "batch": "B026", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 72, "t": 23886.48}
+{"type": "arrive", "batch": "B026", "station": "DRY1", "pos": [53.0, 19.5], "t": 23888.23}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 23888.23}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 23888.23}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 23888.23}
+{"type": "proc_start", "station": "DRY1", "batch": "B026", "pos": [56.0, 22.0], "t": 23888.23}
+{"type": "state", "station": "BOR2", "state": "down", "t": 23911.81}
+{"type": "breakdown", "station": "BOR2", "duration": 13.2, "t": 23911.81}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 23925.05}
+{"type": "state", "station": "EB1", "state": "down", "t": 23935.43}
+{"type": "breakdown", "station": "EB1", "duration": 5.8, "t": 23935.43}
+{"type": "state", "station": "EB1", "state": "idle", "t": 23941.28}
+{"type": "proc_end", "station": "DRY1", "batch": "B026", "duration": 72.1, "t": 23960.3}
+{"type": "state", "station": "DRY1", "state": "idle", "t": 23960.3}
+{"type": "wait_outsourced", "batch": "B026", "item": "OUT_도어", "station": "DRY1", "duration": 756.1, "t": 23960.3}
+{"type": "state", "station": "EB2", "state": "down", "t": 23960.62}
+{"type": "breakdown", "station": "EB2", "duration": 9.5, "t": 23960.62}
+{"type": "state", "station": "EB2", "state": "idle", "t": 23970.13}
+{"type": "state", "station": "CUT1", "state": "down", "t": 24007.85}
+{"type": "breakdown", "station": "CUT1", "duration": 0.8, "t": 24007.85}
+{"type": "state", "station": "CUT1", "state": "idle", "t": 24008.61}
+{"type": "release", "batch": "B022", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 32700, "t": 24960.0}
+{"type": "release", "batch": "B025", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 32700, "t": 24960.0}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 28.5], [51.5, 26.5], [51.5, 17.5], [56.5, 17.5], [59.0, 19.5]], "duration": 0.27, "loaded": false, "parts": 0, "t": 24960.0}
+{"type": "move", "vehicle": "H1", "batch": "B026", "path": [[59.0, 19.5], [56.5, 17.5], [45.5, 13.5], [44.5, 9.5], [32.5, 7.5], [32.5, 6.8]], "duration": 0.44, "loaded": true, "parts": 72, "t": 24961.77}
+{"type": "arrive", "batch": "B026", "station": "ASM5", "pos": [32.5, 6.8], "t": 24963.72}
+{"type": "queue", "station": "ASM5", "len": 1, "t": 24963.72}
+{"type": "queue", "station": "ASM5", "len": 0, "t": 24963.72}
+{"type": "state", "station": "ASM5", "state": "setup", "t": 24963.72}
+{"type": "setup", "station": "ASM5", "batch": "B026", "duration": 2.0, "t": 24963.72}
+{"type": "state", "station": "ASM5", "state": "busy", "t": 24965.72}
+{"type": "proc_start", "station": "ASM5", "batch": "B026", "pos": [35.0, 5.0], "t": 24965.72}
+{"type": "cut_batch", "batch": "CB022+B025", "orders": ["B022", "B025"], "n_parts": 144, "t": 25020.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[18.5, 20.5], [10.5, 19.0]], "duration": 0.07, "loaded": false, "parts": 0, "t": 25020.0}
+{"type": "move", "vehicle": "F1", "batch": "CB022+B025", "path": [[10.5, 19.0], [13.5, 25.5]], "duration": 0.06, "loaded": true, "parts": 144, "t": 25021.57}
+{"type": "arrive", "batch": "CB022+B025", "station": "CUT1", "pos": [13.5, 25.5], "t": 25023.13}
+{"type": "queue", "station": "CUT1", "len": 1, "t": 25023.13}
+{"type": "queue", "station": "CUT1", "len": 0, "t": 25023.13}
+{"type": "state", "station": "CUT1", "state": "setup", "t": 25023.13}
+{"type": "setup", "station": "CUT1", "batch": "CB022+B025", "duration": 3.0, "t": 25023.13}
+{"type": "state", "station": "CUT1", "state": "busy", "t": 25026.13}
+{"type": "proc_start", "station": "CUT1", "batch": "CB022+B025", "pos": [17.0, 30.0], "t": 25026.13}
+{"type": "state", "station": "EB2", "state": "down", "t": 25102.72}
+{"type": "breakdown", "station": "EB2", "duration": 21.0, "t": 25102.72}
+{"type": "state", "station": "EB2", "state": "idle", "t": 25123.73}
+{"type": "state", "station": "BOR2", "state": "down", "t": 25182.07}
+{"type": "breakdown", "station": "BOR2", "duration": 13.1, "t": 25182.07}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 25195.14}
+{"type": "scrap", "station": "CUT1", "batch": "CB022+B025", "parts": 1, "t": 25196.9}
+{"type": "proc_end", "station": "CUT1", "batch": "CB022+B025", "duration": 170.8, "t": 25196.9}
+{"type": "state", "station": "CUT1", "state": "idle", "t": 25196.9}
+{"type": "sort", "batch": "CB022+B025", "station": "CUT1", "duration": 14.4, "t": 25211.3}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 19.5], [50.5, 17.5], [35.5, 26.5], [23.5, 26.5], [21.5, 25.5]], "duration": 0.49, "loaded": false, "parts": 0, "t": 25260.0}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[32.5, 6.8], [30.5, 8.5], [25.5, 9.5], [25.5, 25.5], [21.5, 25.5]], "duration": 0.39, "loaded": false, "parts": 0, "t": 25260.0}
+{"type": "state", "station": "EB2", "state": "down", "t": 25260.68}
+{"type": "breakdown", "station": "EB2", "duration": 12.8, "t": 25260.68}
+{"type": "move", "vehicle": "H1", "batch": "B025", "path": [[21.5, 25.5], [25.5, 25.5], [27.5, 22.5], [28.5, 22.0]], "duration": 0.12, "loaded": true, "parts": 72, "t": 25261.89}
+{"type": "move", "vehicle": "H2", "batch": "B022", "path": [[21.5, 25.5], [26.5, 28.5], [28.5, 29.0]], "duration": 0.11, "loaded": true, "parts": 72, "t": 25261.99}
+{"type": "arrive", "batch": "B025", "station": "EB2", "pos": [28.5, 22.0], "t": 25263.51}
+{"type": "queue", "station": "EB2", "len": 1, "t": 25263.51}
+{"type": "queue", "station": "EB2", "len": 0, "t": 25263.51}
+{"type": "arrive", "batch": "B022", "station": "EB1", "pos": [28.5, 29.0], "t": 25263.59}
+{"type": "queue", "station": "EB1", "len": 1, "t": 25263.59}
+{"type": "queue", "station": "EB1", "len": 0, "t": 25263.59}
+{"type": "state", "station": "EB1", "state": "setup", "t": 25263.59}
+{"type": "setup", "station": "EB1", "batch": "B022", "duration": 8.0, "t": 25263.59}
+{"type": "state", "station": "EB1", "state": "busy", "t": 25271.59}
+{"type": "proc_start", "station": "EB1", "batch": "B022", "pos": [33.0, 31.0], "t": 25271.59}
+{"type": "state", "station": "EB2", "state": "busy", "t": 25273.51}
+{"type": "state", "station": "EB2", "state": "busy", "t": 25274.51}
+{"type": "proc_start", "station": "EB2", "batch": "B025", "pos": [32.0, 24.0], "t": 25274.51}
+{"type": "scrap", "station": "EB1", "batch": "B022", "parts": 1, "t": 25319.38}
+{"type": "proc_end", "station": "EB1", "batch": "B022", "duration": 47.8, "t": 25319.38}
+{"type": "state", "station": "EB1", "state": "idle", "t": 25319.38}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[28.5, 29.0], [28.5, 28.5], [35.5, 28.5], [37.5, 29.0]], "duration": 0.13, "loaded": false, "parts": 0, "t": 25319.38}
+{"type": "move", "vehicle": "H2", "batch": "B022", "path": [[37.5, 29.0], [37.5, 28.5], [40.5, 27.5], [42.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 72, "t": 25321.01}
+{"type": "arrive", "batch": "B022", "station": "BOR1", "pos": [42.0, 28.5], "t": 25322.59}
+{"type": "queue", "station": "BOR1", "len": 1, "t": 25322.59}
+{"type": "queue", "station": "BOR1", "len": 0, "t": 25322.59}
+{"type": "state", "station": "BOR1", "state": "busy", "t": 25322.59}
+{"type": "proc_start", "station": "BOR1", "batch": "B022", "pos": [45.0, 31.0], "t": 25322.59}
+{"type": "scrap", "station": "EB2", "batch": "B025", "parts": 2, "t": 25326.3}
+{"type": "proc_end", "station": "EB2", "batch": "B025", "duration": 51.8, "t": 25326.3}
+{"type": "state", "station": "EB2", "state": "idle", "t": 25326.3}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[28.5, 22.0], [28.5, 21.5], [33.5, 21.5], [35.5, 22.0]], "duration": 0.11, "loaded": false, "parts": 0, "t": 25326.3}
+{"type": "move", "vehicle": "H1", "batch": "B025", "path": [[35.5, 22.0], [35.5, 21.5], [45.5, 22.0]], "duration": 0.15, "loaded": true, "parts": 72, "t": 25327.9}
+{"type": "arrive", "batch": "B025", "station": "BOR2", "pos": [45.5, 22.0], "t": 25329.55}
+{"type": "queue", "station": "BOR2", "len": 1, "t": 25329.55}
+{"type": "queue", "station": "BOR2", "len": 0, "t": 25329.55}
+{"type": "state", "station": "BOR2", "state": "busy", "t": 25329.55}
+{"type": "proc_start", "station": "BOR2", "batch": "B025", "pos": [48.0, 24.0], "t": 25329.55}
+{"type": "proc_end", "station": "ASM5", "batch": "B026", "duration": 377.2, "t": 25342.93}
+{"type": "state", "station": "ASM5", "state": "idle", "t": 25342.93}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[42.0, 28.5], [41.5, 26.5], [44.5, 11.5], [44.5, 9.5], [37.5, 7.5], [37.5, 6.8]], "duration": 0.38, "loaded": false, "parts": 0, "t": 25342.93}
+{"type": "move", "vehicle": "H2", "batch": "B026", "path": [[37.5, 6.8], [37.5, 8.5], [44.5, 9.5], [46.5, 11.5], [47.5, 13.8]], "duration": 0.2, "loaded": true, "parts": 72, "t": 25344.81}
+{"type": "arrive", "batch": "B026", "station": "PACK1", "pos": [47.5, 13.8], "t": 25346.5}
+{"type": "queue", "station": "PACK1", "len": 1, "t": 25346.5}
+{"type": "queue", "station": "PACK1", "len": 0, "t": 25346.5}
+{"type": "state", "station": "PACK1", "state": "busy", "t": 25346.5}
+{"type": "proc_start", "station": "PACK1", "batch": "B026", "pos": [50.0, 12.0], "t": 25346.5}
+{"type": "state", "station": "BOR2", "state": "down", "t": 25356.31}
+{"type": "breakdown", "station": "BOR2", "duration": 11.2, "t": 25356.31}
+{"type": "proc_end", "station": "BOR1", "batch": "B022", "duration": 44.0, "t": 25366.61}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 25366.61}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[45.5, 22.0], [45.5, 26.5], [48.5, 27.5], [48.0, 28.5]], "duration": 0.12, "loaded": false, "parts": 0, "t": 25366.61}
+{"type": "state", "station": "BOR2", "state": "busy", "t": 25367.5}
+{"type": "move", "vehicle": "H1", "batch": "B022", "path": [[48.0, 28.5], [51.5, 27.5], [53.0, 28.5]], "duration": 0.08, "loaded": true, "parts": 72, "t": 25368.23}
+{"type": "arrive", "batch": "B022", "station": "FIN1", "pos": [53.0, 28.5], "t": 25369.81}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 25369.81}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 25369.81}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 25369.81}
+{"type": "proc_start", "station": "FIN1", "batch": "B022", "pos": [56.0, 31.0], "t": 25369.81}
+{"type": "scrap", "station": "FIN1", "batch": "B022", "parts": 1, "t": 25396.37}
+{"type": "proc_end", "station": "FIN1", "batch": "B022", "duration": 26.6, "t": 25396.37}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 25396.37}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[47.5, 13.8], [46.5, 13.5], [51.5, 25.5], [52.5, 26.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.31, "loaded": false, "parts": 0, "t": 25396.37}
+{"type": "move", "vehicle": "H2", "batch": "B022", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 72, "t": 25398.18}
+{"type": "arrive", "batch": "B022", "station": "DRY1", "pos": [53.0, 19.5], "t": 25399.94}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 25399.94}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 25399.94}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 25399.94}
+{"type": "proc_start", "station": "DRY1", "batch": "B022", "pos": [56.0, 22.0], "t": 25399.94}
+{"type": "scrap", "station": "BOR2", "batch": "B025", "parts": 1, "t": 25401.53}
+{"type": "proc_end", "station": "BOR2", "batch": "B025", "duration": 72.0, "t": 25401.53}
+{"type": "state", "station": "BOR2", "state": "idle", "t": 25401.53}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 28.5], [51.5, 26.5], [50.5, 22.0]], "duration": 0.1, "loaded": false, "parts": 0, "t": 25401.53}
+{"type": "move", "vehicle": "H1", "batch": "B025", "path": [[50.5, 22.0], [51.5, 26.5], [53.0, 28.5]], "duration": 0.1, "loaded": true, "parts": 72, "t": 25403.13}
+{"type": "arrive", "batch": "B025", "station": "FIN1", "pos": [53.0, 28.5], "t": 25404.72}
+{"type": "queue", "station": "FIN1", "len": 1, "t": 25404.72}
+{"type": "queue", "station": "FIN1", "len": 0, "t": 25404.72}
+{"type": "state", "station": "FIN1", "state": "busy", "t": 25404.72}
+{"type": "proc_start", "station": "FIN1", "batch": "B025", "pos": [56.0, 31.0], "t": 25404.72}
+{"type": "scrap", "station": "FIN1", "batch": "B025", "parts": 2, "t": 25418.08}
+{"type": "proc_end", "station": "FIN1", "batch": "B025", "duration": 13.4, "t": 25418.08}
+{"type": "state", "station": "FIN1", "state": "idle", "t": 25418.08}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 19.5], [51.5, 18.5], [51.5, 26.5], [57.5, 27.5], [59.0, 28.5]], "duration": 0.25, "loaded": false, "parts": 0, "t": 25418.08}
+{"type": "move", "vehicle": "H2", "batch": "B025", "path": [[59.0, 28.5], [57.5, 26.5], [51.5, 26.5], [51.5, 18.5], [53.0, 19.5]], "duration": 0.25, "loaded": true, "parts": 72, "t": 25419.82}
+{"type": "arrive", "batch": "B025", "station": "DRY1", "pos": [53.0, 19.5], "t": 25421.58}
+{"type": "queue", "station": "DRY1", "len": 1, "t": 25421.58}
+{"type": "queue", "station": "DRY1", "len": 0, "t": 25421.58}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 25421.58}
+{"type": "proc_start", "station": "DRY1", "batch": "B025", "pos": [56.0, 22.0], "t": 25421.58}
+{"type": "state", "station": "EB1", "state": "down", "t": 25448.07}
+{"type": "breakdown", "station": "EB1", "duration": 59.0, "t": 25448.07}
+{"type": "proc_end", "station": "DRY1", "batch": "B022", "duration": 60.2, "t": 25460.17}
+{"type": "state", "station": "DRY1", "state": "busy", "t": 25460.17}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[53.0, 28.5], [51.5, 26.5], [51.5, 17.5], [56.5, 17.5], [59.0, 19.5]], "duration": 0.27, "loaded": false, "parts": 0, "t": 25460.17}
+{"type": "move", "vehicle": "H1", "batch": "B022", "path": [[59.0, 19.5], [56.5, 17.5], [45.5, 13.5], [44.5, 9.5], [25.5, 7.5], [25.5, 6.5], [26.5, 6.8]], "duration": 0.56, "loaded": true, "parts": 72, "t": 25461.95}
+{"type": "arrive", "batch": "B022", "station": "ASM4", "pos": [26.5, 6.8], "t": 25464.01}
+{"type": "queue", "station": "ASM4", "len": 1, "t": 25464.01}
+{"type": "queue", "station": "ASM4", "len": 0, "t": 25464.01}
+{"type": "state", "station": "ASM4", "state": "busy", "t": 25464.01}
+{"type": "proc_start", "station": "ASM4", "batch": "B022", "pos": [29.0, 5.0], "t": 25464.01}
+{"type": "proc_end", "station": "DRY1", "batch": "B025", "duration": 58.2, "t": 25479.79}
+{"type": "state", "station": "DRY1", "state": "idle", "t": 25479.79}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[53.0, 19.5], [52.5, 17.5], [56.5, 17.5], [59.0, 19.5]], "duration": 0.13, "loaded": false, "parts": 0, "t": 25479.79}
+{"type": "move", "vehicle": "H2", "batch": "B025", "path": [[59.0, 19.5], [56.5, 17.5], [32.5, 14.5], [32.5, 13.8]], "duration": 0.39, "loaded": true, "parts": 72, "t": 25481.42}
+{"type": "arrive", "batch": "B025", "station": "ASM2", "pos": [32.5, 13.8], "t": 25483.31}
+{"type": "queue", "station": "ASM2", "len": 1, "t": 25483.31}
+{"type": "queue", "station": "ASM2", "len": 0, "t": 25483.31}
+{"type": "state", "station": "ASM2", "state": "setup", "t": 25483.31}
+{"type": "setup", "station": "ASM2", "batch": "B025", "duration": 2.0, "t": 25483.31}
+{"type": "state", "station": "ASM2", "state": "busy", "t": 25485.31}
+{"type": "proc_start", "station": "ASM2", "batch": "B025", "pos": [35.0, 12.0], "t": 25485.31}
+{"type": "state", "station": "BOR1", "state": "down", "t": 25495.84}
+{"type": "breakdown", "station": "BOR1", "duration": 2.8, "t": 25495.84}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 25498.64}
+{"type": "state", "station": "EB1", "state": "idle", "t": 25507.1}
+{"type": "release", "batch": "B027", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 34140, "t": 26400.0}
+{"type": "release", "batch": "B028", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 34140, "t": 26400.0}
+{"type": "release", "batch": "B029", "product": "P_CAB", "qty": 12, "n_parts": 72, "due": 34140, "t": 26400.0}
+{"type": "release", "batch": "B030", "product": "P_WARD", "qty": 4, "n_parts": 40, "due": 34140, "t": 26400.0}
+{"type": "release", "batch": "B031", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 34140, "t": 26400.0}
+{"type": "release", "batch": "B034", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 34140, "t": 26400.0}
+{"type": "release", "batch": "B037", "product": "P_DESK", "qty": 10, "n_parts": 80, "due": 34140, "t": 26400.0}
+{"type": "proc_end", "station": "PACK1", "batch": "B026", "duration": 1106.7, "t": 26453.17}
+{"type": "state", "station": "PACK1", "state": "idle", "t": 26453.17}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[13.5, 25.5], [19.5, 19.5], [50.5, 14.5], [52.5, 13.8]], "duration": 0.35, "loaded": false, "parts": 0, "t": 26453.17}
+{"type": "move", "vehicle": "F1", "batch": "B026", "path": [[52.5, 13.8], [52.5, 15.5], [55.5, 16.8]], "duration": 0.04, "loaded": true, "parts": 72, "t": 26455.02}
+{"type": "arrive", "batch": "B026", "station": "FG", "pos": [55.5, 16.8], "t": 26456.56}
+{"type": "done", "batch": "B026", "lead_min": 2936.6, "late_min": 0.0, "t": 26456.56}
+{"type": "cut_batch", "batch": "CB027+B029+B031+B034+B037", "orders": ["B027", "B029", "B031", "B034", "B037"], "n_parts": 392, "t": 26460.0}
+{"type": "cut_batch", "batch": "CB028+B030", "orders": ["B028", "B030"], "n_parts": 80, "t": 26460.0}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [10.5, 19.0]], "duration": 0.38, "loaded": false, "parts": 0, "t": 26460.0}
+{"type": "move", "vehicle": "F1", "batch": "CB027+B029+B031+B034+B037", "path": [[10.5, 19.0], [13.5, 25.5]], "duration": 0.06, "loaded": true, "parts": 392, "t": 26461.88}
+{"type": "arrive", "batch": "CB027+B029+B031+B034+B037", "station": "CUT1", "pos": [13.5, 25.5], "t": 26463.44}
+{"type": "queue", "station": "CUT1", "len": 1, "t": 26463.44}
+{"type": "queue", "station": "CUT1", "len": 0, "t": 26463.44}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[13.5, 25.5], [10.5, 19.0]], "duration": 0.06, "loaded": false, "parts": 0, "t": 26463.44}
+{"type": "state", "station": "CUT1", "state": "busy", "t": 26463.44}
+{"type": "proc_start", "station": "CUT1", "batch": "CB027+B029+B031+B034+B037", "pos": [17.0, 30.0], "t": 26463.44}
+{"type": "move", "vehicle": "F1", "batch": "CB028+B030", "path": [[10.5, 19.0], [13.5, 25.5]], "duration": 0.06, "loaded": true, "parts": 80, "t": 26464.99}
+{"type": "arrive", "batch": "CB028+B030", "station": "CUT1", "pos": [13.5, 25.5], "t": 26466.55}
+{"type": "queue", "station": "CUT1", "len": 1, "t": 26466.55}
+{"type": "proc_end", "station": "ASM2", "batch": "B025", "duration": 1142.7, "t": 26628.04}
+{"type": "state", "station": "ASM2", "state": "idle", "t": 26628.04}
+{"type": "move", "vehicle": "H1", "batch": null, "path": [[26.5, 6.8], [25.5, 6.5], [25.5, 14.5], [35.5, 14.5], [37.5, 13.8]], "duration": 0.29, "loaded": false, "parts": 0, "t": 26628.04}
+{"type": "move", "vehicle": "H1", "batch": "B025", "path": [[37.5, 13.8], [37.5, 14.5], [44.5, 14.5], [45.5, 13.5], [47.5, 13.8]], "duration": 0.15, "loaded": true, "parts": 72, "t": 26629.84}
+{"type": "arrive", "batch": "B025", "station": "PACK1", "pos": [47.5, 13.8], "t": 26631.49}
+{"type": "queue", "station": "PACK1", "len": 1, "t": 26631.49}
+{"type": "queue", "station": "PACK1", "len": 0, "t": 26631.49}
+{"type": "state", "station": "PACK1", "state": "busy", "t": 26631.49}
+{"type": "proc_start", "station": "PACK1", "batch": "B025", "pos": [50.0, 12.0], "t": 26631.49}
+{"type": "proc_end", "station": "ASM4", "batch": "B022", "duration": 1250.1, "t": 26714.06}
+{"type": "state", "station": "ASM4", "state": "idle", "t": 26714.06}
+{"type": "move", "vehicle": "H2", "batch": null, "path": [[32.5, 13.8], [30.5, 14.5], [25.5, 14.5], [25.5, 9.5], [29.5, 7.5], [31.5, 6.8]], "duration": 0.26, "loaded": false, "parts": 0, "t": 26714.06}
+{"type": "move", "vehicle": "H2", "batch": "B022", "path": [[31.5, 6.8], [31.5, 7.5], [44.5, 7.5], [45.5, 6.5], [47.5, 6.8]], "duration": 0.24, "loaded": true, "parts": 72, "t": 26715.82}
+{"type": "arrive", "batch": "B022", "station": "PACK2", "pos": [47.5, 6.8], "t": 26717.56}
+{"type": "queue", "station": "PACK2", "len": 1, "t": 26717.56}
+{"type": "queue", "station": "PACK2", "len": 0, "t": 26717.56}
+{"type": "state", "station": "PACK2", "state": "busy", "t": 26717.56}
+{"type": "proc_start", "station": "PACK2", "batch": "B022", "pos": [50.0, 5.0], "t": 26717.56}
+{"type": "state", "station": "CUT1", "state": "down", "t": 26742.16}
+{"type": "breakdown", "station": "CUT1", "duration": 39.3, "t": 26742.16}
+{"type": "state", "station": "EB2", "state": "down", "t": 26760.08}
+{"type": "breakdown", "station": "EB2", "duration": 100.4, "t": 26760.08}
+{"type": "state", "station": "CUT1", "state": "busy", "t": 26781.41}
+{"type": "state", "station": "EB2", "state": "idle", "t": 26860.52}
+{"type": "proc_end", "station": "PACK1", "batch": "B025", "duration": 251.7, "t": 26883.17}
+{"type": "state", "station": "PACK1", "state": "idle", "t": 26883.17}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[13.5, 25.5], [19.5, 19.5], [50.5, 14.5], [52.5, 13.8]], "duration": 0.35, "loaded": false, "parts": 0, "t": 26883.17}
+{"type": "move", "vehicle": "F1", "batch": "B025", "path": [[52.5, 13.8], [52.5, 15.5], [55.5, 16.8]], "duration": 0.04, "loaded": true, "parts": 72, "t": 26885.02}
+{"type": "arrive", "batch": "B025", "station": "FG", "pos": [55.5, 16.8], "t": 26886.56}
+{"type": "done", "batch": "B025", "lead_min": 1926.6, "late_min": 0.0, "t": 26886.56}
+{"type": "state", "station": "BOR1", "state": "down", "t": 26922.09}
+{"type": "breakdown", "station": "BOR1", "duration": 10.3, "t": 26922.09}
+{"type": "proc_end", "station": "PACK2", "batch": "B022", "duration": 207.5, "t": 26925.05}
+{"type": "state", "station": "PACK2", "state": "idle", "t": 26925.05}
+{"type": "move", "vehicle": "F1", "batch": null, "path": [[55.5, 16.8], [52.5, 8.5], [52.5, 6.8]], "duration": 0.09, "loaded": false, "parts": 0, "t": 26925.05}
+{"type": "move", "vehicle": "F1", "batch": "B022", "path": [[52.5, 6.8], [52.5, 8.5], [55.5, 16.8]], "duration": 0.09, "loaded": true, "parts": 72, "t": 26926.63}
+{"type": "arrive", "batch": "B022", "station": "FG", "pos": [55.5, 16.8], "t": 26928.22}
+{"type": "done", "batch": "B022", "lead_min": 1968.2, "late_min": 0.0, "t": 26928.22}
+{"type": "state", "station": "BOR1", "state": "idle", "t": 26932.43}
