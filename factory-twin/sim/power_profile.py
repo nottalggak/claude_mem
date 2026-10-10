@@ -45,14 +45,15 @@ def main(outdir):
                 lo, hi = max(t_prev, k * 15), min(t, (k + 1) * 15)
                 if hi > lo:
                     # 가동/셋업: 정격×부하율. 대기: 근무시간에만 대기전력(야간·주말은 전원 OFF 가정)
-                    p = sp.get("rated_kw", 0) * sp.get("load_factor", 0.6) if cur in ("busy", "setup") else (sp.get("idle_kw", 0) if working(k) else 0.0)
+                    # 야간·주말은 전원 OFF (상태 로그는 교대 종료 시 'busy' 가 밤새 유지될 수 있어 근무시간으로 게이팅)
+                    p = 0.0 if not working(k) else (sp.get("rated_kw", 0) * sp.get("load_factor", 0.6) if cur in ("busy", "setup") else sp.get("idle_kw", 0))
                     per_slot[sid][k] += p * (hi - lo) / 15
                     if cur in ("busy", "setup"):
                         for aid in sp.get("ancillary", []): on_any[aid][k] = True
             t_prev, cur = t, st
     for a in f.get("ancillary", []):
         for k in range(slots):
-            on = (on_any[a["id"]][k] if a["mode"] == "when_any_on" else (working(k) if a["mode"] == "shift" else True))
+            on = (on_any[a["id"]][k] and working(k)) if a["mode"] == "when_any_on" else (working(k) if a["mode"] == "shift" else True)
             per_slot[a["id"]][k] = a["rated_kw"] * a.get("load_factor", 0.7) if on else 0.0
     base = f["meta"].get("energy", {}).get("base_load_kw", 0)
     for k in range(slots):

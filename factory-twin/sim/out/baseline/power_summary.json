@@ -3,11 +3,11 @@
  "peak_at": "Day 18 10:00",
  "contract_kw": 300,
  "peak_over_contract": 0.36,
- "kwh_total": 19207,
+ "kwh_total": 9924,
  "kwh_by_band": {
-  "flat": 19207
+  "flat": 9924
  },
- "energy_cost_krw": 3169223,
+ "energy_cost_krw": 1637469,
  "demand_charge_krw_est": 0,
  "days": 18.7,
  "top_contributors_at_peak": [
