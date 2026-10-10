@@ -126,6 +126,14 @@
        "station"
       ]
      }
+    },
+    "trace_free_station": {
+     "type": "boolean",
+     "description": "트레이스 L1: 병렬기 선택을 모델에 맡김"
+    },
+    "trace_no_breakdown": {
+     "type": "boolean",
+     "description": "트레이스 L0: 고장 표본추출 끔"
     }
    }
   },
@@ -643,7 +651,49 @@
     "list": {
      "type": "array",
      "items": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+       "id": {
+        "type": "string",
+        "description": "관측 배치 ID(트레이스 매칭)"
+       },
+       "product": {
+        "type": "string"
+       },
+       "qty": {
+        "type": "integer"
+       },
+       "release_min": {
+        "type": "number",
+        "description": "접수 시각(분) — order_min 없으면 접수=투입"
+       },
+       "order_min": {
+        "type": "number",
+        "description": "주문 접수 시각(분): 외주 발주 시계 기준"
+       },
+       "release_at": {
+        "type": "number",
+        "description": "관측 투입 시각(분): 있으면 D-n 역산 대신 이 시각"
+       },
+       "due_min": {
+        "type": [
+         "number",
+         "null"
+        ]
+       },
+       "trace": {
+        "type": "object",
+        "description": "{스테이션ID: 관측 가공 근무 분} — 트레이스 구동",
+        "additionalProperties": {
+         "type": "number"
+        }
+       }
+      },
+      "required": [
+       "product",
+       "qty",
+       "release_min"
+      ]
      }
     },
     "batching": {

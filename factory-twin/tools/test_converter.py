@@ -12,12 +12,15 @@ for sid, vf in (("EB1", 12), ("EB2", 8)):
     c = st[sid]["cycle"]; pu = c.get("per_unit", {})
     check(f"{sid} 엣지 물리항 분기", "edges_m" in pu and c.get("form", "").startswith("edge"), str(c))
     check(f"{sid} edges_m = 1/v_f", abs(pu.get("edges_m", 0) - 1 / vf) < 1e-3, f"{pu.get('edges_m')} vs {1/vf:.4f}")
-    g1 = pu.get("n_edges", 0) - 0.45 / vf  # n_edges = G/v_f + γ1
+    g1 = pu.get("n_edges", 0) / (1 + c.get("pfd", 0)) - 0.45 / vf  # n_edges = (G/v_f + γ1)×(1+PFD)
     check(f"{sid} γ1 ≈ 0.15 (±0.08)", abs(g1 - 0.15) < 0.08, f"γ1={g1:.3f}")
     check(f"{sid} γ0 ≈ 0.08 (0~0.25)", 0 <= c["base_min"] <= 0.25, f"γ0={c['base_min']}")
+    check(f"{sid} PF&D 출처 플래그", c.get("source") == "stopwatch" and c.get("pfd") == 0.09, f"source={c.get('source')} pfd={c.get('pfd')}")
+    check(f"{sid} 시트 2 추가 열(feed_mpm)", st[sid].get("feed_mpm") == vf, f"feed_mpm={st[sid].get('feed_mpm')}")
     check(f"{sid} n ≥ 10 (첫 사이클 1개 버림)", c.get("n", 0) >= 10, f"n={c.get('n')}")
 b = st["BOR1"]["cycle"]
-check("BOR1 홀 수 회귀", abs(b.get("per_unit", {}).get("holes", 0) - 0.035) < 0.012 and abs(b["base_min"] - 0.5) < 0.15, str(b))
+check("BOR1 홀 수 회귀(기계 항 holes 에는 PF&D 미적용)", abs(b.get("per_unit", {}).get("holes", 0) - 0.035) < 0.012 and abs(b["base_min"] / (1 + b.get("pfd", 0)) - 0.5) < 0.15, str(b))
+check("ASM1 PF&D 적용", st["ASM1"]["cycle"].get("pfd") == 0.09 and st["ASM1"].get("move_class") is not None, str({k: st["ASM1"].get(k) for k in ("move_class",)}))
 check("대차 수 → transport.carts", f["transport"].get("carts") == 6, str(f["transport"].get("carts")))
 check("운반 인원 ≠ 대차 수", f["transport"].get("handlers") != 6, str(f["transport"].get("handlers")))
 prov = f.get("provenance", {})

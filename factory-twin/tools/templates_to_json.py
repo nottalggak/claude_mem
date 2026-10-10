@@ -86,20 +86,22 @@ def main(xlsx, out):
                 g1 = sum((x - xm) * (r_ - rm) for x, r_ in zip(xs2, resid)) / den if den > 0 else 0.2
                 g0 = max(0.0, rm - g1 * xm)
                 st["cycle"] = {"base_min": round(g0, 3), "per_unit": {"edges_m": round(1 / vf, 4), "n_edges": round(gap / vf + max(0.0, g1), 4)}, "cv": round(sd / (mean + 1e-9), 2), "n": len(obs), "form": "edge: Σ(L+G)/v_f + γ0 + γ1·N_pass (v_f·G 측정값 고정)"}
-                continue
+                key = None  # 아래 일반 회귀 건너뜀(PF&D 블록은 공통 적용)
             elif st["process"] == "edge" and vf:
                 assumptions.append(f"{st['id']}: 시트 4에 '엣지 길이 합(m)' 이 없어 물리항 회귀 불가 → 일반 회귀 사용")
-            xs = [o["edges"] if key == "n_edges" else o["holes"] for o in obs] if key else []
-            if key and len(obs) >= 5 and max(xs) > min(xs):
-                xm = sum(xs) / len(xs); b = sum((x - xm) * (y - mean) for x, y in zip(xs, ys)) / sum((x - xm) ** 2 for x in xs)
-                a = mean - b * xm
-                if b > 0 and a >= 0: per_unit = {key: round(b, 4)}; mean = a
-            st["cycle"] = {"base_min": round(mean, 3), "per_unit": per_unit, "cv": round(sd / (mean + sum(per_unit.values()) * (sum(xs) / len(xs) if xs else 0) + 1e-9), 2), "n": len(obs)}
+            if "form" not in (st.get("cycle") or {}):
+                xs = [o["edges"] if key == "n_edges" else o["holes"] for o in obs] if key else []
+                if key and len(obs) >= 5 and max(xs) > min(xs):
+                    xm = sum(xs) / len(xs); b = sum((x - xm) * (y - mean) for x, y in zip(xs, ys)) / sum((x - xm) ** 2 for x in xs)
+                    a = mean - b * xm
+                    if b > 0 and a >= 0: per_unit = {key: round(b, 4)}; mean = a
+                st["cycle"] = {"base_min": round(mean, 3), "per_unit": per_unit, "cv": round(sd / (mean + sum(per_unit.values()) * (sum(xs) / len(xs) if xs else 0) + 1e-9), 2), "n": len(obs)}
         elif st["process"] not in ("raw", "fg"):
             st["cycle"] = {"base_min": 1.0, "per_unit": {}, "cv": 0.3}; assumptions.append(f"{st['id']}: 사이클타임 측정 없음 → 1분/부품 가정")
-        if obs and st.get("cycle"):  # 스톱워치 정상시간 → 표준시간: ×(1+PF&D). source 플래그로 CT 실측 교체 시 여유율을 빼야 함을 표시
-            c = st["cycle"]; c["base_min"] = round(c["base_min"] * (1 + PFD), 3); c["per_unit"] = {k: round(v * (1 + PFD), 4) for k, v in c.get("per_unit", {}).items()}
-            if "per_product" in c: c["per_product"] = {k: round(v * (1 + PFD), 3) for k, v in c["per_product"].items()}
+        if obs and st.get("cycle"):  # 스톱워치 정상시간 → 표준시간: ×(1+PF&D) 를 **작업자 항에만**(연구 20 §3.3: 기계 결정 항 금지). source 플래그로 CT 실측 교체 시 여유율을 빼야 함을 표시
+            c = st["cycle"]; c["base_min"] = round(c["base_min"] * (1 + PFD), 3)  # 핸들링·γ0
+            c["per_unit"] = {k: (round(v * (1 + PFD), 4) if k == "n_edges" else v) for k, v in c.get("per_unit", {}).items()}  # 엣지 γ1(통과당 핸들링)만; edges_m(이송)·holes(기계) 제외
+            if "per_product" in c: c["per_product"] = {k: round(v * (1 + PFD), 3) for k, v in c["per_product"].items()}  # 조립·포장은 전부 작업자 항
             c["source"] = "stopwatch"; c["pfd"] = PFD
     # 시트 17 워크샘플링 → 스테이션(위치)별 비부가가치 비율 → availability 에 반영 (연구 20: 중단·탐색 20~35% 는 평균을 바꾸므로 CV 로 흡수 불가)
     ws_loss = {}
@@ -116,13 +118,14 @@ def main(xlsx, out):
     # 시트 2 추가 열 → 가용률·메타
     for r in rows(wb["2_기계대장"]):
         for st in f["stations"]:
-            if st["id"] == r["기계ID"]:
-                micro = num(r.get("소정지 빈도(회/시간)"), 0); warm = num(r.get("예열/청소 시간(분/일)"), 0)
-                st["availability"] = round(max(0.5, 1 - micro * 2 / 60 - warm / 450), 3)  # 소정지 2분/회 가정, 450분 교대
-            if st["id"] in ws_loss:  # 워크샘플링 비부가가치(대기·부재·보행) → 유효 가용률. 사이클에 이미 포함된 핸들링은 제외했으므로 중복 없음
-                st["availability"] = round(max(0.4, st.get("availability", 1.0) * (1 - ws_loss[st["id"]])), 3); st["availability_source"] = f"워크샘플링 손실 {ws_loss[st['id']]:.0%}"
-                for col, key in [("이송속도 v_f(m/min, 엣지·샌더·런닝쏘)", "feed_mpm"), ("부품 간격 G(m, 엣지)", "gap_m"), ("부품당 통과 횟수(엣지 2~4)", "passes"), ("리턴컨베이어(Y/N)", "return_conveyor"), ("이동 등급(A자유/B리깅/C고정)", "move_class"), ("이전 비용(만원, 추정)", "relocation_cost_10k"), ("처리 가능 범위(최대 판 치수·두께)", "capability"), ("투입측 판재 공간(m)", "infeed_m"), ("배출측 판재 공간(m)", "outfeed_m"), ("셋업 트리거(색상/두께/제품)", "setup_trigger"), ("PLC/HMI 브랜드", "plc"), ("공압 사용(Y/N)", "air")]:
-                    if r.get(col) not in (None, ""): st[key] = r.get(col)
+            if st["id"] != r["기계ID"]: continue
+            micro = num(r.get("소정지 빈도(회/시간)"), 0); warm = num(r.get("예열/청소 시간(분/일)"), 0)
+            st["availability"] = round(max(0.5, 1 - micro * 2 / 60 - warm / 450), 3)  # 소정지 2분/회 가정, 450분 교대
+            for col, key in [("이송속도 v_f(m/min, 엣지·샌더·런닝쏘)", "feed_mpm"), ("부품 간격 G(m, 엣지)", "gap_m"), ("부품당 통과 횟수(엣지 2~4)", "passes"), ("리턴컨베이어(Y/N)", "return_conveyor"), ("이동 등급(A자유/B리깅/C고정)", "move_class"), ("이전 비용(만원, 추정)", "relocation_cost_10k"), ("처리 가능 범위(최대 판 치수·두께)", "capability"), ("투입측 판재 공간(m)", "infeed_m"), ("배출측 판재 공간(m)", "outfeed_m"), ("셋업 트리거(색상/두께/제품)", "setup_trigger"), ("PLC/HMI 브랜드", "plc"), ("공압 사용(Y/N)", "air")]:
+                if r.get(col) not in (None, ""): st[key] = r.get(col)
+    for st in f["stations"]:  # 워크샘플링 비부가가치(대기·부재·보행) → 유효 가용률, 스테이션당 한 번. 시트 2 '소정지'와 워크샘플링 '대기'가 같은 손실을 두 번 셀 수 있으므로 둘 다 있으면 큰 쪽만 쓴다
+        if st["id"] in ws_loss:
+            ws_av = 1 - ws_loss[st["id"]]; st["availability"] = round(max(0.4, min(st.get("availability", 1.0), ws_av)), 3); st["availability_source"] = f"워크샘플링 손실 {ws_loss[st['id']]:.0%}(시트 2 소정지와 중복 방지: 작은 가용률 채택)"
     # 시트 5 셋업: 기계별 평균 소요·빈도
     if "5_셋업_체인지오버" in wb.sheetnames:
         su = {}

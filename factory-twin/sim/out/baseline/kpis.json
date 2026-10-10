@@ -408,6 +408,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 6240.0,
    "done": 10776.555444234591,
    "lead_min": 4536.555444234591,
@@ -430,6 +431,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 13440.0,
    "done": 13930.483016515467,
    "lead_min": 490.48301651546717,
@@ -452,6 +454,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 12000.0,
    "done": 13751.924897093133,
    "lead_min": 1751.924897093133,
@@ -474,6 +477,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 12000.0,
    "done": 13478.753910989351,
    "lead_min": 1478.7539109893514,
@@ -496,6 +500,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 12000.0,
    "done": 13548.516962984431,
    "lead_min": 1548.5169629844313,
@@ -518,6 +523,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 13440.0,
    "done": 13847.462208656518,
    "lead_min": 407.46220865651776,
@@ -540,6 +546,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 12000.0,
    "done": 13640.1809684239,
    "lead_min": 1640.1809684238997,
@@ -562,6 +569,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 13440.0,
    "done": 14948.84290576862,
    "lead_min": 1508.8429057686208,
@@ -584,6 +592,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 6240.0,
    "done": 10574.436599868255,
    "lead_min": 4334.436599868255,
@@ -606,6 +615,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 13440.0,
    "done": 15212.222237325614,
    "lead_min": 1772.2222373256136,
@@ -628,6 +638,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 10560.0,
    "done": 12053.517030936053,
    "lead_min": 1493.5170309360528,
@@ -650,6 +661,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 16320.0,
    "done": 16842.802194603726,
    "lead_min": 522.8021946037261,
@@ -672,6 +684,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 12000.0,
    "done": 13664.981297370161,
    "lead_min": 1664.981297370161,
@@ -694,6 +707,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 14880.0,
    "done": 16342.069572736062,
    "lead_min": 1462.0695727360617,
@@ -716,6 +730,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 12000.0,
    "done": 13485.049236714309,
    "lead_min": 1485.0492367143088,
@@ -738,6 +753,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 13440.0,
    "done": 15106.296057035863,
    "lead_min": 1666.2960570358628,
@@ -760,6 +776,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 16320.0,
    "done": 20659.32322407788,
    "lead_min": 4339.323224077882,
@@ -782,6 +799,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 13440.0,
    "done": 15085.279197949129,
    "lead_min": 1645.2791979491285,
@@ -804,6 +822,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 10560.0,
    "done": 11010.153361552002,
    "lead_min": 450.153361552002,
@@ -826,6 +845,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 16320.0,
    "done": 20682.719121070564,
    "lead_min": 4362.719121070564,
@@ -848,6 +868,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 14880.0,
    "done": 16458.47786008701,
    "lead_min": 1578.4778600870086,
@@ -870,6 +891,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 12000.0,
    "done": 12541.63293313227,
    "lead_min": 541.6329331322704,
@@ -892,6 +914,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 22080.0,
    "done": 22481.464683780065,
    "lead_min": 401.46468378006466,
@@ -914,6 +937,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 14880.0,
    "done": 15397.839422581186,
    "lead_min": 517.8394225811862,
@@ -936,6 +960,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 13440.0,
    "done": 14925.899627802082,
    "lead_min": 1485.8996278020823,
@@ -958,6 +983,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 20640.0,
    "done": 21039.99994530582,
    "lead_min": 399.999945305819,
@@ -980,6 +1006,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 14880.0,
    "done": 16473.42810531881,
    "lead_min": 1593.4281053188097,
@@ -1002,6 +1029,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 14880.0,
    "done": 16559.38366352609,
    "lead_min": 1679.3836635260886,
@@ -1024,6 +1052,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 10560.0,
    "done": 12047.255019285554,
    "lead_min": 1487.2550192855542,
@@ -1046,6 +1075,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 16320.0,
    "done": 20841.355666090512,
    "lead_min": 4521.355666090512,
@@ -1068,6 +1098,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 16320.0,
    "done": 21087.78947983975,
    "lead_min": 4767.78947983975,
@@ -1090,6 +1121,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 14880.0,
    "done": 16416.147169265296,
    "lead_min": 1536.1471692652958,
@@ -1112,6 +1144,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 16320.0,
    "done": 20870.826220742187,
    "lead_min": 4550.826220742187,
@@ -1134,6 +1167,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 14880.0,
    "done": 16556.304915457928,
    "lead_min": 1676.3049154579276,
@@ -1156,6 +1190,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 16320.0,
    "done": 20947.22157584411,
    "lead_min": 4627.221575844109,
@@ -1178,6 +1213,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 20640.0,
    "done": 22311.932736996812,
    "lead_min": 1671.9327369968123,
@@ -1200,6 +1236,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 20640.0,
    "done": 22315.108162515902,
    "lead_min": 1675.1081625159022,
@@ -1222,6 +1259,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 20640.0,
    "done": 22421.130822553125,
    "lead_min": 1781.1308225531247,
@@ -1244,6 +1282,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 13440.0,
    "done": 15018.07874806816,
    "lead_min": 1578.0787480681593,
@@ -1266,6 +1305,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 12000.0,
    "done": 13554.465999355913,
    "lead_min": 1554.4659993559126,
@@ -1288,6 +1328,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 14880.0,
    "done": 16807.96836118615,
    "lead_min": 1927.968361186151,
@@ -1310,6 +1351,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 16320.0,
    "done": 21142.597936039114,
    "lead_min": 4822.597936039114,
@@ -1332,6 +1374,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 16320.0,
    "done": 21029.766269219326,
    "lead_min": 4709.766269219326,
@@ -1354,6 +1397,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 14880.0,
    "done": 16837.498277345316,
    "lead_min": 1957.4982773453157,
@@ -1376,6 +1420,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 20640.0,
    "done": 22554.743076369658,
    "lead_min": 1914.7430763696575,
@@ -1398,6 +1443,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 20640.0,
    "done": 22617.70053374465,
    "lead_min": 1977.7005337446499,
@@ -1420,6 +1466,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 13440.0,
    "done": 15044.303615128243,
    "lead_min": 1604.303615128243,
@@ -1442,6 +1489,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 14880.0,
    "done": 16374.454985991022,
    "lead_min": 1494.454985991022,
@@ -1464,6 +1512,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 14880.0,
    "done": 20740.203258665082,
    "lead_min": 5860.203258665082,
@@ -1486,6 +1535,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 20640.0,
    "done": 23758.513954873462,
    "lead_min": 3118.5139548734624,
@@ -1508,6 +1558,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 16320.0,
    "done": 20990.017847746192,
    "lead_min": 4670.017847746192,
@@ -1530,6 +1581,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 22080.0,
    "done": 23561.89150663287,
    "lead_min": 1481.89150663287,
@@ -1552,6 +1604,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 16320.0,
    "done": 21090.86822790791,
    "lead_min": 4770.868227907911,
@@ -1574,6 +1627,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 20640.0,
    "done": 23835.052450284446,
    "lead_min": 3195.0524502844455,
@@ -1596,6 +1650,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 14880.0,
    "done": 16413.068421197135,
    "lead_min": 1533.0684211971347,
@@ -1618,6 +1673,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 14880.0,
    "done": 20959.65323812164,
    "lead_min": 6079.653238121638,
@@ -1640,6 +1696,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 24960.0,
    "done": 26422.80108416489,
    "lead_min": 1462.8010841648902,
@@ -1662,6 +1719,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 16320.0,
    "done": 21126.238304166945,
    "lead_min": 4806.238304166945,
@@ -1684,6 +1742,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 26400.0,
    "done": 30803.74582336082,
    "lead_min": 4403.7458233608195,
@@ -1706,6 +1765,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 22080.0,
    "done": 23684.883202362773,
    "lead_min": 1604.8832023627729,
@@ -1728,6 +1788,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 20640.0,
    "done": 23727.943818896583,
    "lead_min": 3087.9438188965833,
@@ -1750,6 +1811,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 22080.0,
    "done": 23622.495003373795,
    "lead_min": 1542.495003373795,
@@ -1772,6 +1834,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 20640.0,
    "done": 23928.613259518625,
    "lead_min": 3288.6132595186245,
@@ -1794,6 +1857,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 22080.0,
    "done": 23718.87666930496,
    "lead_min": 1638.8766693049583,
@@ -1816,6 +1880,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 22080.0,
    "done": 23966.638488635213,
    "lead_min": 1886.6384886352134,
@@ -1838,6 +1903,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 24960.0,
    "done": 26483.445642499843,
    "lead_min": 1523.4456424998425,
@@ -1860,6 +1926,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 22080.0,
    "done": 24031.43414187269,
    "lead_min": 1951.4341418726908,
@@ -1882,6 +1949,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 24960.0,
    "done": 26622.737971964925,
    "lead_min": 1662.7379719649252,
@@ -1904,6 +1972,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 30720.0,
    "done": 31179.368858724964,
    "lead_min": 459.3688587249635,
@@ -1926,6 +1995,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 24960.0,
    "done": 26548.879903912442,
    "lead_min": 1588.8799039124424,
@@ -1948,6 +2018,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 20640.0,
    "done": 23992.489840965227,
    "lead_min": 3352.489840965227,
@@ -1970,6 +2041,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 22080.0,
    "done": 24000.295703755648,
    "lead_min": 1920.295703755648,
@@ -1992,6 +2064,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 23520.0,
    "done": 25170.427659348232,
    "lead_min": 1650.4276593482318,
@@ -2014,6 +2087,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 22080.0,
    "done": 25010.658774679592,
    "lead_min": 2930.658774679592,
@@ -2036,6 +2110,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 23520.0,
    "done": 25364.146824568776,
    "lead_min": 1844.1468245687756,
@@ -2058,6 +2133,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 26400.0,
    "done": 30916.44134801317,
    "lead_min": 4516.44134801317,
@@ -2080,6 +2156,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 24960.0,
    "done": 26486.524390568004,
    "lead_min": 1526.5243905680036,
@@ -2102,6 +2179,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 22080.0,
    "done": 25057.88603776901,
    "lead_min": 2977.8860377690107,
@@ -2124,6 +2202,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 30720.0,
    "done": 31246.684452540674,
    "lead_min": 526.6844525406741,
@@ -2146,6 +2225,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 30720.0,
    "done": 32188.764623742063,
    "lead_min": 1468.7646237420631,
@@ -2168,6 +2248,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 23520.0,
    "done": 25125.500449224473,
    "lead_min": 1605.5004492244734,
@@ -2190,6 +2271,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 26400.0,
    "done": 30950.96594908976,
    "lead_min": 4550.965949089761,
@@ -2212,6 +2294,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 24960.0,
    "done": 26625.816720033086,
    "lead_min": 1665.8167200330863,
@@ -2234,6 +2317,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 22080.0,
    "done": 24979.315807512423,
    "lead_min": 2899.315807512423,
@@ -2256,6 +2340,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 20640.0,
    "done": 25134.43447945466,
    "lead_min": 4494.43447945466,
@@ -2278,6 +2363,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 23520.0,
    "done": 25184.892981331326,
    "lead_min": 1664.8929813313262,
@@ -2300,6 +2386,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 22080.0,
    "done": 25029.091543821,
    "lead_min": 2949.0915438209995,
@@ -2322,6 +2409,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 33600.0,
    "done": 34105.36680869426,
    "lead_min": 505.36680869426345,
@@ -2344,6 +2432,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 26400.0,
    "done": 31029.010298146186,
    "lead_min": 4629.010298146186,
@@ -2366,6 +2455,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 24960.0,
    "done": 26545.80115584428,
    "lead_min": 1585.8011558442813,
@@ -2388,6 +2478,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 32160.0,
    "done": 32652.460896816545,
    "lead_min": 492.46089681654485,
@@ -2410,6 +2501,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 33600.0,
    "done": 35086.256950646966,
    "lead_min": 1486.2569506469663,
@@ -2432,6 +2524,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 24960.0,
    "done": 26726.212215622825,
    "lead_min": 1766.2122156228252,
@@ -2454,6 +2547,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 33600.0,
    "done": 35216.35622004055,
    "lead_min": 1616.3562200405504,
@@ -2476,6 +2570,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 30720.0,
    "done": 31243.509027021584,
    "lead_min": 523.5090270215842,
@@ -2498,6 +2593,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 24960.0,
    "done": 26902.653877703993,
    "lead_min": 1942.6538777039932,
@@ -2520,6 +2616,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 24960.0,
    "done": 26753.748437922513,
    "lead_min": 1793.7484379225134,
@@ -2542,6 +2639,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 23520.0,
    "done": 25435.225086333532,
    "lead_min": 1915.225086333532,
@@ -2564,6 +2662,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 33600.0,
    "done": 35212.72330837204,
    "lead_min": 1612.723308372042,
@@ -2586,6 +2685,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 30720.0,
    "done": 32303.981770407387,
    "lead_min": 1583.9817704073866,
@@ -2608,6 +2708,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 30720.0,
    "done": 32232.67318660944,
    "lead_min": 1512.6731866094415,
@@ -2630,6 +2731,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 23520.0,
    "done": 26403.47786008701,
    "lead_min": 2883.4778600870086,
@@ -2652,6 +2754,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 24960.0,
    "done": 26887.259457955017,
    "lead_min": 1927.2594579550168,
@@ -2674,6 +2777,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 24960.0,
    "done": 26838.07874806816,
    "lead_min": 1878.078748068161,
@@ -2696,6 +2800,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 30720.0,
    "done": 32380.572552957317,
    "lead_min": 1660.5725529573174,
@@ -2718,6 +2823,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 32160.0,
    "done": 33658.54067386837,
    "lead_min": 1498.5406738683669,
@@ -2740,6 +2846,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 33600.0,
    "done": 35119.80726445735,
    "lead_min": 1519.8072644573476,
@@ -2762,6 +2869,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 30720.0,
    "done": 32473.424599518457,
    "lead_min": 1753.4245995184574,
@@ -2784,6 +2892,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 24960.0,
    "done": 30765.161566345334,
    "lead_min": 5805.161566345334,
@@ -2806,6 +2915,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 35040.0,
    "done": 36499.31580751242,
    "lead_min": 1459.315807512423,
@@ -2828,6 +2938,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 35040.0,
    "done": 36850.723282784966,
    "lead_min": 1810.7232827849657,
@@ -2850,6 +2961,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 33600.0,
    "done": 35458.639089382385,
    "lead_min": 1858.6390893823846,
@@ -2872,6 +2984,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 26400.0,
    "done": 31123.191727630227,
    "lead_min": 4723.1917276302265,
@@ -2894,6 +3007,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 26400.0,
    "done": 31062.027724750144,
    "lead_min": 4662.0277247501435,
@@ -2916,6 +3030,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 32160.0,
    "done": 32697.722574627674,
    "lead_min": 537.7225746276745,
@@ -2938,6 +3053,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 26400.0,
    "done": 32241.023113846237,
    "lead_min": 5841.023113846237,
@@ -2960,6 +3076,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 33600.0,
    "done": 35502.62358475177,
    "lead_min": 1902.6235847517673,
@@ -2982,6 +3099,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 32160.0,
    "done": 32702.40407612831,
    "lead_min": 542.4040761283104,
@@ -3004,6 +3122,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 32160.0,
    "done": 33836.90577584801,
    "lead_min": 1676.9057758480121,
@@ -3026,6 +3145,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 30720.0,
    "done": 32483.947371614475,
    "lead_min": 1763.9473716144748,
@@ -3048,6 +3168,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 24960.0,
    "done": 30793.3168333093,
    "lead_min": 5833.316833309302,
@@ -3070,6 +3191,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 30720.0,
    "done": 32621.946015625326,
    "lead_min": 1901.9460156253263,
@@ -3092,6 +3214,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 33600.0,
    "done": 35519.921284641576,
    "lead_min": 1919.9212846415758,
@@ -3114,6 +3237,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 35040.0,
    "done": 36689.655834716956,
    "lead_min": 1649.6558347169557,
@@ -3136,6 +3260,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 33600.0,
    "done": 35455.56034131422,
    "lead_min": 1855.5603413142235,
@@ -3158,6 +3283,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 32160.0,
    "done": 33812.17360010742,
    "lead_min": 1652.1736001074169,
@@ -3180,6 +3306,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 33600.0,
    "done": 35408.43086469382,
    "lead_min": 1808.4308646938225,
@@ -3202,6 +3329,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 36480.0,
    "done": 40819.32322407791,
    "lead_min": 4339.323224077911,
@@ -3224,6 +3352,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 33600.0,
    "done": 35564.1911542304,
    "lead_min": 1964.1911542304006,
@@ -3246,6 +3375,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 30720.0,
    "done": 32568.0534148381,
    "lead_min": 1848.0534148381012,
@@ -3268,6 +3398,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 36480.0,
    "done": 36923.818224462884,
    "lead_min": 443.81822446288425,
@@ -3290,6 +3421,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 35040.0,
    "done": 36796.00317718183,
    "lead_min": 1756.0031771818321,
@@ -3312,6 +3444,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 32160.0,
    "done": 33936.22620778593,
    "lead_min": 1776.2262077859268,
@@ -3334,6 +3467,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 35040.0,
    "done": 36896.8286026162,
    "lead_min": 1856.8286026162023,
@@ -3356,6 +3490,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 32160.0,
    "done": 34051.62658771818,
    "lead_min": 1891.6265877181795,
@@ -3378,6 +3513,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 36480.0,
    "done": 40895.15574303288,
    "lead_min": 4415.155743032883,
@@ -3400,6 +3536,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 35040.0,
    "done": 36974.18044333821,
    "lead_min": 1934.180443338213,
@@ -3422,6 +3559,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 36480.0,
    "done": 41003.8842813438,
    "lead_min": 4523.884281343802,
@@ -3444,6 +3582,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 42240.0,
    "done": 42731.280758942805,
    "lead_min": 491.2807589428048,
@@ -3466,6 +3605,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 35040.0,
    "done": 37011.79853202685,
    "lead_min": 1971.798532026849,
@@ -3488,6 +3628,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 40800.0,
    "done": 41336.30162553912,
    "lead_min": 536.3016255391194,
@@ -3510,6 +3651,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 32160.0,
    "done": 34122.215918567206,
    "lead_min": 1962.2159185672062,
@@ -3532,6 +3674,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 36480.0,
    "done": 41020.87769735986,
    "lead_min": 4540.877697359858,
@@ -3554,6 +3697,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 36480.0,
    "done": 41115.46775379898,
    "lead_min": 4635.467753798977,
@@ -3576,6 +3720,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 40800.0,
    "done": 41303.42348682313,
    "lead_min": 503.42348682312877,
@@ -3598,6 +3743,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 33600.0,
    "done": 36594.21734663965,
    "lead_min": 2994.217346639649,
@@ -3620,6 +3766,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 36480.0,
    "done": 41156.118019669455,
    "lead_min": 4676.118019669455,
@@ -3642,6 +3789,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 36480.0,
    "done": 41168.62090134237,
    "lead_min": 4688.620901342372,
@@ -3664,6 +3812,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 40800.0,
    "done": 42462.19625240628,
    "lead_min": 1662.1962524062765,
@@ -3686,6 +3835,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 35040.0,
    "done": 40887.702871086934,
    "lead_min": 5847.7028710869345,
@@ -3708,6 +3858,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 35040.0,
    "done": 40836.39257279577,
    "lead_min": 5796.3925727957685,
@@ -3730,6 +3881,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 35040.0,
    "done": 40981.048335193955,
    "lead_min": 5941.048335193955,
@@ -3752,6 +3904,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 40800.0,
    "done": 42470.75084205517,
    "lead_min": 1670.7508420551676,
@@ -3774,6 +3927,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 43680.0,
    "done": 45521.99886797686,
    "lead_min": 1841.9988679768576,
@@ -3796,6 +3950,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 36480.0,
    "done": 41193.52252336099,
    "lead_min": 4713.522523360989,
@@ -3818,6 +3973,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 40800.0,
    "done": 42652.32956874091,
    "lead_min": 1852.3295687409118,
@@ -3840,6 +3996,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 35040.0,
    "done": 41204.049745057964,
    "lead_min": 6164.049745057964,
@@ -3862,6 +4019,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 33600.0,
    "done": 36577.73395358676,
    "lead_min": 2977.7339535867577,
@@ -3884,6 +4042,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 33600.0,
    "done": 36702.45664444765,
    "lead_min": 3102.4566444476513,
@@ -3906,6 +4065,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 40800.0,
    "done": 42609.80027493219,
    "lead_min": 1809.8002749321895,
@@ -3928,6 +4088,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 40800.0,
    "done": 43715.299216804444,
    "lead_min": 2915.299216804444,
@@ -3950,6 +4111,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 36480.0,
    "done": 41283.435138038105,
    "lead_min": 4803.435138038105,
@@ -3972,6 +4134,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 42240.0,
    "done": 42781.26588045348,
    "lead_min": 541.2658804534803,
@@ -3994,6 +4157,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 40800.0,
    "done": 43876.28677156966,
    "lead_min": 3076.286771569663,
@@ -4016,6 +4180,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 36480.0,
    "done": 42259.31580751242,
    "lead_min": 5779.315807512423,
@@ -4038,6 +4203,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 33600.0,
    "done": 36826.934227961305,
    "lead_min": 3226.9342279613047,
@@ -4060,6 +4226,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 40800.0,
    "done": 43869.78305450637,
    "lead_min": 3069.78305450637,
@@ -4082,6 +4249,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 42240.0,
    "done": 43766.58935454729,
    "lead_min": 1526.5893545472936,
@@ -4104,6 +4272,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 45120.0,
    "done": 46622.016553919915,
    "lead_min": 1502.0165539199152,
@@ -4126,6 +4295,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 40800.0,
    "done": 44066.29146662894,
    "lead_min": 3266.2914666289435,
@@ -4148,6 +4318,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 40800.0,
    "done": 45156.75255472305,
    "lead_min": 4356.752554723047,
@@ -4170,6 +4341,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 42240.0,
    "done": 43760.89178132233,
    "lead_min": 1520.8917813223306,
@@ -4192,6 +4364,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 45120.0,
    "done": 46698.17542551909,
    "lead_min": 1578.17542551909,
@@ -4214,6 +4387,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 42240.0,
    "done": 43915.649505896254,
    "lead_min": 1675.6495058962537,
@@ -4236,6 +4410,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 42240.0,
    "done": 44099.76290034759,
    "lead_min": 1859.7629003475886,
@@ -4258,6 +4433,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 42240.0,
    "done": 44121.650622478846,
    "lead_min": 1881.6506224788463,
@@ -4280,6 +4456,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 42240.0,
    "done": 44051.84486383591,
    "lead_min": 1811.8448638359114,
@@ -4302,6 +4479,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 43680.0,
    "done": 44209.023684961416,
    "lead_min": 529.0236849614157,
@@ -4324,6 +4502,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 43680.0,
    "done": 45423.17542551909,
    "lead_min": 1743.17542551909,
@@ -4346,6 +4525,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 42240.0,
    "done": 44158.85178132948,
    "lead_min": 1918.851781329482,
@@ -4368,6 +4548,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 43680.0,
    "done": 45327.370950322445,
    "lead_min": 1647.3709503224454,
@@ -4390,6 +4571,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 43680.0,
    "done": 45472.89534237417,
    "lead_min": 1792.8953423741696,
@@ -4412,6 +4594,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 45120.0,
    "done": 46797.90115793848,
    "lead_min": 1677.9011579384824,
@@ -4434,6 +4617,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 45120.0,
    "done": 46754.52364657958,
    "lead_min": 1634.5236465795824,
@@ -4456,6 +4640,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 42240.0,
    "done": 45273.22111318027,
    "lead_min": 3033.2211131802687,
@@ -4478,6 +4663,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 46560.0,
    "done": 47051.45824643418,
    "lead_min": 491.4582464341802,
@@ -4500,6 +4686,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 40800.0,
    "done": 45172.571879417395,
    "lead_min": 4372.571879417395,
@@ -4522,6 +4709,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 43680.0,
    "done": 45530.416606667684,
    "lead_min": 1850.4166066676844,
@@ -4544,6 +4732,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 43680.0,
    "done": 45429.28727321347,
    "lead_min": 1749.287273213471,
@@ -4566,6 +4755,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 40800.0,
    "done": 45312.21626915859,
    "lead_min": 4512.216269158591,
@@ -4588,6 +4778,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 45120.0,
    "done": 47071.31495336013,
    "lead_min": 1951.3149533601318,
@@ -4610,6 +4801,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 43680.0,
    "done": 45613.98161929371,
    "lead_min": 1933.981619293707,
@@ -4632,6 +4824,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 46560.0,
    "done": 46975.867400971525,
    "lead_min": 415.86740097152506,
@@ -4654,6 +4847,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 42240.0,
    "done": 45123.17542551909,
    "lead_min": 2883.17542551909,
@@ -4676,6 +4870,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 42240.0,
    "done": 45221.81781815395,
    "lead_min": 2981.817818153948,
@@ -4698,6 +4893,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 45120.0,
    "done": 50921.062000217426,
    "lead_min": 5801.0620002174255,
@@ -4720,6 +4916,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 46560.0,
    "done": 50962.46897485958,
    "lead_min": 4402.468974859577,
@@ -4742,6 +4939,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 43680.0,
    "done": 46585.55259812142,
    "lead_min": 2905.552598121423,
@@ -4764,6 +4962,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 42240.0,
    "done": 45196.309090234725,
    "lead_min": 2956.309090234725,
@@ -4786,6 +4985,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 46560.0,
    "done": 51041.601989309245,
    "lead_min": 4481.601989309245,
@@ -4808,6 +5008,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 46560.0,
    "done": 50925.22659728099,
    "lead_min": 4365.226597280991,
@@ -4830,6 +5031,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 46560.0,
    "done": 51230.15944024469,
    "lead_min": 4670.1594402446935,
@@ -4852,6 +5054,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 43680.0,
    "done": 46745.85076357996,
    "lead_min": 3065.8507635799615,
@@ -4874,6 +5077,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 43680.0,
    "done": 46712.89192842901,
    "lead_min": 3032.8919284290096,
@@ -4896,6 +5100,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 45120.0,
    "done": 51056.09902802919,
    "lead_min": 5936.099028029188,
@@ -4918,6 +5123,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 43680.0,
    "done": 46582.37717260233,
    "lead_min": 2902.3771726023333,
@@ -4940,6 +5146,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 43680.0,
    "done": 45624.351324834795,
    "lead_min": 1944.3513248347954,
@@ -4962,6 +5169,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 46560.0,
    "done": 51269.76262446997,
    "lead_min": 4709.762624469971,
@@ -4984,6 +5192,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 43680.0,
    "done": 45575.7947964107,
    "lead_min": 1895.7947964107007,
@@ -5006,6 +5215,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 50880.0,
    "done": 52357.80626631375,
    "lead_min": 1477.8062663137534,
@@ -5028,6 +5238,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 46560.0,
    "done": 51236.969896571965,
    "lead_min": 4676.969896571965,
@@ -5050,6 +5261,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 50880.0,
    "done": 52535.144595347716,
    "lead_min": 1655.144595347716,
@@ -5072,6 +5284,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 46560.0,
    "done": 51342.204233641394,
    "lead_min": 4782.204233641394,
@@ -5094,6 +5307,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 53760.0,
    "done": 54259.485921904954,
    "lead_min": 499.485921904954,
@@ -5116,6 +5330,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 50880.0,
    "done": 52650.92321967738,
    "lead_min": 1770.923219677381,
@@ -5138,6 +5353,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 52320.0,
    "done": 52719.62039627863,
    "lead_min": 399.62039627863123,
@@ -5160,6 +5376,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 43680.0,
    "done": 46653.888299986305,
    "lead_min": 2973.8882999863054,
@@ -5182,6 +5399,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 52320.0,
    "done": 53779.39159121318,
    "lead_min": 1459.391591213178,
@@ -5204,6 +5422,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 46560.0,
    "done": 52410.08641274066,
    "lead_min": 5850.08641274066,
@@ -5226,6 +5445,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 45120.0,
    "done": 51096.33738382658,
    "lead_min": 5976.337383826583,
@@ -5248,6 +5468,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 50880.0,
    "done": 52678.018647452096,
    "lead_min": 1798.018647452096,
@@ -5270,6 +5491,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 52320.0,
    "done": 53865.88788800474,
    "lead_min": 1545.8878880047414,
@@ -5292,6 +5514,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 50880.0,
    "done": 52857.871891264935,
    "lead_min": 1977.8718912649347,
@@ -5314,6 +5537,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 50880.0,
    "done": 52758.07874806816,
    "lead_min": 1878.078748068161,
@@ -5336,6 +5560,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 50880.0,
    "done": 53926.06689755067,
    "lead_min": 3046.0668975506705,
@@ -5358,6 +5583,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 45120.0,
    "done": 51284.62128021542,
    "lead_min": 6164.621280215419,
@@ -5380,6 +5606,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 50880.0,
    "done": 54176.165043731984,
    "lead_min": 3296.165043731984,
@@ -5402,6 +5629,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 50880.0,
    "done": 54223.55016740814,
    "lead_min": 3343.550167408139,
@@ -5424,6 +5652,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 50880.0,
    "done": 54103.46062856899,
    "lead_min": 3223.460628568988,
@@ -5446,6 +5675,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 56640.0,
    "done": 57132.08416826173,
    "lead_min": 492.084168261732,
@@ -5468,6 +5698,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 55200.0,
    "done": 55706.97266785638,
    "lead_min": 506.97266785638203,
@@ -5490,6 +5721,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 53760.0,
    "done": 55300.89413960275,
    "lead_min": 1540.8941396027512,
@@ -5512,6 +5744,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 46560.0,
    "done": 51385.154358506275,
    "lead_min": 4825.1543585062755,
@@ -5534,6 +5767,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 52320.0,
    "done": 54144.978880414565,
    "lead_min": 1824.9788804145646,
@@ -5556,6 +5790,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 56640.0,
    "done": 57176.35190646039,
    "lead_min": 536.3519064603897,
@@ -5578,6 +5813,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 52320.0,
    "done": 53917.28738565929,
    "lead_min": 1597.2873856592923,
@@ -5600,6 +5836,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 46560.0,
    "done": 51380.46230262135,
    "lead_min": 4820.462302621352,
@@ -5622,6 +5859,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 53760.0,
    "done": 54287.89831004373,
    "lead_min": 527.8983100437326,
@@ -5644,6 +5882,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 45120.0,
    "done": 52516.30344265323,
    "lead_min": 7396.303442653232,
@@ -5666,6 +5905,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 46560.0,
    "done": 52394.82223787676,
    "lead_min": 5834.8222378767605,
@@ -5688,6 +5928,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 55200.0,
    "done": 56669.60205584421,
    "lead_min": 1469.6020558442106,
@@ -5710,6 +5951,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 53760.0,
    "done": 55384.34172623058,
    "lead_min": 1624.3417262305811,
@@ -5732,6 +5974,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 53760.0,
    "done": 55395.75851455456,
    "lead_min": 1635.75851455456,
@@ -5753,7 +5996,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B245",
@@ -5770,6 +6014,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 55200.0,
    "done": 56825.90738845369,
    "lead_min": 1625.907388453692,
@@ -5792,6 +6037,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 53760.0,
    "done": 55586.11899839623,
    "lead_min": 1826.1189983962322,
@@ -5814,6 +6060,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 55200.0,
    "done": 57022.9857923671,
    "lead_min": 1822.9857923671007,
@@ -5836,6 +6083,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 50880.0,
    "done": 55232.447309866584,
    "lead_min": 4352.447309866584,
@@ -5858,6 +6106,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 53760.0,
    "done": 55422.0969618993,
    "lead_min": 1662.0969618992967,
@@ -5880,6 +6129,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 52320.0,
    "done": 54098.1616004372,
    "lead_min": 1778.1616004371972,
@@ -5902,6 +6152,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 46560.0,
    "done": 52437.55950898395,
    "lead_min": 5877.559508983948,
@@ -5924,6 +6175,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 53760.0,
    "done": 55715.20160920757,
    "lead_min": 1955.201609207572,
@@ -5946,6 +6198,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 52320.0,
    "done": 53993.56276807623,
    "lead_min": 1673.5627680762336,
@@ -5967,7 +6220,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B255",
@@ -5983,7 +6237,8 @@
    "outsourced_wait": 0.0,
    "color": "그레이",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B256",
@@ -5999,7 +6254,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B257",
@@ -6016,6 +6272,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 56640.0
   },
   {
@@ -6033,6 +6290,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 55200.0,
    "done": 57129.00542019357,
    "lead_min": 1929.005420193571,
@@ -6054,7 +6312,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B260",
@@ -6071,6 +6330,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 56640.0
   },
   {
@@ -6088,6 +6348,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 53760.0,
    "done": 56662.46062673993,
    "lead_min": 2902.4606267399286,
@@ -6110,6 +6371,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 55200.0
   },
   {
@@ -6127,6 +6389,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 55200.0
   },
   {
@@ -6144,6 +6407,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 55200.0
   },
   {
@@ -6161,6 +6425,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 53760.0,
    "done": 55605.06916314117,
    "lead_min": 1845.0691631411682,
@@ -6182,7 +6447,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B267",
@@ -6199,6 +6465,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 53760.0,
    "done": 56730.161082333674,
    "lead_min": 2970.161082333674,
@@ -6221,6 +6488,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 52320.0,
    "done": 54232.65448387351,
    "lead_min": 1912.6544838735135,
@@ -6242,7 +6510,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B270",
@@ -6259,6 +6528,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 55200.0
   },
   {
@@ -6276,6 +6546,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 56640.0
   },
   {
@@ -6292,7 +6563,8 @@
    "outsourced_wait": 0.0,
    "color": "그레이",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B273",
@@ -6309,6 +6581,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 56640.0
   },
   {
@@ -6325,7 +6598,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B275",
@@ -6341,7 +6615,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B276",
@@ -6357,7 +6632,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B277",
@@ -6374,6 +6650,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 55200.0
   },
   {
@@ -6391,6 +6668,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 55200.0
   },
   {
@@ -6407,7 +6685,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B280",
@@ -6423,7 +6702,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B281",
@@ -6439,7 +6719,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B282",
@@ -6455,7 +6736,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B283",
@@ -6471,7 +6753,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B284",
@@ -6488,6 +6771,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 56640.0
   },
   {
@@ -6505,6 +6789,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 56640.0
   },
   {
@@ -6521,7 +6806,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B287",
@@ -6537,7 +6823,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B288",
@@ -6554,6 +6841,7 @@
    "color": "그레이",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 55200.0
   },
   {
@@ -6570,7 +6858,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B290",
@@ -6586,7 +6875,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B291",
@@ -6603,6 +6893,7 @@
    "color": "오크",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 56640.0
   },
   {
@@ -6619,7 +6910,8 @@
    "outsourced_wait": 0.0,
    "color": "그레이",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B293",
@@ -6635,7 +6927,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B294",
@@ -6651,7 +6944,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B295",
@@ -6667,7 +6961,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B296",
@@ -6683,7 +6978,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B297",
@@ -6699,7 +6995,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B298",
@@ -6715,7 +7012,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B299",
@@ -6732,6 +7030,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 56640.0
   },
   {
@@ -6748,7 +7047,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B301",
@@ -6765,6 +7065,7 @@
    "color": "화이트",
    "thickness": 18,
    "trace": null,
+   "ext_id": null,
    "release": 55200.0
   },
   {
@@ -6781,7 +7082,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B303",
@@ -6797,7 +7099,8 @@
    "outsourced_wait": 0.0,
    "color": "그레이",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B304",
@@ -6813,7 +7116,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B305",
@@ -6829,7 +7133,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B306",
@@ -6845,7 +7150,8 @@
    "outsourced_wait": 0.0,
    "color": "그레이",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B307",
@@ -6861,7 +7167,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B308",
@@ -6877,7 +7184,8 @@
    "outsourced_wait": 0.0,
    "color": "그레이",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B309",
@@ -6893,7 +7201,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B310",
@@ -6909,7 +7218,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B311",
@@ -6925,7 +7235,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B312",
@@ -6941,7 +7252,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B313",
@@ -6957,7 +7269,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B314",
@@ -6973,7 +7286,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B315",
@@ -6989,7 +7303,8 @@
    "outsourced_wait": 0.0,
    "color": "그레이",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B316",
@@ -7005,7 +7320,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B317",
@@ -7021,7 +7337,8 @@
    "outsourced_wait": 0.0,
    "color": "그레이",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B318",
@@ -7037,7 +7354,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B319",
@@ -7053,7 +7371,8 @@
    "outsourced_wait": 0.0,
    "color": "그레이",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B320",
@@ -7069,7 +7388,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B321",
@@ -7085,7 +7405,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B322",
@@ -7101,7 +7422,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B323",
@@ -7117,7 +7439,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B324",
@@ -7133,7 +7456,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B325",
@@ -7149,7 +7473,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B326",
@@ -7165,7 +7490,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B327",
@@ -7181,7 +7507,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B328",
@@ -7197,7 +7524,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B329",
@@ -7213,7 +7541,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B330",
@@ -7229,7 +7558,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B331",
@@ -7245,7 +7575,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B332",
@@ -7261,7 +7592,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B333",
@@ -7277,7 +7609,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B334",
@@ -7293,7 +7626,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B335",
@@ -7309,7 +7643,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B336",
@@ -7325,7 +7660,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B337",
@@ -7341,7 +7677,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B338",
@@ -7357,7 +7694,8 @@
    "outsourced_wait": 0.0,
    "color": "그레이",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B339",
@@ -7373,7 +7711,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B340",
@@ -7389,7 +7728,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B341",
@@ -7405,7 +7745,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B342",
@@ -7421,7 +7762,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B343",
@@ -7437,7 +7779,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B344",
@@ -7453,7 +7796,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B345",
@@ -7469,7 +7813,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B346",
@@ -7485,7 +7830,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B347",
@@ -7501,7 +7847,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B348",
@@ -7517,7 +7864,8 @@
    "outsourced_wait": 0.0,
    "color": "그레이",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B349",
@@ -7533,7 +7881,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B350",
@@ -7549,7 +7898,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B351",
@@ -7565,7 +7915,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B352",
@@ -7581,7 +7932,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B353",
@@ -7597,7 +7949,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B354",
@@ -7613,7 +7966,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B355",
@@ -7629,7 +7983,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B356",
@@ -7645,7 +8000,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B357",
@@ -7661,7 +8017,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B358",
@@ -7677,7 +8034,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B359",
@@ -7693,7 +8051,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B360",
@@ -7709,7 +8068,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B361",
@@ -7725,7 +8085,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B362",
@@ -7741,7 +8102,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B363",
@@ -7757,7 +8119,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B364",
@@ -7773,7 +8136,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B365",
@@ -7789,7 +8153,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B366",
@@ -7805,7 +8170,8 @@
    "outsourced_wait": 0.0,
    "color": "그레이",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B367",
@@ -7821,7 +8187,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B368",
@@ -7837,7 +8204,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B369",
@@ -7853,7 +8221,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B370",
@@ -7869,7 +8238,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B371",
@@ -7885,7 +8255,8 @@
    "outsourced_wait": 0.0,
    "color": "그레이",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B372",
@@ -7901,7 +8272,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B373",
@@ -7917,7 +8289,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B374",
@@ -7933,7 +8306,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B375",
@@ -7949,7 +8323,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B376",
@@ -7965,7 +8340,8 @@
    "outsourced_wait": 0.0,
    "color": "화이트",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   },
   {
    "id": "B377",
@@ -7981,7 +8357,8 @@
    "outsourced_wait": 0.0,
    "color": "오크",
    "thickness": 18,
-   "trace": null
+   "trace": null,
+   "ext_id": null
   }
  ],
  "scenario": {

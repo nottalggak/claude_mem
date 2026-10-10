@@ -63,14 +63,14 @@ class Station:
         self.res = simpy.PriorityResource(env, capacity=self.cap) if sim.f.get("rules", {}) and isinstance(sim.f.get("rules"), dict) and sim.f["rules"].get("dispatch") == "edd" else simpy.Resource(env, capacity=self.cap)
         self.edd = isinstance(self.res, simpy.PriorityResource)
         self.buffer = simpy.Resource(env, capacity=max(1, spec.get("buffer_batches", 4)) + self.cap)
-        self.down = False
+        self.down_reasons = set()  # "fault"(고장) / "absent"(결근) — 둘이 겹쳐도 서로 해제하지 않는다
         self.last_product = None
         self.busy_min = 0.0; self.setup_min = 0.0; self.down_min = 0.0; self.blocked_min = 0.0
         self.n_batches = 0; self.n_parts = 0; self.wait_total = 0.0; self.waits = []
         self.queue_len = 0; self.queue_series = [(0.0, 0)]
         self.state = "idle"
-        if spec.get("mtbf_min", 0) > 0 and self.process not in ("raw", "fg"):
-            env.process(self.breakdowns())
+        if spec.get("mtbf_min", 0) > 0 and self.process not in ("raw", "fg") and not sim.f["meta"].get("trace_no_breakdown"):
+            env.process(self.breakdowns())  # L0 트레이스 검증은 meta.trace_no_breakdown 으로 고장 표본추출을 끈다
         # 작업자 페이스 여부: 시간대 능률(hourly_factor)은 작업자 페이스 공정에만 적용(연구 20: 기계 페이스 공정은 시간대 효과가 사라진다)
         self.operator_paced = spec.get("paced", "operator" if self.process in ("assemble", "pack", "finish", "sand") else "machine") == "operator"
         absences = [a for a in (sim.f["meta"].get("absences") or []) if a.get("station") == self.id]
@@ -80,13 +80,18 @@ class Station:
     def absent_days(self, days):
         """결근 트레이스(연구 20 §5: v0.5 는 실제 출근부를 그대로 입력). 그 날의 근무시간 동안 down — 1인 운전 스테이션 가정, 다인 벤치는 capacity 를 별도 스테이션으로 나눠 둔다."""
         for d in days:
+            if not self.sim.shift.is_workday(d): continue  # 비근무일 결근은 의미 없음
             t0 = d * 1440 + self.sim.shift.start
             if t0 < self.env.now: continue
             yield self.env.timeout(t0 - self.env.now)
-            self.down = True; self.log_state("down"); self.sim.ev({"type": "absent", "station": self.id, "day": d})
+            self.down_reasons.add("absent"); self.log_state("down"); self.sim.ev({"type": "absent", "station": self.id, "day": d})
             yield self.env.timeout(self.sim.shift.end - self.sim.shift.start)
-            self.down_min += self.sim.shift.end - self.sim.shift.start
-            self.down = False; self.log_state("idle")
+            if "fault" not in self.down_reasons: self.down_min += self.sim.shift.end - self.sim.shift.start  # 고장과 겹치면 중복 적산 안 함
+            self.down_reasons.discard("absent"); self.log_state("idle" if not self.down else "down")
+
+    @property
+    def down(self):
+        return bool(self.down_reasons)
 
     def log_state(self, state):
         self.state = state
@@ -97,12 +102,12 @@ class Station:
             yield self.env.timeout(self.sim.rng.expovariate(1 / self.spec["mtbf_min"]))
             if not self.sim.shift.working(self.env.now):
                 continue
-            self.down = True
+            self.down_reasons.add("fault")
             d = self.sim.rng.expovariate(1 / self.spec["mttr_min"])
             self.log_state("down"); self.sim.ev({"type": "breakdown", "station": self.id, "duration": round(d, 1)})
             self.down_min += d
             yield self.env.timeout(d)
-            self.down = False
+            self.down_reasons.discard("fault")
             self.log_state("busy" if self.res.count else "idle")
 
     def part_time(self, part, product):
@@ -176,9 +181,9 @@ class Sim:
         o = self.f["orders"]
         oid = 0
         if o.get("mode") == "list":
-            for od in o["list"]:  # order_min(주문 접수) 이 있으면 그 시각에 접수(외주 발주 시계 시작), release_at 에 투입
+            for od in sorted(o["list"], key=lambda x: (x.get("order_min", x["release_min"]), x["release_min"])):  # order_min(주문 접수) 순으로 접수(외주 발주 시계 시작), release_at 에 투입
                 yield self.env.timeout(max(0, od.get("order_min", od["release_min"]) - self.env.now))
-                oid += 1; self.env.process(self.order_entry(oid, od["product"], od["qty"], od.get("due_min"), trace=od.get("trace"), release_at=od.get("release_at")))
+                oid += 1; self.env.process(self.order_entry(oid, od["product"], od["qty"], od.get("due_min"), trace=od.get("trace"), release_at=od.get("release_at"), ext_id=od.get("id")))
             return
         if o.get("mode") == "history":
             # 실제 주문 이력 재생(검증·홀드아웃용). order_date 의 요일이 Day 1(월) 에 맞도록 가장 이른 날짜의 요일만큼 오프셋
@@ -227,7 +232,7 @@ class Sim:
                 left -= 1
         return d
 
-    def order_entry(self, oid, pid, qty, due=None, trace=None, release_at=None):
+    def order_entry(self, oid, pid, qty, due=None, trace=None, release_at=None, ext_id=None):
         """고객 주문 접수 → (시공일 역산) 투입 시점까지 대기 → 외주 발주 → 재단 배치 풀 또는 즉시 흐름
         trace: {스테이션ID: 관측 가공 분} — 트레이스 구동 검증(구조 오차 분리, 03 §8). 있으면 그 스테이션의 가공시간을 표본추출하지 않고 관측값으로 고정.
         release_at: 관측 투입 시각(분) — 있으면 D-n 역산 대신 그 시각에 투입."""
@@ -236,7 +241,7 @@ class Sim:
         parts = self.expand(pid, qty)
         batch = {"id": f"B{oid:03d}", "product": pid, "qty": qty, "n_parts": len(parts), "order_t": self.env.now, "due": due,
                  "transport_wait": 0.0, "transport_dist": 0.0, "queue_wait": 0.0, "proc_time": 0.0, "outsourced_wait": 0.0, "steps": [],
-                 "color": prod.get("color", "-"), "thickness": prod.get("thickness", 18), "parts": parts, "trace": trace or None}
+                 "color": prod.get("color", "-"), "thickness": prod.get("thickness", 18), "parts": parts, "trace": trace or None, "ext_id": ext_id}
         self.batches.append(batch)
         batch["outsourced_ready"] = {}
         for ou in self.f.get("outsourced", []):
@@ -442,7 +447,9 @@ class Sim:
                 t_start = self.env.now
                 tr_key = st.id if (batch.get("trace") and st.id in batch["trace"]) else next((k for k in (batch.get("trace") or {}) if k in self.stations and self.stations[k].process == proc), None)
                 if tr_key is not None:
-                    yield from self.work_unit(st, float(batch["trace"][tr_key]))  # 트레이스 구동: 관측 가공시간 고정(L1 에서 다른 대체기를 골랐으면 같은 공정의 관측 시간)
+                    left = float(batch["trace"][tr_key])  # 트레이스 구동: 관측 '근무 분' 고정. 5분 조각으로 흘려 휴게·야간·고장에서 끊기게(한 번에 흘리면 점심을 통과한다 — 리뷰 22 F-2)
+                    while left > 1e-9:
+                        step = min(left, 5.0); yield from self.work_unit(st, step, traced=True); left -= step
                 elif st.spec.get("batch_time_min"):
                     yield self.env.timeout(st.spec["batch_time_min"]); st.busy_min += st.spec["batch_time_min"]
                 elif proc == "cut":
@@ -491,14 +498,14 @@ class Sim:
             prev_slot = None
         return cur, cur_pos, prev_slot
 
-    def work_unit(self, st, minutes):
-        """휴식/고장 시 중단되는 가공 단위"""
+    def work_unit(self, st, minutes, traced=False):
+        """휴식/고장 시 중단되는 가공 단위. traced=True 면 관측값이므로 시간대 능률을 다시 곱하지 않는다(이중 보정 방지)"""
         if minutes <= 0:
             return
         yield self.shift.wait()
         while st.down:
             yield self.env.timeout(1)
-        if st.operator_paced:
+        if st.operator_paced and not traced:
             minutes = minutes / self.shift.factor(self.env.now)  # 시간대 능률(아침 워밍업·점심 후 저하·종업 전 정리) — 작업자 페이스 공정만
         yield self.env.timeout(minutes)
         st.busy_min += minutes

@@ -53,14 +53,15 @@ def main():
             # 결정 시점 = max(이 배치 도착, 이 스테이션에서 착수 전 가장 최근에 끝난 작업의 종료) — 후보는 그 시점에 도착해 있고 아직 착수 안 한 배치
             i = bisect.bisect_left(ends, s["start"]); freed = ends[i - 1] if i > 0 else 0.0
             now = max(s["arrive"], freed)
-            cands = [c for c in ss if c["arrive"] <= now + 1e-9 and c["start"] >= s["start"] - 1e-9]
+            same_t = [c for c in ss if abs(c["start"] - s["start"]) < 1e-6]  # 동시 착수 집합(다슬롯 스테이션): 어느 것이 먼저 선택됐는지 구분 불가 → 집합 중 하나면 적중
+            cands = [c for c in ss if c["arrive"] <= now + 1e-9 and c["start"] > s["start"] + 1e-9] + same_t
             if len(cands) < a.min_candidates:
                 prev = s["product"]; continue
             n += 1; cand_n.append(len(cands)); rand += 1 / len(cands)
             pick = {}
             for r, key in rules.items():
                 vals = [(key(c, now, prev), c["batch"]) for c in cands]; best = min(v for v, _ in vals); ties = [b for v, b in vals if v == best]
-                if s["batch"] in ties: score[r] += 1 / len(ties)
+                if s["batch"] in ties or any(c["batch"] in ties for c in same_t): score[r] += 1 / len(ties)
                 pick[r] = set(ties)
             for ra in rules:
                 for rb in rules:
@@ -77,10 +78,13 @@ def main():
         lines.append(f"| {sid} | {n} | {statistics.mean(cand_n):.1f} | " + " | ".join(f"{rates[r]:.0%}" for r in rules) + f" | {rand / n:.0%} | **{best}** | {max(0, lo):.0%} |")
     if total["FIFO"][1]:
         N = total["FIFO"][1]; rates = {r: total[r][0] / N for r in rules}; best = max(rates, key=rates.get); pb = rates[best]; lo = wilson_lo(pb, N)
-        base = max(rates["FIFO"], rates["EDD"]); lift = pb - base if best not in ("FIFO", "EDD") else pb - min(rates["FIFO"], rates["EDD"])
+        second = sorted(rules, key=lambda r: rates[r])[-2]; nd = (disc.get((best, second)) or disc.get((second, best)) or [0, 0, 0])
+        simple = {r: rates[r] for r in ("FIFO", "EDD")}; base_r = max(simple, key=simple.get)
+        lift = pb - (rates[second] if best in ("FIFO", "EDD") else simple[base_r])  # 최선 단순 기준선 대비(연구 19 §4); best 가 단순 규칙이면 차순위 대비
         lines.append("| **전체** | %d | — | " % N + " | ".join(f"{rates[r]:.0%}" for r in rules) + f" | {total_rand[0] / total_rand[1]:.0%} | **{best}** | {lo:.0%} |")
         if N < 20: verdict = "탐색적(유효 결정 <20) — 판정 보류, 기록 기간 2주 연장"
-        elif pb >= 0.75 and lo >= 0.60 and (best in ("FIFO", "EDD") or lift >= 0.15): verdict = f"규칙층 복제 가능: {best} (재현율 {pb:.0%}, Wilson 하한 {lo:.0%})"
+        elif pb >= 0.75 and lo >= 0.60 and nd[2] < 10: verdict = f"복제 가능하나 **식별 불가**: {best}≈{second} (판별 결정 {nd[2]}건 <10 — 이 기록으로는 둘을 구분 못 함; 트윈에는 어느 쪽을 넣어도 같고 시나리오 축으로만 의미)"
+        elif pb >= 0.75 and lo >= 0.60 and (lift >= 0.15 or (nd[2] >= 10 and nd[0] >= 0.8 * nd[2])): verdict = f"규칙층 복제 가능: {best} (재현율 {pb:.0%}, Wilson 하한 {lo:.0%}, {second} 대비 판별 {nd[0]}/{nd[2]})"
         elif pb >= 0.60: verdict = f"조건부 복제: {best} (재현율 {pb:.0%}) — 민감도에 규칙 변형(타이브레이커·묶음 창 ±)을 포함하고 한계를 명시"
         else: verdict = "미복제: 어떤 단순 규칙도 설명 못 함 → 미스 리뷰(기록에 없는 정보: 사장 지시·자재·결근), 상태 의존 혼합 규칙, 또는 규칙을 시나리오 축으로"
         lines.append(f"\n**판정(연구 19 기준: 재현율 ≥0.75, Wilson 95% 하한 ≥0.60, 단순 기준선 대비 lift ≥0.15)**: {verdict}")

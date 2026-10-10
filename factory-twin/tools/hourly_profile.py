@@ -34,13 +34,17 @@ def main():
             mean = sum(d for _, d in xs) / len(xs)
             for t0, d in xs:
                 h = int((t0 % 1440) // 60); ratio.setdefault(h, []).append(d / mean)
-        print("| 착수 시각 | 단계 수 | 가공 길이 / 스테이션 평균 | 능률 배수(역수) |"); print("|---|---|---|---|")
-        out = {}
+        print("| 착수 시각 | 단계 수 | 가공 길이 / 그룹 평균 | SE | 능률 배수(역수) |"); print("|---|---|---|---|---|")
+        out = {}; ses = {}
         for h in sorted(ratio):
             if len(ratio[h]) < 5: continue
-            m = sum(ratio[h]) / len(ratio[h]); out[str(h)] = round(1 / m, 2); print(f"| {h:02d}:00 | {len(ratio[h])} | {m:.2f} | {1 / m:.2f} |")
+            xs = ratio[h]; m = sum(xs) / len(xs); se = (sum((x - m) ** 2 for x in xs) / (len(xs) - 1)) ** 0.5 / len(xs) ** 0.5
+            out[str(h)] = round(1 / m, 2); ses[str(h)] = round(se / m, 3); print(f"| {h:02d}:00 | {len(xs)} | {m:.2f} | {se:.3f} | {1 / m:.2f} |")
         if out:
-            spread = max(out.values()) - min(out.values()); print(f"\n능률 배수 범위 {min(out.values()):.2f}~{max(out.values()):.2f} (폭 {spread:.2f}) →", "hourly_factor 반영" if spread >= 0.2 else "생략 가능(CV 흡수)")
+            spread = max(out.values()) - min(out.values()); mse = max(ses.values())
+            ok = spread >= 0.2 and spread > 2 * mse
+            print(f"\n능률 배수 범위 {min(out.values()):.2f}~{max(out.values()):.2f} (폭 {spread:.2f}, 최대 SE {mse:.3f}) →", "hourly_factor 반영(폭 ≥0.20 이고 폭 > 2×SE)" if ok else "생략 가능(CV 흡수 — 폭이 작거나 잡음 수준)")
+            print("제외: 가공 길이 >300분 단계(재단·건조 등 배치 단위)는 집계하지 않는다.")
             if a.out: pathlib.Path(a.out).write_text(json.dumps({"hourly_factor": out, "basis": "cycle_length"}, ensure_ascii=False, indent=1), encoding="utf-8")
         return
     if a.src.endswith(".jsonl"):
@@ -69,14 +73,14 @@ def main():
     rate = {h: counts.get(h, 0) / nd / (work_min[h] / 60) for h in range(24) if work_min[h] >= a.min_work_min}
     if not rate: print("근무 시각 데이터 없음"); return
     avg = sum(rate[h] * work_min[h] for h in rate) / sum(work_min[h] for h in rate)
-    factor = {str(h): round(rate[h] / avg, 2) for h in rate}
+    factor = {str(h): round(rate[h] / avg, 2) for h in rate}  # 완료 건수 프로파일 — 시간대 능률이 아니다(상류 기아·휴게 직후 몰림 포함). hourly_factor 로 쓰지 말 것
     print("| 시각 | 근무 분 | 시간당 처리(일 평균) | 배수 |"); print("|---|---|---|---|")
     for h in sorted(rate): print(f"| {h:02d}:00 | {work_min[h]} | {rate[h]:.1f} | {factor[str(h)]:.2f} |")
     spread = max(factor.values()) - min(factor.values())
     print(f"\n일수 {nd}, 교대 평균 {avg:.1f}/시간, 배수 범위 {min(factor.values()):.2f}~{max(factor.values()):.2f} (폭 {spread:.2f})")
-    print("판정:", "폭 ≥ 0.20 → meta.shift.hourly_factor 에 넣는다(시간별 출력·피크 전력 재현에 필요)" if spread >= 0.2 else "폭 < 0.20 → v0.5 에서는 생략 가능(CV 에 흡수), 일 합계 KPI 에 영향 미미")
+    print("판정: 이것은 **완료 건수 프로파일**(교차검증·시간별 출력 검증용)이며 능률 배수가 아니다 — 리듬 없는 시뮬에서도 폭 0.4 가 나온다. 능률 배수는 --cycle 로 만든다.")
     print("주의: 카운터는 '완료 건수'라 상류 기아(starvation)도 낮은 배수로 잡힌다 — CT 로그의 '가동 중 사이클 길이'와 교차 확인. 같은 시각이 매일 낮으면 리듬, 특정 날만 낮으면 고장·결품.")
-    if a.out: pathlib.Path(a.out).write_text(json.dumps({"hourly_factor": factor, "days": nd, "avg_per_hour": round(avg, 2)}, ensure_ascii=False, indent=1), encoding="utf-8"); print("wrote", a.out)
+    if a.out: pathlib.Path(a.out).write_text(json.dumps({"count_profile": factor, "days": nd, "avg_per_hour": round(avg, 2), "note": "hourly_factor 아님 — --cycle 결과를 쓸 것"}, ensure_ascii=False, indent=1), encoding="utf-8"); print("wrote", a.out)
 
 
 if __name__ == "__main__":

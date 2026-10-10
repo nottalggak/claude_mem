@@ -7,7 +7,7 @@ import csv, sys, argparse, json, pathlib, statistics, datetime as dt
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("states"); ap.add_argument("--tz", type=float, default=9); ap.add_argument("--out"); ap.add_argument("--short", type=float, default=2); ap.add_argument("--long", type=float, default=10)
+    ap = argparse.ArgumentParser(); ap.add_argument("states"); ap.add_argument("--tz", type=float, default=9); ap.add_argument("--out"); ap.add_argument("--short", type=float, default=2); ap.add_argument("--long", type=float, default=10); ap.add_argument("--factory", help="factory.json: 휴게 시간대와 겹치는 공백은 '달력 블록'으로 분리")
     a = ap.parse_args()
     segs = []
     for r in csv.DictReader(open(a.states, encoding="utf-8")):
@@ -28,10 +28,18 @@ def main():
     print(f"## 유효 근무창 ({len(by_day)}일)\n첫 가동 중앙값 {hm(statistics.median(firsts))} (최빠름 {hm(min(firsts))}, 최늦음 {hm(max(firsts))}) / 마지막 가동 중앙값 {hm(statistics.median(lasts))} / 일 가동 분 중앙값 {statistics.median(run_min):.0f} (최소 {min(run_min):.0f}, 최대 {max(run_min):.0f})")
     print("→ meta.shift.start 는 첫 가동 중앙값, end 는 마지막 가동 중앙값으로 두고 명목 시업·종업과의 차이를 '시업 지연·청소 블록'으로 적는다(승수가 아니라 달력 블록으로, 연구 20 §1.4). 일 가동 분이 중앙값의 70% 아래인 날은 결근·결품·고장 후보 → 출근부와 대조.")
     # (2) idle gaps
-    gaps = []
+    breaks = []
+    if a.factory:
+        sh = json.loads(pathlib.Path(a.factory).read_text(encoding="utf-8"))["meta"]["shift"]; hm = lambda x: int(x[:2]) * 60 + int(x[3:5])
+        breaks = [(hm(b[0]), hm(b[1])) for b in sh.get("breaks", [])]
+    gaps = []; blocked = []
     for i in range(1, len(runs)):
         g = (runs[i][1] - runs[i - 1][2]) / 60
-        if 0 < g < 240 and dt.datetime.fromtimestamp(runs[i][1], dt.timezone.utc).date() == dt.datetime.fromtimestamp(runs[i - 1][2], dt.timezone.utc).date(): gaps.append(g)
+        if not (0 < g < 240 and dt.datetime.fromtimestamp(runs[i][1], dt.timezone.utc).date() == dt.datetime.fromtimestamp(runs[i - 1][2], dt.timezone.utc).date()): continue
+        t0 = dt.datetime.fromtimestamp(runs[i - 1][2], dt.timezone.utc); m0 = t0.hour * 60 + t0.minute; m1 = m0 + g
+        if any(m0 < b1 and m1 > b0 for b0, b1 in breaks): blocked.append(g); continue  # 휴게와 겹침 → 달력 블록(비가용 이벤트가 아님)
+        gaps.append(g)
+    if blocked: print(f"휴게 시간대와 겹치는 공백 {len(blocked)}건(합 {sum(blocked):.0f}분)은 달력 블록으로 분리(비가용 이벤트에서 제외)")
     sh = [g for g in gaps if g < a.short]; md = [g for g in gaps if a.short <= g < a.long]; lg = [g for g in gaps if g >= a.long]
     tot = sum(gaps) or 1
     print(f"\n## idle-gap 분해 (가동 사이 공백 {len(gaps)}건, 같은 날·4시간 미만)\n| 구간 | 건수 | 비율(건) | 시간 합(분) | 비율(시간) | 중앙값(분) | 모델 반영 |\n|---|---|---|---|---|---|---|")
