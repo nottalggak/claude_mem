@@ -9,6 +9,7 @@ python3 data/build_sample.py
 python3 sim/compare.py --seeds 5          # sim/out/comparison.md, sim/out/<scenario>/{events.jsonl,kpis.json}
 python3 sim/sensitivity.py --seeds 2      # sim/out/sensitivity.md (재측정 우선순위)
 python3 sim/validate.py                   # factory.json observations.validation 대조 (복제 합격 판정)
+python3 sim/uncertainty.py --B 10         # sim/out/uncertainty.md (시나리오 효과 신뢰구간·P(개선))
 python3 tools/data_quality.py             # 파라미터 출처 스코어카드
 python3 -m http.server 8000               # viewer/index.html 열기
 ```
