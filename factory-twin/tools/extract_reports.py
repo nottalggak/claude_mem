@@ -24,6 +24,7 @@ NAMES = {
     "a73d32a0da367d61b": "19_rule_layer_elicitation_and_fitting.md",
     "a50c5f25237d13ab3": "20_human_variability_daily_rhythm.md",
     "a5d870b2d94a64b9f": "21_twin_maintenance_drift_data_pipeline.md",
+    "a535444f5520ca379": "22_third_review_validation_tools.md",
 }
 OUT.mkdir(parents=True, exist_ok=True)
 for aid, name in NAMES.items():
