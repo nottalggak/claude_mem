@@ -1,17 +1,17 @@
 # 08. 시트 → 파라미터 → KPI 지도 (빈칸이 결론을 어떻게 흔드는가)
 
-목적: 현장에서 어떤 시트를 비우고 오면 모델의 어느 파라미터가 **기본값(추정)** 으로 남고, 그것이 어느 결론(§1.2 KPI)을 흔드는지 한 표로 본다. 변환기 `tools/templates_to_json.py` 의 실제 동작과 샘플 민감도(`sim/out/sensitivity.md`, ±20%, 40일)·보정 라운드트립(03 §10.3)에 근거한다. 등급은 `tools/data_quality.py` 의 출처(measured/record/interview/estimated).
+목적: 현장에서 어떤 시트를 비우고 오면 모델의 어느 파라미터가 **기본값(추정)** 으로 남고, 그것이 어느 결론(§1.2 KPI)을 흔드는지 한 표로 본다. 변환기 `tools/templates_to_json.py` 의 실제 동작과 샘플 민감도(`sim/out/sensitivity.md`, ±20%, 40일, 13주문/일 중부하; 과부하 17주문/일 시험 실행은 03 §10.2)·보정 라운드트립(03 §10.3)에 근거한다. 등급은 `tools/data_quality.py` 의 출처(measured/record/interview/estimated).
 
 | 시트 | 만드는 파라미터(`factory.json`) | 비우면 변환기가 하는 일 | 흔들리는 결론 | 샘플 민감도 | 당일 최소 | 보정·검증 지표(이 파라미터가 직접 움직이는 KPI) |
 |---|---|---|---|---|---|---|
 | 0 공장기본 | `meta.shift`(시작·종료·휴게·주 근무일수), 잔업 메모 | 08:00~17:00, 주 5일 가정 | 처리량/일·납기준수율의 **분모**(근무 분) | — (구조) | 전부 | `shift_min_per_day`, 달력(주말 출하 유무) |
-| 1 구역 | `zones`(통로·적치·공정 구역) | 구역 없음 → A* 운반 경로가 직선 | 운반 거리·동선 시나리오(S3) | 운반 속도 4위(리드타임 11.5%p) | 평면도 + 레이저 제어치수 | `transport.distance_per_product_m` |
-| 2 기계대장 | `stations[]` 위치·크기·대수·v_f·G·통과 횟수·가용률(소정지·예열)·MTBF/MTTR·버퍼·이동 등급 | kW 5 가정, MTBF 0(고장 없음), 버퍼 무한, 가용률 1.0 | 병목 순위, 가동률, **비수기엔 MTTR 이 2순위** | MTTR(EB2) 6위, 버퍼(CUT2) 9위 | 명판·대수·버퍼 칸 수·"소정지 몇 번/시간" | `stations.<ID>.utilization`, 고장 이벤트 수 |
+| 1 구역 | `zones`(통로·적치·공정 구역) | 구역 없음 → A* 운반 경로가 직선 | 운반 거리·동선 시나리오(S3) | 중부하에선 하위, 과부하(17/일)에선 운반 속도 4위 | 평면도 + 레이저 제어치수 | `transport.distance_per_product_m` |
+| 2 기계대장 | `stations[]` 위치·크기·대수·v_f·G·통과 횟수·가용률(소정지·예열)·MTBF/MTTR·버퍼·이동 등급 | kW 5 가정, MTBF 0(고장 없음), 버퍼 무한, 가용률 1.0 | 병목 순위, 가동률, **비수기엔 MTTR 이 2순위** | **EB1 MTTR 4위**, CUT1·BOR2 MTTR 8·9위, CUT1 버퍼 10위 | 명판·대수·버퍼 칸 수·"소정지 몇 번/시간" | `stations.<ID>.utilization`, 고장 이벤트 수 |
 | 3 부대설비 | `ancillary[]`(집진·컴프레서 kW·운전 모드·부하율) | 없음 → 전력 kWh 20~40% 과소 | 전력·요금·VFD 시나리오 | — | 명판 + "아침 ON~퇴근 OFF" | `energy.total_kwh` (15분 적분) |
-| 4 사이클타임 | `stations[].cycle`(base·per_unit 회귀·cv·n) — 엣지는 Σ(L+G)/v_f+γ0+γ1·N, 보링은 홀 수 | **1분/부품 가정**(가장 흔한 오류 원인) | 병목 순위·가동률·리드타임 전부 | 런닝쏘 2위(17.3%p), 보링 3위, 조립 5위 | 병목 후보 ≥10회(평정·첫 사이클 표시) | `stations.<ID>.utilization` — 시공일 역산 체제에선 처리량이 아니라 **가동률**로 보정(§10.3) |
-| 5 셋업 | `stations[].setup_min`(쌍 평균), 빈도 | 시트 2 셋업 열 또는 0 | 성수기 체제 2순위, SMED(S4) | BOR2 13위, CUT2 16위 | 발생 시 1회 전체 관찰 | `setups_per_day` |
-| 6 작업자 | `transport.handlers`(운반 역할 수), `workers[]`(v1) | 운반 2명 가정 | 운반 대기, 배치 절반(S2)의 실현 가능성 | 운반 속도 4위·적재하역 12위 | 역할표 | `transport.handler_utilization` |
-| 7 제품·BOM | `products[]` 부품 수·치수·엣지 변·홀·색상·두께, `orders.batch_size`, `mix` | 제품 없음 → 시뮬 불가 | **배치 크기 규칙 1위**(리드타임 52.5%p) | 1위 | 4~8종 BOM + 재단표 1장 | `avg_wip_batches`, `lead_time_work_min_avg` |
+| 4 사이클타임 | `stations[].cycle`(base·per_unit 회귀·cv·n) — 엣지는 Σ(L+G)/v_f+γ0+γ1·N, 보링은 홀 수 | **1분/부품 가정**(가장 흔한 오류 원인) | 병목 순위·가동률·리드타임 전부 | 런닝쏘 2위(리드타임 17%p), 재단 CNC 3위, 조립 벤치 5위, 보링 7위 | 병목 후보 ≥10회(평정·첫 사이클 표시) | `stations.<ID>.utilization` — 시공일 역산 체제에선 처리량이 아니라 **가동률**로 보정(§10.3) |
+| 5 셋업 | `stations[].setup_min`(쌍 평균), 빈도 | 시트 2 셋업 열 또는 0 | 성수기 체제 2순위, SMED(S4) | ASM6 셋업 6위(중부하), BOR2·CUT2 셋업 13~16위(과부하) | 발생 시 1회 전체 관찰 | `setups_per_day` |
+| 6 작업자 | `transport.handlers`(운반 역할 수), `workers[]`(v1) | 운반 2명 가정 | 운반 대기, 배치 절반(S2)의 실현 가능성 | 중부하 하위, 과부하 운반 속도 4위·적재하역 12위 | 역할표 | `transport.handler_utilization` |
+| 7 제품·BOM | `products[]` 부품 수·치수·엣지 변·홀·색상·두께, `orders.batch_size`, `mix` | 제품 없음 → 시뮬 불가 | **배치 크기 규칙 1위**(처리량 34%p·리드타임 50%p) | 1위(두 체제 모두) | 4~8종 BOM + 재단표 1장 | `avg_wip_batches`, `lead_time_work_min_avg` |
 | 8 주문이력 | `orders.orders_per_day`, `install_lead_days`(min/mode/max), `history_list`(`--history` 로 재생) | 8건/일·D-2 가정 → 체제 자체가 틀림 | 납기준수율·WIP·"성수기/비수기" 구분 | 배치 크기와 결합 | 3개월 시공캘린더·세금계산서 | `on_time_ratio`, `order_lead_days_avg` |
 | 10 동선 | (직접 파라미터 없음) 카메라 trips·스파게티 검증 | — | 레이아웃 시나리오의 **검증** | — | 배치 1~2건 추적 | `transport.loaded/empty_distance_m` |
 | 11 전력측정 | `stations[].power`(정지/공회전/가공 kW) | 명판×0.3/0.6 가정 | kWh/제품·TOU 요금 | — | 상위 5대 클램프(D0 가능) | `energy.total_kwh`, 15분 피크 |
@@ -26,7 +26,7 @@
 | 20 외주경로 | `outsourced[]`(발주 시점·리드타임·합류·지연) | 외주 없음 → 조립 대기 과소 | 납기준수율·조립 대기 | — | 도어·상판 2행 | `outsourced_wait_avg_min` |
 | 21 from-to | 검증(운반 횟수) | — | 운반 모델 검증 | — | 주요 5쌍 | `move` 이벤트 집계 |
 | 22 REL | 레이아웃 제안 입력(SLP) | — | 레이아웃 제안 품질 | — | 2차 방문 | — |
-| 23 운반·출하 | `transport.carts`·속도·적재하역·`shipping`(수집만) | 대차 무제한·1.2 m/s·1.5분 | 운반 제약(S8)·배치 절반(S2) | 속도 4위·적재하역 12위 | 대차 수·적재량 | `cart_wait_avg_min`, `transport.handler_utilization` |
+| 23 운반·출하 | `transport.carts`·속도·적재하역·`shipping`(수집만) | 대차 무제한·1.2 m/s·1.5분 | 운반 제약(S8)·배치 절반(S2) | 과부하 체제에서만(S8: 17/일 −14%, 13/일 ±1%) | 대차 수·적재량 | `cart_wait_avg_min`, `transport.handler_utilization` |
 | 24 카메라보정 | 동선 좌표 변환(픽셀→바닥) | 동선 거리 오차 10~30% | 동선·레이아웃 검증 | — | 제어점 6개/카메라 | — |
 
 읽는 법:

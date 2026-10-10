@@ -1,49 +1,49 @@
 # 민감도 스크리닝 (±20%, seed 2회)
 
-베이스라인: 처리량 90.0/일, 리드타임 933분, 병목 CUT2
+베이스라인: 처리량 92.2/일, 리드타임 753분, 병목 CUT2
 
 | 순위 | 파라미터 | 처리량 변동폭(%p) | 리드타임 변동폭(%p) | 병목(−20%) | 병목(+20%) | 재측정 우선순위 |
 |---|---|---|---|---|---|---|
-| 1 | orders.batch_size(배치크기) | 7.6 | 52.5 | CUT2 | CUT2 | 높음 |
-| 2 | CUT1.cycle(가공시간) | 11.9 | 17.3 | CUT2 | CUT2 | 높음 |
-| 3 | BOR1.cycle(가공시간) | 5.7 | 13.8 | CUT2 | CUT2 | 높음 |
-| 4 | transport.handler_speed(운반속도) | 6.1 | 11.5 | CUT2 | CUT2 | 높음 |
-| 5 | ASM2.cycle(가공시간) | 1.8 | 13.3 | CUT2 | CUT2 | 높음 |
-| 6 | EB2.mttr(수리시간) | 0.8 | 6.8 | CUT2 | CUT2 | 높음 |
-| 7 | CUT1.mttr(수리시간) | 3.0 | 4.1 | CUT2 | CUT2 | 높음 |
-| 8 | DRY1.batch_time(배치시간) | 0.6 | 6.4 | CUT2 | CUT2 | 높음 |
-| 9 | CUT2.buffer(버퍼용량) | 0.4 | 6.0 | CUT2 | CUT2 | 높음 |
-| 10 | PACK2.cycle(가공시간) | 1.1 | 5.3 | CUT2 | CUT2 | 높음 |
-| 11 | CUT2.mttr(수리시간) | 4.3 | 2.1 | CUT2 | CUT2 | 중간 |
-| 12 | transport.load_unload(적재하역) | 0.9 | 5.4 | CUT2 | CUT2 | 중간 |
-| 13 | BOR2.setup(셋업) | 0.4 | 5.5 | CUT2 | CUT2 | 중간 |
-| 14 | EB2.cycle(가공시간) | 2.9 | 1.9 | CUT2 | CUT2 | 중간 |
-| 15 | ASM5.setup(셋업) | 2.9 | 1.3 | CUT2 | CUT2 | 중간 |
-| 16 | CUT2.setup(셋업) | 0.4 | 3.7 | CUT2 | CUT2 | 중간 |
-| 17 | BOR2.cycle(가공시간) | 0.1 | 3.9 | CUT2 | CUT2 | 중간 |
-| 18 | BOR1.setup(셋업) | 1.2 | 2.7 | CUT2 | CUT2 | 중간 |
-| 19 | EB1.mttr(수리시간) | 0.4 | 3.5 | CUT2 | CUT2 | 중간 |
-| 20 | ASM6.cycle(가공시간) | 0.9 | 2.8 | CUT2 | CUT2 | 중간 |
-| 21 | CUT2.cycle(가공시간) | 3.0 | 0.7 | CUT1 | CUT2 | 낮음(추정 유지 가능) |
-| 22 | EB2.setup(셋업) | 3.6 | 0.1 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 23 | ASM4.cycle(가공시간) | 3.1 | 0.3 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 24 | ASM1.cycle(가공시간) | 2.1 | 1.3 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 25 | EB1.setup(셋업) | 0.3 | 2.7 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 26 | CUT1.buffer(버퍼용량) | 0.2 | 2.7 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 27 | FIN1.setup(셋업) | 1.0 | 1.7 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 28 | ASM6.setup(셋업) | 0.8 | 1.7 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 29 | EB1.cycle(가공시간) | 2.2 | 0.3 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 30 | BOR2.mttr(수리시간) | 2.0 | 0.4 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 31 | ASM4.setup(셋업) | 0.8 | 1.4 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 32 | BOR1.mttr(수리시간) | 1.3 | 0.5 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 33 | ASM1.setup(셋업) | 1.0 | 0.7 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 34 | ASM3.setup(셋업) | 0.2 | 1.5 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 35 | FIN1.cycle(가공시간) | 1.3 | 0.3 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 36 | ASM2.setup(셋업) | 0.0 | 1.5 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 37 | ASM5.cycle(가공시간) | 0.6 | 0.4 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 38 | CUT1.setup(셋업) | 0.4 | 0.4 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 39 | ASM3.cycle(가공시간) | 0.6 | 0.0 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
-| 40 | PACK1.cycle(가공시간) | 0.2 | 0.2 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 1 | orders.batch_size(배치크기) | 33.9 | 50.1 | CUT2 | CUT2 | 높음 |
+| 2 | CUT1.cycle(가공시간) | 1.8 | 17.1 | CUT2 | CUT2 | 높음 |
+| 3 | CUT2.cycle(가공시간) | 0.8 | 12.6 | CUT2 | CUT2 | 높음 |
+| 4 | EB1.mttr(수리시간) | 0.4 | 8.1 | CUT2 | CUT2 | 높음 |
+| 5 | ASM4.cycle(가공시간) | 1.4 | 5.0 | CUT2 | CUT2 | 높음 |
+| 6 | ASM6.setup(셋업) | 0.0 | 6.3 | CUT2 | CUT2 | 높음 |
+| 7 | BOR1.cycle(가공시간) | 0.2 | 5.6 | CUT2 | CUT2 | 높음 |
+| 8 | CUT1.mttr(수리시간) | 0.1 | 4.3 | CUT2 | CUT2 | 높음 |
+| 9 | BOR2.mttr(수리시간) | 0.3 | 3.9 | CUT2 | CUT2 | 높음 |
+| 10 | CUT1.buffer(버퍼용량) | 0.0 | 4.0 | CUT2 | CUT2 | 높음 |
+| 11 | DRY1.batch_time(배치시간) | 0.3 | 3.6 | CUT2 | CUT2 | 중간 |
+| 12 | EB2.cycle(가공시간) | 0.2 | 3.4 | CUT2 | CUT2 | 중간 |
+| 13 | ASM2.cycle(가공시간) | 0.0 | 3.4 | CUT2 | CUT2 | 중간 |
+| 14 | EB1.cycle(가공시간) | 0.6 | 2.8 | CUT2 | CUT2 | 중간 |
+| 15 | CUT2.mttr(수리시간) | 0.3 | 3.0 | CUT2 | CUT2 | 중간 |
+| 16 | BOR2.cycle(가공시간) | 0.4 | 2.9 | CUT2 | CUT2 | 중간 |
+| 17 | BOR1.setup(셋업) | 0.1 | 3.1 | CUT2 | CUT2 | 중간 |
+| 18 | EB1.setup(셋업) | 0.7 | 2.5 | CUT2 | CUT2 | 중간 |
+| 19 | CUT1.setup(셋업) | 0.3 | 2.7 | CUT2 | CUT2 | 중간 |
+| 20 | BOR2.setup(셋업) | 1.4 | 1.6 | CUT2 | CUT2 | 중간 |
+| 21 | ASM1.setup(셋업) | 0.8 | 2.1 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 22 | PACK2.cycle(가공시간) | 0.8 | 2.0 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 23 | ASM6.cycle(가공시간) | 0.4 | 2.3 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 24 | ASM4.setup(셋업) | 0.3 | 2.3 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 25 | ASM2.setup(셋업) | 0.4 | 2.2 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 26 | transport.load_unload(적재하역) | 0.9 | 1.5 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 27 | CUT2.setup(셋업) | 0.7 | 1.7 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 28 | BOR1.mttr(수리시간) | 1.1 | 1.3 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 29 | FIN1.setup(셋업) | 0.7 | 1.6 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 30 | EB2.mttr(수리시간) | 0.1 | 2.2 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 31 | CUT2.buffer(버퍼용량) | 0.5 | 1.7 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 32 | ASM5.cycle(가공시간) | 0.7 | 1.4 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 33 | ASM3.setup(셋업) | 0.1 | 1.5 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 34 | transport.handler_speed(운반속도) | 0.2 | 1.3 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 35 | PACK1.cycle(가공시간) | 0.3 | 1.1 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 36 | ASM1.cycle(가공시간) | 0.5 | 0.8 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 37 | FIN1.cycle(가공시간) | 0.0 | 1.3 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 38 | ASM3.cycle(가공시간) | 0.9 | 0.3 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 39 | EB2.setup(셋업) | 0.2 | 0.7 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
+| 40 | ASM5.setup(셋업) | 0.3 | 0.1 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
 | 41 | PACK2.buffer(버퍼용량) | 0.0 | 0.0 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
 | 42 | PACK1.buffer(버퍼용량) | 0.0 | 0.0 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
 | 43 | FIN1.buffer(버퍼용량) | 0.0 | 0.0 | CUT2 | CUT2 | 낮음(추정 유지 가능) |
