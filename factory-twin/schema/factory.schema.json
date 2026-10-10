@@ -312,6 +312,14 @@
      },
      "notes": {
       "type": "string"
+     },
+     "rework_rate": {
+      "type": "number",
+      "description": "부품당 상류 복귀 재작업 확률"
+     },
+     "rework_to": {
+      "type": "string",
+      "description": "재작업 시 되돌아가는 공정명(예: cut)"
      }
     }
    }
@@ -392,6 +400,10 @@
       "type": "string"
      },
      "description": "지게차로 운반하는 구간 (예: raw→cut, pack→fg)"
+    },
+    "carts": {
+     "type": "integer",
+     "description": "대차 수 제약(옵션). 설정 시 배치는 운반 전 대차를 점유하고 다음 공정 착수 시 반납"
     }
    }
   },
@@ -524,7 +536,8 @@
      "type": "string",
      "enum": [
       "generate",
-      "list"
+      "list",
+      "history"
      ]
     },
     "horizon_days": {
@@ -599,6 +612,13 @@
       "start_before_days": {
        "type": "number"
       }
+     }
+    },
+    "history_list": {
+     "type": "array",
+     "description": "주문 이력 재생용 [{order_date, due_date, product, qty}]",
+     "items": {
+      "type": "object"
      }
     }
    }
@@ -683,6 +703,19 @@
      "delay_days": {
       "type": "number"
      }
+    }
+   }
+  },
+  "rules": {
+   "type": "object",
+   "description": "의사결정 규칙(코드 반영분). dispatch: fifo | edd(납기 우선)",
+   "properties": {
+    "dispatch": {
+     "type": "string",
+     "enum": [
+      "fifo",
+      "edd"
+     ]
     }
    }
   }

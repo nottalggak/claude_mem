@@ -1,0 +1,9 @@
+{
+  "id": "s8_carts",
+  "name": "S8. 대차 6대 제약(현실 반영) vs 무제한",
+  "hypothesis": "대차 부족이 숨은 병목인지: 배치가 대차를 기다리는 시간",
+  "capex_krw": 0,
+  "transport": {
+    "carts": 6
+  }
+}

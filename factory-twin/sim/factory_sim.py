@@ -77,7 +77,8 @@ class Station:
         self.env, self.spec, self.sim = env, spec, sim
         self.id = spec["id"]; self.process = spec["process"]
         self.cap = spec.get("capacity", 1)
-        self.res = simpy.Resource(env, capacity=self.cap)
+        self.res = simpy.PriorityResource(env, capacity=self.cap) if sim.f.get("rules", {}) and isinstance(sim.f.get("rules"), dict) and sim.f["rules"].get("dispatch") == "edd" else simpy.Resource(env, capacity=self.cap)
+        self.edd = isinstance(self.res, simpy.PriorityResource)
         self.buffer = simpy.Resource(env, capacity=max(1, spec.get("buffer_batches", 4)) + self.cap)
         self.down = False
         self.last_product = None
@@ -129,6 +130,8 @@ class Station:
 
 class Sim:
     def __init__(self, factory, seed=1, horizon_days=None):
+        if isinstance(factory.get("rules"), list):
+            factory = dict(factory); factory["rules_list"] = factory["rules"]; factory["rules"] = {"dispatch": "edd" if any("납기" in str(r.get("그러면 (행동)", "")) for r in factory["rules_list"]) else "fifo"}
         self.rng_orders = random.Random(seed)       # 주문 스트림 (시나리오 간 동일)
         self.rng = random.Random(seed + 7919)        # 공정 변동/고장 스트림
         self.f = factory
@@ -141,6 +144,8 @@ class Sim:
             self.by_process.setdefault(s.process, []).append(s)
         tr = factory["transport"]
         self.handlers = simpy.Resource(self.env, capacity=max(1, tr.get("handlers", 1)))
+        self.carts = simpy.Resource(self.env, capacity=tr["carts"]) if tr.get("carts") else None  # 대차 수 제약(옵션)
+        self.cart_wait_total = 0.0
         self.forklifts = simpy.Resource(self.env, capacity=max(1, tr.get("forklifts", 1)))
         self.handler_speed = tr.get("handler_speed_mps", 1.2) * 60  # m/min
         self.forklift_speed = tr.get("forklift_speed_mps", 2.0) * 60
@@ -156,7 +161,7 @@ class Sim:
         self.horizon = self.horizon_days * 24 * 60
         self.products = {p["id"]: p for p in factory["products"]}
         self.scrap = 0; self.produced = 0
-        self.cut_pool = {}; self.cut_timers = {}; self.n_cut_batches = 0; self.orders_in_cut_batches = 0
+        self.cut_pool = {}; self.cut_timers = {}; self.n_cut_batches = 0; self.orders_in_cut_batches = 0; self.rework_parts = 0
 
     def ev(self, e):
         e["t"] = round(self.env.now, 2); self.events.append(e)
@@ -169,6 +174,25 @@ class Sim:
             for od in o["list"]:
                 yield self.env.timeout(max(0, od["release_min"] - self.env.now))
                 oid += 1; self.env.process(self.order_entry(oid, od["product"], od["qty"], od.get("due_min")))
+            return
+        if o.get("mode") == "history":
+            # 실제 주문 이력 재생(검증·홀드아웃용). order_date 의 요일이 Day 1(월) 에 맞도록 가장 이른 날짜의 요일만큼 오프셋
+            import datetime as _dt
+            hist = [h for h in o.get("history_list", []) if h.get("order_date") and h.get("product") in self.products]
+            dates = [_dt.date.fromisoformat(str(h["order_date"])[:10]) for h in hist]
+            d0 = min(dates); off = d0.weekday()  # 월=0
+            items = []
+            for h, d in zip(hist, dates):
+                day = (d - d0).days + off
+                due = None
+                if h.get("due_date"):
+                    dd = _dt.date.fromisoformat(str(h["due_date"])[:10]); due = ((dd - d0).days + off) * 1440 + self.shift.end
+                items.append((day * 1440 + self.shift.start + self.rng_orders.uniform(0, 240), h["product"], int(h.get("qty") or 1), due))
+            items.sort()
+            self.horizon = max(self.horizon, (max(i[0] for i in items) // 1440 + 8) * 1440); self.horizon_days = int(self.horizon // 1440)
+            for t, pid, qty, due in items:
+                yield self.env.timeout(max(0, t - self.env.now))
+                oid += 1; self.env.process(self.order_entry(oid, pid, qty, due))
             return
         mix = o["mix"]; keys = list(mix); wts = [mix[k] for k in keys]
         il = o.get("install_lead_days")
@@ -340,6 +364,11 @@ class Sim:
         self.produced += batch["qty"]
         self.ev({"type": "done", "batch": batch["id"], "lead_min": round(batch["lead_min"], 1), "late_min": round(batch["late_min"], 1)})
 
+    def rework_flow(self, rb, routing, cur):
+        """재작업 묶음: 상류 공정부터 현재 공정까지 다시 거친 뒤 소멸(원 배치는 계속 진행 — 단순화: 재작업 부품은 후속 공정에서 별도 합류하지 않음)"""
+        yield from self.run_steps(rb, routing, cur, tuple(cur.spec["out_pos"]), None, release_slot=True)
+        self.ev({"type": "rework_done", "batch": rb["id"]})
+
     def run_steps(self, batch, routing, cur, cur_pos, prev_slot, release_slot=True):
         """routing 의 공정을 순서대로 수행. 반환: (마지막 스테이션, 출발 위치, 점유 중인 버퍼 슬롯)"""
         pid = batch["product"]; parts = batch["parts"]; qty = batch["qty"]
@@ -366,13 +395,20 @@ class Sim:
                 prev_slot[0].buffer.release(prev_slot[1])
             prev_slot = (st, slot)
             use_fork = proc in self.forklift_procs or cur.process in self.forklift_procs
+            if self.carts is not None and not use_fork and batch.get("cart_req") is None:
+                t_c = self.env.now; batch["cart_req"] = self.carts.request(); yield batch["cart_req"]
+                self.cart_wait_total += self.env.now - t_c
+                if self.env.now - t_c > 0: self.ev({"type": "wait_cart", "batch": batch["id"], "station": cur.id, "duration": round(self.env.now - t_c, 1)})
             yield self.env.process(self.move(batch, cur_pos, tuple(st.spec["in_pos"]), use_fork))
             self.ev({"type": "arrive", "batch": batch["id"], "station": st.id, "pos": st.spec["in_pos"]})
             if proc == "fg":
+                if self.carts is not None and batch.get("cart_req") is not None:
+                    self.carts.release(batch["cart_req"]); batch["cart_req"] = None
                 break
             st.set_queue(+1)
             t_q = self.env.now
-            with st.res.request() as rq:
+            prio = (batch.get("due") or 1e9) if st.edd else 0
+            with (st.res.request(priority=prio) if st.edd else st.res.request()) as rq:
                 yield rq
                 st.set_queue(-1)
                 w = self.env.now - t_q
@@ -387,6 +423,8 @@ class Sim:
                     self.ev({"type": "setup", "station": st.id, "batch": batch["id"], "duration": setup})
                     yield self.env.timeout(setup)
                 st.last_product = pid
+                if self.carts is not None and batch.get("cart_req") is not None:
+                    self.carts.release(batch["cart_req"]); batch["cart_req"] = None
                 st.log_state("busy")
                 self.ev({"type": "proc_start", "station": st.id, "batch": batch["id"], "pos": st.spec["pos"]})
                 t_start = self.env.now
@@ -414,6 +452,15 @@ class Sim:
                         rew = lost * (st.part_time(parts[0], pid) + 0.5)
                         yield from self.work_unit(st, rew)
                         self.ev({"type": "scrap", "station": st.id, "batch": batch["id"], "parts": lost})
+                # 상류 복귀 재작업 (예: 엣지 불량 → 재재단)
+                rr = st.spec.get("rework_rate", 0); rto = st.spec.get("rework_to")
+                if rr > 0 and rto and self.rng.random() < min(1.0, rr * len(parts)):
+                    n_re = max(1, int(round(rr * len(parts)))); sub = parts[:n_re]
+                    rb = {"id": batch["id"] + "R", "product": pid, "qty": 1, "n_parts": n_re, "release": self.env.now, "order_t": self.env.now, "due": batch.get("due"),
+                          "transport_wait": 0.0, "transport_dist": 0.0, "queue_wait": 0.0, "proc_time": 0.0, "outsourced_wait": 0.0, "steps": [], "parts": sub, "outsourced_ready": {}, "is_rework": True}
+                    self.rework_parts += n_re; self.ev({"type": "rework", "station": st.id, "batch": batch["id"], "parts": n_re, "to": rto})
+                    routing_full = list(self.products[pid]["routing"]); idx = routing_full.index(rto) if rto in routing_full else 0
+                    self.env.process(self.rework_flow(rb, routing_full[idx:routing_full.index(proc) + 1], st))
                 dur = self.env.now - t_start
                 st.n_batches += 1; st.n_parts += len(parts); batch["proc_time"] += dur
                 batch["steps"].append({"station": st.id, "arrive": round(t_q, 1), "start": round(t_start, 1), "end": round(self.env.now, 1), "setup": setup})
@@ -516,7 +563,8 @@ class Sim:
                               "p90": round(sorted(b["lead_min"] for b in done)[int(0.9 * (len(done) - 1))], 1) if done else 0,
                               "max": round(max([b["lead_min"] for b in done] + [0]), 1)},
             "avg_wip_batches": round(sum(w for _, w in wip_series) / max(1, len(wip_series)), 2),
-            "scrap_parts": self.scrap,
+            "scrap_parts": self.scrap, "rework_parts_upstream": self.rework_parts,
+            "cart_wait_avg_min": round(self.cart_wait_total / max(1, len(done)), 1) if self.carts is not None else None,
             "outsourced_wait_avg_min": round(sum(b.get("outsourced_wait", 0) for b in done) / max(1, len(done)), 1),
             "on_time_ratio": round(sum(1 for b in done if b.get("late_min", 0) == 0) / max(1, len(done)), 3) if any(b.get("due") for b in done) else None,
             "cut_batching": {"cut_batches": self.n_cut_batches, "orders_per_cut_batch": round(self.orders_in_cut_batches / max(1, self.n_cut_batches), 2)} if self.n_cut_batches else None,
@@ -530,7 +578,7 @@ class Sim:
             "bottleneck_ranking": [{"station": sid, "score": sc, "utilization": stations[sid]["utilization"],
                                     "avg_queue_wait_min": stations[sid]["avg_queue_wait_min"]} for sc, sid in ranked[:6]],
             "stations": stations,
-            "batches": [{k: v for k, v in b.items() if k not in ("steps", "parts", "outsourced_ready")} for b in self.batches],
+            "batches": [{k: v for k, v in b.items() if k not in ("steps", "parts", "outsourced_ready", "cart_req")} for b in self.batches],
         }
 
     def wip_series(self):
@@ -556,6 +604,8 @@ def apply_scenario(factory, scn):
     for k in ("transport", "orders"):
         if k in scn:
             f[k].update(scn[k])
+    if "rules" in scn:
+        f["rules"] = {**(f.get("rules") if isinstance(f.get("rules"), dict) else {}), **scn["rules"]}
     if "meta" in scn:
         f["meta"].update(scn["meta"])
     return f
