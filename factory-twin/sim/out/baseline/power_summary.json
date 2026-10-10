@@ -5,10 +5,12 @@
  "peak_over_contract": 0.36,
  "kwh_total": 9924,
  "kwh_by_band": {
-  "flat": 9924
+  "off": 451,
+  "mid": 9343,
+  "peak": 130
  },
- "energy_cost_krw": 1637469,
- "demand_charge_krw_est": 0,
+ "energy_cost_krw": 1224907,
+ "demand_charge_krw_est": 557369,
  "days": 18.7,
  "top_contributors_at_peak": [
   [

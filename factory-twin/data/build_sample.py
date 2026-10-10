@@ -18,7 +18,9 @@ factory = {
         "shift": {"start": "08:00", "end": "17:00",
                   "breaks": [["10:00", "10:15"], ["12:00", "13:00"], ["15:00", "15:15"]],
                   "days_per_week": 5, "overtime": {"weekday_min": 0, "saturday": None}},
-        "energy": {"tariff_krw_per_kwh": 165, "contract_kw": 300, "base_load_kw": 12},
+        "energy": {"tariff_krw_per_kwh": 165, "contract_kw": 300, "base_load_kw": 12,
+                   "tou": {"note": "[추정] 2026-04-16 개편 구조만 반영. 단가는 한전 요금표 원문으로 교체", "demand_krw_per_kw": 8320,
+                           "bands": {"off": 95, "mid": 125, "peak": 160}, "hours": {"off": [[22, 8]], "mid": [[8, 18], [21, 22]], "peak": [[18, 21]]}, "weekend_mid_discount": 0.5}},
         "finance": {"margin_rate": 0.25, "working_days_per_year": 250, "note": "제품 판매가 × 마진율 = 공헌이익(추정). 현장 손익으로 교체"}
     },
     "site": {

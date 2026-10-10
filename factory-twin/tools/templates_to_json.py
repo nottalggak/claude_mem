@@ -73,6 +73,18 @@ def main(xlsx, out):
             per_unit = {}
             # 단순 1변수 회귀: 엣지(엣지 공정) 또는 홀(보링 공정)
             key = "n_edges" if st["process"] == "edge" else ("holes" if st["process"] == "bore" else None)
+            vf = num(next((r.get("이송속도 v_f(m/min, 엣지·샌더·런닝쏘)") for r in rows(wb["2_기계대장"]) if r["기계ID"] == st["id"]), None))
+            gap = num(next((r.get("부품 간격 G(m, 엣지)") for r in rows(wb["2_기계대장"]) if r["기계ID"] == st["id"]), None), 0.45)
+            if st["process"] == "edge" and vf:
+                # T_part = Σ_pass (L_edge + G)/v_f + γ0 + γ1·N_pass → per_unit: edges_m = 1/v_f, n_edges = G/v_f + γ1 ; base = γ0
+                feed_terms = [(o["edges"] * gap) / vf for o in obs]  # 관측치의 간격 항 (엣지 길이는 부품별이라 기록이 없으면 평균 가정)
+                resid = [y - ft for y, ft in zip(ys, feed_terms)]
+                xs2 = [o["edges"] for o in obs]; xm = sum(xs2) / len(xs2); rm = sum(resid) / len(resid)
+                den = sum((x - xm) ** 2 for x in xs2)
+                g1 = sum((x - xm) * (r_ - rm) for x, r_ in zip(xs2, resid)) / den if den > 0 else 0.2
+                g0 = max(0.0, rm - g1 * xm)
+                st["cycle"] = {"base_min": round(g0, 3), "per_unit": {"edges_m": round(1 / vf, 4), "n_edges": round(gap / vf + max(0.0, g1), 4)}, "cv": round(sd / (mean + 1e-9), 2), "n": len(obs), "form": "edge: Σ(L+G)/v_f + γ0 + γ1·N_pass (v_f·G 측정값 고정)"}
+                continue
             xs = [o["edges"] if key == "n_edges" else o["holes"] for o in obs] if key else []
             if key and len(obs) >= 5 and max(xs) > min(xs):
                 xm = sum(xs) / len(xs); b = sum((x - xm) * (y - mean) for x, y in zip(xs, ys)) / sum((x - xm) ** 2 for x in xs)
@@ -87,7 +99,7 @@ def main(xlsx, out):
             if st["id"] == r["기계ID"]:
                 micro = num(r.get("소정지 빈도(회/시간)"), 0); warm = num(r.get("예열/청소 시간(분/일)"), 0)
                 st["availability"] = round(max(0.5, 1 - micro * 2 / 60 - warm / 450), 3)  # 소정지 2분/회 가정, 450분 교대
-                for col, key in [("이동 등급(A자유/B리깅/C고정)", "move_class"), ("이전 비용(만원, 추정)", "relocation_cost_10k"), ("처리 가능 범위(최대 판 치수·두께)", "capability"), ("투입측 판재 공간(m)", "infeed_m"), ("배출측 판재 공간(m)", "outfeed_m"), ("셋업 트리거(색상/두께/제품)", "setup_trigger"), ("PLC/HMI 브랜드", "plc"), ("공압 사용(Y/N)", "air")]:
+                for col, key in [("이송속도 v_f(m/min, 엣지·샌더·런닝쏘)", "feed_mpm"), ("부품 간격 G(m, 엣지)", "gap_m"), ("부품당 통과 횟수(엣지 2~4)", "passes"), ("리턴컨베이어(Y/N)", "return_conveyor"), ("이동 등급(A자유/B리깅/C고정)", "move_class"), ("이전 비용(만원, 추정)", "relocation_cost_10k"), ("처리 가능 범위(최대 판 치수·두께)", "capability"), ("투입측 판재 공간(m)", "infeed_m"), ("배출측 판재 공간(m)", "outfeed_m"), ("셋업 트리거(색상/두께/제품)", "setup_trigger"), ("PLC/HMI 브랜드", "plc"), ("공압 사용(Y/N)", "air")]:
                     if r.get(col) not in (None, ""): st[key] = r.get(col)
     # 시트 5 셋업: 기계별 평균 소요·빈도
     if "5_셋업_체인지오버" in wb.sheetnames:

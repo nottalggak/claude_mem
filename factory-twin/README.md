@@ -10,6 +10,10 @@ python3 sim/compare.py --seeds 5          # sim/out/comparison.md, sim/out/<scen
 python3 sim/sensitivity.py --seeds 2      # sim/out/sensitivity.md (재측정 우선순위)
 python3 sim/validate.py                   # factory.json observations.validation 대조 (복제 합격 판정)
 python3 sim/uncertainty.py --B 10         # sim/out/uncertainty.md (시나리오 효과 신뢰구간·P(개선))
+python3 sim/queueing_prescreen.py data/sample_factory.json --demand 1.3   # Kingman 사전 스크리닝(체제별)
+python3 sim/bottleneck_active_period.py sim/out/baseline                  # 활성기간 병목
+python3 sim/power_profile.py sim/out/baseline                             # 15분 전력·피크·TOU 요금
+python3 sim/calibrate.py data/my.json --targets '[...]' --params EB2.cycle --holdout '[...]'  # 규제 보정
 python3 tools/data_quality.py             # 파라미터 출처 스코어카드
 python3 -m http.server 8000               # viewer/index.html 열기
 ```
@@ -26,6 +30,6 @@ python3 -m http.server 8000               # viewer/index.html 열기
 | `viewer/` | Three.js 3D 트윈 뷰어 (로컬 번들, 서버만 있으면 동작) |
 | `tools/` | 템플릿→JSON, 기록→파라미터 복원(`log_to_model.py`), 출처 스코어카드(`data_quality.py`), 리포트 추출 |
 | `capture/sensing/` | 2주 비침습 로깅 키트: ESPHome 전류 센서 설정, MQTT→SQLite 로거, 전류→상태 변환 |
-| `docs/` | 00 종합보고서 · 01 방문 체크리스트 · 02 아키텍처 · **03 공장복제 명세서(기준 문서)** · 04 방문전 자료요청 문안 · research/ 리서치 원문 10건 · 스크린샷 |
+| `docs/` | 00 종합보고서 · 01 방문 체크리스트 · 02 아키텍처 · **03 공장복제 명세서 v2.2(기준 문서)** · 04 방문전 자료요청 문안 · 05 역할별 현장 카드 · 06 보고서 템플릿(STRESS-DES) · research/ 리서치 원문 16건 · 스크린샷 |
 
 ![3D](docs/viewer_3d.png)

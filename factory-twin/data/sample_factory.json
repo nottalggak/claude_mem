@@ -29,7 +29,41 @@
   "energy": {
    "tariff_krw_per_kwh": 165,
    "contract_kw": 300,
-   "base_load_kw": 12
+   "base_load_kw": 12,
+   "tou": {
+    "note": "[추정] 2026-04-16 개편 구조만 반영. 단가는 한전 요금표 원문으로 교체",
+    "demand_krw_per_kw": 8320,
+    "bands": {
+     "off": 95,
+     "mid": 125,
+     "peak": 160
+    },
+    "hours": {
+     "off": [
+      [
+       22,
+       8
+      ]
+     ],
+     "mid": [
+      [
+       8,
+       18
+      ],
+      [
+       21,
+       22
+      ]
+     ],
+     "peak": [
+      [
+       18,
+       21
+      ]
+     ]
+    },
+    "weekend_mid_discount": 0.5
+   }
   },
   "finance": {
    "margin_rate": 0.25,
