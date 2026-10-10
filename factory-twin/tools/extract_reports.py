@@ -14,6 +14,11 @@ NAMES = {
     "ad8a2716dc2ef44cb": "09_records_mining_and_sensing.md",
     "aaced108644f0be21": "10_korean_furniture_shop_reality.md",
     "a8e79b062b23f5089": "11_critical_review_of_spec_v2.md",
+    "adc94d27a38362722": "12_worker_movement_capture_modeling.md",
+    "a58d1d94c8f75e340": "13_woodworking_cycle_time_models.md",
+    "a9f59ef2b03f350d0": "14_twin_calibration_uncertainty.md",
+    "af64fb1fecc303dec": "15_layout_staffing_optimization.md",
+    "af7e4bd075dcf39b1": "16_energy_twin_kepco_tariffs.md",
 }
 OUT.mkdir(parents=True, exist_ok=True)
 for aid, name in NAMES.items():
