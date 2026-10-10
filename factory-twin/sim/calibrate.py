@@ -104,7 +104,10 @@ def main():
     for p in a.params:
         if abs(mults[p] - 1) >= bounds[p] - 1e-9: print(f"  주의: {p} 가 경계({bounds[p]:.0%})에 닿음 → 구조 오류 의심(측정 재확인)")
     if holdout:
-        hk = [Sim(cur, seed=90 + i).run() for i in range(3)]  # 홀드아웃은 3회 평균
+        hk = [Sim(cur, seed=90 + i).run() for i in range(max(3, len(seeds)))]  # 홀드아웃은 보정과 같은 수 이상의 seed 평균(다른 seed 집합)
+        for h in holdout:  # 시뮬 잡음 대비 허용 오차가 좁으면 경고 (과부하 체제의 WIP·리드타임은 seed 집합 간 ±25% 흔들린다 — §10.3)
+            vals = [get(x, h["metric"]) for x in hk]; se = statistics.pstdev(vals) / len(vals) ** 0.5; tol = h.get("tolerance_abs") or abs(h["actual"]) * h.get("tolerance_pct", 10) / 100
+            if se > tol / 2: print(f"  경고: 홀드아웃 {h['metric']} 의 시뮬 se {se:.3g} 가 허용 오차 {tol:.3g} 의 절반을 넘음 → seed 를 늘리거나 정상상태가 있는 지표(처리량·가동률)로 바꿀 것")
         ks = hk[0]
         for m in METRICS:
             try:
