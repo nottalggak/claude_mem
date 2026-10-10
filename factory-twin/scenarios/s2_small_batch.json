@@ -1,10 +1,10 @@
 {
   "id": "s2_small_batch",
-  "name": "S2. 배치 크기 절반 (주문 2배=26/일, 수량 1/2) - 흐름 생산",
+  "name": "S2. 배치 크기 절반 (주문 2배=34/일, 수량 1/2) - 흐름 생산",
   "hypothesis": "같은 총 수요를 작은 배치로 흘리면 WIP와 리드타임이 줄지만 셋업 횟수는 증가",
   "capex_krw": 0,
   "orders": {
-    "orders_per_day": 26,
+    "orders_per_day": 34,
     "batch_size": {
       "P_DESK": 5,
       "P_BOOK": 3,

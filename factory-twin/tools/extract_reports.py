@@ -19,6 +19,7 @@ NAMES = {
     "a9f59ef2b03f350d0": "14_twin_calibration_uncertainty.md",
     "af64fb1fecc303dec": "15_layout_staffing_optimization.md",
     "af7e4bd075dcf39b1": "16_energy_twin_kepco_tariffs.md",
+    "a1741a8a551a14967": "17_second_review_spec_v2_2_and_code.md",
 }
 OUT.mkdir(parents=True, exist_ok=True)
 for aid, name in NAMES.items():

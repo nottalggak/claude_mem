@@ -38,7 +38,7 @@ for s in f["stations"]:
         else: base = rng.uniform(0.6, 1.2)
         mach = base * 0.7 * rng.uniform(0.9, 1.1); hand = base * 0.3 * rng.uniform(0.8, 1.2)
         for kind, sec in (("가공", mach * 60), ("핸들링", hand * 60)):
-            r = {h: "" for h in hdr4}; r.update({"기계ID": s["id"], "제품ID": "P_DESK", "측정#": i + 1, "엣지 변 수": edges, "엣지 길이 합(m)": (edge_len if s["process"] == "edge" else ""), "홀 수": holes, "소요(초)": round(sec, 1), hdr4[10]: kind, "평정(100=정상 속도)": 100, "첫 사이클(버림 Y)": "Y" if i == 0 else ""})
+            r = {h: "" for h in hdr4}; r.update({"기계ID": s["id"], "제품ID": "P_DESK", "측정#": i + 1, "엣지 변 수": edges, "엣지 길이 합(m)": (edge_len if s["process"] == "edge" else ""), "홀 수": holes, "소요(초)": round(sec, 1), "구분(가공/핸들링/셋업/대기)": kind, "평정(100=정상 속도)": 100, "첫 사이클(버림 Y)": "Y" if i == 0 else ""})
             wb["4_공정_사이클타임"].append([r[h] for h in hdr4])
 for sid, m in [("CUT1", 3), ("EB1", 8), ("EB2", 5), ("BOR2", 9)]:
     wb["5_셋업_체인지오버"].append([sid, "화이트/18", "오크/18", "엣지테이프", "", "", m, "", "", "", 4, 1, "", ""])

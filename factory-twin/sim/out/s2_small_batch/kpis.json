@@ -7,7 +7,11 @@
  "orders_due_in_horizon": 169,
  "completed_of_due": 1.0,
  "products_completed": 798,
+ "products_completed_steady": 790,
+ "steady_days": 10,
  "throughput_products_per_day": 39.9,
+ "setups_per_day": 41.2,
+ "lead_time_work_min_p90": 1007,
  "throughput_steady_per_day": 79.0,
  "warmup_days": 5.0,
  "lead_time_work_min_avg": 611.9,
@@ -33,30 +37,30 @@
   "avg_transport_wait_per_batch_min": 13.8
  },
  "energy": {
-  "total_kwh": 8151,
-  "kwh_per_product": 10.21,
-  "cost_krw": 1344937,
+  "total_kwh": 8566,
+  "kwh_per_product": 10.73,
+  "cost_krw": 1413406,
   "by_asset": {
-   "CUT1": 539.8,
-   "CUT2": 496.5,
-   "EB1": 419.9,
-   "EB2": 228.4,
-   "BOR1": 286.7,
-   "BOR2": 83.3,
-   "FIN1": 153.4,
-   "DRY1": 756.0,
-   "ASM1": 16.1,
-   "ASM2": 16.2,
-   "ASM3": 15.8,
-   "ASM4": 16.8,
-   "ASM5": 15.6,
-   "ASM6": 16.1,
-   "PACK1": 10.4,
-   "PACK2": 10.3,
-   "DC1": 1537.7,
-   "DC2": 697.2,
+   "EB1": 491.2,
+   "EB2": 221.6,
+   "BOR1": 294.9,
+   "CUT1": 512.7,
+   "CUT2": 448.2,
+   "BOR2": 99.6,
+   "ASM5": 14.7,
+   "ASM6": 14.8,
+   "PACK1": 8.6,
+   "FIN1": 173.5,
+   "DRY1": 365.9,
+   "ASM2": 15.6,
+   "ASM3": 14.7,
+   "PACK2": 8.5,
+   "ASM4": 15.7,
+   "ASM1": 15.2,
+   "DC1": 1304.3,
+   "DC2": 828.8,
    "COMP1": 1485.0,
-   "BASE": 1350.0
+   "BASE": 2232.6
   },
   "tariff_krw_per_kwh": 165
  },
@@ -114,7 +118,7 @@
    "max_queue_wait_min": 1060.2,
    "avg_queue_len": 0.79,
    "max_queue_len": 4,
-   "energy_kwh": 539.8,
+   "energy_kwh": 512.7,
    "workers": 2
   },
   "CUT2": {
@@ -132,7 +136,7 @@
    "max_queue_wait_min": 4283.0,
    "avg_queue_len": 1.51,
    "max_queue_len": 4,
-   "energy_kwh": 496.5,
+   "energy_kwh": 448.2,
    "workers": 1
   },
   "EB1": {
@@ -150,7 +154,7 @@
    "max_queue_wait_min": 973.5,
    "avg_queue_len": 0.23,
    "max_queue_len": 3,
-   "energy_kwh": 419.9,
+   "energy_kwh": 491.2,
    "workers": 2
   },
   "EB2": {
@@ -168,7 +172,7 @@
    "max_queue_wait_min": 969.1,
    "avg_queue_len": 0.17,
    "max_queue_len": 3,
-   "energy_kwh": 228.4,
+   "energy_kwh": 221.6,
    "workers": 1
   },
   "BOR1": {
@@ -186,7 +190,7 @@
    "max_queue_wait_min": 76.5,
    "avg_queue_len": 0.02,
    "max_queue_len": 1,
-   "energy_kwh": 286.7,
+   "energy_kwh": 294.9,
    "workers": 1
   },
   "BOR2": {
@@ -204,7 +208,7 @@
    "max_queue_wait_min": 75.1,
    "avg_queue_len": 0.02,
    "max_queue_len": 2,
-   "energy_kwh": 83.3,
+   "energy_kwh": 99.6,
    "workers": 1
   },
   "FIN1": {
@@ -222,7 +226,7 @@
    "max_queue_wait_min": 94.6,
    "avg_queue_len": 0.01,
    "max_queue_len": 2,
-   "energy_kwh": 153.4,
+   "energy_kwh": 173.5,
    "workers": 1
   },
   "DRY1": {
@@ -240,7 +244,7 @@
    "max_queue_wait_min": 23.7,
    "avg_queue_len": 0.0,
    "max_queue_len": 2,
-   "energy_kwh": 756.0,
+   "energy_kwh": 365.9,
    "workers": 0
   },
   "ASM1": {
@@ -258,7 +262,7 @@
    "max_queue_wait_min": 1007.4,
    "avg_queue_len": 0.05,
    "max_queue_len": 2,
-   "energy_kwh": 16.1,
+   "energy_kwh": 15.2,
    "workers": 1
   },
   "ASM2": {
@@ -276,7 +280,7 @@
    "max_queue_wait_min": 941.0,
    "avg_queue_len": 0.04,
    "max_queue_len": 1,
-   "energy_kwh": 16.2,
+   "energy_kwh": 15.6,
    "workers": 1
   },
   "ASM3": {
@@ -294,7 +298,7 @@
    "max_queue_wait_min": 63.9,
    "avg_queue_len": 0.0,
    "max_queue_len": 1,
-   "energy_kwh": 15.8,
+   "energy_kwh": 14.7,
    "workers": 1
   },
   "ASM4": {
@@ -312,7 +316,7 @@
    "max_queue_wait_min": 963.7,
    "avg_queue_len": 0.05,
    "max_queue_len": 2,
-   "energy_kwh": 16.8,
+   "energy_kwh": 15.7,
    "workers": 1
   },
   "ASM5": {
@@ -330,7 +334,7 @@
    "max_queue_wait_min": 42.0,
    "avg_queue_len": 0.0,
    "max_queue_len": 1,
-   "energy_kwh": 15.6,
+   "energy_kwh": 14.7,
    "workers": 1
   },
   "ASM6": {
@@ -348,7 +352,7 @@
    "max_queue_wait_min": 69.0,
    "avg_queue_len": 0.0,
    "max_queue_len": 1,
-   "energy_kwh": 16.1,
+   "energy_kwh": 14.8,
    "workers": 1
   },
   "PACK1": {
@@ -366,7 +370,7 @@
    "max_queue_wait_min": 926.3,
    "avg_queue_len": 0.06,
    "max_queue_len": 2,
-   "energy_kwh": 10.4,
+   "energy_kwh": 8.6,
    "workers": 1
   },
   "PACK2": {
@@ -384,7 +388,7 @@
    "max_queue_wait_min": 919.4,
    "avg_queue_len": 0.08,
    "max_queue_len": 2,
-   "energy_kwh": 10.3,
+   "energy_kwh": 8.5,
    "workers": 1
   }
  },
@@ -7347,12 +7351,12 @@
    4.2
   ],
   "energy_kwh": [
-   7748.8,
-   249.5
+   8391.4,
+   169.2
   ],
   "kwh_per_product": [
-   10.4,
-   0.6
+   11.2,
+   0.7
   ],
   "distance_per_product_m": [
    56.9,

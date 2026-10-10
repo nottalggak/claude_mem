@@ -391,9 +391,10 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 1.0,
+    "base_min": 0.942,
     "per_unit": {},
-    "cv": 0.3
+    "cv": 0.22,
+    "n": 11
    },
    "availability": 1.0,
    "move_class": "B",
@@ -441,9 +442,10 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 1.0,
+    "base_min": 0.933,
     "per_unit": {},
-    "cv": 0.3
+    "cv": 0.19,
+    "n": 11
    },
    "availability": 1.0,
    "move_class": "B"
@@ -490,9 +492,14 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 1.0,
-    "per_unit": {},
-    "cv": 0.3
+    "base_min": 0.167,
+    "per_unit": {
+     "edges_m": 0.0833,
+     "n_edges": 0.1557
+    },
+    "cv": 0.18,
+    "n": 11,
+    "form": "edge: Σ(L+G)/v_f + γ0 + γ1·N_pass (v_f·G 측정값 고정)"
    },
    "availability": 0.967,
    "feed_mpm": 12,
@@ -542,9 +549,14 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 1.0,
-    "per_unit": {},
-    "cv": 0.3
+    "base_min": 0.091,
+    "per_unit": {
+     "edges_m": 0.125,
+     "n_edges": 0.2007
+    },
+    "cv": 0.56,
+    "n": 11,
+    "form": "edge: Σ(L+G)/v_f + γ0 + γ1·N_pass (v_f·G 측정값 고정)"
    },
    "availability": 0.967,
    "feed_mpm": 8,
@@ -594,9 +606,12 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 1.0,
-    "per_unit": {},
-    "cv": 0.3
+    "base_min": 0.478,
+    "per_unit": {
+     "holes": 0.037
+    },
+    "cv": 0.21,
+    "n": 11
    },
    "availability": 1.0,
    "move_class": "B"
@@ -643,9 +658,12 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 1.0,
-    "per_unit": {},
-    "cv": 0.3
+    "base_min": 0.523,
+    "per_unit": {
+     "holes": 0.0294
+    },
+    "cv": 0.15,
+    "n": 11
    },
    "availability": 1.0,
    "move_class": "B",
@@ -691,9 +709,10 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 1.0,
+    "base_min": 0.921,
     "per_unit": {},
-    "cv": 0.3
+    "cv": 0.16,
+    "n": 11
    },
    "availability": 1.0,
    "move_class": "B"
@@ -785,9 +804,10 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 1.0,
+    "base_min": 14.246,
     "per_unit": {},
-    "cv": 0.3,
+    "cv": 0.35,
+    "n": 11,
     "per_product": {
      "P_DESK": 15.0,
      "P_BOOK": 15.0,
@@ -838,9 +858,10 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 1.0,
+    "base_min": 13.076,
     "per_unit": {},
-    "cv": 0.3,
+    "cv": 0.38,
+    "n": 11,
     "per_product": {
      "P_DESK": 15.0,
      "P_BOOK": 15.0,
@@ -891,9 +912,10 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 1.0,
+    "base_min": 12.527,
     "per_unit": {},
-    "cv": 0.3,
+    "cv": 0.28,
+    "n": 11,
     "per_product": {
      "P_DESK": 15.0,
      "P_BOOK": 15.0,
@@ -944,9 +966,10 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 1.0,
+    "base_min": 11.147,
     "per_unit": {},
-    "cv": 0.3,
+    "cv": 0.32,
+    "n": 11,
     "per_product": {
      "P_DESK": 15.0,
      "P_BOOK": 15.0,
@@ -997,9 +1020,10 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 1.0,
+    "base_min": 10.006,
     "per_unit": {},
-    "cv": 0.3,
+    "cv": 0.52,
+    "n": 11,
     "per_product": {
      "P_DESK": 15.0,
      "P_BOOK": 15.0,
@@ -1050,9 +1074,10 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 1.0,
+    "base_min": 13.227,
     "per_unit": {},
-    "cv": 0.3,
+    "cv": 0.33,
+    "n": 11,
     "per_product": {
      "P_DESK": 15.0,
      "P_BOOK": 15.0,
@@ -1103,9 +1128,10 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 1.0,
+    "base_min": 12.771,
     "per_unit": {},
-    "cv": 0.3,
+    "cv": 0.35,
+    "n": 11,
     "per_product": {
      "P_DESK": 5.0,
      "P_BOOK": 5.0,
@@ -1156,9 +1182,10 @@
    "photo": "",
    "notes": "",
    "cycle": {
-    "base_min": 1.0,
+    "base_min": 11.561,
     "per_unit": {},
-    "cv": 0.3,
+    "cv": 0.5,
+    "n": 11,
     "per_product": {
      "P_DESK": 5.0,
      "P_BOOK": 5.0,
@@ -2169,31 +2196,31 @@
   }
  },
  "provenance": {
-  "CUT1.cycle": "estimated",
+  "CUT1.cycle": "measured",
   "CUT1.setup_min": "record",
   "CUT1.load_factor": "measured",
   "CUT1.mtbf_min": "record",
-  "CUT2.cycle": "estimated",
+  "CUT2.cycle": "measured",
   "CUT2.setup_min": "estimated",
   "CUT2.load_factor": "measured",
   "CUT2.mtbf_min": "record",
-  "EB1.cycle": "estimated",
+  "EB1.cycle": "measured",
   "EB1.setup_min": "record",
   "EB1.load_factor": "measured",
   "EB1.mtbf_min": "record",
-  "EB2.cycle": "estimated",
+  "EB2.cycle": "measured",
   "EB2.setup_min": "record",
   "EB2.load_factor": "measured",
   "EB2.mtbf_min": "record",
-  "BOR1.cycle": "estimated",
+  "BOR1.cycle": "measured",
   "BOR1.setup_min": "estimated",
   "BOR1.load_factor": "measured",
   "BOR1.mtbf_min": "record",
-  "BOR2.cycle": "estimated",
+  "BOR2.cycle": "measured",
   "BOR2.setup_min": "record",
   "BOR2.load_factor": "measured",
   "BOR2.mtbf_min": "record",
-  "FIN1.cycle": "estimated",
+  "FIN1.cycle": "measured",
   "FIN1.setup_min": "estimated",
   "FIN1.load_factor": "measured",
   "FIN1.mtbf_min": "estimated",
@@ -2201,35 +2228,35 @@
   "DRY1.setup_min": "estimated",
   "DRY1.load_factor": "measured",
   "DRY1.mtbf_min": "estimated",
-  "ASM1.cycle": "estimated",
+  "ASM1.cycle": "measured",
   "ASM1.setup_min": "estimated",
   "ASM1.load_factor": "measured",
   "ASM1.mtbf_min": "estimated",
-  "ASM2.cycle": "estimated",
+  "ASM2.cycle": "measured",
   "ASM2.setup_min": "estimated",
   "ASM2.load_factor": "measured",
   "ASM2.mtbf_min": "estimated",
-  "ASM3.cycle": "estimated",
+  "ASM3.cycle": "measured",
   "ASM3.setup_min": "estimated",
   "ASM3.load_factor": "measured",
   "ASM3.mtbf_min": "estimated",
-  "ASM4.cycle": "estimated",
+  "ASM4.cycle": "measured",
   "ASM4.setup_min": "estimated",
   "ASM4.load_factor": "measured",
   "ASM4.mtbf_min": "estimated",
-  "ASM5.cycle": "estimated",
+  "ASM5.cycle": "measured",
   "ASM5.setup_min": "estimated",
   "ASM5.load_factor": "measured",
   "ASM5.mtbf_min": "estimated",
-  "ASM6.cycle": "estimated",
+  "ASM6.cycle": "measured",
   "ASM6.setup_min": "estimated",
   "ASM6.load_factor": "measured",
   "ASM6.mtbf_min": "estimated",
-  "PACK1.cycle": "estimated",
+  "PACK1.cycle": "measured",
   "PACK1.setup_min": "estimated",
   "PACK1.load_factor": "measured",
   "PACK1.mtbf_min": "estimated",
-  "PACK2.cycle": "estimated",
+  "PACK2.cycle": "measured",
   "PACK2.setup_min": "estimated",
   "PACK2.load_factor": "measured",
   "PACK2.mtbf_min": "estimated",
@@ -2239,21 +2266,6 @@
   "orders.batching": "interview"
  },
  "assumptions": [
-  "CUT1: 사이클타임 측정 없음 → 1분/부품 가정",
-  "CUT2: 사이클타임 측정 없음 → 1분/부품 가정",
-  "EB1: 사이클타임 측정 없음 → 1분/부품 가정",
-  "EB2: 사이클타임 측정 없음 → 1분/부품 가정",
-  "BOR1: 사이클타임 측정 없음 → 1분/부품 가정",
-  "BOR2: 사이클타임 측정 없음 → 1분/부품 가정",
-  "FIN1: 사이클타임 측정 없음 → 1분/부품 가정",
-  "DRY1: 사이클타임 측정 없음 → 1분/부품 가정",
-  "ASM1: 사이클타임 측정 없음 → 1분/부품 가정",
-  "ASM2: 사이클타임 측정 없음 → 1분/부품 가정",
-  "ASM3: 사이클타임 측정 없음 → 1분/부품 가정",
-  "ASM4: 사이클타임 측정 없음 → 1분/부품 가정",
-  "ASM5: 사이클타임 측정 없음 → 1분/부품 가정",
-  "ASM6: 사이클타임 측정 없음 → 1분/부품 가정",
-  "PACK1: 사이클타임 측정 없음 → 1분/부품 가정",
-  "PACK2: 사이클타임 측정 없음 → 1분/부품 가정"
+  "DRY1: 사이클타임 측정 없음 → 1분/부품 가정"
  ]
 }

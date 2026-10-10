@@ -23,12 +23,12 @@
    3.5
   ],
   "energy_kwh": [
-   8067.2,
-   161.0
+   8518,
+   235.2
   ],
   "kwh_per_product": [
-   9.0,
-   0.1
+   9.5,
+   0.2
   ],
   "distance_per_product_m": [
    30.1,
@@ -71,12 +71,12 @@
    2.3
   ],
   "energy_kwh": [
-   8290.8,
-   232.5
+   8741.8,
+   283.3
   ],
   "kwh_per_product": [
-   8.7,
-   0.1
+   9.1,
+   0.2
   ],
   "distance_per_product_m": [
    28.6,
@@ -86,7 +86,7 @@
    95.5,
    2.8
   ],
-  "bottleneck": "CUT3",
+  "bottleneck": "CUT2",
   "bottleneck_freq": 0.4,
   "bottleneck_util": [
    46.1,
@@ -95,7 +95,7 @@
   "margin_per_product_krw": 48688,
   "working_days_per_year": 250,
   "capex": 85000000,
-  "annual_gain_krw": 73788025,
+  "annual_gain_krw": 73787613,
   "payback_years": 1.1
  },
  {
@@ -122,12 +122,12 @@
    4.2
   ],
   "energy_kwh": [
-   7748.8,
-   249.5
+   8391.4,
+   169.2
   ],
   "kwh_per_product": [
-   10.4,
-   0.6
+   11.2,
+   0.7
   ],
   "distance_per_product_m": [
    56.9,
@@ -146,7 +146,7 @@
   "margin_per_product_krw": 48688,
   "working_days_per_year": 250,
   "capex": 0,
-  "annual_gain_krw": -177054500,
+  "annual_gain_krw": -177450087,
   "payback_years": 0
  },
  {
@@ -173,12 +173,12 @@
    4.1
   ],
   "energy_kwh": [
-   8117,
-   273.7
+   8486.2,
+   204.3
   ],
   "kwh_per_product": [
-   9.1,
-   0.3
+   9.5,
+   0.4
   ],
   "distance_per_product_m": [
    29.5,
@@ -197,7 +197,7 @@
   "margin_per_product_krw": 48688,
   "working_days_per_year": 250,
   "capex": 15000000,
-  "annual_gain_krw": -11057512,
+  "annual_gain_krw": -10889212,
   "payback_years": null
  },
  {
@@ -224,11 +224,11 @@
    3.6
   ],
   "energy_kwh": [
-   8029.6,
-   251.0
+   8443.4,
+   229.0
   ],
   "kwh_per_product": [
-   8.9,
+   9.4,
    0.2
   ],
   "distance_per_product_m": [
@@ -248,7 +248,7 @@
   "margin_per_product_krw": 48688,
   "working_days_per_year": 250,
   "capex": 3000000,
-  "annual_gain_krw": 1294750,
+  "annual_gain_krw": 1371063,
   "payback_years": 2.5
  },
  {
@@ -275,11 +275,11 @@
    3.2
   ],
   "energy_kwh": [
-   8196.4,
-   229.1
+   8805.8,
+   212.6
   ],
   "kwh_per_product": [
-   8.5,
+   9.1,
    0.3
   ],
   "distance_per_product_m": [
@@ -290,7 +290,7 @@
    94.7,
    4.4
   ],
-  "bottleneck": "CUT3",
+  "bottleneck": "CUT2",
   "bottleneck_freq": 0.4,
   "bottleneck_util": [
    43.9,
@@ -299,7 +299,7 @@
   "margin_per_product_krw": 48688,
   "working_days_per_year": 250,
   "capex": 145000000,
-  "annual_gain_krw": 80068725,
+  "annual_gain_krw": 79741613,
   "payback_years": 1.8
  },
  {
@@ -326,11 +326,11 @@
    3.2
   ],
   "energy_kwh": [
-   7860.6,
-   233.9
+   8138,
+   175.9
   ],
   "kwh_per_product": [
-   11.0,
+   11.4,
    0.5
   ],
   "distance_per_product_m": [
@@ -350,7 +350,7 @@
   "margin_per_product_krw": 48688,
   "working_days_per_year": 250,
   "capex": 0,
-  "annual_gain_krw": -212583888,
+  "annual_gain_krw": -212226250,
   "payback_years": 0
  },
  {
@@ -377,12 +377,12 @@
    3.4
   ],
   "energy_kwh": [
-   8000.4,
-   183.4
+   8491.2,
+   207.8
   ],
   "kwh_per_product": [
-   9.0,
-   0.2
+   9.6,
+   0.3
   ],
   "distance_per_product_m": [
    29.9,
@@ -401,7 +401,7 @@
   "margin_per_product_krw": 48688,
   "working_days_per_year": 250,
   "capex": 0,
-  "annual_gain_krw": -14468625,
+  "annual_gain_krw": -14551125,
   "payback_years": 0
  },
  {
@@ -428,11 +428,11 @@
    2.5
   ],
   "energy_kwh": [
-   7965.2,
-   216.0
+   8482.6,
+   240.4
   ],
   "kwh_per_product": [
-   9.2,
+   9.8,
    0.4
   ],
   "distance_per_product_m": [
@@ -452,7 +452,7 @@
   "margin_per_product_krw": 48688,
   "working_days_per_year": 250,
   "capex": 0,
-  "annual_gain_krw": -42391625,
+  "annual_gain_krw": -42528988,
   "payback_years": 0
  }
 ]
