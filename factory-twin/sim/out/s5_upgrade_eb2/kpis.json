@@ -19,6 +19,8 @@
  },
  "avg_wip_batches": 28.64,
  "scrap_parts": 405,
+ "rework_parts_upstream": 0,
+ "cart_wait_avg_min": null,
  "outsourced_wait_avg_min": 18.0,
  "on_time_ratio": 0.917,
  "cut_batching": null,
@@ -5019,7 +5021,7 @@
    94.7,
    4.4
   ],
-  "bottleneck": "CUT2",
+  "bottleneck": "CUT3",
   "bottleneck_freq": 0.4,
   "bottleneck_util": [
    43.9,

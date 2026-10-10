@@ -86,7 +86,7 @@
    95.5,
    2.8
   ],
-  "bottleneck": "CUT2",
+  "bottleneck": "CUT3",
   "bottleneck_freq": 0.4,
   "bottleneck_util": [
    46.1,
@@ -290,7 +290,7 @@
    94.7,
    4.4
   ],
-  "bottleneck": "CUT2",
+  "bottleneck": "CUT3",
   "bottleneck_freq": 0.4,
   "bottleneck_util": [
    43.9,
@@ -351,6 +351,108 @@
   "working_days_per_year": 250,
   "capex": 0,
   "annual_gain_krw": -212583888,
+  "payback_years": 0
+ },
+ {
+  "id": "s7_edd",
+  "name": "S7. 납기 우선 디스패칭(EDD) — 규칙만 변경, 투자 0",
+  "throughput_per_day": [
+   88.1,
+   1.6
+  ],
+  "on_time": [
+   89.8,
+   7.3
+  ],
+  "lead_work_min": [
+   869.7,
+   82.9
+  ],
+  "lead_cal_min": [
+   2934.9,
+   308.6
+  ],
+  "wip": [
+   30.2,
+   3.4
+  ],
+  "energy_kwh": [
+   8000.4,
+   183.4
+  ],
+  "kwh_per_product": [
+   9.0,
+   0.2
+  ],
+  "distance_per_product_m": [
+   29.9,
+   1.2
+  ],
+  "completed_ratio": [
+   93.4,
+   4.0
+  ],
+  "bottleneck": "CUT2",
+  "bottleneck_freq": 1.0,
+  "bottleneck_util": [
+   54.7,
+   3.1
+  ],
+  "margin_per_product_krw": 48688,
+  "working_days_per_year": 250,
+  "capex": 0,
+  "annual_gain_krw": -14468625,
+  "payback_years": 0
+ },
+ {
+  "id": "s8_carts",
+  "name": "S8. 대차 6대 제약(현실 반영) vs 무제한",
+  "throughput_per_day": [
+   85.8,
+   5.1
+  ],
+  "on_time": [
+   87.5,
+   5.7
+  ],
+  "lead_work_min": [
+   889.1,
+   65.1
+  ],
+  "lead_cal_min": [
+   3016.8,
+   269.3
+  ],
+  "wip": [
+   30.9,
+   2.5
+  ],
+  "energy_kwh": [
+   7965.2,
+   216.0
+  ],
+  "kwh_per_product": [
+   9.2,
+   0.4
+  ],
+  "distance_per_product_m": [
+   30.4,
+   0.6
+  ],
+  "completed_ratio": [
+   91.0,
+   2.9
+  ],
+  "bottleneck": "CUT2",
+  "bottleneck_freq": 1.0,
+  "bottleneck_util": [
+   53.6,
+   2.8
+  ],
+  "margin_per_product_krw": 48688,
+  "working_days_per_year": 250,
+  "capex": 0,
+  "annual_gain_krw": -42391625,
   "payback_years": 0
  }
 ]

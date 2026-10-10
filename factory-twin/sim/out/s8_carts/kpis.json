@@ -4901,6 +4901,54 @@
  ],
  "scenario": {
   "id": "s8_carts",
-  "name": "S8. 대차 6대 제약(현실 반영) vs 무제한"
+  "name": "S8. 대차 6대 제약(현실 반영) vs 무제한",
+  "capex_krw": 0,
+  "hypothesis": "대차 부족이 숨은 병목인지: 배치가 대차를 기다리는 시간"
+ },
+ "aggregate": {
+  "throughput_per_day": [
+   85.8,
+   5.1
+  ],
+  "on_time": [
+   87.5,
+   5.7
+  ],
+  "lead_work_min": [
+   889.1,
+   65.1
+  ],
+  "lead_cal_min": [
+   3016.8,
+   269.3
+  ],
+  "wip": [
+   30.9,
+   2.5
+  ],
+  "energy_kwh": [
+   7965.2,
+   216.0
+  ],
+  "kwh_per_product": [
+   9.2,
+   0.4
+  ],
+  "distance_per_product_m": [
+   30.4,
+   0.6
+  ],
+  "completed_ratio": [
+   91.0,
+   2.9
+  ],
+  "bottleneck": "CUT2",
+  "bottleneck_freq": 1.0,
+  "bottleneck_util": [
+   53.6,
+   2.8
+  ],
+  "margin_per_product_krw": 48688,
+  "working_days_per_year": 250
  }
 }

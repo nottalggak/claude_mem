@@ -4901,6 +4901,54 @@
  ],
  "scenario": {
   "id": "s7_edd",
-  "name": "S7. 납기 우선 디스패칭(EDD) — 규칙만 변경, 투자 0"
+  "name": "S7. 납기 우선 디스패칭(EDD) — 규칙만 변경, 투자 0",
+  "capex_krw": 0,
+  "hypothesis": "대기열에서 시공일이 급한 배치를 먼저 처리하면 납기준수율이 오르는가(리드타임 평균은 비슷)"
+ },
+ "aggregate": {
+  "throughput_per_day": [
+   88.1,
+   1.6
+  ],
+  "on_time": [
+   89.8,
+   7.3
+  ],
+  "lead_work_min": [
+   869.7,
+   82.9
+  ],
+  "lead_cal_min": [
+   2934.9,
+   308.6
+  ],
+  "wip": [
+   30.2,
+   3.4
+  ],
+  "energy_kwh": [
+   8000.4,
+   183.4
+  ],
+  "kwh_per_product": [
+   9.0,
+   0.2
+  ],
+  "distance_per_product_m": [
+   29.9,
+   1.2
+  ],
+  "completed_ratio": [
+   93.4,
+   4.0
+  ],
+  "bottleneck": "CUT2",
+  "bottleneck_freq": 1.0,
+  "bottleneck_util": [
+   54.7,
+   3.1
+  ],
+  "margin_per_product_krw": 48688,
+  "working_days_per_year": 250
  }
 }

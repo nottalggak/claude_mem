@@ -19,6 +19,8 @@
  },
  "avg_wip_batches": 31.2,
  "scrap_parts": 402,
+ "rework_parts_upstream": 0,
+ "cart_wait_avg_min": null,
  "outsourced_wait_avg_min": 23.7,
  "on_time_ratio": 0.963,
  "cut_batching": null,
