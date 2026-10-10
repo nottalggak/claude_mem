@@ -25,7 +25,8 @@ def run(factory, name, desc, seeds, outdir, extra=None):
     agg["kwh_per_product"] = m(lambda x: x["energy"]["kwh_per_product"])
     agg["distance_per_product_m"] = m(lambda x: x["transport"]["distance_per_product_m"])
     agg["completed_ratio"] = m(lambda x: 100 * (x["completed_of_due"] if x.get("completed_of_due") is not None else x["orders_completed"] / max(1, x["orders_released"])))
-    agg["bottleneck"] = k["bottleneck_ranking"][0]["station"]
+    bns = [r[1]["bottleneck_ranking"][0]["station"] for r in runs]
+    agg["bottleneck"] = max(set(bns), key=bns.count); agg["bottleneck_freq"] = round(bns.count(agg["bottleneck"]) / len(bns), 2)
     agg["bottleneck_util"] = m(lambda x: 100 * x["bottleneck_ranking"][0]["utilization"])
     # 제품당 공헌이익(추정): 판매가 × 마진율, 주문 믹스 가중
     fin = factory["meta"].get("finance", {}); mix = factory["orders"].get("mix", {})
@@ -75,7 +76,7 @@ def main():
             d = "" if sid == "baseline" or bv == 0 else f" ({(v - bv) / bv * 100:+.0f}%)"
             return f"{v}±{s}{d}"
         lines.append(f"| {name} | {cell('throughput_per_day')} | {g['on_time'][0]:.0f} | {cell('lead_work_min')} | {cell('wip')} | {cell('distance_per_product_m')} | "
-                     f"{cell('kwh_per_product')} | {g['bottleneck']} ({g['bottleneck_util'][0]:.0f}) | {g['completed_ratio'][0]} | {g.get('capex', 0) // 10000:,} | "
+                     f"{cell('kwh_per_product')} | {g['bottleneck']} ({g['bottleneck_util'][0]:.0f}, 1위빈도 {g.get('bottleneck_freq', 1):.0%}) | {g['completed_ratio'][0]} | {g.get('capex', 0) // 10000:,} | "
                      f"{(g.get('annual_gain_krw', 0) // 10000):,} | {g.get('payback_years') if g.get('payback_years') is not None else '효과 없음'} |")
     lines += ["", "해석 가이드:", "- 처리량/완료율이 오르고 리드타임·WIP가 줄면 병목이 해소된 것. 병목 열이 바뀌면 병목이 '이동'한 것(다음 투자 대상).",
               "- 연간 효과 = (정상상태 처리량 증가 × 제품당 공헌이익 × 연 근무일) + 전력비 절감. 회수기간 = CAPEX / 연간 효과. 시공일 역산 투입(수요 고정)에서는 처리량이 거의 안 변하고 **납기준수율·리드타임·WIP** 가 비교 축이다.",

@@ -1,11 +1,10 @@
 """복제 검증: kpis.json 을 factory.json 의 observations.validation 과 비교해 허용 오차 통과 여부를 표로 낸다.
-observations.validation 항목 예:
-  {"metric": "throughput_products_per_day", "actual": 80, "tolerance_pct": 10, "source": "출하일지 9/1-9/30"}
-  {"metric": "stations.EB2.utilization", "actual": 0.82, "tolerance_abs": 0.10, "source": "CT 클램프 2주"}
-  {"metric": "lead_time_work_min_avg", "actual": 520, "tolerance_pct": 15, "source": "배치추적 3건"}
-  {"metric": "avg_wip_batches", "actual": 12, "tolerance_pct": 20, "source": "WIP 센서스 3회 평균"}
-  {"metric": "energy.total_kwh", "actual": 3100, "tolerance_pct": 10, "source": "한전 고지서 환산"}
-  {"metric": "bottleneck_ranking.0.station", "actual": "EB2", "source": "반장 인터뷰/센서스"}
+허용 오차의 유일한 기준은 docs/03_공장복제_명세서.md §1.2 (v0.5 진단 / v1 복제). 시트 18 → tools/templates_to_json.py 가 아래 형식으로 내보낸다.
+  {"metric": "products_completed", "actual": 1100, "tolerance_pct": 10, "source": "출하장 2주", "stage": "v0.5"}
+  {"metric": "stations.EB2.utilization", "actual": 0.82, "tolerance_abs": 0.10, "source": "CT 2주"}
+  {"metric": "lead_time_work_min_avg", "actual": 520, "tolerance_pct": 15, "source": "13_배치추적·2주 양식"}
+  {"metric": "avg_wip_batches", "actual": 12, "tolerance_pct": 20, "source": "14_WIP센서스"}
+  {"metric": "bottleneck_ranking.0.station", "actual": "EB2", "source": "센서스·카메라"}
 입력에 쓴 데이터로 검증하지 말 것 (끼워맞춤 방지)."""
 import json, sys, pathlib
 

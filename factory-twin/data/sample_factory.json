@@ -20,7 +20,11 @@
      "15:15"
     ]
    ],
-   "days_per_week": 5
+   "days_per_week": 5,
+   "overtime": {
+    "weekday_min": 0,
+    "saturday": null
+   }
   },
   "energy": {
    "tariff_krw_per_kwh": 165,
@@ -499,6 +503,7 @@
    "ancillary": [
     "DC1"
    ],
+   "availability": 0.92,
    "in_pos": [
     28.5,
     29.0
@@ -1655,8 +1660,8 @@
  ],
  "orders": {
   "mode": "generate",
-  "horizon_days": 15,
-  "orders_per_day": 13,
+  "horizon_days": 20,
+  "orders_per_day": 17,
   "release": "install_date",
   "install_lead_days": {
    "min": 5,

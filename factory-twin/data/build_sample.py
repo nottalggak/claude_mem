@@ -17,7 +17,7 @@ factory = {
         "source": "sample",
         "shift": {"start": "08:00", "end": "17:00",
                   "breaks": [["10:00", "10:15"], ["12:00", "13:00"], ["15:00", "15:15"]],
-                  "days_per_week": 5},
+                  "days_per_week": 5, "overtime": {"weekday_min": 0, "saturday": None}},
         "energy": {"tariff_krw_per_kwh": 165, "contract_kw": 300, "base_load_kw": 12},
         "finance": {"margin_rate": 0.25, "working_days_per_year": 250, "note": "제품 판매가 × 마진율 = 공헌이익(추정). 현장 손익으로 교체"}
     },
@@ -57,7 +57,7 @@ factory = {
     ],
     "products": [],
     "orders": {
-        "mode": "generate", "horizon_days": 15, "orders_per_day": 13, "release": "install_date",
+        "mode": "generate", "horizon_days": 20, "orders_per_day": 17, "release": "install_date",
         "install_lead_days": {"min": 5, "mode": 8, "max": 12, "start_before_days": 2},
         "batching": {"cut_key": "order", "cut_window_min": 60, "sort_min_per_part": 0.1},
         "batch_size": {"P_DESK": 10, "P_BOOK": 6, "P_CAB": 12, "P_WARD": 4},
@@ -91,7 +91,7 @@ S.append(station("CUT2", "CNC 네스팅 (2440x1220)", "cut", "Z_CUT", [22, 22.5]
 # 엣지밴딩
 S.append(station("EB1", "자동 엣지밴더 (사전밀링+코너라운딩)", "edge", "Z_EDGE", [33, 31], [7.0, 1.6, 1.6], maker="(독일/이탈리아 중고)", model="자동 EB 12m/min", year=2016,
                  workers_required=2, rated_kw=15, load_factor=0.5, idle_kw=2.5, mtbf_min=480, mttr_min=30, setup_min=8,
-                 cycle={"base_min": 0.0, "per_unit": {"edges_m": 1 / 12.0, "n_edges": 0.22}, "cv": 0.2}, ancillary=["DC1"], scrap_rate=0.02,
+                 cycle={"base_min": 0.0, "per_unit": {"edges_m": 1 / 12.0, "n_edges": 0.22}, "cv": 0.2}, ancillary=["DC1"], scrap_rate=0.02, availability=0.92,
                  in_pos=[28.5, 29.0], out_pos=[37.5, 29.0]))
 S.append(station("EB2", "반자동 엣지밴더", "edge", "Z_EDGE", [32, 24], [5.0, 1.5, 1.5], maker="(국산)", model="반자동 EB 8m/min", year=2010,
                  workers_required=1, rated_kw=7.5, load_factor=0.5, idle_kw=1.0, mtbf_min=360, mttr_min=20, setup_min=5,

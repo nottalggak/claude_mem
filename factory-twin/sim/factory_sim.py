@@ -23,28 +23,44 @@ def hhmm(s):
 
 
 class Shift:
+    """근무 캘린더: 시각·휴식 + 주 근무일(요일) + 잔업(평일 연장 분, 토요 특근 시간).
+    meta.shift.days_per_week (5=월~금, 6=월~토), meta.shift.overtime = {"weekday_min": 120, "saturday": ["08:00","12:00"]}"""
     def __init__(self, env, meta):
         self.env = env
-        self.start, self.end = hhmm(meta["shift"]["start"]), hhmm(meta["shift"]["end"])
-        self.breaks = [(hhmm(a), hhmm(b)) for a, b in meta["shift"].get("breaks", [])]
+        sh = meta["shift"]
+        self.start, self.end = hhmm(sh["start"]), hhmm(sh["end"])
+        self.breaks = [(hhmm(a), hhmm(b)) for a, b in sh.get("breaks", [])]
         self.day_min = 24 * 60
+        self.days_per_week = int(sh.get("days_per_week", 5))
+        ot = sh.get("overtime", {}) or {}
+        self.ot_weekday = ot.get("weekday_min", 0)
+        self.sat = tuple(hhmm(x) for x in ot["saturday"]) if ot.get("saturday") else None
+
+    def weekday(self, t):
+        return int(t // self.day_min) % 7  # Day 1 = 월요일(0)
 
     def working(self, t):
-        m = t % self.day_min
-        if not (self.start <= m < self.end):
+        wd = self.weekday(t); m = t % self.day_min
+        if wd >= 5:  # 토(5)·일(6)
+            if wd == 5 and self.days_per_week >= 6:
+                return self.start <= m < self.end and not any(a <= m < b for a, b in self.breaks)
+            if wd == 5 and self.sat:
+                return self.sat[0] <= m < self.sat[1]
+            return False
+        if not (self.start <= m < self.end + self.ot_weekday):
             return False
         return not any(a <= m < b for a, b in self.breaks)
 
     def next_open(self, t):
         if self.working(t):
             return t
-        day = (t // self.day_min) * self.day_min; m = t - day
-        if m < self.start:
-            return day + self.start
-        for a, b in self.breaks:
-            if a <= m < b:
-                return day + b
-        return day + self.day_min + self.start
+        # 분 단위 전진 탐색 (최대 8일)
+        tt = int(t) + 1
+        while tt < t + 8 * self.day_min:
+            if self.working(tt):
+                return tt
+            tt += 1
+        return tt
 
     def wait(self):
         t = self.env.now; n = self.next_open(t)
@@ -94,6 +110,7 @@ class Station:
         if not c:
             return 0.0
         t = c.get("base_min", 0.0)
+        avail = self.spec.get("availability", 1.0) or 1.0  # 소정지·예열·청소 손실을 사이클 팽창으로 흡수
         for k, v in c.get("per_unit", {}).items():
             t += v * part.get(k, 0)
         if "per_product" in c:
@@ -102,7 +119,7 @@ class Station:
         if cv > 0 and t > 0:
             sigma = math.sqrt(math.log(1 + cv * cv)); mu = math.log(t) - sigma * sigma / 2
             t = self.sim.rng.lognormvariate(mu, sigma)
-        return t
+        return t / avail
 
     def set_queue(self, delta):
         self.queue_len += delta
@@ -156,6 +173,8 @@ class Sim:
         mix = o["mix"]; keys = list(mix); wts = [mix[k] for k in keys]
         il = o.get("install_lead_days")
         for day in range(self.horizon_days):
+            if day % 7 >= 5:  # 주말 주문 접수 없음
+                continue
             n = o.get("orders_per_day", 6)
             n_today = max(1, int(self.rng_orders.gauss(n, n * 0.2)))
             base = day * 1440 + self.shift.start
@@ -167,9 +186,18 @@ class Sim:
                 oid += 1
                 due = None
                 if o.get("release") == "install_date" and il:
-                    lead_days = self.rng_orders.triangular(il["min"], il["max"], il["mode"])
-                    due = (day + lead_days) * 1440 + self.shift.end  # 시공일 종업 시각
+                    lead_days = self.rng_orders.triangular(il["min"], il["max"], il["mode"])  # 근무일 기준
+                    due = self.add_workdays(day, lead_days) * 1440 + self.shift.end  # 시공일(평일) 종업 시각
                 self.env.process(self.order_entry(oid, pid, qty, due))
+
+    def add_workdays(self, day, n):
+        """day(0=월) 에서 근무일 n일 뒤의 달력일 (주말 건너뜀)"""
+        d = day; left = n
+        while left > 0:
+            d += 1
+            if d % 7 < 5:
+                left -= 1
+        return d
 
     def order_entry(self, oid, pid, qty, due=None):
         """고객 주문 접수 → (시공일 역산) 투입 시점까지 대기 → 외주 발주 → 재단 배치 풀 또는 즉시 흐름"""
@@ -185,7 +213,12 @@ class Sim:
             if pid in ou["products"] and ou.get("order_at") == "order":
                 batch["outsourced_ready"][ou["id"]] = self.env.now + self.outsourced_lead(ou)
         if due is not None and o.get("install_lead_days", {}).get("start_before_days"):
-            rel = due - o["install_lead_days"]["start_before_days"] * 1440
+            due_day = int(due // 1440); n = o["install_lead_days"]["start_before_days"]; d = due_day
+            while n > 0:  # 근무일 기준 D-n
+                d -= 1
+                if d % 7 < 5:
+                    n -= 1
+            rel = d * 1440 + self.shift.start
             if rel > self.env.now:
                 yield self.env.timeout(rel - self.env.now)
         batch["release"] = self.env.now
@@ -303,6 +336,7 @@ class Sim:
         batch["lead_min"] = self.env.now - batch["release"]
         batch["lead_work_min"] = sum(1 for t in range(int(batch["release"]), int(self.env.now)) if self.shift.working(t))
         batch["late_min"] = max(0.0, self.env.now - batch["due"]) if batch.get("due") else 0.0
+        batch["order_lead_days"] = round((self.env.now - batch["order_t"]) / 1440, 2)
         self.produced += batch["qty"]
         self.ev({"type": "done", "batch": batch["id"], "lead_min": round(batch["lead_min"], 1), "late_min": round(batch["late_min"], 1)})
 
@@ -456,7 +490,7 @@ class Sim:
         done = [b for b in self.batches if "done" in b]
         released = [b for b in self.batches if "release" in b]
         warm = min(5, max(0, self.horizon_days // 3)) * 1440
-        steady_days = (self.horizon - warm) / 1440
+        steady_days = sum(1 for d in range(int(warm // 1440), self.horizon_days) if d % 7 < 5)  # 워밍업 이후 근무일 수
         tp_steady = sum(b["qty"] for b in done if b["done"] >= warm) / max(1e-9, steady_days)
         due_in = [b for b in self.batches if b.get("due") and b["due"] <= self.horizon]
         # 병목 점수: 가동률 + 평균 대기(정규화) + 블로킹 유발
@@ -477,6 +511,7 @@ class Sim:
             "throughput_products_per_day": round(self.produced / self.horizon_days, 1),
             "throughput_steady_per_day": round(tp_steady, 1), "warmup_days": warm / 1440,
             "lead_time_work_min_avg": round(sum(b["lead_work_min"] for b in done) / max(1, len(done)), 1),
+            "order_lead_days_avg": round(sum(b.get("order_lead_days", 0) for b in done) / max(1, len(done)), 2),
             "lead_time_min": {"avg": round(sum(b["lead_min"] for b in done) / max(1, len(done)), 1),
                               "p90": round(sorted(b["lead_min"] for b in done)[int(0.9 * (len(done) - 1))], 1) if done else 0,
                               "max": round(max([b["lead_min"] for b in done] + [0]), 1)},

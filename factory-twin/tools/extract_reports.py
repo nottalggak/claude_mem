@@ -13,6 +13,7 @@ NAMES = {
     "af693dc2c1388efcb": "08_plant_diagnostic_field_methods.md",
     "ad8a2716dc2ef44cb": "09_records_mining_and_sensing.md",
     "aaced108644f0be21": "10_korean_furniture_shop_reality.md",
+    "a8e79b062b23f5089": "11_critical_review_of_spec_v2.md",
 }
 OUT.mkdir(parents=True, exist_ok=True)
 for aid, name in NAMES.items():
