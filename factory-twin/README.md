@@ -7,6 +7,9 @@
 # 또는
 python3 data/build_sample.py
 python3 sim/compare.py --seeds 5          # sim/out/comparison.md, sim/out/<scenario>/{events.jsonl,kpis.json}
+python3 sim/sensitivity.py --seeds 2      # sim/out/sensitivity.md (재측정 우선순위)
+python3 sim/validate.py                   # factory.json observations.validation 대조 (복제 합격 판정)
+python3 tools/data_quality.py             # 파라미터 출처 스코어카드
 python3 -m http.server 8000               # viewer/index.html 열기
 ```
 
@@ -20,6 +23,8 @@ python3 -m http.server 8000               # viewer/index.html 열기
 | `sim/` | SimPy 이산사건 시뮬레이션, A* 경로, 시나리오 비교 |
 | `scenarios/` | what-if 패치 (설비 추가·교체, 배치 크기, 레이아웃, SMED) |
 | `viewer/` | Three.js 3D 트윈 뷰어 (로컬 번들, 서버만 있으면 동작) |
-| `docs/` | 종합 보고서, 체크리스트, 아키텍처, 리서치 원문 6건, 스크린샷 |
+| `tools/` | 템플릿→JSON, 기록→파라미터 복원(`log_to_model.py`), 출처 스코어카드(`data_quality.py`), 리포트 추출 |
+| `capture/sensing/` | 2주 비침습 로깅 키트: ESPHome 전류 센서 설정, MQTT→SQLite 로거, 전류→상태 변환 |
+| `docs/` | 00 종합보고서 · 01 방문 체크리스트 · 02 아키텍처 · **03 공장복제 명세서(기준 문서)** · 04 방문전 자료요청 문안 · research/ 리서치 원문 10건 · 스크린샷 |
 
 ![3D](docs/viewer_3d.png)
