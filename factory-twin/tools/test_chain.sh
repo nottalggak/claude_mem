@@ -3,6 +3,7 @@
 set -e; cd "$(dirname "$0")/.."
 python3 tools/fill_template_from_sample.py data/sample_filled_template.xlsx
 python3 tools/templates_to_json.py data/sample_filled_template.xlsx data/sample_from_template.json
+python3 tools/test_converter.py data/sample_from_template.json | tail -1   # 변환기 회귀 테스트(알려진 계수 되찾기)
 python3 sim/factory_sim.py data/sample_from_template.json --name from_template
 python3 sim/validate.py sim/out/from_template/kpis.json sim/out/from_template/factory.json || true
 python3 tools/data_quality.py data/sample_from_template.json sim/out/sensitivity.md 2>/dev/null | sed -n '1,12p'
