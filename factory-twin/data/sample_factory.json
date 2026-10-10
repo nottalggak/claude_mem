@@ -1694,7 +1694,7 @@
  ],
  "orders": {
   "mode": "generate",
-  "horizon_days": 20,
+  "horizon_days": 40,
   "orders_per_day": 17,
   "release": "install_date",
   "install_lead_days": {
